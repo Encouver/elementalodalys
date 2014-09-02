@@ -7,7 +7,7 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'My Web Application',
+	'name'=>'Elemental Odalys',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
@@ -56,7 +56,7 @@ return array(
 			'connectionString' => 'mysql:host=localhost;dbname=elemental',
 			'emulatePrepare' => true,
 			'username' => 'root',
-			'password' => '20190906',
+			'password' => 'root',
 			'charset' => 'utf8',
 		),
 		
