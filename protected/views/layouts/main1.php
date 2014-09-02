@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Portfolio Item - Start Bootstrap Template</title>
+    <title><?php echo CHtml::encode($this->pageTitle); ?></title>
 
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap.css" rel="stylesheet">
