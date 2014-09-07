@@ -8,6 +8,8 @@
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'Elemental Odalys',
+	'language' => 'es',
+	'sourceLanguage' => 'es',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
