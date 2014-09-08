@@ -13,7 +13,7 @@
  * The followings are the available model relations:
  * @property ArtistaPrensa[] $artistaPrensas
  * @property Exposicion $idexposicion0
- * @property TraPrensa[] $traPrensas
+ * @property Idiomas[] $idiomases
  */
 class Prensa extends CActiveRecord
 {
@@ -52,7 +52,7 @@ class Prensa extends CActiveRecord
 		return array(
 			'artistaPrensas' => array(self::HAS_MANY, 'ArtistaPrensa', 'idprensa'),
 			'idexposicion0' => array(self::BELONGS_TO, 'Exposicion', 'idexposicion'),
-			'traPrensas' => array(self::HAS_MANY, 'TraPrensa', 'prensaid'),
+			'idiomases' => array(self::MANY_MANY, 'Idiomas', 'tra_prensa(prensaid, idiomaid)'),
 		);
 	}
 

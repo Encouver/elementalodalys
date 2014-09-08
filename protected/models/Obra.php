@@ -12,7 +12,7 @@
  * The followings are the available model relations:
  * @property ExpoObra[] $expoObras
  * @property Artista $idartista0
- * @property TraObra[] $traObras
+ * @property Idiomas[] $idiomases
  */
 class Obra extends CActiveRecord
 {
@@ -51,7 +51,7 @@ class Obra extends CActiveRecord
 		return array(
 			'expoObras' => array(self::HAS_MANY, 'ExpoObra', 'idobra'),
 			'idartista0' => array(self::BELONGS_TO, 'Artista', 'idartista'),
-			'traObras' => array(self::HAS_MANY, 'TraObra', 'obraid'),
+			'idiomases' => array(self::MANY_MANY, 'Idiomas', 'tra_obra(obraid, idiomaid)'),
 		);
 	}
 

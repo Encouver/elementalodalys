@@ -11,7 +11,7 @@
  *
  * The followings are the available model relations:
  * @property Exposicion $idexposicion0
- * @property TraMontaje[] $traMontajes
+ * @property Idiomas[] $idiomases
  */
 class Montaje extends CActiveRecord
 {
@@ -49,7 +49,7 @@ class Montaje extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'idexposicion0' => array(self::BELONGS_TO, 'Exposicion', 'idexposicion'),
-			'traMontajes' => array(self::HAS_MANY, 'TraMontaje', 'montajeid'),
+			'idiomases' => array(self::MANY_MANY, 'Idiomas', 'tra_montaje(montajeid, idiomaid)'),
 		);
 	}
 

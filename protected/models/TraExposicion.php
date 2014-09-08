@@ -4,14 +4,9 @@
  * This is the model class for table "elemental.tra_exposicion".
  *
  * The followings are the available columns in table 'elemental.tra_exposicion':
- * @property integer $id
  * @property string $pais
  * @property integer $exposicionid
  * @property integer $idiomaid
- *
- * The followings are the available model relations:
- * @property Idiomas $idioma
- * @property Exposicion $exposicion
  */
 class TraExposicion extends CActiveRecord
 {
@@ -36,7 +31,7 @@ class TraExposicion extends CActiveRecord
 			array('pais', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, pais, exposicionid, idiomaid', 'safe', 'on'=>'search'),
+			array('pais, exposicionid, idiomaid', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -48,8 +43,6 @@ class TraExposicion extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'idioma' => array(self::BELONGS_TO, 'Idiomas', 'idiomaid'),
-			'exposicion' => array(self::BELONGS_TO, 'Exposicion', 'exposicionid'),
 		);
 	}
 
@@ -59,7 +52,6 @@ class TraExposicion extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
 			'pais' => 'Pais',
 			'exposicionid' => 'Exposicionid',
 			'idiomaid' => 'Idiomaid',
@@ -84,7 +76,6 @@ class TraExposicion extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id',$this->id);
 		$criteria->compare('pais',$this->pais,true);
 		$criteria->compare('exposicionid',$this->exposicionid);
 		$criteria->compare('idiomaid',$this->idiomaid);

@@ -10,7 +10,7 @@
  * @property integer $idexposicion
  *
  * The followings are the available model relations:
- * @property TraVerniFini[] $traVerniFinis
+ * @property Idiomas[] $idiomases
  * @property Exposicion $idexposicion0
  */
 class VerniFini extends CActiveRecord
@@ -48,7 +48,7 @@ class VerniFini extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'traVerniFinis' => array(self::HAS_MANY, 'TraVerniFini', 'verni_finiid'),
+			'idiomases' => array(self::MANY_MANY, 'Idiomas', 'tra_verni_fini(verni_finiid, idiomaid)'),
 			'idexposicion0' => array(self::BELONGS_TO, 'Exposicion', 'idexposicion'),
 		);
 	}
