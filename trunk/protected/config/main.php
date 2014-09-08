@@ -57,8 +57,8 @@ return array(
 		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=elemental',
 			'emulatePrepare' => true,
-			'username' => 'root',
-			'password' => 'root',
+			'username' => 'elemental',
+			'password' => 'elemental',
 			'charset' => 'utf8',
 		),
 		
