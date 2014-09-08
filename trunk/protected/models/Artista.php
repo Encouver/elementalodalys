@@ -13,7 +13,7 @@
  * @property ArtistaExpo[] $artistaExpos
  * @property ArtistaPrensa[] $artistaPrensas
  * @property Obra[] $obras
- * @property TraArtista[] $traArtistas
+ * @property Idiomas[] $idiomases
  */
 class Artista extends CActiveRecord
 {
@@ -53,7 +53,7 @@ class Artista extends CActiveRecord
 			'artistaExpos' => array(self::HAS_MANY, 'ArtistaExpo', 'idartista'),
 			'artistaPrensas' => array(self::HAS_MANY, 'ArtistaPrensa', 'idartista'),
 			'obras' => array(self::HAS_MANY, 'Obra', 'idartista'),
-			'traArtistas' => array(self::HAS_MANY, 'TraArtista', 'artistaid'),
+			'idiomases' => array(self::MANY_MANY, 'Idiomas', 'tra_artista(artistaid, idiomaid)'),
 		);
 	}
 

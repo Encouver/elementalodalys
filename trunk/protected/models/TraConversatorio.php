@@ -4,14 +4,9 @@
  * This is the model class for table "elemental.tra_conversatorio".
  *
  * The followings are the available columns in table 'elemental.tra_conversatorio':
- * @property integer $id
  * @property integer $idiomaid
  * @property integer $conversatorioid
  * @property string $descripcion
- *
- * The followings are the available model relations:
- * @property Conversatorio $conversatorio
- * @property Idiomas $idioma
  */
 class TraConversatorio extends CActiveRecord
 {
@@ -35,7 +30,7 @@ class TraConversatorio extends CActiveRecord
 			array('idiomaid, conversatorioid', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, idiomaid, conversatorioid, descripcion', 'safe', 'on'=>'search'),
+			array('idiomaid, conversatorioid, descripcion', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -47,8 +42,6 @@ class TraConversatorio extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'conversatorio' => array(self::BELONGS_TO, 'Conversatorio', 'conversatorioid'),
-			'idioma' => array(self::BELONGS_TO, 'Idiomas', 'idiomaid'),
 		);
 	}
 
@@ -58,7 +51,6 @@ class TraConversatorio extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
 			'idiomaid' => 'Idiomaid',
 			'conversatorioid' => 'Conversatorioid',
 			'descripcion' => 'Descripcion',
@@ -83,7 +75,6 @@ class TraConversatorio extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id',$this->id);
 		$criteria->compare('idiomaid',$this->idiomaid);
 		$criteria->compare('conversatorioid',$this->conversatorioid);
 		$criteria->compare('descripcion',$this->descripcion,true);

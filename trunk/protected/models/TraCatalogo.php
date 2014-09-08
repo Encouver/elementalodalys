@@ -4,15 +4,10 @@
  * This is the model class for table "elemental.tra_catalogo".
  *
  * The followings are the available columns in table 'elemental.tra_catalogo':
- * @property integer $id
  * @property string $pdf
  * @property string $datos
  * @property integer $idiomaid
  * @property integer $catalogoid
- *
- * The followings are the available model relations:
- * @property Idiomas $idioma
- * @property Catalogo $catalogo
  */
 class TraCatalogo extends CActiveRecord
 {
@@ -37,7 +32,7 @@ class TraCatalogo extends CActiveRecord
 			array('pdf, datos', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, pdf, datos, idiomaid, catalogoid', 'safe', 'on'=>'search'),
+			array('pdf, datos, idiomaid, catalogoid', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -49,8 +44,6 @@ class TraCatalogo extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'idioma' => array(self::BELONGS_TO, 'Idiomas', 'idiomaid'),
-			'catalogo' => array(self::BELONGS_TO, 'Catalogo', 'catalogoid'),
 		);
 	}
 
@@ -60,7 +53,6 @@ class TraCatalogo extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
 			'pdf' => 'Pdf',
 			'datos' => 'Datos',
 			'idiomaid' => 'Idiomaid',
@@ -86,7 +78,6 @@ class TraCatalogo extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id',$this->id);
 		$criteria->compare('pdf',$this->pdf,true);
 		$criteria->compare('datos',$this->datos,true);
 		$criteria->compare('idiomaid',$this->idiomaid);

@@ -9,7 +9,7 @@
  *
  * The followings are the available model relations:
  * @property Exposicion $idexposicion0
- * @property TraAudio[] $traAudios
+ * @property Idiomas[] $idiomases
  */
 class Audio extends CActiveRecord
 {
@@ -46,7 +46,7 @@ class Audio extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'idexposicion0' => array(self::BELONGS_TO, 'Exposicion', 'idexposicion'),
-			'traAudios' => array(self::HAS_MANY, 'TraAudio', 'audioid'),
+			'idiomases' => array(self::MANY_MANY, 'Idiomas', 'tra_audio(audioid, idiomaid)'),
 		);
 	}
 

@@ -20,7 +20,7 @@
  * @property ExpoObra[] $expoObras
  * @property Montaje[] $montajes
  * @property Prensa[] $prensas
- * @property TraExposicion[] $traExposicions
+ * @property Idiomas[] $idiomases
  * @property VerniFini[] $verniFinis
  */
 class Exposicion extends CActiveRecord
@@ -65,7 +65,7 @@ class Exposicion extends CActiveRecord
 			'expoObras' => array(self::HAS_MANY, 'ExpoObra', 'idexposicion'),
 			'montajes' => array(self::HAS_MANY, 'Montaje', 'idexposicion'),
 			'prensas' => array(self::HAS_MANY, 'Prensa', 'idexposicion'),
-			'traExposicions' => array(self::HAS_MANY, 'TraExposicion', 'exposicionid'),
+			'idiomases' => array(self::MANY_MANY, 'Idiomas', 'tra_exposicion(exposicionid, idiomaid)'),
 			'verniFinis' => array(self::HAS_MANY, 'VerniFini', 'idexposicion'),
 		);
 	}

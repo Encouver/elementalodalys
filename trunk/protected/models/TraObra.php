@@ -4,14 +4,9 @@
  * This is the model class for table "elemental.tra_obra".
  *
  * The followings are the available columns in table 'elemental.tra_obra':
- * @property integer $id
  * @property integer $idiomaid
  * @property integer $obraid
  * @property string $descripcion
- *
- * The followings are the available model relations:
- * @property Obra $obra
- * @property Idiomas $idioma
  */
 class TraObra extends CActiveRecord
 {
@@ -35,7 +30,7 @@ class TraObra extends CActiveRecord
 			array('idiomaid, obraid', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, idiomaid, obraid, descripcion', 'safe', 'on'=>'search'),
+			array('idiomaid, obraid, descripcion', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -47,8 +42,6 @@ class TraObra extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'obra' => array(self::BELONGS_TO, 'Obra', 'obraid'),
-			'idioma' => array(self::BELONGS_TO, 'Idiomas', 'idiomaid'),
 		);
 	}
 
@@ -58,7 +51,6 @@ class TraObra extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
 			'idiomaid' => 'Idiomaid',
 			'obraid' => 'Obraid',
 			'descripcion' => 'Descripcion',
@@ -83,7 +75,6 @@ class TraObra extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id',$this->id);
 		$criteria->compare('idiomaid',$this->idiomaid);
 		$criteria->compare('obraid',$this->obraid);
 		$criteria->compare('descripcion',$this->descripcion,true);

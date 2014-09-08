@@ -10,7 +10,7 @@
  * @property string $link
  *
  * The followings are the available model relations:
- * @property TraNoticia[] $traNoticias
+ * @property Idiomas[] $idiomases
  */
 class Noticia extends CActiveRecord
 {
@@ -46,7 +46,7 @@ class Noticia extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'traNoticias' => array(self::HAS_MANY, 'TraNoticia', 'noticiaid'),
+			'idiomases' => array(self::MANY_MANY, 'Idiomas', 'tra_noticia(noticiaid, idiomaid)'),
 		);
 	}
 

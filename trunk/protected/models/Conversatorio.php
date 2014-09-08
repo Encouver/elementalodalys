@@ -10,7 +10,7 @@
  *
  * The followings are the available model relations:
  * @property Exposicion $idexposicion0
- * @property TraConversatorio[] $traConversatorios
+ * @property Idiomas[] $idiomases
  */
 class Conversatorio extends CActiveRecord
 {
@@ -48,7 +48,7 @@ class Conversatorio extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'idexposicion0' => array(self::BELONGS_TO, 'Exposicion', 'idexposicion'),
-			'traConversatorios' => array(self::HAS_MANY, 'TraConversatorio', 'conversatorioid'),
+			'idiomases' => array(self::MANY_MANY, 'Idiomas', 'tra_conversatorio(conversatorioid, idiomaid)'),
 		);
 	}
 

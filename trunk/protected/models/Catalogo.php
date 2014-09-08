@@ -11,7 +11,7 @@
  *
  * The followings are the available model relations:
  * @property Exposicion $idexposicion0
- * @property TraCatalogo[] $traCatalogos
+ * @property Idiomas[] $idiomases
  */
 class Catalogo extends CActiveRecord
 {
@@ -49,7 +49,7 @@ class Catalogo extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'idexposicion0' => array(self::BELONGS_TO, 'Exposicion', 'idexposicion'),
-			'traCatalogos' => array(self::HAS_MANY, 'TraCatalogo', 'catalogoid'),
+			'idiomases' => array(self::MANY_MANY, 'Idiomas', 'tra_catalogo(catalogoid, idiomaid)'),
 		);
 	}
 

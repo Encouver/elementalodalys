@@ -4,14 +4,9 @@
  * This is the model class for table "elemental.tra_verni_fini".
  *
  * The followings are the available columns in table 'elemental.tra_verni_fini':
- * @property integer $id
  * @property integer $idiomaid
  * @property integer $verni_finiid
  * @property string $descripcion
- *
- * The followings are the available model relations:
- * @property VerniFini $verniFini
- * @property Idiomas $idioma
  */
 class TraVerniFini extends CActiveRecord
 {
@@ -35,7 +30,7 @@ class TraVerniFini extends CActiveRecord
 			array('idiomaid, verni_finiid', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, idiomaid, verni_finiid, descripcion', 'safe', 'on'=>'search'),
+			array('idiomaid, verni_finiid, descripcion', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -47,8 +42,6 @@ class TraVerniFini extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'verniFini' => array(self::BELONGS_TO, 'VerniFini', 'verni_finiid'),
-			'idioma' => array(self::BELONGS_TO, 'Idiomas', 'idiomaid'),
 		);
 	}
 
@@ -58,7 +51,6 @@ class TraVerniFini extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
 			'idiomaid' => 'Idiomaid',
 			'verni_finiid' => 'Verni Finiid',
 			'descripcion' => 'Descripcion',
@@ -83,7 +75,6 @@ class TraVerniFini extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id',$this->id);
 		$criteria->compare('idiomaid',$this->idiomaid);
 		$criteria->compare('verni_finiid',$this->verni_finiid);
 		$criteria->compare('descripcion',$this->descripcion,true);
