@@ -122,3 +122,37 @@ code {
   font-weight: bold;
 
 }
+
+#catalogo_download{
+  font-size: 11px;
+  margin-bottom: 0px;
+  margin-top: 8px;
+}
+
+.pull-bottom {
+    display: inline-block;
+    vertical-align: bottom;
+    float: none;
+}
+
+.prensa{
+  font-size: 13px;
+}
+
+.datos_audio{
+  font-size:  11px;
+}
+
+.copyright{
+  font-size: 11px;
+}
+
+.clara{
+  border-color:#424242;
+}
+
+.barra_superior{
+  background: url('../images/barra.png') repeat; 
+  margin-bottom: 25px;
+  height: 25px;
+}
