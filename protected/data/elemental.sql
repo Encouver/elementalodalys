@@ -1,22 +1,22 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : localhost
-Source Server Version : 50617
+Source Server         : Mysql
+Source Server Version : 50156
 Source Host           : localhost:3306
 Source Database       : elemental
 
 Target Server Type    : MYSQL
-Target Server Version : 50617
+Target Server Version : 50156
 File Encoding         : 65001
 
-Date: 2014-09-08 00:38:17
+Date: 2014-09-09 17:13:31
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for artista
+-- Table structure for `artista`
 -- ----------------------------
 DROP TABLE IF EXISTS `artista`;
 CREATE TABLE `artista` (
@@ -28,7 +28,11 @@ CREATE TABLE `artista` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for artista_expo
+-- Records of artista
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `artista_expo`
 -- ----------------------------
 DROP TABLE IF EXISTS `artista_expo`;
 CREATE TABLE `artista_expo` (
@@ -43,7 +47,11 @@ CREATE TABLE `artista_expo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for artista_prensa
+-- Records of artista_expo
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `artista_prensa`
 -- ----------------------------
 DROP TABLE IF EXISTS `artista_prensa`;
 CREATE TABLE `artista_prensa` (
@@ -58,7 +66,11 @@ CREATE TABLE `artista_prensa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for audio
+-- Records of artista_prensa
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `audio`
 -- ----------------------------
 DROP TABLE IF EXISTS `audio`;
 CREATE TABLE `audio` (
@@ -70,7 +82,11 @@ CREATE TABLE `audio` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for catalogo
+-- Records of audio
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `catalogo`
 -- ----------------------------
 DROP TABLE IF EXISTS `catalogo`;
 CREATE TABLE `catalogo` (
@@ -84,7 +100,11 @@ CREATE TABLE `catalogo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for conversatorio
+-- Records of catalogo
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `conversatorio`
 -- ----------------------------
 DROP TABLE IF EXISTS `conversatorio`;
 CREATE TABLE `conversatorio` (
@@ -97,7 +117,11 @@ CREATE TABLE `conversatorio` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for exposicion
+-- Records of conversatorio
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `exposicion`
 -- ----------------------------
 DROP TABLE IF EXISTS `exposicion`;
 CREATE TABLE `exposicion` (
@@ -112,7 +136,11 @@ CREATE TABLE `exposicion` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for expo_obra
+-- Records of exposicion
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `expo_obra`
 -- ----------------------------
 DROP TABLE IF EXISTS `expo_obra`;
 CREATE TABLE `expo_obra` (
@@ -127,7 +155,11 @@ CREATE TABLE `expo_obra` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for idiomas
+-- Records of expo_obra
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `idiomas`
 -- ----------------------------
 DROP TABLE IF EXISTS `idiomas`;
 CREATE TABLE `idiomas` (
@@ -137,7 +169,11 @@ CREATE TABLE `idiomas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for montaje
+-- Records of idiomas
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `montaje`
 -- ----------------------------
 DROP TABLE IF EXISTS `montaje`;
 CREATE TABLE `montaje` (
@@ -151,7 +187,11 @@ CREATE TABLE `montaje` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for noticia
+-- Records of montaje
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `noticia`
 -- ----------------------------
 DROP TABLE IF EXISTS `noticia`;
 CREATE TABLE `noticia` (
@@ -163,7 +203,11 @@ CREATE TABLE `noticia` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for obra
+-- Records of noticia
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `obra`
 -- ----------------------------
 DROP TABLE IF EXISTS `obra`;
 CREATE TABLE `obra` (
@@ -177,7 +221,11 @@ CREATE TABLE `obra` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for prensa
+-- Records of obra
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `prensa`
 -- ----------------------------
 DROP TABLE IF EXISTS `prensa`;
 CREATE TABLE `prensa` (
@@ -192,7 +240,11 @@ CREATE TABLE `prensa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for tra_artista
+-- Records of prensa
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `tra_artista`
 -- ----------------------------
 DROP TABLE IF EXISTS `tra_artista`;
 CREATE TABLE `tra_artista` (
@@ -208,7 +260,11 @@ CREATE TABLE `tra_artista` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for tra_audio
+-- Records of tra_artista
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `tra_audio`
 -- ----------------------------
 DROP TABLE IF EXISTS `tra_audio`;
 CREATE TABLE `tra_audio` (
@@ -224,7 +280,11 @@ CREATE TABLE `tra_audio` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for tra_catalogo
+-- Records of tra_audio
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `tra_catalogo`
 -- ----------------------------
 DROP TABLE IF EXISTS `tra_catalogo`;
 CREATE TABLE `tra_catalogo` (
@@ -240,7 +300,11 @@ CREATE TABLE `tra_catalogo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for tra_conversatorio
+-- Records of tra_catalogo
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `tra_conversatorio`
 -- ----------------------------
 DROP TABLE IF EXISTS `tra_conversatorio`;
 CREATE TABLE `tra_conversatorio` (
@@ -255,7 +319,11 @@ CREATE TABLE `tra_conversatorio` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for tra_exposicion
+-- Records of tra_conversatorio
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `tra_exposicion`
 -- ----------------------------
 DROP TABLE IF EXISTS `tra_exposicion`;
 CREATE TABLE `tra_exposicion` (
@@ -270,7 +338,11 @@ CREATE TABLE `tra_exposicion` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for tra_montaje
+-- Records of tra_exposicion
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `tra_montaje`
 -- ----------------------------
 DROP TABLE IF EXISTS `tra_montaje`;
 CREATE TABLE `tra_montaje` (
@@ -285,7 +357,11 @@ CREATE TABLE `tra_montaje` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for tra_noticia
+-- Records of tra_montaje
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `tra_noticia`
 -- ----------------------------
 DROP TABLE IF EXISTS `tra_noticia`;
 CREATE TABLE `tra_noticia` (
@@ -301,7 +377,11 @@ CREATE TABLE `tra_noticia` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for tra_obra
+-- Records of tra_noticia
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `tra_obra`
 -- ----------------------------
 DROP TABLE IF EXISTS `tra_obra`;
 CREATE TABLE `tra_obra` (
@@ -316,7 +396,11 @@ CREATE TABLE `tra_obra` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for tra_prensa
+-- Records of tra_obra
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `tra_prensa`
 -- ----------------------------
 DROP TABLE IF EXISTS `tra_prensa`;
 CREATE TABLE `tra_prensa` (
@@ -332,7 +416,11 @@ CREATE TABLE `tra_prensa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for tra_verni_fini
+-- Records of tra_prensa
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `tra_verni_fini`
 -- ----------------------------
 DROP TABLE IF EXISTS `tra_verni_fini`;
 CREATE TABLE `tra_verni_fini` (
@@ -347,7 +435,11 @@ CREATE TABLE `tra_verni_fini` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for usuarios
+-- Records of tra_verni_fini
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `usuarios`
 -- ----------------------------
 DROP TABLE IF EXISTS `usuarios`;
 CREATE TABLE `usuarios` (
@@ -356,11 +448,16 @@ CREATE TABLE `usuarios` (
   `usuario` varchar(255) NOT NULL,
   `clave` varchar(255) NOT NULL,
   `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`,`usuario`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `usuario` (`usuario`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Table structure for verni_fini
+-- Records of usuarios
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `verni_fini`
 -- ----------------------------
 DROP TABLE IF EXISTS `verni_fini`;
 CREATE TABLE `verni_fini` (
@@ -372,3 +469,7 @@ CREATE TABLE `verni_fini` (
   KEY `idexposicion` (`idexposicion`),
   CONSTRAINT `verni_fini_ibfk_1` FOREIGN KEY (`idexposicion`) REFERENCES `exposicion` (`idexposicion`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of verni_fini
+-- ----------------------------
