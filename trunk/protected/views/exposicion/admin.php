@@ -49,10 +49,9 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'nombre1',
 		'nombre2',
 		'lugar',
-		'pais',
 		'fecha_inicio',
-		/*
 		'fecha_fin',
+		/*
 		'tipo',
 		*/
 		array(

@@ -24,8 +24,6 @@ $this->menu=array(
 		'idartista',
 		'nombre',
 		'apellido',
-		'pais',
-		'biografia',
 		'ano',
 	),
 )); ?>

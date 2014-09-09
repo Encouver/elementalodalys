@@ -32,18 +32,6 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'pais'); ?>
-		<?php echo $form->textField($model,'pais',array('size'=>60,'maxlength'=>255)); ?>
-		<?php echo $form->error($model,'pais'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'biografia'); ?>
-		<?php echo $form->textArea($model,'biografia',array('rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'biografia'); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->labelEx($model,'ano'); ?>
 		<?php echo $form->textField($model,'ano'); ?>
 		<?php echo $form->error($model,'ano'); ?>

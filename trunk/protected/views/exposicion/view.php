@@ -25,7 +25,6 @@ $this->menu=array(
 		'nombre1',
 		'nombre2',
 		'lugar',
-		'pais',
 		'fecha_inicio',
 		'fecha_fin',
 		'tipo',

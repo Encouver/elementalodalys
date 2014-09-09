@@ -21,10 +21,6 @@
 	<?php echo CHtml::encode($data->lugar); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('pais')); ?>:</b>
-	<?php echo CHtml::encode($data->pais); ?>
-	<br />
-
 	<b><?php echo CHtml::encode($data->getAttributeLabel('fecha_inicio')); ?>:</b>
 	<?php echo CHtml::encode($data->fecha_inicio); ?>
 	<br />
@@ -33,11 +29,9 @@
 	<?php echo CHtml::encode($data->fecha_fin); ?>
 	<br />
 
-	<?php /*
 	<b><?php echo CHtml::encode($data->getAttributeLabel('tipo')); ?>:</b>
 	<?php echo CHtml::encode($data->tipo); ?>
 	<br />
 
-	*/ ?>
 
 </div>
