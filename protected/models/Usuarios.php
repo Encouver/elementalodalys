@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "elemental.usuarios".
+ * This is the model class for table "usuarios".
  *
- * The followings are the available columns in table 'elemental.usuarios':
+ * The followings are the available columns in table 'usuarios':
  * @property integer $id
  * @property string $nombre
  * @property string $usuario
@@ -17,7 +17,7 @@ class Usuarios extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'elemental.usuarios';
+		return 'usuarios';
 	}
 
 	/**

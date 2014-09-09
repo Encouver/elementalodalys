@@ -38,12 +38,6 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'pais'); ?>
-		<?php echo $form->textField($model,'pais',array('size'=>60,'maxlength'=>255)); ?>
-		<?php echo $form->error($model,'pais'); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->labelEx($model,'fecha_inicio'); ?>
 		<?php echo $form->textField($model,'fecha_inicio'); ?>
 		<?php echo $form->error($model,'fecha_inicio'); ?>
