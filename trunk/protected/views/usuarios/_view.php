@@ -5,9 +5,9 @@
 
 <div class="view">
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
+	<!--<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
 	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
-	<br />
+	<br />-->
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('nombre')); ?>:</b>
 	<?php echo CHtml::encode($data->nombre); ?>
@@ -17,13 +17,13 @@
 	<?php echo CHtml::encode($data->usuario); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('clave')); ?>:</b>
+	<!--<b><?php echo CHtml::encode($data->getAttributeLabel('clave')); ?>:</b>
 	<?php echo CHtml::encode($data->clave); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('fecha')); ?>:</b>
 	<?php echo CHtml::encode($data->fecha); ?>
-	<br />
+	<br />-->
 
 
 </div>

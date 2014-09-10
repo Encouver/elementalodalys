@@ -29,10 +29,19 @@
 	<div id="mainmenu">
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
-				array('label'=>'Home', 'url'=>array('/site/index')),
-				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
-				array('label'=>'Contact', 'url'=>array('/site/contact')),
 				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
+				array('label'=>'Exposiciones', 'url'=>array('/exposicion/'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Artistas', 'url'=>array('/artista/'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Audio', 'url'=>array('/audio/'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Catalogo', 'url'=>array('/catalogo/'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Conversatorio', 'url'=>array('/conversatorio/'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Montaje', 'url'=>array('/montaje/'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Noticia', 'url'=>array('/noticia/'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Obra', 'url'=>array('/obra/'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Prensa', 'url'=>array('/prensa/'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Verifini', 'url'=>array('/vernifini/'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Usuarios', 'url'=>array('/usuarios/'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Idiomas', 'url'=>array('/idiomas/'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 			),
 		)); ?>

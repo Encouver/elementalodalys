@@ -33,14 +33,12 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'clave'); ?>
-		<?php echo $form->textField($model,'clave',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->passwordField($model,'clave',array('size'=>20,'maxlength'=>250)); ?>
 		<?php echo $form->error($model,'clave'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'fecha'); ?>
-		<?php echo $form->textField($model,'fecha'); ?>
-		<?php echo $form->error($model,'fecha'); ?>
+		<?php echo $form->labelEx($model,'repeat_password'); ?>
+		 <?php echo $form->passwordField($model,'repeat_password',array('maxlength'=>250)); ?>
+		 <?php echo $form->error($model,'repeat_password'); ?>
+		
 	</div>
 
 	<div class="row buttons">
