@@ -8,7 +8,7 @@
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'Elemental Odalys',
-	'language' => 'es',
+	'language' => 'Españo',
 	'sourceLanguage' => 'es',
 
 	// preloading 'log' component
@@ -89,6 +89,6 @@ return array(
 	'params'=>array(
 		// this is used in contact page
 		'adminEmail'=>'webmaster@example.com',
-		'idiomas'=>array('Español' => 'es', 'Ingles' => 'en'),
+		'idioma'=>array('Españo' => '1', 'Ingles' => '2'),
 	),
 );
