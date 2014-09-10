@@ -31,7 +31,22 @@ class SiteController extends Controller
 	{
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
-		$this->render('index');
+	
+
+		$idioma = Idiomas::model()->find('idioma=:idioma',array(':idioma'=>Yii::app()->language));
+
+		$criteria = new CDbCriteria;
+    	$criteria->select = 't.*';
+    	$criteria->join ='LEFT JOIN tra_noticia ON tra_noticia.noticiaid = t.idnoticia';
+    	$criteria->condition = 'tra_noticia.idiomaid = :value';
+    	$criteria->params = array(":value" => $idioma->id);
+		
+		$noticias = Noticia::model()->findAll($criteria);
+
+		$this->render('index', array(
+			'noticias' => $noticias
+        ));
+
 	}
 
 	/**
@@ -109,4 +124,6 @@ class SiteController extends Controller
 		Yii::app()->user->logout();
 		$this->redirect(Yii::app()->homeUrl);
 	}
+
+	
 }

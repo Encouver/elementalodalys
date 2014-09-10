@@ -15,6 +15,18 @@ $this->pageTitle=Yii::app()->name;
 	<div class="col-md-8">
 		<h1> LAS NOTICIAS</h1>
 
+
+
+    <?php
+        foreach ($noticias as $noticia)
+        {
+            echo $noticia->link . "\n";
+            echo $noticia->fecha . "\n";
+        }
+        ?>
+
+
+
 		<h1>Welcome to <i><?php echo CHtml::encode(Yii::app()->name); ?></i></h1>
 
 		<p>Congratulations! You have successfully created your Yii application.</p>
