@@ -22,6 +22,13 @@ $this->pageTitle=Yii::app()->name;
         {
             echo $noticia->link . "\n";
             echo $noticia->fecha . "\n";
+
+			$this->widget('ext.SAImageDisplayer', array(
+			    'image' => $noticia->imagen,//'xxx.jpg',
+			    'size' => 'pequena',
+			    'defaultImage' => 'default.png',
+			    'group' => 'noticia',
+			)); 
         }
         ?>
 
