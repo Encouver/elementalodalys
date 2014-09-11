@@ -35,6 +35,8 @@ class SiteController extends Controller
 
 		$idioma = Idiomas::model()->find('idioma=:idioma',array(':idioma'=>Yii::app()->language));
 
+		if ($idioma == "es"){
+		}
 		$criteria = new CDbCriteria;
     	$criteria->select = 't.*';
     	$criteria->join ='LEFT JOIN tra_noticia ON tra_noticia.noticiaid = t.idnoticia';
