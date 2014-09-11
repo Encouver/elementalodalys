@@ -2,15 +2,15 @@
 Navicat MySQL Data Transfer
 
 Source Server         : localhost
-Source Server Version : 50615
+Source Server Version : 50617
 Source Host           : localhost:3306
 Source Database       : elemental
 
 Target Server Type    : MYSQL
-Target Server Version : 50615
+Target Server Version : 50617
 File Encoding         : 65001
 
-Date: 2014-09-11 00:41:54
+Date: 2014-09-11 14:43:10
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -24,6 +24,8 @@ CREATE TABLE `artista` (
   `nombre` varchar(255) NOT NULL,
   `apellido` varchar(255) NOT NULL,
   `ano` int(11) NOT NULL,
+  `pais` varchar(255) DEFAULT NULL,
+  `biografia` text,
   PRIMARY KEY (`idartista`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -76,6 +78,8 @@ DROP TABLE IF EXISTS `audio`;
 CREATE TABLE `audio` (
   `idaudio` int(11) NOT NULL AUTO_INCREMENT,
   `idexposicion` int(11) NOT NULL,
+  `datos` varchar(255) DEFAULT NULL,
+  `audio_ruta` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`idaudio`),
   KEY `idexposicion` (`idexposicion`),
   CONSTRAINT `audio_ibfk_1` FOREIGN KEY (`idexposicion`) REFERENCES `exposicion` (`idexposicion`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -94,6 +98,8 @@ CREATE TABLE `catalogo` (
   `idexposicion` int(11) NOT NULL,
   `portada` varchar(255) NOT NULL,
   `portada_thumb` varchar(255) NOT NULL,
+  `pdf` varchar(255) DEFAULT NULL,
+  `datos` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`idcatalogo`),
   KEY `idexposicion` (`idexposicion`),
   CONSTRAINT `catalogo_ibfk_1` FOREIGN KEY (`idexposicion`) REFERENCES `exposicion` (`idexposicion`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -111,6 +117,7 @@ CREATE TABLE `conversatorio` (
   `idconversatorio` int(11) NOT NULL,
   `link` varchar(255) NOT NULL,
   `idexposicion` int(11) NOT NULL,
+  `descripcion` text,
   PRIMARY KEY (`idconversatorio`),
   KEY `idexposicion` (`idexposicion`),
   CONSTRAINT `conversatorio_ibfk_1` FOREIGN KEY (`idexposicion`) REFERENCES `exposicion` (`idexposicion`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -132,6 +139,7 @@ CREATE TABLE `exposicion` (
   `fecha_inicio` datetime NOT NULL,
   `fecha_fin` datetime NOT NULL,
   `tipo` enum('FERIA','INDIVIDUAL','COLECTIVA') NOT NULL,
+  `pais` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`idexposicion`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -183,6 +191,7 @@ CREATE TABLE `montaje` (
   `imagen` varchar(255) NOT NULL,
   `imagen_thumb` varchar(255) NOT NULL,
   `idexposicion` int(11) NOT NULL,
+  `descripcion` text,
   PRIMARY KEY (`idmontaje`),
   KEY `idexposicion` (`idexposicion`),
   CONSTRAINT `montaje_ibfk_1` FOREIGN KEY (`idexposicion`) REFERENCES `exposicion` (`idexposicion`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -201,14 +210,16 @@ CREATE TABLE `noticia` (
   `fecha` datetime NOT NULL,
   `imagen` varchar(255) DEFAULT NULL,
   `link` varchar(255) DEFAULT NULL,
+  `titulo` varchar(255) DEFAULT NULL,
+  `contenido` text,
   PRIMARY KEY (`idnoticia`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of noticia
 -- ----------------------------
-INSERT INTO `noticia` VALUES ('1', '2014-09-08 22:10:55', 'xxx2.jpg', 'knbdf');
-INSERT INTO `noticia` VALUES ('2', '2014-09-01 00:39:25', 'xxx.jpg', 'asdf');
+INSERT INTO `noticia` VALUES ('1', '2014-09-08 22:10:55', 'xxx2.jpg', 'knbdf', null, null);
+INSERT INTO `noticia` VALUES ('2', '2014-09-01 00:39:25', 'xxx.jpg', 'asdf', null, null);
 
 -- ----------------------------
 -- Table structure for obra
@@ -219,6 +230,7 @@ CREATE TABLE `obra` (
   `idartista` int(11) NOT NULL,
   `imagen` varchar(255) NOT NULL,
   `imagen_thumb` varchar(255) NOT NULL,
+  `descripcion` text,
   PRIMARY KEY (`idobra`),
   KEY `idartista` (`idartista`),
   CONSTRAINT `obra_ibfk_1` FOREIGN KEY (`idartista`) REFERENCES `artista` (`idartista`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -238,6 +250,8 @@ CREATE TABLE `prensa` (
   `imagen` varchar(255) DEFAULT NULL,
   `imagen_thumb` varchar(255) DEFAULT NULL,
   `idexposicion` int(11) NOT NULL,
+  `titulo` varchar(255) DEFAULT NULL,
+  `contenido` text,
   PRIMARY KEY (`idprensa`),
   KEY `idexposicion` (`idexposicion`),
   CONSTRAINT `prensa_ibfk_1` FOREIGN KEY (`idexposicion`) REFERENCES `exposicion` (`idexposicion`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -482,6 +496,7 @@ CREATE TABLE `verni_fini` (
   `imagen` varchar(255) NOT NULL,
   `imagen_thumb` varchar(255) NOT NULL,
   `idexposicion` int(11) NOT NULL,
+  `descripcion` text,
   PRIMARY KEY (`idverni_fini`),
   KEY `idexposicion` (`idexposicion`),
   CONSTRAINT `verni_fini_ibfk_1` FOREIGN KEY (`idexposicion`) REFERENCES `exposicion` (`idexposicion`) ON DELETE CASCADE ON UPDATE CASCADE
