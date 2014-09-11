@@ -119,6 +119,12 @@ return array(
 		                ),
 		            ),
 		        ),
+
+		'session' => array (
+    		'class' => 'system.web.CDbHttpSession',
+    		'connectionID' => 'db',
+    		'sessionTableName' => 'tblsession',
+		),
 	),
 
 	// application-level parameters that can be accessed
