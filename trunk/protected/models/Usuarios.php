@@ -53,6 +53,25 @@ class Usuarios extends CActiveRecord
 		);
 	}
 
+	public function validatePassword($password){
+		return $this->hashPassword($password)===$this->clave;
+	}
+
+	public function hashPassword($password){
+		return md5($password);
+	}
+
+	public function beforeSave()
+	{
+		if ($this->isNewRecord)
+		{
+	         $this->clave=md5($this->clave);
+	    	 return true;
+    	}else
+    	{
+    		return true;
+    	}
+	}
 	/**
 	 * @return array customized attribute labels (name=>label)
 	 */
@@ -66,6 +85,8 @@ class Usuarios extends CActiveRecord
 			'fecha' => 'Fecha',
 		);
 	}
+
+
 
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
@@ -105,23 +126,5 @@ class Usuarios extends CActiveRecord
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
-	}
-
-
-	public function validatePassword($password){
-		return $this->hashPassword($password)===$this->clave;
-	}
-
-	public function hashPassword($password){
-		return md5($password);
-	}
-
-	public function beforeSave()
-	{
-		if (!empty($this->clave) and $this->isNewRecord)
-		{
-	         $this->clave=md5($this->clave);
-	    	 return true;
-    	}
 	}
 }
