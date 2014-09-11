@@ -95,7 +95,11 @@ class UsuariosController extends Controller
 		{
 			$model->attributes=$_POST['Usuarios'];
 			if($model->save())
+			{
 				$this->redirect(array('view','id'=>$model->id));
+			}
+
+			//echo "hola";
 		}
 
 		$this->render('update',array(
