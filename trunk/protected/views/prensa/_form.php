@@ -21,7 +21,30 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'fecha'); ?>
-		<?php echo $form->textField($model,'fecha'); ?>
+		<?php
+		$this->widget('zii.widgets.jui.CJuiDatePicker',array(
+	    'attribute' => 'fecha',
+		'name'=>'fecha',
+		'model' => $model,
+	    //'flat'=>true,//remove to hide the datepicker
+	    'options'=>array(
+	        'dateFormat' => 'yy-mm-dd',
+	        'showAnim'=>'slide',//'slide','fold','slideDown','fadeIn','blind','bounce','clip','drop'
+	        'changeMonth'=>true,
+	        'changeYear'=>true,
+	        'yearRange'=>'2000:2099',
+	        'minDate' => '2000-01-01',      // minimum date
+	        'maxDate' => '2099-12-31',      // maximum date
+		 	'constrainInput' => 'true',
+			'lenguage' => 'es',
+			
+	    ),
+	    'htmlOptions'=>array(
+	        'style'=>''
+	    ),
+	));
+		
+		?>
 		<?php echo $form->error($model,'fecha'); ?>
 	</div>
 
