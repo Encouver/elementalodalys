@@ -39,6 +39,7 @@ class SiteController extends Controller
     	$criteria->select = 't.*';
     	$criteria->join ='LEFT JOIN tra_noticia ON tra_noticia.noticiaid = t.idnoticia';
     	$criteria->condition = 'tra_noticia.idiomaid=:id';
+    	$criteria->order = 'fecha ASC';
     	$criteria->params = array(':id' => $idioma->id);
 		
 		$noticias = Noticia::model()->findAll($criteria);
