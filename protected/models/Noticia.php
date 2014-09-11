@@ -1,16 +1,18 @@
 <?php
 
 /**
- * This is the model class for table "elemental.noticia".
+ * This is the model class for table "noticia".
  *
- * The followings are the available columns in table 'elemental.noticia':
+ * The followings are the available columns in table 'noticia':
  * @property integer $idnoticia
  * @property string $fecha
  * @property string $imagen
  * @property string $link
+ * @property string $titulo
+ * @property string $contenido
  *
  * The followings are the available model relations:
- * @property Idiomas[] $idiomases
+ * @property TraNoticia[] $traNoticias
  */
 class Noticia extends CActiveRecord
 {
@@ -19,7 +21,7 @@ class Noticia extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'elemental.noticia';
+		return 'noticia';
 	}
 
 	/**
@@ -31,10 +33,11 @@ class Noticia extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('fecha', 'required'),
-			array('imagen, link', 'length', 'max'=>255),
+			array('imagen, link, titulo', 'length', 'max'=>255),
+			array('contenido', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('idnoticia, fecha, imagen, link', 'safe', 'on'=>'search'),
+			array('idnoticia, fecha, imagen, link, titulo, contenido', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -46,7 +49,7 @@ class Noticia extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'idiomases' => array(self::MANY_MANY, 'Idiomas', 'tra_noticia(noticiaid, idiomaid)'),
+			'traNoticias' => array(self::HAS_MANY, 'TraNoticia', 'noticiaid'),
 		);
 	}
 
@@ -60,6 +63,8 @@ class Noticia extends CActiveRecord
 			'fecha' => 'Fecha',
 			'imagen' => 'Imagen',
 			'link' => 'Link',
+			'titulo' => 'Titulo',
+			'contenido' => 'Contenido',
 		);
 	}
 
@@ -85,6 +90,8 @@ class Noticia extends CActiveRecord
 		$criteria->compare('fecha',$this->fecha,true);
 		$criteria->compare('imagen',$this->imagen,true);
 		$criteria->compare('link',$this->link,true);
+		$criteria->compare('titulo',$this->titulo,true);
+		$criteria->compare('contenido',$this->contenido,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
