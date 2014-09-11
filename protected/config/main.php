@@ -82,6 +82,43 @@ return array(
 				*/
 			),
 		),
+
+		'widgetFactory'=>array(
+		            'widgets'=>array(
+		            	// Link: http://www.yiiframework.com/extension/image-displayer/
+		                'SAImageDisplayer'=>array(
+		                    'baseDir' => 'images',
+		                    'originalFolderName'=> 'originals',
+		                    'sizes' =>array(
+		                        'pequeña' => array('width' => 40, 'height' => 30),
+		                        'grande' => array('width' => 640, 'height' => 480),
+		                        'previa' => array('width' => 400, 'height' => 300),
+		                    ),
+		                    'groups' => array(
+		                        'noticias' => array(
+		                            'pequeña' => array('width' => 40, 'height' => 30),
+		                            'grande' => array('width' => 640, 'height' => 480),
+		                          ),
+		                        'catalogo' => array(
+		                            'previa' => array('width' => 400, 'height' => 300),
+		                         ), 
+								'montaje' => array(
+		                            'previa' => array('width' => 400, 'height' => 300),
+		                         ), 
+								'prensa' => array(
+		                            'previa' => array('width' => 400, 'height' => 300),
+		                         ), 
+								'verni_fini' => array(
+		                            'previa' => array('width' => 400, 'height' => 300),
+		                         ), 
+								'obra' => array(
+		                            'previa' => array('width' => 400, 'height' => 300),
+		                            'grande' => array('width' => 640, 'height' => 480),
+		                         ), 
+		                    ),
+		                ),
+		            ),
+		        ),
 	),
 
 	// application-level parameters that can be accessed
@@ -89,6 +126,6 @@ return array(
 	'params'=>array(
 		// this is used in contact page
 		'adminEmail'=>'webmaster@example.com',
-		'idioma'=>array('Españo' => '1', 'Ingles' => '2'),
+		'idioma'=>array('Español' => 'es', 'Ingles' => 'en'),
 	),
 );

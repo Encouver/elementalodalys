@@ -38,8 +38,8 @@ class SiteController extends Controller
 		$criteria = new CDbCriteria;
     	$criteria->select = 't.*';
     	$criteria->join ='LEFT JOIN tra_noticia ON tra_noticia.noticiaid = t.idnoticia';
-    	$criteria->condition = 'tra_noticia.idiomaid = :value';
-    	$criteria->params = array(":value" => $idioma->id);
+    	$criteria->condition = 'tra_noticia.idiomaid=:id';
+    	$criteria->params = array(':id' => $idioma->id);
 		
 		$noticias = Noticia::model()->findAll($criteria);
 
