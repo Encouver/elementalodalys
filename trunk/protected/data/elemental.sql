@@ -1,22 +1,22 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : Mysql
-Source Server Version : 50156
+Source Server         : localhost
+Source Server Version : 50615
 Source Host           : localhost:3306
 Source Database       : elemental
 
 Target Server Type    : MYSQL
-Target Server Version : 50156
+Target Server Version : 50615
 File Encoding         : 65001
 
-Date: 2014-09-09 17:13:31
+Date: 2014-09-11 00:41:54
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for `artista`
+-- Table structure for artista
 -- ----------------------------
 DROP TABLE IF EXISTS `artista`;
 CREATE TABLE `artista` (
@@ -32,7 +32,7 @@ CREATE TABLE `artista` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `artista_expo`
+-- Table structure for artista_expo
 -- ----------------------------
 DROP TABLE IF EXISTS `artista_expo`;
 CREATE TABLE `artista_expo` (
@@ -51,7 +51,7 @@ CREATE TABLE `artista_expo` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `artista_prensa`
+-- Table structure for artista_prensa
 -- ----------------------------
 DROP TABLE IF EXISTS `artista_prensa`;
 CREATE TABLE `artista_prensa` (
@@ -70,7 +70,7 @@ CREATE TABLE `artista_prensa` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `audio`
+-- Table structure for audio
 -- ----------------------------
 DROP TABLE IF EXISTS `audio`;
 CREATE TABLE `audio` (
@@ -86,7 +86,7 @@ CREATE TABLE `audio` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `catalogo`
+-- Table structure for catalogo
 -- ----------------------------
 DROP TABLE IF EXISTS `catalogo`;
 CREATE TABLE `catalogo` (
@@ -104,7 +104,7 @@ CREATE TABLE `catalogo` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `conversatorio`
+-- Table structure for conversatorio
 -- ----------------------------
 DROP TABLE IF EXISTS `conversatorio`;
 CREATE TABLE `conversatorio` (
@@ -121,7 +121,7 @@ CREATE TABLE `conversatorio` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `exposicion`
+-- Table structure for exposicion
 -- ----------------------------
 DROP TABLE IF EXISTS `exposicion`;
 CREATE TABLE `exposicion` (
@@ -140,7 +140,7 @@ CREATE TABLE `exposicion` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `expo_obra`
+-- Table structure for expo_obra
 -- ----------------------------
 DROP TABLE IF EXISTS `expo_obra`;
 CREATE TABLE `expo_obra` (
@@ -159,21 +159,23 @@ CREATE TABLE `expo_obra` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `idiomas`
+-- Table structure for idiomas
 -- ----------------------------
 DROP TABLE IF EXISTS `idiomas`;
 CREATE TABLE `idiomas` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idioma` varchar(6) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of idiomas
 -- ----------------------------
+INSERT INTO `idiomas` VALUES ('1', 'es');
+INSERT INTO `idiomas` VALUES ('2', 'en');
 
 -- ----------------------------
--- Table structure for `montaje`
+-- Table structure for montaje
 -- ----------------------------
 DROP TABLE IF EXISTS `montaje`;
 CREATE TABLE `montaje` (
@@ -191,7 +193,7 @@ CREATE TABLE `montaje` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `noticia`
+-- Table structure for noticia
 -- ----------------------------
 DROP TABLE IF EXISTS `noticia`;
 CREATE TABLE `noticia` (
@@ -200,14 +202,16 @@ CREATE TABLE `noticia` (
   `imagen` varchar(255) DEFAULT NULL,
   `link` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`idnoticia`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of noticia
 -- ----------------------------
+INSERT INTO `noticia` VALUES ('1', '2014-09-08 22:10:55', 'xxx2.jpg', 'knbdf');
+INSERT INTO `noticia` VALUES ('2', '2014-09-01 00:39:25', 'xxx.jpg', 'asdf');
 
 -- ----------------------------
--- Table structure for `obra`
+-- Table structure for obra
 -- ----------------------------
 DROP TABLE IF EXISTS `obra`;
 CREATE TABLE `obra` (
@@ -225,7 +229,7 @@ CREATE TABLE `obra` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `prensa`
+-- Table structure for prensa
 -- ----------------------------
 DROP TABLE IF EXISTS `prensa`;
 CREATE TABLE `prensa` (
@@ -244,15 +248,16 @@ CREATE TABLE `prensa` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `tra_artista`
+-- Table structure for tra_artista
 -- ----------------------------
 DROP TABLE IF EXISTS `tra_artista`;
 CREATE TABLE `tra_artista` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `idiomaid` int(11) NOT NULL,
   `artistaid` int(11) NOT NULL,
   `pais` varchar(255) NOT NULL,
   `biografia` text NOT NULL,
-  PRIMARY KEY (`idiomaid`,`artistaid`),
+  PRIMARY KEY (`id`),
   KEY `idiomaid` (`idiomaid`),
   KEY `artistaid` (`artistaid`),
   CONSTRAINT `tra_artista_ibfk_1` FOREIGN KEY (`idiomaid`) REFERENCES `idiomas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -264,15 +269,16 @@ CREATE TABLE `tra_artista` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `tra_audio`
+-- Table structure for tra_audio
 -- ----------------------------
 DROP TABLE IF EXISTS `tra_audio`;
 CREATE TABLE `tra_audio` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `idiomaid` int(11) NOT NULL,
   `audioid` int(11) NOT NULL,
   `datos` varchar(255) NOT NULL,
   `audio_ruta` varchar(255) NOT NULL,
-  PRIMARY KEY (`idiomaid`,`audioid`),
+  PRIMARY KEY (`id`),
   KEY `idiomaid` (`idiomaid`),
   KEY `audioid` (`audioid`),
   CONSTRAINT `tra_audio_ibfk_1` FOREIGN KEY (`idiomaid`) REFERENCES `idiomas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -284,15 +290,16 @@ CREATE TABLE `tra_audio` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `tra_catalogo`
+-- Table structure for tra_catalogo
 -- ----------------------------
 DROP TABLE IF EXISTS `tra_catalogo`;
 CREATE TABLE `tra_catalogo` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `pdf` varchar(255) NOT NULL,
   `datos` varchar(255) NOT NULL,
   `idiomaid` int(11) NOT NULL,
   `catalogoid` int(11) NOT NULL,
-  PRIMARY KEY (`idiomaid`,`catalogoid`),
+  PRIMARY KEY (`id`),
   KEY `idiomaid` (`idiomaid`),
   KEY `catalogoid` (`catalogoid`),
   CONSTRAINT `tra_catalogo_ibfk_1` FOREIGN KEY (`idiomaid`) REFERENCES `idiomas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -304,14 +311,15 @@ CREATE TABLE `tra_catalogo` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `tra_conversatorio`
+-- Table structure for tra_conversatorio
 -- ----------------------------
 DROP TABLE IF EXISTS `tra_conversatorio`;
 CREATE TABLE `tra_conversatorio` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `idiomaid` int(11) NOT NULL,
   `conversatorioid` int(11) NOT NULL,
   `descripcion` text NOT NULL,
-  PRIMARY KEY (`idiomaid`,`conversatorioid`),
+  PRIMARY KEY (`id`),
   KEY `idiomaid` (`idiomaid`),
   KEY `conversatorioid` (`conversatorioid`),
   CONSTRAINT `tra_conversatorio_ibfk_1` FOREIGN KEY (`idiomaid`) REFERENCES `idiomas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -323,14 +331,15 @@ CREATE TABLE `tra_conversatorio` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `tra_exposicion`
+-- Table structure for tra_exposicion
 -- ----------------------------
 DROP TABLE IF EXISTS `tra_exposicion`;
 CREATE TABLE `tra_exposicion` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `pais` varchar(255) NOT NULL,
   `exposicionid` int(11) NOT NULL,
   `idiomaid` int(11) NOT NULL,
-  PRIMARY KEY (`exposicionid`,`idiomaid`),
+  PRIMARY KEY (`id`),
   KEY `exposicionid` (`exposicionid`),
   KEY `idiomaid` (`idiomaid`),
   CONSTRAINT `tra_exposicion_ibfk_1` FOREIGN KEY (`exposicionid`) REFERENCES `exposicion` (`idexposicion`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -342,14 +351,15 @@ CREATE TABLE `tra_exposicion` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `tra_montaje`
+-- Table structure for tra_montaje
 -- ----------------------------
 DROP TABLE IF EXISTS `tra_montaje`;
 CREATE TABLE `tra_montaje` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `idiomaid` int(11) NOT NULL,
   `montajeid` int(11) NOT NULL,
   `descripcion` text NOT NULL,
-  PRIMARY KEY (`idiomaid`,`montajeid`),
+  PRIMARY KEY (`id`),
   KEY `idiomaid` (`idiomaid`),
   KEY `montajeid` (`montajeid`),
   CONSTRAINT `tra_montaje_ibfk_1` FOREIGN KEY (`idiomaid`) REFERENCES `idiomas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -361,34 +371,40 @@ CREATE TABLE `tra_montaje` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `tra_noticia`
+-- Table structure for tra_noticia
 -- ----------------------------
 DROP TABLE IF EXISTS `tra_noticia`;
 CREATE TABLE `tra_noticia` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `idiomaid` int(11) NOT NULL,
   `noticiaid` int(11) NOT NULL,
   `titulo` varchar(255) NOT NULL,
   `contenido` text NOT NULL,
-  PRIMARY KEY (`idiomaid`,`noticiaid`),
+  PRIMARY KEY (`id`),
   KEY `idiomaid` (`idiomaid`),
   KEY `noticiaid` (`noticiaid`),
   CONSTRAINT `tra_noticia_ibfk_1` FOREIGN KEY (`idiomaid`) REFERENCES `idiomas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `tra_noticia_ibfk_2` FOREIGN KEY (`noticiaid`) REFERENCES `noticia` (`idnoticia`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tra_noticia
 -- ----------------------------
+INSERT INTO `tra_noticia` VALUES ('1', '1', '1', 'Hola', 'chao.');
+INSERT INTO `tra_noticia` VALUES ('2', '2', '1', 'Helllo', 'bye.');
+INSERT INTO `tra_noticia` VALUES ('3', '1', '2', 'Bien', 'aceptar');
+INSERT INTO `tra_noticia` VALUES ('4', '2', '2', 'Good', 'Ok');
 
 -- ----------------------------
--- Table structure for `tra_obra`
+-- Table structure for tra_obra
 -- ----------------------------
 DROP TABLE IF EXISTS `tra_obra`;
 CREATE TABLE `tra_obra` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `idiomaid` int(11) NOT NULL,
   `obraid` int(11) NOT NULL,
   `descripcion` text NOT NULL,
-  PRIMARY KEY (`idiomaid`,`obraid`),
+  PRIMARY KEY (`id`),
   KEY `idiomaid` (`idiomaid`),
   KEY `obraid` (`obraid`),
   CONSTRAINT `tra_obra_ibfk_1` FOREIGN KEY (`idiomaid`) REFERENCES `idiomas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -400,15 +416,16 @@ CREATE TABLE `tra_obra` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `tra_prensa`
+-- Table structure for tra_prensa
 -- ----------------------------
 DROP TABLE IF EXISTS `tra_prensa`;
 CREATE TABLE `tra_prensa` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `idiomaid` int(11) NOT NULL,
   `titulo` varchar(255) NOT NULL,
   `contenido` text NOT NULL,
   `prensaid` int(11) NOT NULL,
-  PRIMARY KEY (`idiomaid`,`prensaid`),
+  PRIMARY KEY (`id`),
   KEY `idiomaid` (`idiomaid`),
   KEY `prensaid` (`prensaid`),
   CONSTRAINT `tra_prensa_ibfk_1` FOREIGN KEY (`idiomaid`) REFERENCES `idiomas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -420,14 +437,15 @@ CREATE TABLE `tra_prensa` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `tra_verni_fini`
+-- Table structure for tra_verni_fini
 -- ----------------------------
 DROP TABLE IF EXISTS `tra_verni_fini`;
 CREATE TABLE `tra_verni_fini` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `idiomaid` int(11) NOT NULL,
   `verni_finiid` int(11) NOT NULL,
   `descripcion` text NOT NULL,
-  PRIMARY KEY (`idiomaid`,`verni_finiid`),
+  PRIMARY KEY (`id`),
   KEY `idiomaid` (`idiomaid`),
   KEY `verni_finiid` (`verni_finiid`),
   CONSTRAINT `tra_verni_fini_ibfk_1` FOREIGN KEY (`idiomaid`) REFERENCES `idiomas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -439,7 +457,7 @@ CREATE TABLE `tra_verni_fini` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `usuarios`
+-- Table structure for usuarios
 -- ----------------------------
 DROP TABLE IF EXISTS `usuarios`;
 CREATE TABLE `usuarios` (
@@ -448,8 +466,7 @@ CREATE TABLE `usuarios` (
   `usuario` varchar(255) NOT NULL,
   `clave` varchar(255) NOT NULL,
   `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `usuario` (`usuario`) USING BTREE
+  PRIMARY KEY (`id`,`usuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -457,7 +474,7 @@ CREATE TABLE `usuarios` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `verni_fini`
+-- Table structure for verni_fini
 -- ----------------------------
 DROP TABLE IF EXISTS `verni_fini`;
 CREATE TABLE `verni_fini` (
