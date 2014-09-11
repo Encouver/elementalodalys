@@ -18,6 +18,7 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
+		'application.helpers.*',
 	),
 
 	'modules'=>array(
@@ -83,6 +84,14 @@ return array(
 			),
 		),
 
+		// Link: http://www.yiiframework.com/extension/image
+		'image'=>array(
+          'class'=>'application.extensions.image.CImageComponent',
+            // GD or ImageMagick
+            'driver'=>'GD',
+            // ImageMagick setup path
+            'params'=>array('directory'=>'/opt/local/bin'),
+        ),
 		'widgetFactory'=>array(
 		            'widgets'=>array(
 		            	// Link: http://www.yiiframework.com/extension/image-displayer/
@@ -90,19 +99,19 @@ return array(
 		                    'baseDir' => 'images',
 		                    'originalFolderName'=> 'originals',
 		                    'sizes' =>array(
-		                        'pequeña' => array('width' => 40, 'height' => 30),
+		                        'pequena' => array('width' => 40, 'height' => 30),
 		                        'grande' => array('width' => 640, 'height' => 480),
 		                        'previa' => array('width' => 400, 'height' => 300),
 		                    ),
 		                    'groups' => array(
-		                        'noticias' => array(
-		                            'pequeña' => array('width' => 40, 'height' => 30),
+		                        'noticia' => array(
+		                            'pequena' => array('width' => 40, 'height' => 30),
 		                            'grande' => array('width' => 640, 'height' => 480),
 		                          ),
 		                        'catalogo' => array(
 		                            'previa' => array('width' => 400, 'height' => 300),
 		                         ), 
-								'montaje' => array(
+								'montajess' => array(
 		                            'previa' => array('width' => 400, 'height' => 300),
 		                         ), 
 								'prensa' => array(
