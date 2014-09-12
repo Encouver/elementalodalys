@@ -7,7 +7,6 @@ $this->pageTitle=Yii::app()->name;
 <div class="row">
 	
 	<div class="col-md-8">
-		<h1> LAS NOTICIAS</h1>
     
 	    <ul class="media-list">
 	    <?php
@@ -17,62 +16,62 @@ $this->pageTitle=Yii::app()->name;
 	    		if ($primero == 1) {
 	                echo "
 	                    <div class='media-body'>
-	                      <div id = 'fecha_noticias'>".$noticia->fecha."</div><h2 style='font-size:26px;' class='media-heading noti'>".$noticia->titulo."</h2>    
-	                      <div style='text-align:center !important; padding-bottom: 14px; padding-top:6px;'>
+	                    	<div id = 'fecha_noticias'>".$noticia->fecha."</div><h2 style='font-size:26px;' class='media-heading noti'>".$noticia->titulo."</h2>    
+	                    	<div style='text-align:center !important; padding-bottom: 14px; padding-top:6px;'>
 	                        ";
 
-					$this->widget('ext.SAImageDisplayer', array(
-					    'image' => $noticia->imagen,//'xxx.jpg',
-					    'size' => 'grande',
-					    'class'=>'media-object',
-					    'defaultImage' => 'default.png',
-					    'group' => 'noticia',
-					));
+								$this->widget('ext.SAImageDisplayer', array(
+								    'image' => $noticia->imagen,//'xxx.jpg',
+								    'size' => 'grande',
+								    'class'=>'media-object',
+								    'defaultImage' => 'default.png',
+								    'group' => 'noticia',
+								));
 
-					echo "
-						   </div>
-                        <div class='comment more texto' style:'font-weight: 900;'>"
-                          .$noticia->contenido.
-                          "<br>
-                        </div>
-                      </div>
-	                        <hr>
-	                        ";
-	                        $primero = 2;
-	                }else{
-	                  echo "
-	                    <li class='media'>
-	                      <a class='pull-left' href='#'>
-";
-			$this->widget('ext.SAImageDisplayer', array(
-			    'image' => $noticia->imagen,//'xxx.jpg',
-			    'size' => 'pequena',
-			    'defaultImage' => 'default.png',
-			    'class'=>'media-object',
-			    'group' => 'noticia',
-			));
-echo "
-	                      </a>
-	                      <div class='media-body'>
-	                        <div id = 'fecha_noticias'>".$noticia->fecha."</div><h2 class='media-heading noti'>".$noticia->titulo."</h2>
-	                        <div class='comment more texto'>"
-	                          .$noticia->contenido.
-	                      " </div>
-	                      </div>
+							echo "
+							</div>
+                        	<div class='comment more texto' style:'font-weight: 900;'>"
+	                        	.$noticia->contenido.
+                          		"<br>
+                        	</div>
+                    	</div>
+	                    
+	                    <hr>
+	                ";
+	                    
+	                $primero = 2;
+	            }else{
+	            	echo "
+	                	<li class='media'>
+	                    	<a class='pull-left' href='#'>
+					";
+								$this->widget('ext.SAImageDisplayer', array(
+								    'image' => $noticia->imagen,//'xxx.jpg',
+								    'size' => 'pequena',
+								    'defaultImage' => 'default.png',
+								    'class'=>'media-object',
+								    'group' => 'noticia',
+								));
+					
+							echo "
+	                    	</a>
+	                    	<div class='media-body'>
+		                        <div id = 'fecha_noticias'>".$noticia->fecha."</div><h2 class='media-heading noti'>".$noticia->titulo."</h2>
+		                        <div class='comment more texto'>"
+		                         .$noticia->contenido.
+		                      	"</div>
+	                      	</div>
 	                    </li>
 	                    
 	                    <hr>
 		                   ";
-	    	        }
-	         }
-	                                ?>    
+	    	    }
+	        }
+	        ?>    
 	         
         </ul>
 
-
-
-
-    <?php
+<?php
 /*
         foreach ($noticias as $noticia)
         {
