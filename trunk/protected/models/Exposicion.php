@@ -11,6 +11,7 @@
  * @property string $fecha_inicio
  * @property string $fecha_fin
  * @property string $tipo
+ * @property string $pais
  *
  * The followings are the available model relations:
  * @property ArtistaExpo[] $artistaExpos
@@ -20,7 +21,7 @@
  * @property ExpoObra[] $expoObras
  * @property Montaje[] $montajes
  * @property Prensa[] $prensas
- * @property Idiomas[] $idiomases
+ * @property TraExposicion[] $traExposicions
  * @property VerniFini[] $verniFinis
  */
 class Exposicion extends CActiveRecord
@@ -42,11 +43,11 @@ class Exposicion extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('nombre1, lugar, fecha_inicio, fecha_fin, tipo', 'required'),
-			array('nombre1, nombre2, lugar', 'length', 'max'=>255),
+			array('nombre1, nombre2, lugar, pais', 'length', 'max'=>255),
 			array('tipo', 'length', 'max'=>10),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('idexposicion, nombre1, nombre2, lugar, fecha_inicio, fecha_fin, tipo', 'safe', 'on'=>'search'),
+			array('idexposicion, nombre1, nombre2, lugar, fecha_inicio, fecha_fin, tipo, pais', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -65,7 +66,7 @@ class Exposicion extends CActiveRecord
 			'expoObras' => array(self::HAS_MANY, 'ExpoObra', 'idexposicion'),
 			'montajes' => array(self::HAS_MANY, 'Montaje', 'idexposicion'),
 			'prensas' => array(self::HAS_MANY, 'Prensa', 'idexposicion'),
-			'idiomases' => array(self::MANY_MANY, 'Idiomas', 'tra_exposicion(exposicionid, idiomaid)'),
+			'traExposicions' => array(self::HAS_MANY, 'TraExposicion', 'exposicionid'),
 			'verniFinis' => array(self::HAS_MANY, 'VerniFini', 'idexposicion'),
 		);
 	}
@@ -83,6 +84,7 @@ class Exposicion extends CActiveRecord
 			'fecha_inicio' => 'Fecha Inicio',
 			'fecha_fin' => 'Fecha Fin',
 			'tipo' => 'Tipo',
+			'pais' => 'Pais',
 		);
 	}
 
@@ -111,6 +113,7 @@ class Exposicion extends CActiveRecord
 		$criteria->compare('fecha_inicio',$this->fecha_inicio,true);
 		$criteria->compare('fecha_fin',$this->fecha_fin,true);
 		$criteria->compare('tipo',$this->tipo,true);
+		$criteria->compare('pais',$this->pais,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

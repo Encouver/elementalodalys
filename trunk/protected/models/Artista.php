@@ -8,12 +8,14 @@
  * @property string $nombre
  * @property string $apellido
  * @property integer $ano
+ * @property string $pais
+ * @property string $biografia
  *
  * The followings are the available model relations:
  * @property ArtistaExpo[] $artistaExpos
  * @property ArtistaPrensa[] $artistaPrensas
  * @property Obra[] $obras
- * @property Idiomas[] $idiomases
+ * @property TraArtista[] $traArtistas
  */
 class Artista extends CActiveRecord
 {
@@ -35,10 +37,11 @@ class Artista extends CActiveRecord
 		return array(
 			array('nombre, apellido, ano', 'required'),
 			array('ano', 'numerical', 'integerOnly'=>true),
-			array('nombre, apellido', 'length', 'max'=>255),
+			array('nombre, apellido, pais', 'length', 'max'=>255),
+			array('biografia', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('idartista, nombre, apellido, ano', 'safe', 'on'=>'search'),
+			array('idartista, nombre, apellido, ano, pais, biografia', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -53,7 +56,7 @@ class Artista extends CActiveRecord
 			'artistaExpos' => array(self::HAS_MANY, 'ArtistaExpo', 'idartista'),
 			'artistaPrensas' => array(self::HAS_MANY, 'ArtistaPrensa', 'idartista'),
 			'obras' => array(self::HAS_MANY, 'Obra', 'idartista'),
-			'idiomases' => array(self::MANY_MANY, 'Idiomas', 'tra_artista(artistaid, idiomaid)'),
+			'traArtistas' => array(self::HAS_MANY, 'TraArtista', 'artistaid'),
 		);
 	}
 
@@ -67,6 +70,8 @@ class Artista extends CActiveRecord
 			'nombre' => 'Nombre',
 			'apellido' => 'Apellido',
 			'ano' => 'Ano',
+			'pais' => 'Pais',
+			'biografia' => 'Biografia',
 		);
 	}
 
@@ -92,6 +97,8 @@ class Artista extends CActiveRecord
 		$criteria->compare('nombre',$this->nombre,true);
 		$criteria->compare('apellido',$this->apellido,true);
 		$criteria->compare('ano',$this->ano);
+		$criteria->compare('pais',$this->pais,true);
+		$criteria->compare('biografia',$this->biografia,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

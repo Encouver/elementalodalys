@@ -7,10 +7,11 @@
  * @property integer $idconversatorio
  * @property string $link
  * @property integer $idexposicion
+ * @property string $descripcion
  *
  * The followings are the available model relations:
  * @property Exposicion $idexposicion0
- * @property Idiomas[] $idiomases
+ * @property TraConversatorio[] $traConversatorios
  */
 class Conversatorio extends CActiveRecord
 {
@@ -33,9 +34,10 @@ class Conversatorio extends CActiveRecord
 			array('idconversatorio, link, idexposicion', 'required'),
 			array('idconversatorio, idexposicion', 'numerical', 'integerOnly'=>true),
 			array('link', 'length', 'max'=>255),
+			array('descripcion', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('idconversatorio, link, idexposicion', 'safe', 'on'=>'search'),
+			array('idconversatorio, link, idexposicion, descripcion', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -48,7 +50,7 @@ class Conversatorio extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'idexposicion0' => array(self::BELONGS_TO, 'Exposicion', 'idexposicion'),
-			'idiomases' => array(self::MANY_MANY, 'Idiomas', 'tra_conversatorio(conversatorioid, idiomaid)'),
+			'traConversatorios' => array(self::HAS_MANY, 'TraConversatorio', 'conversatorioid'),
 		);
 	}
 
@@ -61,6 +63,7 @@ class Conversatorio extends CActiveRecord
 			'idconversatorio' => 'Idconversatorio',
 			'link' => 'Link',
 			'idexposicion' => 'Idexposicion',
+			'descripcion' => 'Descripcion',
 		);
 	}
 
@@ -85,6 +88,7 @@ class Conversatorio extends CActiveRecord
 		$criteria->compare('idconversatorio',$this->idconversatorio);
 		$criteria->compare('link',$this->link,true);
 		$criteria->compare('idexposicion',$this->idexposicion);
+		$criteria->compare('descripcion',$this->descripcion,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

@@ -8,9 +8,10 @@
  * @property string $imagen
  * @property string $imagen_thumb
  * @property integer $idexposicion
+ * @property string $descripcion
  *
  * The followings are the available model relations:
- * @property Idiomas[] $idiomases
+ * @property TraVerniFini[] $traVerniFinis
  * @property Exposicion $idexposicion0
  */
 class VerniFini extends CActiveRecord
@@ -34,9 +35,10 @@ class VerniFini extends CActiveRecord
 			array('imagen, imagen_thumb, idexposicion', 'required'),
 			array('idexposicion', 'numerical', 'integerOnly'=>true),
 			array('imagen, imagen_thumb', 'length', 'max'=>255),
+			array('descripcion', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('idverni_fini, imagen, imagen_thumb, idexposicion', 'safe', 'on'=>'search'),
+			array('idverni_fini, imagen, imagen_thumb, idexposicion, descripcion', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -48,7 +50,7 @@ class VerniFini extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'idiomases' => array(self::MANY_MANY, 'Idiomas', 'tra_verni_fini(verni_finiid, idiomaid)'),
+			'traVerniFinis' => array(self::HAS_MANY, 'TraVerniFini', 'verni_finiid'),
 			'idexposicion0' => array(self::BELONGS_TO, 'Exposicion', 'idexposicion'),
 		);
 	}
@@ -63,6 +65,7 @@ class VerniFini extends CActiveRecord
 			'imagen' => 'Imagen',
 			'imagen_thumb' => 'Imagen Thumb',
 			'idexposicion' => 'Idexposicion',
+			'descripcion' => 'Descripcion',
 		);
 	}
 
@@ -88,6 +91,7 @@ class VerniFini extends CActiveRecord
 		$criteria->compare('imagen',$this->imagen,true);
 		$criteria->compare('imagen_thumb',$this->imagen_thumb,true);
 		$criteria->compare('idexposicion',$this->idexposicion);
+		$criteria->compare('descripcion',$this->descripcion,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

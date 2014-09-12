@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "usuarios".
+ * This is the model class for table "elemental.usuarios".
  *
- * The followings are the available columns in table 'usuarios':
+ * The followings are the available columns in table 'elemental.usuarios':
  * @property integer $id
  * @property string $nombre
  * @property string $usuario
@@ -15,13 +15,9 @@ class Usuarios extends CActiveRecord
 	/**
 	 * @return string the associated database table name
 	 */
-
-	public $repeat_password;
-
-
 	public function tableName()
 	{
-		return 'usuarios';
+		return 'elemental.usuarios';
 	}
 
 	/**
@@ -32,13 +28,11 @@ class Usuarios extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('nombre, usuario, clave, repeat_password', 'required'),
+			array('nombre, usuario, clave, fecha', 'required'),
 			array('nombre, usuario, clave', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('usuario', 'unique', 'allowEmpty' => false, 'attributeName' => 'usuario','caseSensitive'=> false,'className'=>'usuarios','message'=>'Disculpe, este usuario ya existe en la bd.'),
 			array('id, nombre, usuario, clave, fecha', 'safe', 'on'=>'search'),
-			array('clave', 'compare', 'compareAttribute'=>'repeat_password'),
 		);
 	}
 
@@ -53,25 +47,6 @@ class Usuarios extends CActiveRecord
 		);
 	}
 
-	public function validatePassword($password){
-		return $this->hashPassword($password)===$this->clave;
-	}
-
-	public function hashPassword($password){
-		return md5($password);
-	}
-
-	public function beforeSave()
-	{
-		if ($this->isNewRecord)
-		{
-	         $this->clave=md5($this->clave);
-	    	 return true;
-    	}else
-    	{
-    		return true;
-    	}
-	}
 	/**
 	 * @return array customized attribute labels (name=>label)
 	 */
@@ -85,8 +60,6 @@ class Usuarios extends CActiveRecord
 			'fecha' => 'Fecha',
 		);
 	}
-
-
 
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.

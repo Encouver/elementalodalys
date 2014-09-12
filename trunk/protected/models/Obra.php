@@ -8,11 +8,12 @@
  * @property integer $idartista
  * @property string $imagen
  * @property string $imagen_thumb
+ * @property string $descripcion
  *
  * The followings are the available model relations:
  * @property ExpoObra[] $expoObras
  * @property Artista $idartista0
- * @property Idiomas[] $idiomases
+ * @property TraObra[] $traObras
  */
 class Obra extends CActiveRecord
 {
@@ -35,9 +36,10 @@ class Obra extends CActiveRecord
 			array('idartista, imagen, imagen_thumb', 'required'),
 			array('idartista', 'numerical', 'integerOnly'=>true),
 			array('imagen, imagen_thumb', 'length', 'max'=>255),
+			array('descripcion', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('idobra, idartista, imagen, imagen_thumb', 'safe', 'on'=>'search'),
+			array('idobra, idartista, imagen, imagen_thumb, descripcion', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -51,7 +53,7 @@ class Obra extends CActiveRecord
 		return array(
 			'expoObras' => array(self::HAS_MANY, 'ExpoObra', 'idobra'),
 			'idartista0' => array(self::BELONGS_TO, 'Artista', 'idartista'),
-			'idiomases' => array(self::MANY_MANY, 'Idiomas', 'tra_obra(obraid, idiomaid)'),
+			'traObras' => array(self::HAS_MANY, 'TraObra', 'obraid'),
 		);
 	}
 
@@ -65,6 +67,7 @@ class Obra extends CActiveRecord
 			'idartista' => 'Idartista',
 			'imagen' => 'Imagen',
 			'imagen_thumb' => 'Imagen Thumb',
+			'descripcion' => 'Descripcion',
 		);
 	}
 
@@ -90,6 +93,7 @@ class Obra extends CActiveRecord
 		$criteria->compare('idartista',$this->idartista);
 		$criteria->compare('imagen',$this->imagen,true);
 		$criteria->compare('imagen_thumb',$this->imagen_thumb,true);
+		$criteria->compare('descripcion',$this->descripcion,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
