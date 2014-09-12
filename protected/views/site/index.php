@@ -18,6 +18,7 @@ $this->pageTitle=Yii::app()->name;
 	                    <div class='media-body'>
 	                    	<div id = 'fecha_noticias'>".$noticia->fecha."</div><h2 style='font-size:26px;' class='media-heading noti'>".$noticia->titulo."</h2>    
 	                    	<div style='text-align:center !important; padding-bottom: 14px; padding-top:6px;'>
+
 	                        ";
 
 								$this->widget('ext.SAImageDisplayer', array(
@@ -51,6 +52,7 @@ $this->pageTitle=Yii::app()->name;
 								    'defaultImage' => 'default.png',
 								    'class'=>'media-object',
 								    'group' => 'noticia',
+
 								));
 					
 							echo "
