@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "noticia".
+ * This is the model class for table "elemental.noticia".
  *
- * The followings are the available columns in table 'noticia':
+ * The followings are the available columns in table 'elemental.noticia':
  * @property integer $idnoticia
  * @property string $fecha
  * @property string $imagen
@@ -21,7 +21,7 @@ class Noticia extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'noticia';
+		return 'elemental.noticia';
 	}
 
 	/**

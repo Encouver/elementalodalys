@@ -6,10 +6,12 @@
  * The followings are the available columns in table 'elemental.audio':
  * @property integer $idaudio
  * @property integer $idexposicion
+ * @property string $datos
+ * @property string $audio_ruta
  *
  * The followings are the available model relations:
  * @property Exposicion $idexposicion0
- * @property Idiomas[] $idiomases
+ * @property TraAudio[] $traAudios
  */
 class Audio extends CActiveRecord
 {
@@ -31,9 +33,10 @@ class Audio extends CActiveRecord
 		return array(
 			array('idexposicion', 'required'),
 			array('idexposicion', 'numerical', 'integerOnly'=>true),
+			array('datos, audio_ruta', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('idaudio, idexposicion', 'safe', 'on'=>'search'),
+			array('idaudio, idexposicion, datos, audio_ruta', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -46,7 +49,7 @@ class Audio extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'idexposicion0' => array(self::BELONGS_TO, 'Exposicion', 'idexposicion'),
-			'idiomases' => array(self::MANY_MANY, 'Idiomas', 'tra_audio(audioid, idiomaid)'),
+			'traAudios' => array(self::HAS_MANY, 'TraAudio', 'audioid'),
 		);
 	}
 
@@ -58,6 +61,8 @@ class Audio extends CActiveRecord
 		return array(
 			'idaudio' => 'Idaudio',
 			'idexposicion' => 'Idexposicion',
+			'datos' => 'Datos',
+			'audio_ruta' => 'Audio Ruta',
 		);
 	}
 
@@ -81,6 +86,8 @@ class Audio extends CActiveRecord
 
 		$criteria->compare('idaudio',$this->idaudio);
 		$criteria->compare('idexposicion',$this->idexposicion);
+		$criteria->compare('datos',$this->datos,true);
+		$criteria->compare('audio_ruta',$this->audio_ruta,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

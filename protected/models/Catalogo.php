@@ -8,10 +8,12 @@
  * @property integer $idexposicion
  * @property string $portada
  * @property string $portada_thumb
+ * @property string $pdf
+ * @property string $datos
  *
  * The followings are the available model relations:
  * @property Exposicion $idexposicion0
- * @property Idiomas[] $idiomases
+ * @property TraCatalogo[] $traCatalogos
  */
 class Catalogo extends CActiveRecord
 {
@@ -33,10 +35,10 @@ class Catalogo extends CActiveRecord
 		return array(
 			array('idexposicion, portada, portada_thumb', 'required'),
 			array('idexposicion', 'numerical', 'integerOnly'=>true),
-			array('portada, portada_thumb', 'length', 'max'=>255),
+			array('portada, portada_thumb, pdf, datos', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('idcatalogo, idexposicion, portada, portada_thumb', 'safe', 'on'=>'search'),
+			array('idcatalogo, idexposicion, portada, portada_thumb, pdf, datos', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -49,7 +51,7 @@ class Catalogo extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'idexposicion0' => array(self::BELONGS_TO, 'Exposicion', 'idexposicion'),
-			'idiomases' => array(self::MANY_MANY, 'Idiomas', 'tra_catalogo(catalogoid, idiomaid)'),
+			'traCatalogos' => array(self::HAS_MANY, 'TraCatalogo', 'catalogoid'),
 		);
 	}
 
@@ -63,6 +65,8 @@ class Catalogo extends CActiveRecord
 			'idexposicion' => 'Idexposicion',
 			'portada' => 'Portada',
 			'portada_thumb' => 'Portada Thumb',
+			'pdf' => 'Pdf',
+			'datos' => 'Datos',
 		);
 	}
 
@@ -88,6 +92,8 @@ class Catalogo extends CActiveRecord
 		$criteria->compare('idexposicion',$this->idexposicion);
 		$criteria->compare('portada',$this->portada,true);
 		$criteria->compare('portada_thumb',$this->portada_thumb,true);
+		$criteria->compare('pdf',$this->pdf,true);
+		$criteria->compare('datos',$this->datos,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

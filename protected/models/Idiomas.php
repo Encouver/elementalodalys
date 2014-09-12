@@ -8,16 +8,16 @@
  * @property string $idioma
  *
  * The followings are the available model relations:
- * @property Artista[] $artistas
- * @property Audio[] $audios
- * @property Catalogo[] $catalogos
- * @property Conversatorio[] $conversatorios
- * @property Exposicion[] $exposicions
- * @property Montaje[] $montajes
- * @property Noticia[] $noticias
- * @property Obra[] $obras
- * @property Prensa[] $prensas
- * @property VerniFini[] $verniFinis
+ * @property TraArtista[] $traArtistas
+ * @property TraAudio[] $traAudios
+ * @property TraCatalogo[] $traCatalogos
+ * @property TraConversatorio[] $traConversatorios
+ * @property TraExposicion[] $traExposicions
+ * @property TraMontaje[] $traMontajes
+ * @property TraNoticia[] $traNoticias
+ * @property TraObra[] $traObras
+ * @property TraPrensa[] $traPrensas
+ * @property TraVerniFini[] $traVerniFinis
  */
 class Idiomas extends CActiveRecord
 {
@@ -52,16 +52,16 @@ class Idiomas extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'artistas' => array(self::MANY_MANY, 'Artista', 'tra_artista(idiomaid, artistaid)'),
-			'audios' => array(self::MANY_MANY, 'Audio', 'tra_audio(idiomaid, audioid)'),
-			'catalogos' => array(self::MANY_MANY, 'Catalogo', 'tra_catalogo(idiomaid, catalogoid)'),
-			'conversatorios' => array(self::MANY_MANY, 'Conversatorio', 'tra_conversatorio(idiomaid, conversatorioid)'),
-			'exposicions' => array(self::MANY_MANY, 'Exposicion', 'tra_exposicion(idiomaid, exposicionid)'),
-			'montajes' => array(self::MANY_MANY, 'Montaje', 'tra_montaje(idiomaid, montajeid)'),
-			'noticias' => array(self::MANY_MANY, 'Noticia', 'tra_noticia(idiomaid, noticiaid)'),
-			'obras' => array(self::MANY_MANY, 'Obra', 'tra_obra(idiomaid, obraid)'),
-			'prensas' => array(self::MANY_MANY, 'Prensa', 'tra_prensa(idiomaid, prensaid)'),
-			'verniFinis' => array(self::MANY_MANY, 'VerniFini', 'tra_verni_fini(idiomaid, verni_finiid)'),
+			'traArtistas' => array(self::HAS_MANY, 'TraArtista', 'idiomaid'),
+			'traAudios' => array(self::HAS_MANY, 'TraAudio', 'idiomaid'),
+			'traCatalogos' => array(self::HAS_MANY, 'TraCatalogo', 'idiomaid'),
+			'traConversatorios' => array(self::HAS_MANY, 'TraConversatorio', 'idiomaid'),
+			'traExposicions' => array(self::HAS_MANY, 'TraExposicion', 'idiomaid'),
+			'traMontajes' => array(self::HAS_MANY, 'TraMontaje', 'idiomaid'),
+			'traNoticias' => array(self::HAS_MANY, 'TraNoticia', 'idiomaid'),
+			'traObras' => array(self::HAS_MANY, 'TraObra', 'idiomaid'),
+			'traPrensas' => array(self::HAS_MANY, 'TraPrensa', 'idiomaid'),
+			'traVerniFinis' => array(self::HAS_MANY, 'TraVerniFini', 'idiomaid'),
 		);
 	}
 

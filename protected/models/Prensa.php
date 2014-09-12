@@ -9,11 +9,13 @@
  * @property string $imagen
  * @property string $imagen_thumb
  * @property integer $idexposicion
+ * @property string $titulo
+ * @property string $contenido
  *
  * The followings are the available model relations:
  * @property ArtistaPrensa[] $artistaPrensas
  * @property Exposicion $idexposicion0
- * @property Idiomas[] $idiomases
+ * @property TraPrensa[] $traPrensas
  */
 class Prensa extends CActiveRecord
 {
@@ -35,10 +37,11 @@ class Prensa extends CActiveRecord
 		return array(
 			array('fecha, idexposicion', 'required'),
 			array('idexposicion', 'numerical', 'integerOnly'=>true),
-			array('imagen, imagen_thumb', 'length', 'max'=>255),
+			array('imagen, imagen_thumb, titulo', 'length', 'max'=>255),
+			array('contenido', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('idprensa, fecha, imagen, imagen_thumb, idexposicion', 'safe', 'on'=>'search'),
+			array('idprensa, fecha, imagen, imagen_thumb, idexposicion, titulo, contenido', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -52,7 +55,7 @@ class Prensa extends CActiveRecord
 		return array(
 			'artistaPrensas' => array(self::HAS_MANY, 'ArtistaPrensa', 'idprensa'),
 			'idexposicion0' => array(self::BELONGS_TO, 'Exposicion', 'idexposicion'),
-			'idiomases' => array(self::MANY_MANY, 'Idiomas', 'tra_prensa(prensaid, idiomaid)'),
+			'traPrensas' => array(self::HAS_MANY, 'TraPrensa', 'prensaid'),
 		);
 	}
 
@@ -67,6 +70,8 @@ class Prensa extends CActiveRecord
 			'imagen' => 'Imagen',
 			'imagen_thumb' => 'Imagen Thumb',
 			'idexposicion' => 'Idexposicion',
+			'titulo' => 'Titulo',
+			'contenido' => 'Contenido',
 		);
 	}
 
@@ -93,6 +98,8 @@ class Prensa extends CActiveRecord
 		$criteria->compare('imagen',$this->imagen,true);
 		$criteria->compare('imagen_thumb',$this->imagen_thumb,true);
 		$criteria->compare('idexposicion',$this->idexposicion);
+		$criteria->compare('titulo',$this->titulo,true);
+		$criteria->compare('contenido',$this->contenido,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

@@ -8,10 +8,11 @@
  * @property string $imagen
  * @property string $imagen_thumb
  * @property integer $idexposicion
+ * @property string $descripcion
  *
  * The followings are the available model relations:
  * @property Exposicion $idexposicion0
- * @property Idiomas[] $idiomases
+ * @property TraMontaje[] $traMontajes
  */
 class Montaje extends CActiveRecord
 {
@@ -34,9 +35,10 @@ class Montaje extends CActiveRecord
 			array('imagen, imagen_thumb, idexposicion', 'required'),
 			array('idexposicion', 'numerical', 'integerOnly'=>true),
 			array('imagen, imagen_thumb', 'length', 'max'=>255),
+			array('descripcion', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('idmontaje, imagen, imagen_thumb, idexposicion', 'safe', 'on'=>'search'),
+			array('idmontaje, imagen, imagen_thumb, idexposicion, descripcion', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -49,7 +51,7 @@ class Montaje extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'idexposicion0' => array(self::BELONGS_TO, 'Exposicion', 'idexposicion'),
-			'idiomases' => array(self::MANY_MANY, 'Idiomas', 'tra_montaje(montajeid, idiomaid)'),
+			'traMontajes' => array(self::HAS_MANY, 'TraMontaje', 'montajeid'),
 		);
 	}
 
@@ -63,6 +65,7 @@ class Montaje extends CActiveRecord
 			'imagen' => 'Imagen',
 			'imagen_thumb' => 'Imagen Thumb',
 			'idexposicion' => 'Idexposicion',
+			'descripcion' => 'Descripcion',
 		);
 	}
 
@@ -88,6 +91,7 @@ class Montaje extends CActiveRecord
 		$criteria->compare('imagen',$this->imagen,true);
 		$criteria->compare('imagen_thumb',$this->imagen_thumb,true);
 		$criteria->compare('idexposicion',$this->idexposicion);
+		$criteria->compare('descripcion',$this->descripcion,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
