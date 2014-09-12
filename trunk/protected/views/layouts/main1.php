@@ -40,7 +40,7 @@
         <div class="row">
 
             <div class="col-md-2">
-                <img src="images/logoodalys.png" width="80px;">
+                <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logoodalys.png" width="80px;">
             </div>
         </div>
     </div>
@@ -54,13 +54,15 @@
 
             <div class="col-md-2">
                 <div class="bs-docs-sidebar hidden-xs hidden-sm affix" role="complementary">
-                    <img src="images/logonuevo.png" width="130px" ><br><br>
+                    <a href="<?php echo Yii::app()->request->baseUrl; ?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logonuevo.png" width="130px;"></a><br><br>
+
                 </div>
             </div>
 
             <div class= "col-md-10">     
                 <div class="visible-xs-block visible-sm-block">
-                    <img src="images/logonuevo.png" width="130px" ><br><br>
+                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logonuevo.png" width="130px;"><br><br>
+
                 </div>
                    
                 <nav class="navbar" role="navigation">
@@ -80,16 +82,19 @@
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav menuppal">
                                 <li>
-                                    <a class="menuppal" href="#">Exposiciones | Ferias</a>
+                                    <a class="menuppal" href="<?php echo Yii::app()->request->baseUrl; ?>/site/exposicionesferias">Exposiciones | Ferias</a>
                                 </li>
                                 <li>
-                                    <a class="menuppal" href="#">Artistas</a>
+                                    <a class="menuppal" href="<?php echo Yii::app()->request->baseUrl; ?>/site/artistas">Artistas</a>
                                 </li>
                                 <li>
-                                    <a class="menuppal" href="#">Alianzas</a>
+                                    <a class="menuppal" href="<?php echo Yii::app()->request->baseUrl; ?>/site/alianzas">Alianzas</a>
                                 </li>
                                 <li>
-                                    <a class="menuppal" href="#">Quienes somos</a>
+                                    <a class="menuppal" href="<?php echo Yii::app()->request->baseUrl; ?>/site/becas">Becas</a>
+                                </li>
+                                <li>
+                                    <a class="menuppal" href="<?php echo Yii::app()->request->baseUrl; ?>/site/quienessomos">Quienes somos</a>
                                 </li>
                                 <li>
                                     <a class="menuppal" href="#">Contacto</a>
@@ -107,7 +112,6 @@
                 </div>
                    
                 <!-- Portfolio Item Row -->
-                <div class="row">
 
                     <div class="col-md-12">
 
@@ -115,7 +119,6 @@
 					   
                     </div>
 
-                </div>
             </div>
         </div>
     </div>
@@ -130,7 +133,7 @@
                 <p style="font-size:12px;">ELEMENTAL se aleja de la clásica relación galería-comisario-artista para plantear la construcción de las exposiciónes de una manera orgánica.
                 <a href="sobreElemental.php"><w style="font-size: 11px;"> (Ver más) </w></a></p>
                 <br>
-                <img src="images/logoodalys.png" width="120px;">
+                <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logoodalys.png" width="120px;">
 
             </div>
 
@@ -150,10 +153,10 @@
                 <h5>Redes Sociales</h5>
             <p style="font-size:12px;line-height:30px;">
 
-                    <img src="images/social/Facebook-icon.png" width="25px"> Facebook<br>
-                    <img src="images/social/Twitter-icon.png" width="25px"> Twitter<br>
-                    <img src="images/social/Youtube-icon.png" width="25px"> Youtube<br>
-                    <img src="images/social/Instagram-icon.png" width="25px"> Instagram<br>
+                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/social/Facebook-icon.png" width="25px"> Facebook<br>
+                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/social/Twitter-icon.png" width="25px"> Twitter<br>
+                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/social/Youtube-icon.png" width="25px"> Youtube<br>
+                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/social/Instagram-icon.png" width="25px"> Instagram<br>
                 </p>
             </div>
 
@@ -161,10 +164,10 @@
                 <h5>Alianzas</h5>
                             <p style="font-size:12px;line-height:40px;">
 
-                <img src="images/logos_alianzas/GI.png" width="80px"><br>
-                <img src="images/logos_alianzas/logo_berlin.png" height="36px;">
+                <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logos_alianzas/GI.png" width="80px"><br>
+                <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logos_alianzas/logo_berlin.png" height="36px;">
 
-                <img src="images/logos_alianzas/mome.png" height="22px;">
+                <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logos_alianzas/mome.png" height="22px;">
 
                 </p>
             </div>

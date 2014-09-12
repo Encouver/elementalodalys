@@ -39,7 +39,7 @@ class SiteController extends Controller
 		
 			$criteria = new CDbCriteria;
 	    	$criteria->select = 't.*';
-	    	$criteria->order = 'fecha ASC';
+	    	$criteria->order = 'fecha DESC';
 			
 			$noticias = Noticia::model()->findAll($criteria);
 
@@ -63,6 +63,25 @@ class SiteController extends Controller
 			'noticias' => $noticias
         ));
 
+	}
+
+
+	public function actionQuienessomos(){
+		
+		$this->render('quienessomos');		
+	
+	}
+	public function actionexposicionesferias(){
+		
+		$this->render('exposicionesferias');		
+	
+	}
+
+	public function actionReqTest01() {
+	    echo date('H:i:s');
+	    $variable = "mantu";
+	    echo $variable;
+	    Yii::app()->end();
 	}
 
 	/**
