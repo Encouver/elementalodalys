@@ -28,7 +28,7 @@ class SiteController extends Controller
 		// Guardando el unico del lenguage en session _lang
 		Yii::app()->session['_lang'] = $_lang;
 
-		$this->redirect(Yii::app()->user->returnUrl);
+		$this->redirect(Yii::app()->request->urlReferrer);
 	}
 	/**
 	 * This is the default 'index' action that is invoked
@@ -72,7 +72,7 @@ class SiteController extends Controller
 		$this->render('quienessomos');		
 	
 	}
-	
+
 	public function actionexposicionesferias(){
 		
 		$idioma = Idiomas::model()->find('idioma=:idioma',array(':idioma'=>Yii::app()->language));
@@ -83,21 +83,22 @@ class SiteController extends Controller
 	    	$criteria->select = 't.*';
 	    	$criteria->order = "fecha_inicio DESC";
 			
-			$expoferias = Exposicion::model()->findAll($criteria);
 
 		}else{ //ingles
 
 			$criteria = new CDbCriteria;
-	    	$criteria->select = 't.*';
+	    	$criteria->select = 't.*, tra_exposicion.*';
 	    	$criteria->together = true;
+	    	$criteria->join ='LEFT JOIN tra_exposicion ON tra_exposicion.exposicionid = t.idexposicion';
+	    	$criteria->order = "fecha_inicio DESC";
+	    	$criteria->condition = 'tra_exposicion.idiomaid =:id';
+	    	$criteria->params = array(':id' => $idioma->id);
 
-	    	$criteria->join ='LEFT JOIN exposicion ON t.exposicionid = exposicion.idexposicion';
-	    	$criteria->order = "exposicion.fecha_inicio DESC";
 
 			
-			$expoferias = TraExposicion::model()->findAll($criteria);
 			
 		}
+			$expoferias = Exposicion::model()->findAll($criteria);
 
 		$this->render('exposicionesferias', array(
 			'expoferias' => $expoferias, 'idioma'=>$idioma
