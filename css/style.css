@@ -155,3 +155,10 @@ code {
   margin-bottom: 25px;
   height: 25px;
 }
+.head{
+
+  font-size: 20px;
+  line-height: 46px;
+  color:#757575;
+  font-weight: bold;
+}
