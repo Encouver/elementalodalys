@@ -45,22 +45,20 @@ class SiteController extends Controller
 
 		}else{ //ingles
 
-	/*
-
+	
 			$criteria = new CDbCriteria;
 	    	$criteria->select = 't.*';
-	    	$criteria->join ='LEFT JOIN tra_noticia ON tra_noticia.noticiaid = t.idnoticia';
-	    	$criteria->condition = 'tra_noticia.idiomaid=:id';
+	    	$criteria->join ='LEFT JOIN noticia ON t.noticiaid = noticia.idnoticia';
+	    	$criteria->condition = 't.idiomaid=:id';
 	    	$criteria->order = 'fecha ASC';
 	    	$criteria->params = array(':id' => $idioma->id);
 			
-			$noticias = Noticia::model()->findAll($criteria);
-
-	*/
+			$noticias = TraNoticia::model()->findAll($criteria);
+				
 		}
 		
 		$this->render('index', array(
-			'noticias' => $noticias
+			'noticias' => $noticias, 'idioma' => $idioma
         ));
 
 	}
@@ -73,16 +71,36 @@ class SiteController extends Controller
 	}
 	public function actionexposicionesferias(){
 		
-		$this->render('exposicionesferias');		
+		$idioma = Idiomas::model()->find('idioma=:idioma',array(':idioma'=>Yii::app()->language));
+
+		if ($idioma->id == "1"){ //español
+		
+			$criteria = new CDbCriteria;
+	    	$criteria->select = 't.*';
+			
+			$expoferias = Exposicion::model()->findAll($criteria);
+
+		}else{ //ingles
+
+			$criteria = new CDbCriteria;
+	    	$criteria->select = 't.*';
+	    	$criteria->together = true;
+	    	$criteria->join ='LEFT JOIN tra_exposicion ON tra_exposicion.exposicionid = t.idexposicion';
+	    	$criteria->condition = 'tra_exposicion.idiomaid=:id';
+	    	$criteria->params = array(':id' => $idioma->id);
+			
+			$expoferias = Exposicion::model()->findAll($criteria);
+			
+			echo "aqui";
+		}
+
+		$this->render('exposicionesferias', array(
+			'expoferias' => $expoferias
+        ));
 	
 	}
 
-	public function actionReqTest01() {
-	    echo date('H:i:s');
-	    $variable = "mantu";
-	    echo $variable;
-	    Yii::app()->end();
-	}
+
 
 	/**
 	 * This is the action to handle external exceptions.
