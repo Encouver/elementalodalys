@@ -25,5 +25,6 @@ $this->menu=array(
 		'idartista',
 		'imagen',
 		'imagen_thumb',
+		'descripcion',
 	),
 )); ?>

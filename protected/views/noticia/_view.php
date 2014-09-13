@@ -21,5 +21,13 @@
 	<?php echo CHtml::encode($data->link); ?>
 	<br />
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('titulo')); ?>:</b>
+	<?php echo CHtml::encode($data->titulo); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('contenido')); ?>:</b>
+	<?php echo CHtml::encode($data->contenido); ?>
+	<br />
+
 
 </div>

@@ -25,5 +25,7 @@ $this->menu=array(
 		'idexposicion',
 		'portada',
 		'portada_thumb',
+		'pdf',
+		'datos',
 	),
 )); ?>

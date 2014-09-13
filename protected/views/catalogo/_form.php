@@ -37,6 +37,18 @@
 		<?php echo $form->error($model,'portada_thumb'); ?>
 	</div>
 
+	<div class="row">
+		<?php echo $form->labelEx($model,'pdf'); ?>
+		<?php echo $form->textField($model,'pdf',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->error($model,'pdf'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'datos'); ?>
+		<?php echo $form->textField($model,'datos',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->error($model,'datos'); ?>
+	</div>
+
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>

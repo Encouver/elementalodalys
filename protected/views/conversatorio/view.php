@@ -24,5 +24,6 @@ $this->menu=array(
 		'idconversatorio',
 		'link',
 		'idexposicion',
+		'descripcion',
 	),
 )); ?>

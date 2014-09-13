@@ -33,5 +33,11 @@
 	<?php echo CHtml::encode($data->tipo); ?>
 	<br />
 
+	<?php /*
+	<b><?php echo CHtml::encode($data->getAttributeLabel('pais')); ?>:</b>
+	<?php echo CHtml::encode($data->pais); ?>
+	<br />
+
+	*/ ?>
 
 </div>

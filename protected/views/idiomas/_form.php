@@ -25,6 +25,12 @@
 		<?php echo $form->error($model,'idioma'); ?>
 	</div>
 
+	<div class="row">
+		<?php echo $form->labelEx($model,'nombre'); ?>
+		<?php echo $form->textField($model,'nombre',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->error($model,'nombre'); ?>
+	</div>
+
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>

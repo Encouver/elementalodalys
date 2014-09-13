@@ -37,62 +37,15 @@
 		<?php echo $form->error($model,'lugar'); ?>
 	</div>
 
-
 	<div class="row">
 		<?php echo $form->labelEx($model,'fecha_inicio'); ?>
-		<?php
-		$this->widget('zii.widgets.jui.CJuiDatePicker',array(
-	    'attribute' => 'fecha_inicio',
-		'name'=>'fecha_inicio',
-		'model' => $model,
-	    //'flat'=>true,//remove to hide the datepicker
-	    'options'=>array(
-	        'dateFormat' => 'yy-mm-dd',
-	        'showAnim'=>'slide',//'slide','fold','slideDown','fadeIn','blind','bounce','clip','drop'
-	        'changeMonth'=>true,
-	        'changeYear'=>true,
-	        'yearRange'=>'2000:2099',
-	        'minDate' => '2000-01-01',      // minimum date
-	        'maxDate' => '2099-12-31',      // maximum date
-		 	'constrainInput' => 'true',
-			'lenguage' => 'es',
-			
-	    ),
-	    'htmlOptions'=>array(
-	        'style'=>''
-	    ),
-	));
-		
-		?>
+		<?php echo $form->textField($model,'fecha_inicio'); ?>
 		<?php echo $form->error($model,'fecha_inicio'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'fecha_fin'); ?>
-		<?php
-		$this->widget('zii.widgets.jui.CJuiDatePicker',array(
-	    'attribute' => 'fecha_fin',
-		'name'=>'fecha_fin',
-		'model' => $model,
-	    //'flat'=>true,//remove to hide the datepicker
-	    'options'=>array(
-	        'dateFormat' => 'yy-mm-dd',
-	        'showAnim'=>'slide',//'slide','fold','slideDown','fadeIn','blind','bounce','clip','drop'
-	        'changeMonth'=>true,
-	        'changeYear'=>true,
-	        'yearRange'=>'2000:2099',
-	        'minDate' => '2000-01-01',      // minimum date
-	        'maxDate' => '2099-12-31',      // maximum date
-		 	'constrainInput' => 'true',
-			'lenguage' => 'es',
-			
-	    ),
-	    'htmlOptions'=>array(
-	        'style'=>''
-	    ),
-	));
-		
-		?>
+		<?php echo $form->textField($model,'fecha_fin'); ?>
 		<?php echo $form->error($model,'fecha_fin'); ?>
 	</div>
 
@@ -100,6 +53,12 @@
 		<?php echo $form->labelEx($model,'tipo'); ?>
 		<?php echo $form->textField($model,'tipo',array('size'=>10,'maxlength'=>10)); ?>
 		<?php echo $form->error($model,'tipo'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'pais'); ?>
+		<?php echo $form->textField($model,'pais',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->error($model,'pais'); ?>
 	</div>
 
 	<div class="row buttons">

@@ -25,5 +25,7 @@ $this->menu=array(
 		'fecha',
 		'imagen',
 		'link',
+		'titulo',
+		'contenido',
 	),
 )); ?>

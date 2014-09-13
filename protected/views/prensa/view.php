@@ -26,5 +26,7 @@ $this->menu=array(
 		'imagen',
 		'imagen_thumb',
 		'idexposicion',
+		'titulo',
+		'contenido',
 	),
 )); ?>

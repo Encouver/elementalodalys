@@ -21,5 +21,13 @@
 	<?php echo CHtml::encode($data->portada_thumb); ?>
 	<br />
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('pdf')); ?>:</b>
+	<?php echo CHtml::encode($data->pdf); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('datos')); ?>:</b>
+	<?php echo CHtml::encode($data->datos); ?>
+	<br />
+
 
 </div>
