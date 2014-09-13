@@ -7,7 +7,10 @@ $this->pageTitle=Yii::app()->name;
 <div class="row">	
 	<div class="col-md-8">
 	    <ul class="media-list">
-	    <?php
+	    <?php	    
+	    //Ejemplo de traducción utilizando Yii...
+	    echo Yii::t('site','Noticias');
+	    
 	    	$primero = 1;
 	       
 	        foreach ($noticias as $noticia)
