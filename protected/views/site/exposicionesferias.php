@@ -3,25 +3,12 @@
 
 $this->pageTitle=Yii::app()->name;
 
+	foreach ($expoferias as $expoferia){
 
+		echo $expoferia->nombre1;
+		echo $expoferia->pais;
 
-echo CHtml::ajaxLink(
-    '<div id="req_res">
-    Test request',          // the link body (it will NOT be HTML-encoded.)
-    array('site/reqTest01'),  // the URL for the AJAX request. If empty, it is assumed to be the current URL.
-    array(
-        'update'=>'#req_res'
-    ), array('update'=>'#forAjaxRefresh')
-);
- 
-echo '...</div>';
- 
-
-
-
-
-
-
+	}
 
 
 ?>

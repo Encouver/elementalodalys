@@ -4,61 +4,97 @@
 $this->pageTitle=Yii::app()->name;
 ?>
 
-<div class="row">
-	
+<div class="row">	
 	<div class="col-md-8">
-    
 	    <ul class="media-list">
 	    <?php
 	    	$primero = 1;
+	       
 	        foreach ($noticias as $noticia)
 	        {
+
 	    		if ($primero == 1) {
 	                echo "
 	                    <div class='media-body'>
-	                    	<div id = 'fecha_noticias'>".$noticia->fecha."</div><h2 style='font-size:26px;' class='media-heading noti'>".$noticia->titulo."</h2>    
-	                    	<div style='text-align:center !important; padding-bottom: 14px; padding-top:6px;'>
-
-	                        ";
-
-								$this->widget('ext.SAImageDisplayer', array(
-								    'image' => $noticia->imagen,//'xxx.jpg',
-								    'size' => 'grande',
-								    'class'=>'media-object',
-								    'defaultImage' => 'default.png',
-								    'group' => 'noticia',
-								));
-
-							echo "
-							</div>
-                        	<div class='comment more texto' style:'font-weight: 900;'>"
-	                        	.$noticia->contenido.
-                          		"<br>
-                        	</div>
-                    	</div>
+	                    	<div id = 'fecha_noticias'>";
+						    	if ($idioma->id == 2){				    		
+						    		echo $noticia->noticia->fecha;
+						    	}else{
+						    		echo $noticia->fecha;
+						    	}
+		                    	echo"</div><h2 style='font-size:26px;' class='media-heading noti'>".$noticia->titulo."</h2>    
+		                    	<div style='text-align:center !important; padding-bottom: 14px; padding-top:6px;'>
+		                        ";
+							    	if ($idioma->id == 2){		
+										$this->widget('ext.SAImageDisplayer', array(
+										    'image' => $noticia->noticia->imagen,//'xxx.jpg',
+										    'size' => 'grande',
+										    'class'=>'media-object',
+										    'defaultImage' => 'default.png',
+										    'group' => 'noticia',
+										));
+							    	}else{
+										$this->widget('ext.SAImageDisplayer', array(
+										    'image' => $noticia->imagen,//'xxx.jpg',
+										    'size' => 'grande',
+										    'class'=>'media-object',
+										    'defaultImage' => 'default.png',
+										    'group' => 'noticia',
+										));
+							    	}
+								echo "
+								</div>
+    	                    	<div class='comment more texto' style:'font-weight: 900;'>"
+	    	                    	.$noticia->contenido.
+            	              		"<br>
+                	        	</div>
+                    		</div>
 	                    
-	                    <hr>
-	                ";
+	                    	<hr>
+	                		";
 	                    
 	                $primero = 2;
 	            }else{
 	            	echo "
 	                	<li class='media'>
 	                    	<a class='pull-left' href='#'>
-					";
-								$this->widget('ext.SAImageDisplayer', array(
-								    'image' => $noticia->imagen,//'xxx.jpg',
-								    'size' => 'pequena',
-								    'defaultImage' => 'default.png',
-								    'class'=>'media-object',
-								    'group' => 'noticia',
+							";
 
-								));
+						    	if ($idioma->id == 2){				    		
+									$this->widget('ext.SAImageDisplayer', array(
+									    'image' => $noticia->noticia->imagen,//'xxx.jpg',
+									    'size' => 'pequena',
+									    'defaultImage' => 'default.png',
+									    'class'=>'media-object',
+									    'group' => 'noticia',
+
+									));
+						    	}else{
+									$this->widget('ext.SAImageDisplayer', array(
+									    'image' => $noticia->imagen,//'xxx.jpg',
+									    'size' => 'pequena',
+									    'defaultImage' => 'default.png',
+									    'class'=>'media-object',
+									    'group' => 'noticia',
+
+									));	    	
+								}
+
+
+
+
+
 					
 							echo "
 	                    	</a>
 	                    	<div class='media-body'>
-		                        <div id = 'fecha_noticias'>".$noticia->fecha."</div><h2 class='media-heading noti'>".$noticia->titulo."</h2>
+		                        <div id = 'fecha_noticias'>";
+							    	if ($idioma->id == 2){				    		
+							    		echo $noticia->noticia->fecha;
+							    	}else{
+							    		echo $noticia->fecha;
+							    	}
+		                        echo "</div><h2 class='media-heading noti'>".$noticia->titulo."</h2>
 		                        <div class='comment more texto'>"
 		                         .$noticia->contenido.
 		                      	"</div>
