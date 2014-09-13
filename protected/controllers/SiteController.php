@@ -49,18 +49,17 @@ class SiteController extends Controller
 	    	$criteria->order = 'fecha DESC';
 			
 			$noticias = Noticia::model()->findAll($criteria);
-
+		
 		}else{ //ingles
 
 	
 			$criteria = new CDbCriteria;
-	    	$criteria->select = 't.*';
-	    	$criteria->join ='LEFT JOIN noticia ON t.noticiaid = noticia.idnoticia';
-	    	$criteria->condition = 't.idiomaid=:id';
+	    	$criteria->select = 't.*, tra_noticia.*';
+	    	$criteria->join ='LEFT JOIN tra_noticia ON tra_noticia.noticiaid = t.idnoticia';
 	    	$criteria->order = 'fecha DESC';
 	    	$criteria->params = array(':id' => $idioma->id);
 			
-			$noticias = TraNoticia::model()->findAll($criteria);
+			$noticias = Noticia::model()->findAll($criteria);
 				
 		}
 		

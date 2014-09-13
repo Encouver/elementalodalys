@@ -12,30 +12,27 @@ $this->pageTitle=Yii::app()->name;
 	    echo Yii::t('site','Noticias');
 	    	$primero = 1;
 	       
+
+
 	        foreach ($noticias as $noticia)
 	        {
+				//echo $noticia->titulo;
 
+	        	//print_r($noticia);
+	        	//echo "<br><br><br>";
+
+	        	
 	    		if ($primero == 1) {
 	                echo "
 	                    <div class='media-body'>
 	                    	<div id = 'fecha_noticias'>";
-						    	if ($idioma->id == 2){				    		
-						    		echo $noticia->noticia->fecha;
-						    	}else{
+
 						    		echo $noticia->fecha;
-						    	}
+						    	
 		                    	echo"</div><h2 style='font-size:26px;' class='media-heading noti'>".$noticia->titulo."</h2>    
 		                    	<div style='text-align:center !important; padding-bottom: 14px; padding-top:6px;'>
 		                        ";
-							    	if ($idioma->id == 2){		
-										$this->widget('ext.SAImageDisplayer', array(
-										    'image' => $noticia->noticia->imagen,//'xxx.jpg',
-										    'size' => 'grande',
-										    'class'=>'media-object',
-										    'defaultImage' => 'default.png',
-										    'group' => 'noticia',
-										));
-							    	}else{
+
 										$this->widget('ext.SAImageDisplayer', array(
 										    'image' => $noticia->imagen,//'xxx.jpg',
 										    'size' => 'grande',
@@ -43,7 +40,7 @@ $this->pageTitle=Yii::app()->name;
 										    'defaultImage' => 'default.png',
 										    'group' => 'noticia',
 										));
-							    	}
+							    	
 								echo "
 								</div>
     	                    	<div class='comment more texto' style:'font-weight: 900;'>"
@@ -62,16 +59,7 @@ $this->pageTitle=Yii::app()->name;
 	                    	<a class='pull-left' href='#'>
 							";
 
-						    	if ($idioma->id == 2){				    		
-									$this->widget('ext.SAImageDisplayer', array(
-									    'image' => $noticia->noticia->imagen,//'xxx.jpg',
-									    'size' => 'pequena',
-									    'defaultImage' => 'default.png',
-									    'class'=>'media-object',
-									    'group' => 'noticia',
-
-									));
-						    	}else{
+				
 									$this->widget('ext.SAImageDisplayer', array(
 									    'image' => $noticia->imagen,//'xxx.jpg',
 									    'size' => 'pequena',
@@ -80,7 +68,7 @@ $this->pageTitle=Yii::app()->name;
 									    'group' => 'noticia',
 
 									));	    	
-								}
+								
 
 
 
@@ -91,11 +79,9 @@ $this->pageTitle=Yii::app()->name;
 	                    	</a>
 	                    	<div class='media-body'>
 		                        <div id = 'fecha_noticias'>";
-							    	if ($idioma->id == 2){				    		
-							    		echo $noticia->noticia->fecha;
-							    	}else{
+
 							    		echo $noticia->fecha;
-							    	}
+							    	
 		                        echo "</div><h2 class='media-heading noti'>".$noticia->titulo."</h2>
 		                        <div class='comment more texto'>"
 		                         .$noticia->contenido.
