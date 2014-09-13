@@ -31,7 +31,7 @@ class Conversatorio extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('idconversatorio, link, idexposicion', 'required'),
+			array(' link, idexposicion', 'required'),
 			array('idconversatorio, idexposicion', 'numerical', 'integerOnly'=>true),
 			array('link', 'length', 'max'=>255),
 			array('descripcion', 'safe'),
@@ -62,8 +62,8 @@ class Conversatorio extends CActiveRecord
 		return array(
 			'idconversatorio' => 'Idconversatorio',
 			'link' => 'Link',
-			'idexposicion' => 'Idexposicion',
-			'descripcion' => 'Descripcion',
+			'idexposicion' => 'Exposición',
+			'descripcion' => 'Descripción',
 		);
 	}
 

@@ -21,10 +21,32 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'fecha'); ?>
-		<?php echo $form->textField($model,'fecha'); ?>
+		<?php
+		$this->widget('zii.widgets.jui.CJuiDatePicker',array(
+	    'attribute' => 'fecha',
+		'name'=>'fecha',
+		'model' => $model,
+	    //'flat'=>true,//remove to hide the datepicker
+	    'options'=>array(
+	        'dateFormat' => 'yy-mm-dd',
+	        'showAnim'=>'slide',//'slide','fold','slideDown','fadeIn','blind','bounce','clip','drop'
+	        'changeMonth'=>true,
+	        'changeYear'=>true,
+	        'yearRange'=>'2000:2099',
+	        'minDate' => '2000-01-01',      // minimum date
+	        'maxDate' => '2099-12-31',      // maximum date
+		 	'constrainInput' => 'true',
+			'lenguage' => 'es',
+			
+	    ),
+	    'htmlOptions'=>array(
+	        'style'=>''
+	    ),
+	));
+		
+		?>
 		<?php echo $form->error($model,'fecha'); ?>
 	</div>
-
 	<div class="row">
 		<?php echo $form->labelEx($model,'imagen'); ?>
 		<?php echo $form->textField($model,'imagen',array('size'=>60,'maxlength'=>255)); ?>
@@ -39,7 +61,10 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'idexposicion'); ?>
-		<?php echo $form->textField($model,'idexposicion'); ?>
+		<?php //echo $form->textField($model,'tipousuario'); >
+			echo $form->dropDownList($model, 'idexposicion', 
+			CHtml::listData(exposicion::model()->findAll(),'idexposicion','nombre1'),array('empty' =>'Seleccione'));
+		?>
 		<?php echo $form->error($model,'idexposicion'); ?>
 	</div>
 
