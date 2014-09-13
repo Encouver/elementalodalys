@@ -1,22 +1,22 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : localhost
-Source Server Version : 50615
+Source Server         : Mysql
+Source Server Version : 50156
 Source Host           : localhost:3306
 Source Database       : elemental
 
 Target Server Type    : MYSQL
-Target Server Version : 50615
+Target Server Version : 50156
 File Encoding         : 65001
 
-Date: 2014-09-13 10:48:31
+Date: 2014-09-13 18:09:47
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for artista
+-- Table structure for `artista`
 -- ----------------------------
 DROP TABLE IF EXISTS `artista`;
 CREATE TABLE `artista` (
@@ -34,7 +34,7 @@ CREATE TABLE `artista` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for artista_expo
+-- Table structure for `artista_expo`
 -- ----------------------------
 DROP TABLE IF EXISTS `artista_expo`;
 CREATE TABLE `artista_expo` (
@@ -53,7 +53,7 @@ CREATE TABLE `artista_expo` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for artista_prensa
+-- Table structure for `artista_prensa`
 -- ----------------------------
 DROP TABLE IF EXISTS `artista_prensa`;
 CREATE TABLE `artista_prensa` (
@@ -72,7 +72,7 @@ CREATE TABLE `artista_prensa` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for audio
+-- Table structure for `audio`
 -- ----------------------------
 DROP TABLE IF EXISTS `audio`;
 CREATE TABLE `audio` (
@@ -90,7 +90,7 @@ CREATE TABLE `audio` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for catalogo
+-- Table structure for `catalogo`
 -- ----------------------------
 DROP TABLE IF EXISTS `catalogo`;
 CREATE TABLE `catalogo` (
@@ -110,25 +110,26 @@ CREATE TABLE `catalogo` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for conversatorio
+-- Table structure for `conversatorio`
 -- ----------------------------
 DROP TABLE IF EXISTS `conversatorio`;
 CREATE TABLE `conversatorio` (
-  `idconversatorio` int(11) NOT NULL,
+  `idconversatorio` int(11) NOT NULL AUTO_INCREMENT,
   `link` varchar(255) NOT NULL,
   `idexposicion` int(11) NOT NULL,
   `descripcion` text,
   PRIMARY KEY (`idconversatorio`),
   KEY `idexposicion` (`idexposicion`),
   CONSTRAINT `conversatorio_ibfk_1` FOREIGN KEY (`idexposicion`) REFERENCES `exposicion` (`idexposicion`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of conversatorio
 -- ----------------------------
+INSERT INTO `conversatorio` VALUES ('1', 'sadsadsa', '1', 'sadsadsad');
 
 -- ----------------------------
--- Table structure for exposicion
+-- Table structure for `exposicion`
 -- ----------------------------
 DROP TABLE IF EXISTS `exposicion`;
 CREATE TABLE `exposicion` (
@@ -141,14 +142,15 @@ CREATE TABLE `exposicion` (
   `tipo` enum('FERIA','INDIVIDUAL','COLECTIVA') NOT NULL,
   `pais` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`idexposicion`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of exposicion
 -- ----------------------------
+INSERT INTO `exposicion` VALUES ('1', 'sdasd', 'sadsad', 'asdasdasd', '2014-09-10 00:00:00', '2014-09-24 00:00:00', 'INDIVIDUAL', 'Venezuela');
 
 -- ----------------------------
--- Table structure for expo_obra
+-- Table structure for `expo_obra`
 -- ----------------------------
 DROP TABLE IF EXISTS `expo_obra`;
 CREATE TABLE `expo_obra` (
@@ -167,24 +169,24 @@ CREATE TABLE `expo_obra` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for idiomas
+-- Table structure for `idiomas`
 -- ----------------------------
 DROP TABLE IF EXISTS `idiomas`;
 CREATE TABLE `idiomas` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `idioma` varchar(6) NOT NULL DEFAULT '',
+  `idioma` varchar(6) DEFAULT '',
   `nombre` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of idiomas
 -- ----------------------------
 INSERT INTO `idiomas` VALUES ('1', 'es', 'Español');
-INSERT INTO `idiomas` VALUES ('2', 'en', 'Ingles');
+INSERT INTO `idiomas` VALUES ('2', 'en', 'English');
 
 -- ----------------------------
--- Table structure for montaje
+-- Table structure for `montaje`
 -- ----------------------------
 DROP TABLE IF EXISTS `montaje`;
 CREATE TABLE `montaje` (
@@ -203,7 +205,7 @@ CREATE TABLE `montaje` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for noticia
+-- Table structure for `noticia`
 -- ----------------------------
 DROP TABLE IF EXISTS `noticia`;
 CREATE TABLE `noticia` (
@@ -219,11 +221,11 @@ CREATE TABLE `noticia` (
 -- ----------------------------
 -- Records of noticia
 -- ----------------------------
-INSERT INTO `noticia` VALUES ('1', '2014-09-08 22:10:55', 'xxx2.jpg', 'knbdf', 'dsfa', 'asd');
-INSERT INTO `noticia` VALUES ('2', '2014-09-01 00:39:25', 'xxx.jpg', 'asdf', 'jh', 'hjhj');
+INSERT INTO `noticia` VALUES ('1', '2014-09-08 22:10:55', 'xxx2.jpg', 'knbdf', 'Hola Hola Hola Elemental Bla de bla bla', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur facilisis enim in velit suscipit, non egestas purus commodo. Fusce hendrerit lacinia ornare. Mauris nec nunc nibh. Aenean iaculis felis in egestas porttitor. Quisque non augue ex. Suspendisse maximus urna ac tincidunt consequat. Sed eget mattis arcu. Phasellus convallis magna ipsum, id placerat tellus dapibus in. Morbi gravida eu odio bibendum semper. Duis tellus nisl, aliquam at sagittis at, posuere eu dui. Praesent mollis fringilla justo. Quisque eget sem dui.  Phasellus magna odio, laoreet eu dapibus et, scelerisque a enim. Suspendisse nec aliquet massa. Aliquam euismod augue eget turpis sagittis fermentum vel quis nisl. Mauris ac magna sed nisl congue placerat eget quis sapien. Aliquam convallis lorem sit amet risus tempor malesuada. Quisque interdum mi sit amet lectus pellentesque, in dictum ex volutpat. In hac habitasse platea dictumst. Sed vel convallis lorem, non tempor nunc. Etiam in augue vitae ligula rutrum porta. Nullam congue et urna eget commodo. Donec scelerisque tincidunt orci, eget molestie nisl consequat eu. Donec commodo vitae ex vel vehicula. Vestibulum mollis hendrerit bibendum.');
+INSERT INTO `noticia` VALUES ('2', '2014-09-01 00:39:25', 'xxx.jpg', 'asdf', 'Esta es otra noticia', 'Donec lectus ligula, euismod nec lorem quis, venenatis congue arcu. Sed pharetra blandit lectus, nec dictum nisl condimentum quis. Nullam mollis purus ut rutrum ultricies. Curabitur sed egestas sem. Nullam aliquet felis gravida augue condimentum vehicula. Suspendisse potenti. Curabitur vitae mollis purus. Curabitur nibh felis, imperdiet a turpis nec, rhoncus imperdiet urna. Aenean volutpat arcu orci, vitae commodo leo pharetra ac. Morbi nisi ante, porttitor id feugiat ac, efficitur ut tortor. Nam eu ullamcorper quam. Aenean placerat turpis id aliquam varius. Pellentesque tempus metus elit, at laoreet arcu blandit a. Nunc vestibulum turpis id vestibulum pharetra.  Sed commodo venenatis posuere. Curabitur id vehicula justo. Duis congue, libero quis dictum volutpat, justo nulla molestie ligula, eu consectetur dolor est iaculis mauris. Praesent cursus quam dapibus erat sodales feugiat. Quisque aliquet lectus a imperdiet consequat. Ut tempor nisi eu orci commodo, at convallis nulla tincidunt. Proin eu feugiat orci. Nulla vestibulum aliquet eros, id malesuada sem convallis vel. Sed eu hendrerit lectus. Etiam venenatis, magna quis molestie semper, urna leo aliquam purus, vel euismod ex nisl non sapien. Mauris in nunc tempus, bibendum est tempor, tincidunt lectus. Curabitur pretium, sem in ultrices mollis, felis metus ullamcorper nunc, ut venenatis justo risus blandit libero.');
 
 -- ----------------------------
--- Table structure for obra
+-- Table structure for `obra`
 -- ----------------------------
 DROP TABLE IF EXISTS `obra`;
 CREATE TABLE `obra` (
@@ -242,7 +244,7 @@ CREATE TABLE `obra` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for prensa
+-- Table structure for `prensa`
 -- ----------------------------
 DROP TABLE IF EXISTS `prensa`;
 CREATE TABLE `prensa` (
@@ -263,24 +265,24 @@ CREATE TABLE `prensa` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for tblsession
+-- Table structure for `tblsession`
 -- ----------------------------
 DROP TABLE IF EXISTS `tblsession`;
 CREATE TABLE `tblsession` (
-  `id` char(32) NOT NULL,
+  `id` char(32) COLLATE utf8_spanish_ci NOT NULL,
   `expire` int(11) DEFAULT NULL,
   `data` longblob,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- ----------------------------
 -- Records of tblsession
 -- ----------------------------
-INSERT INTO `tblsession` VALUES ('g8no0399jknouqinhishm5a2a3', '1411225962', 0x5F6C616E677C733A323A226573223B);
-INSERT INTO `tblsession` VALUES ('lcu9iahn1v2j91mgdie1j9p877', '1411226298', 0x6769695F5F72657475726E55726C7C733A33303A222F656C656D656E74616C6F64616C79732F696E6465782E7068702F676969223B6769695F5F69647C733A353A227969696572223B6769695F5F6E616D657C733A353A227969696572223B6769695F5F7374617465737C613A303A7B7D5F6C616E677C733A323A226573223B);
+INSERT INTO `tblsession` VALUES ('18faq14i38sl0n9tjb7fvpumf1', '1410648327', '');
+INSERT INTO `tblsession` VALUES ('a2ohg483p7s2ug0g1s31sbbie5', '1410649296', 0x34626666633265376530646535386536656538343032376566306439303238395F5F72657475726E55726C7C733A32353A222F656C656D656E74616C6F64616C79732F7573756172696F73223B);
 
 -- ----------------------------
--- Table structure for tra_artista
+-- Table structure for `tra_artista`
 -- ----------------------------
 DROP TABLE IF EXISTS `tra_artista`;
 CREATE TABLE `tra_artista` (
@@ -301,7 +303,7 @@ CREATE TABLE `tra_artista` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for tra_audio
+-- Table structure for `tra_audio`
 -- ----------------------------
 DROP TABLE IF EXISTS `tra_audio`;
 CREATE TABLE `tra_audio` (
@@ -322,7 +324,7 @@ CREATE TABLE `tra_audio` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for tra_catalogo
+-- Table structure for `tra_catalogo`
 -- ----------------------------
 DROP TABLE IF EXISTS `tra_catalogo`;
 CREATE TABLE `tra_catalogo` (
@@ -343,7 +345,7 @@ CREATE TABLE `tra_catalogo` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for tra_conversatorio
+-- Table structure for `tra_conversatorio`
 -- ----------------------------
 DROP TABLE IF EXISTS `tra_conversatorio`;
 CREATE TABLE `tra_conversatorio` (
@@ -363,7 +365,7 @@ CREATE TABLE `tra_conversatorio` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for tra_exposicion
+-- Table structure for `tra_exposicion`
 -- ----------------------------
 DROP TABLE IF EXISTS `tra_exposicion`;
 CREATE TABLE `tra_exposicion` (
@@ -383,7 +385,7 @@ CREATE TABLE `tra_exposicion` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for tra_montaje
+-- Table structure for `tra_montaje`
 -- ----------------------------
 DROP TABLE IF EXISTS `tra_montaje`;
 CREATE TABLE `tra_montaje` (
@@ -403,7 +405,7 @@ CREATE TABLE `tra_montaje` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for tra_noticia
+-- Table structure for `tra_noticia`
 -- ----------------------------
 DROP TABLE IF EXISTS `tra_noticia`;
 CREATE TABLE `tra_noticia` (
@@ -428,7 +430,7 @@ INSERT INTO `tra_noticia` VALUES ('3', '1', '2', 'Bien', 'aceptar');
 INSERT INTO `tra_noticia` VALUES ('4', '2', '2', 'Good', 'Ok');
 
 -- ----------------------------
--- Table structure for tra_obra
+-- Table structure for `tra_obra`
 -- ----------------------------
 DROP TABLE IF EXISTS `tra_obra`;
 CREATE TABLE `tra_obra` (
@@ -448,7 +450,7 @@ CREATE TABLE `tra_obra` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for tra_prensa
+-- Table structure for `tra_prensa`
 -- ----------------------------
 DROP TABLE IF EXISTS `tra_prensa`;
 CREATE TABLE `tra_prensa` (
@@ -469,7 +471,7 @@ CREATE TABLE `tra_prensa` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for tra_verni_fini
+-- Table structure for `tra_verni_fini`
 -- ----------------------------
 DROP TABLE IF EXISTS `tra_verni_fini`;
 CREATE TABLE `tra_verni_fini` (
@@ -489,7 +491,7 @@ CREATE TABLE `tra_verni_fini` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for usuarios
+-- Table structure for `usuarios`
 -- ----------------------------
 DROP TABLE IF EXISTS `usuarios`;
 CREATE TABLE `usuarios` (
@@ -499,14 +501,17 @@ CREATE TABLE `usuarios` (
   `clave` varchar(255) NOT NULL,
   `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`,`usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of usuarios
 -- ----------------------------
+INSERT INTO `usuarios` VALUES ('1', 'Mantura', 'mantura', 'e10adc3949ba59abbe56e057f20f883e', '2014-09-13 18:06:48');
+INSERT INTO `usuarios` VALUES ('2', 'Marcos', 'marcos', 'e10adc3949ba59abbe56e057f20f883e', '2014-09-13 18:07:02');
+INSERT INTO `usuarios` VALUES ('3', 'Edgar', 'edgar', 'e10adc3949ba59abbe56e057f20f883e', '2014-09-13 18:07:11');
 
 -- ----------------------------
--- Table structure for verni_fini
+-- Table structure for `verni_fini`
 -- ----------------------------
 DROP TABLE IF EXISTS `verni_fini`;
 CREATE TABLE `verni_fini` (
