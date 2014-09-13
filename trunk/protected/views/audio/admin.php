@@ -47,6 +47,8 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'columns'=>array(
 		'idaudio',
 		'idexposicion',
+		'datos',
+		'audio_ruta',
 		array(
 			'class'=>'CButtonColumn',
 		),

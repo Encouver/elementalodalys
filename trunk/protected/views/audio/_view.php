@@ -13,5 +13,13 @@
 	<?php echo CHtml::encode($data->idexposicion); ?>
 	<br />
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('datos')); ?>:</b>
+	<?php echo CHtml::encode($data->datos); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('audio_ruta')); ?>:</b>
+	<?php echo CHtml::encode($data->audio_ruta); ?>
+	<br />
+
 
 </div>

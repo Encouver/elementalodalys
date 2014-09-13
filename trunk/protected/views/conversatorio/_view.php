@@ -17,5 +17,9 @@
 	<?php echo CHtml::encode($data->idexposicion); ?>
 	<br />
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('descripcion')); ?>:</b>
+	<?php echo CHtml::encode($data->descripcion); ?>
+	<br />
+
 
 </div>

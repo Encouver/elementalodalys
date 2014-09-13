@@ -25,5 +25,7 @@ $this->menu=array(
 		'nombre',
 		'apellido',
 		'ano',
+		'pais',
+		'biografia',
 	),
 )); ?>

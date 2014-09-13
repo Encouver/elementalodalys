@@ -21,5 +21,13 @@
 	<?php echo CHtml::encode($data->ano); ?>
 	<br />
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('pais')); ?>:</b>
+	<?php echo CHtml::encode($data->pais); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('biografia')); ?>:</b>
+	<?php echo CHtml::encode($data->biografia); ?>
+	<br />
+
 
 </div>

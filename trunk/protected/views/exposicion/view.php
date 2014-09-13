@@ -28,5 +28,6 @@ $this->menu=array(
 		'fecha_inicio',
 		'fecha_fin',
 		'tipo',
+		'pais',
 	),
 )); ?>

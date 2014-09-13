@@ -23,5 +23,7 @@ $this->menu=array(
 	'attributes'=>array(
 		'idaudio',
 		'idexposicion',
+		'datos',
+		'audio_ruta',
 	),
 )); ?>

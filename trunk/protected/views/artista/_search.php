@@ -31,6 +31,16 @@
 		<?php echo $form->textField($model,'ano'); ?>
 	</div>
 
+	<div class="row">
+		<?php echo $form->label($model,'pais'); ?>
+		<?php echo $form->textField($model,'pais',array('size'=>60,'maxlength'=>255)); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'biografia'); ?>
+		<?php echo $form->textArea($model,'biografia',array('rows'=>6, 'cols'=>50)); ?>
+	</div>
+
 	<div class="row buttons">
 		<?php echo CHtml::submitButton('Search'); ?>
 	</div>

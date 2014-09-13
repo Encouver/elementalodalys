@@ -46,6 +46,11 @@
 		<?php echo $form->textField($model,'tipo',array('size'=>10,'maxlength'=>10)); ?>
 	</div>
 
+	<div class="row">
+		<?php echo $form->label($model,'pais'); ?>
+		<?php echo $form->textField($model,'pais',array('size'=>60,'maxlength'=>255)); ?>
+	</div>
+
 	<div class="row buttons">
 		<?php echo CHtml::submitButton('Search'); ?>
 	</div>
