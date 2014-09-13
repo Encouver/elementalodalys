@@ -6,6 +6,7 @@
  * The followings are the available columns in table 'elemental.idiomas':
  * @property integer $id
  * @property string $idioma
+ * @property string $nombre
  *
  * The followings are the available model relations:
  * @property TraArtista[] $traArtistas
@@ -38,9 +39,10 @@ class Idiomas extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('idioma', 'length', 'max'=>6),
+			array('nombre', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, idioma', 'safe', 'on'=>'search'),
+			array('id, idioma, nombre', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -73,6 +75,7 @@ class Idiomas extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'idioma' => 'Idioma',
+			'nombre' => 'Nombre',
 		);
 	}
 
@@ -96,6 +99,7 @@ class Idiomas extends CActiveRecord
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('idioma',$this->idioma,true);
+		$criteria->compare('nombre',$this->nombre,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

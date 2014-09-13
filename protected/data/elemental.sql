@@ -2,15 +2,15 @@
 Navicat MySQL Data Transfer
 
 Source Server         : localhost
-Source Server Version : 50617
+Source Server Version : 50615
 Source Host           : localhost:3306
 Source Database       : elemental
 
 Target Server Type    : MYSQL
-Target Server Version : 50617
+Target Server Version : 50615
 File Encoding         : 65001
 
-Date: 2014-09-11 14:43:10
+Date: 2014-09-13 10:48:31
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -173,14 +173,15 @@ DROP TABLE IF EXISTS `idiomas`;
 CREATE TABLE `idiomas` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idioma` varchar(6) NOT NULL DEFAULT '',
+  `nombre` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of idiomas
 -- ----------------------------
-INSERT INTO `idiomas` VALUES ('1', 'es');
-INSERT INTO `idiomas` VALUES ('2', 'en');
+INSERT INTO `idiomas` VALUES ('1', 'es', 'Español');
+INSERT INTO `idiomas` VALUES ('2', 'en', 'Ingles');
 
 -- ----------------------------
 -- Table structure for montaje
@@ -218,8 +219,8 @@ CREATE TABLE `noticia` (
 -- ----------------------------
 -- Records of noticia
 -- ----------------------------
-INSERT INTO `noticia` VALUES ('1', '2014-09-08 22:10:55', 'xxx2.jpg', 'knbdf', null, null);
-INSERT INTO `noticia` VALUES ('2', '2014-09-01 00:39:25', 'xxx.jpg', 'asdf', null, null);
+INSERT INTO `noticia` VALUES ('1', '2014-09-08 22:10:55', 'xxx2.jpg', 'knbdf', 'dsfa', 'asd');
+INSERT INTO `noticia` VALUES ('2', '2014-09-01 00:39:25', 'xxx.jpg', 'asdf', 'jh', 'hjhj');
 
 -- ----------------------------
 -- Table structure for obra
@@ -260,6 +261,23 @@ CREATE TABLE `prensa` (
 -- ----------------------------
 -- Records of prensa
 -- ----------------------------
+
+-- ----------------------------
+-- Table structure for tblsession
+-- ----------------------------
+DROP TABLE IF EXISTS `tblsession`;
+CREATE TABLE `tblsession` (
+  `id` char(32) NOT NULL,
+  `expire` int(11) DEFAULT NULL,
+  `data` longblob,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of tblsession
+-- ----------------------------
+INSERT INTO `tblsession` VALUES ('g8no0399jknouqinhishm5a2a3', '1411225962', 0x5F6C616E677C733A323A226573223B);
+INSERT INTO `tblsession` VALUES ('lcu9iahn1v2j91mgdie1j9p877', '1411226298', 0x6769695F5F72657475726E55726C7C733A33303A222F656C656D656E74616C6F64616C79732F696E6465782E7068702F676969223B6769695F5F69647C733A353A227969696572223B6769695F5F6E616D657C733A353A227969696572223B6769695F5F7374617465737C613A303A7B7D5F6C616E677C733A323A226573223B);
 
 -- ----------------------------
 -- Table structure for tra_artista

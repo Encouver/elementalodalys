@@ -111,8 +111,14 @@
                     <br><br>
                 </div>
                     <?php echo CHtml::link('Español',array('Site/Trans','_lang'=>'es'))?>
-    <?php echo "----";?>
-    <?php echo CHtml::link('English',array('Site/Trans','_lang'=>'en'))?>
+                    <?php echo "----";?>
+                    <?php echo CHtml::link('English',array('Site/Trans','_lang'=>'en'))?>
+                    <?php $seleccionado = Yii::app()->language;
+                            echo CHtml::dropDownList('idioma', $seleccionado,
+                          CHtml::listData(Idiomas::model()->findAll(), 'idioma', 'nombre'),
+                          array('onhaschange'=>'location.assign('.Yii::app()->createUrl('site/trans',array('_lang' => $seleccionado)).')'));
+                          ?>
+
                 <!-- Portfolio Item Row -->
 
                     <div class="col-md-12">
