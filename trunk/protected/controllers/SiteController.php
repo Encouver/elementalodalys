@@ -25,11 +25,9 @@ class SiteController extends Controller
 
 	public function actionTrans($_lang){
 		
-		print_r(Yii::app()->language);
+		// Guardando el unico del lenguage en session _lang
 		Yii::app()->session['_lang'] = $_lang;
-		//Yii::app()->language = $_lang;
-		Yii::app()->language = $_lang;
-		print_r(Yii::app()->language);
+
 		$this->redirect(Yii::app()->user->returnUrl);
 	}
 	/**

@@ -10,7 +10,6 @@ $this->pageTitle=Yii::app()->name;
 	    <?php	    
 	    //Ejemplo de traducción utilizando Yii...
 	    echo Yii::t('site','Noticias');
-	    print_r(Yii::app()->language);
 	    	$primero = 1;
 	       
 	        foreach ($noticias as $noticia)
