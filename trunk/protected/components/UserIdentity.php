@@ -30,7 +30,7 @@ class UserIdentity extends CUserIdentity
 			
 			if($user===null)
 				$this->errorCode=self::ERROR_USERNAME_INVALID;
-			else if(!$user->clave===md5($this->password))
+			else if(!$user->validatePassword($this->password))
 				$this->errorCode=self::ERROR_PASSWORD_INVALID;
 			else{
 			 	$this->_id=$user->id;
