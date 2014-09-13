@@ -23,6 +23,15 @@ class SiteController extends Controller
 		);
 	}
 
+	public function actionTrans($_lang){
+		
+		print_r(Yii::app()->language);
+		Yii::app()->session['_lang'] = $_lang;
+		//Yii::app()->language = $_lang;
+		Yii::app()->language = $_lang;
+		print_r(Yii::app()->language);
+		$this->redirect(Yii::app()->user->returnUrl);
+	}
 	/**
 	 * This is the default 'index' action that is invoked
 	 * when an action is not explicitly requested by users.
@@ -35,7 +44,7 @@ class SiteController extends Controller
 
 		$idioma = Idiomas::model()->find('idioma=:idioma',array(':idioma'=>Yii::app()->language));
 
-		if ($idioma->id == "1"){ //español
+		if ($idioma->idioma == Yii::app()->params->idiomas['Español']){ //español
 		
 			$criteria = new CDbCriteria;
 	    	$criteria->select = 't.*';
@@ -73,7 +82,7 @@ class SiteController extends Controller
 		
 		$idioma = Idiomas::model()->find('idioma=:idioma',array(':idioma'=>Yii::app()->language));
 
-		if ($idioma->id == "1"){ //español
+		if ($idioma->idioma == Yii::app()->params->idiomas['Español']){ //español
 		
 			$criteria = new CDbCriteria;
 	    	$criteria->select = 't.*';
