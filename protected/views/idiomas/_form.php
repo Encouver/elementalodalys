@@ -21,7 +21,10 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'idioma'); ?>
-		<?php echo $form->textField($model,'idioma',array('size'=>6,'maxlength'=>6)); ?>
+		<?php echo $form->dropDownList($model, 'idioma', 
+              array('en' => 'English', 'es' => 'Español'),
+              array('empty' => 'Idioma'));
+        ?>
 		<?php echo $form->error($model,'idioma'); ?>
 	</div>
 

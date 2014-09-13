@@ -69,9 +69,9 @@ class Artista extends CActiveRecord
 			'idartista' => 'Idartista',
 			'nombre' => 'Nombre',
 			'apellido' => 'Apellido',
-			'ano' => 'Ano',
-			'pais' => 'Pais',
-			'biografia' => 'Biografia',
+			'ano' => 'Año',
+			'pais' => 'País',
+			'biografia' => 'Biografía',
 		);
 	}
 

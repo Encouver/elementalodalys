@@ -38,6 +38,7 @@ class Idiomas extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+			array('idioma, nombre', 'required'),
 			array('idioma', 'length', 'max'=>6),
 			array('nombre', 'length', 'max'=>255),
 			// The following rule is used by search().

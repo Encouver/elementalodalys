@@ -21,7 +21,10 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'idexposicion'); ?>
-		<?php echo $form->textField($model,'idexposicion'); ?>
+		<?php //echo $form->textField($model,'tipousuario'); >
+			echo $form->dropDownList($model, 'idexposicion', 
+			CHtml::listData(exposicion::model()->findAll(),'idexposicion','nombre1'),array('empty' =>'Seleccione'));
+		?>
 		<?php echo $form->error($model,'idexposicion'); ?>
 	</div>
 

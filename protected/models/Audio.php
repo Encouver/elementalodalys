@@ -60,7 +60,7 @@ class Audio extends CActiveRecord
 	{
 		return array(
 			'idaudio' => 'Idaudio',
-			'idexposicion' => 'Idexposicion',
+			'idexposicion' => 'Exposición',
 			'datos' => 'Datos',
 			'audio_ruta' => 'Audio Ruta',
 		);

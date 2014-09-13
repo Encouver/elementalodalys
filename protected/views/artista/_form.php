@@ -33,7 +33,11 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'ano'); ?>
-		<?php echo $form->textField($model,'ano'); ?>
+
+		<?php echo $form->dropDownList($model, 'ano', 
+              array('2013' => '2013', '2014' => '2014', '2015' => '2015'),
+              array('empty' => 'Año de feria'));
+        ?>
 		<?php echo $form->error($model,'ano'); ?>
 	</div>
 
