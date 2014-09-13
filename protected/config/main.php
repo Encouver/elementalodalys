@@ -128,6 +128,8 @@ return array(
 		                ),
 		            ),
 		        ),
+		
+		'behaviors' => array('ApplicationConfigBehavior'),
 
 		'session' => array (
     		'class' => 'system.web.CDbHttpSession',
@@ -141,6 +143,6 @@ return array(
 	'params'=>array(
 		// this is used in contact page
 		'adminEmail'=>'webmaster@example.com',
-		'idioma'=>array('Español' => 'es', 'Ingles' => 'en'),
+		'idiomas'=>array('Español' => 'es', 'Ingles' => 'en'),
 	),
 );

@@ -110,7 +110,9 @@
                 <div class="visible-xs-block visible-sm-block">
                     <br><br>
                 </div>
-                   
+                    <?php echo CHtml::link('Español',array('Site/Trans','_lang'=>'es'))?>
+    <?php echo "----";?>
+    <?php echo CHtml::link('English',array('Site/Trans','_lang'=>'en'))?>
                 <!-- Portfolio Item Row -->
 
                     <div class="col-md-12">
