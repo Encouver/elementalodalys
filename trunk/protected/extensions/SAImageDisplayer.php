@@ -175,9 +175,9 @@ class SAImageDisplayer extends CWidget
                      '" title="' . $this->getTitle() . 
                      '" alt="' . $this->getAlt() . 
                      '" id="' . $this->id .
-                     '" width="' . $this->_width .
-                     '" height="' . $this->_height . 
-                     '" class="' . $this->class . '" ' .
+                     '" style="max-width:' . $this->_width .
+                     'px;max-height:' . $this->_height . 
+                     'px" class="' . $this->class . '" ' .
                      $addAttributes .
            '/>';
         }

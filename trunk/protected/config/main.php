@@ -106,7 +106,7 @@ return array(
 		                    'groups' => array(
 		                        'noticia' => array(
 		                            'pequena' => array('width' => 120, 'height' => 120),
-		                            'grande' => array('width' => 617, 'height' => 300),
+		                            'grande' => array('width' => 489, 'height' => 300),
 		                          ),
 		                        'catalogo' => array(
 		                            'previa' => array('width' => 400, 'height' => 300),
