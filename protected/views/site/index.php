@@ -18,8 +18,8 @@ $this->pageTitle=Yii::app()->name;
 	        {
 				//echo $noticia->titulo;
 
-	        	//print_r($noticia);
-	        	//echo "<br><br><br>";
+	        	/*print_r($noticia);
+	        	echo "<br><br><br>";*/
 
 	        	
 	    		if ($primero == 1) {
@@ -41,7 +41,7 @@ $this->pageTitle=Yii::app()->name;
 										    'group' => 'noticia',
 										));
 							    	
-								echo "
+							echo "
 								</div>
     	                    	<div class='comment more texto' style:'font-weight: 900;'>"
 	    	                    	.$noticia->contenido.
@@ -64,9 +64,7 @@ $this->pageTitle=Yii::app()->name;
 									    'image' => $noticia->imagen,//'xxx.jpg',
 									    'size' => 'pequena',
 									    'defaultImage' => 'default.png',
-									    'class'=>'media-object',
 									    'group' => 'noticia',
-
 									));	    	
 								
 

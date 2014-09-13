@@ -48,21 +48,18 @@ class SiteController extends Controller
 	    	$criteria->select = 't.*';
 	    	$criteria->order = 'fecha DESC';
 			
-			$noticias = Noticia::model()->findAll($criteria);
-		
 		}else{ //ingles
 
-	
 			$criteria = new CDbCriteria;
 	    	$criteria->select = 't.*, tra_noticia.*';
 	    	$criteria->join ='LEFT JOIN tra_noticia ON tra_noticia.noticiaid = t.idnoticia';
 	    	$criteria->order = 'fecha DESC';
+	    	$criteria->condition = 'tra_noticia.idiomaid =:id';
 	    	$criteria->params = array(':id' => $idioma->id);
-			
-			$noticias = Noticia::model()->findAll($criteria);
-				
+							
 		}
-		
+			
+		$noticias = Noticia::model()->findAll($criteria);
 		$this->render('index', array(
 			'noticias' => $noticias, 'idioma' => $idioma
         ));
@@ -75,6 +72,7 @@ class SiteController extends Controller
 		$this->render('quienessomos');		
 	
 	}
+	
 	public function actionexposicionesferias(){
 		
 		$idioma = Idiomas::model()->find('idioma=:idioma',array(':idioma'=>Yii::app()->language));
