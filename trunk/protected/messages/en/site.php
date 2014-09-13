@@ -3,7 +3,7 @@
 	return array(
 	    'Noticias' => 'News',
 	    'Exposiciones | Ferias' => 'Exhibitions | Art Fairs',
-	    'Artistas | Artists',
+	    'Artistas' => 'Artists',
 	    'Alianzas' => 'Partners',
 	    'Becas' => 'Bursaries',
 	    'Quiénes somos' => "About us",
