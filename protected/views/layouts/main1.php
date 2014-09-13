@@ -42,6 +42,18 @@
             <div class="col-md-2">
                 <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logoodalys.png" width="80px;">
             </div>
+            <div class="col-md-3 pull-right">
+                
+                <?php echo CHtml::link('Español',array('Site/Trans','_lang'=>'es'))?>
+                <?php echo "----";?>
+                <?php echo CHtml::link('English',array('Site/Trans','_lang'=>'en'))?>
+                <?php $seleccionado = Yii::app()->language;
+                    echo CHtml::dropDownList('idioma', $seleccionado,
+                    CHtml::listData(Idiomas::model()->findAll(), 'idioma', 'nombre'),
+                    array('onhaschange'=>'location.assign('.Yii::app()->createUrl('site/trans',array('_lang' => $seleccionado)).')'));
+                ?>
+
+            </div>
         </div>
     </div>
 
@@ -82,22 +94,22 @@
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav menuppal">
                                 <li>
-                                    <a class="menuppal" href="<?php echo Yii::app()->request->baseUrl; ?>/site/exposicionesferias">Exposiciones | Ferias</a>
+                                    <a class="menuppal" href="<?php echo Yii::app()->request->baseUrl; ?>/site/exposicionesferias"><?php  echo Yii::t('site','Exposiciones | Ferias');?></a>
                                 </li>
                                 <li>
-                                    <a class="menuppal" href="<?php echo Yii::app()->request->baseUrl; ?>/site/artistas">Artistas</a>
+                                    <a class="menuppal" href="<?php echo Yii::app()->request->baseUrl; ?>/site/artistas"><?php  echo Yii::t('site','Artistas');?></a>
                                 </li>
                                 <li>
-                                    <a class="menuppal" href="<?php echo Yii::app()->request->baseUrl; ?>/site/alianzas">Alianzas</a>
+                                    <a class="menuppal" href="<?php echo Yii::app()->request->baseUrl; ?>/site/alianzas"><?php  echo Yii::t('site','Alianzas');?></a>
                                 </li>
                                 <li>
-                                    <a class="menuppal" href="<?php echo Yii::app()->request->baseUrl; ?>/site/becas">Becas</a>
+                                    <a class="menuppal" href="<?php echo Yii::app()->request->baseUrl; ?>/site/becas"><?php  echo Yii::t('site','Becas');?></a>
                                 </li>
                                 <li>
-                                    <a class="menuppal" href="<?php echo Yii::app()->request->baseUrl; ?>/site/quienessomos">Quienes somos</a>
+                                    <a class="menuppal" href="<?php echo Yii::app()->request->baseUrl; ?>/site/quienessomos"><?php  echo Yii::t('site','Quiénes somos');?></a>
                                 </li>
                                 <li>
-                                    <a class="menuppal" href="#">Contacto</a>
+                                    <a class="menuppal" href="<?php echo Yii::app()->request->baseUrl; ?>/site/contacto"><?php  echo Yii::t('site','Contacto');?></a>
                                 </li>
 
                             </ul>
@@ -110,14 +122,7 @@
                 <div class="visible-xs-block visible-sm-block">
                     <br><br>
                 </div>
-                    <?php echo CHtml::link('Español',array('Site/Trans','_lang'=>'es'))?>
-                    <?php echo "----";?>
-                    <?php echo CHtml::link('English',array('Site/Trans','_lang'=>'en'))?>
-                    <?php $seleccionado = Yii::app()->language;
-                            echo CHtml::dropDownList('idioma', $seleccionado,
-                          CHtml::listData(Idiomas::model()->findAll(), 'idioma', 'nombre'),
-                          array('onhaschange'=>'location.assign('.Yii::app()->createUrl('site/trans',array('_lang' => $seleccionado)).')'));
-                          ?>
+
 
                 <!-- Portfolio Item Row -->
 
@@ -137,7 +142,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <h5>Sobre Elemental</h5>
+                <h5><?php  echo Yii::t('site','Sobre Elemental');?></h5>
                 <p style="font-size:12px;">ELEMENTAL se aleja de la clásica relación galería-comisario-artista para plantear la construcción de las exposiciónes de una manera orgánica.
                 <a href="sobreElemental.php"><w style="font-size: 11px;"> (Ver más) </w></a></p>
                 <br>
@@ -146,19 +151,20 @@
             </div>
 
             <div class="col-md-2">
-                <h5>Navega</h5>
+                <h5><?php  echo Yii::t('site','Navega');?></h5>
                 <p style="font-size:12px;">
-                    Exposiciones | Ferias <br>
-                    Artistas<br>
-                    Alianzas<br>
-                    Quienes somos<br>
-                    Contacto
+                    <?php  echo Yii::t('site','Exposiciones | Ferias');?><br>
+                    <?php  echo Yii::t('site','Artistas');?><br>
+                    <?php  echo Yii::t('site','Alianzas');?><br>
+                    <?php  echo Yii::t('site','Becas');?><br>
+                    <?php  echo Yii::t('site','Quiénes somos');?><br>
+                    <?php  echo Yii::t('site','Contacto');?><br>
                 </p>
 
             </div>
 
             <div class="col-md-2">
-                <h5>Redes Sociales</h5>
+                <h5><?php  echo Yii::t('site','Redes Sociales');?></h5>
             <p style="font-size:12px;line-height:30px;">
 
                     <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/social/Facebook-icon.png" width="25px"> Facebook<br>
@@ -169,7 +175,7 @@
             </div>
 
             <div class="col-md-4">
-                <h5>Alianzas</h5>
+                <h5><?php  echo Yii::t('site','Alianzas');?></h5>
                             <p style="font-size:12px;line-height:40px;">
 
                 <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logos_alianzas/GI.png" width="80px"><br>
@@ -183,7 +189,7 @@
         <hr class="clara">
         <div class="row">
             <div class="col-md-12">   
-                <p class="copyright">Copyright &copy; Your Website 2014</p>
+                <p class="copyright">Copyright &copy; Elemental 2014</p>
             </div>
         </div>
     </div>
@@ -203,8 +209,8 @@
   $(document).ready(function() {
         var showChar = 300;
         var ellipsestext = "...";
-        var moretext = "leer más";
-        var lesstext = "ocultar";
+        var moretext = "<?php  echo Yii::t('site','leer más');?>";
+        var lesstext = "<?php  echo Yii::t('site','ocultar');?>";
         $('.more').each(function() {
             var content = $(this).html();
      
@@ -213,7 +219,7 @@
                 var c = content.substr(0, showChar);
                 var h = content.substr(showChar-1, content.length - showChar);
      
-                var html = c + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="morelink">' + moretext + '</a></span>';
+                var html = c + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span><span class="morecontent"><span>' + h + '</span><a href="" class="morelink">' + moretext + '</a></span>';
      
                 $(this).html(html);
             }

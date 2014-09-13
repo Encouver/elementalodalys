@@ -57,7 +57,7 @@ class SiteController extends Controller
 	    	$criteria->select = 't.*';
 	    	$criteria->join ='LEFT JOIN noticia ON t.noticiaid = noticia.idnoticia';
 	    	$criteria->condition = 't.idiomaid=:id';
-	    	$criteria->order = 'fecha ASC';
+	    	$criteria->order = 'fecha DESC';
 	    	$criteria->params = array(':id' => $idioma->id);
 			
 			$noticias = TraNoticia::model()->findAll($criteria);
@@ -84,6 +84,7 @@ class SiteController extends Controller
 		
 			$criteria = new CDbCriteria;
 	    	$criteria->select = 't.*';
+	    	$criteria->order = "fecha_inicio DESC";
 			
 			$expoferias = Exposicion::model()->findAll($criteria);
 
@@ -92,17 +93,17 @@ class SiteController extends Controller
 			$criteria = new CDbCriteria;
 	    	$criteria->select = 't.*';
 	    	$criteria->together = true;
-	    	$criteria->join ='LEFT JOIN tra_exposicion ON tra_exposicion.exposicionid = t.idexposicion';
-	    	$criteria->condition = 'tra_exposicion.idiomaid=:id';
-	    	$criteria->params = array(':id' => $idioma->id);
+
+	    	$criteria->join ='LEFT JOIN exposicion ON t.exposicionid = exposicion.idexposicion';
+	    	$criteria->order = "exposicion.fecha_inicio DESC";
+
 			
-			$expoferias = Exposicion::model()->findAll($criteria);
+			$expoferias = TraExposicion::model()->findAll($criteria);
 			
-			echo "aqui";
 		}
 
 		$this->render('exposicionesferias', array(
-			'expoferias' => $expoferias
+			'expoferias' => $expoferias, 'idioma'=>$idioma
         ));
 	
 	}

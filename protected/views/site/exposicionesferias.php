@@ -5,9 +5,15 @@ $this->pageTitle=Yii::app()->name;
 
 	foreach ($expoferias as $expoferia){
 
-		echo $expoferia->nombre1;
+    	if ($idioma->id == 2){				    		
+		echo $expoferia->exposicion->nombre1;
 		echo $expoferia->pais;
+    	}else{
+    		echo $expoferia->nombre1;
+			echo $expoferia->lugar;
+    	}
 
+		echo "<br>";
 	}
 
 
