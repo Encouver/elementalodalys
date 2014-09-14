@@ -12,7 +12,12 @@ $this->pageTitle=Yii::app()->name;
 	    echo Yii::t('site','Noticias');
 	    	$primero = 1;
 	       
-
+	       $this->widget('application.extensions.addThis', 
+	       				array( 'id'=>'id', 'username'=>Yii::app()->user->name, 'defaultButtonCaption'=>Yii::t('social','Compartir'),
+	       					   'showDefaultButton'=>true, 'showDefaultButtonCaption'=>true, 'separator'=>'|',
+	       					   'htmlOptions'=>array(), 'linkOptions'=>array(), 
+	       					   'showServices'=>array('separator', 'facebook', 'twitter', 'google_plusone_share', 'google_plusone'), 
+	       					   'showServicesTitle'=>false, 'config'=>array('ui_language'=>Yii::app()->language), 'share'=>array(''))); 
 
 	        foreach ($noticias as $noticia)
 	        {
@@ -66,13 +71,7 @@ $this->pageTitle=Yii::app()->name;
 									    'defaultImage' => 'default.png',
 									    'group' => 'noticia',
 									));	    	
-								
 
-
-
-
-
-					
 							echo "
 	                    	</a>
 	                    	<div class='media-body'>
