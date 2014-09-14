@@ -126,7 +126,9 @@ return array(
 		                            'grande' => array('width' => 489, 'height' => 300),
 		                          ),
 		                        'catalogo' => array(
-		                            'previa' => array('width' => 400, 'height' => 300),
+		                            'grande' => array('width' => 400, 'height' => 300),
+		                            'pequena' => array('width' => 100, 'height' => 100),
+
 		                         ), 
 								'montajess' => array(
 		                            'previa' => array('width' => 400, 'height' => 300),
