@@ -22,7 +22,8 @@
         }
         echo CHtml::dropDownList('language', $currentLang, $languages,
             array(
-                'submit'=>'',
+                //'submit'=>'',
+                'onchange'=>'this.form.submit()',
             )
         ); 
         echo CHtml::endForm();
