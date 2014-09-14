@@ -108,7 +108,26 @@ class SiteController extends Controller
 	
 	}
 
+	public function actionexposicionesferias_detalle(){
+/*		
 
+		$criteria = new CDbCriteria;
+		$criteria->select = 't.*';
+		$criteria->together = true;
+		$criteria->join ='LEFT JOIN tra_exposicion ON tra_exposicion.exposicionid = t.idexposicion';
+		$criteria->order = "fecha_inicio DESC";
+		$criteria->condition = 'tra_exposicion.idiomaid =:id';
+		$criteria->params = array(':id' => $idioma->id);
+		$catalogo = Catalogo::model()->findAll($criteria);
+*/
+
+
+
+
+		$this->render('exposicionesferias_detalle', array(
+			''
+        ));		
+	}
 
 	/**
 	 * This is the action to handle external exceptions.

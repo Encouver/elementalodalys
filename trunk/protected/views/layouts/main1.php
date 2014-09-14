@@ -251,13 +251,43 @@
     });
 
 $('.collapse').on('shown.bs.collapse', function(){
-$(this).parent().find(".glyphicon").addClass("glyphicon-chevron-down");
+$(this).parent().find(".glyphicon.x").addClass("glyphicon-chevron-down");
 }).on('hidden.bs.collapse', function(){
 $(this).parent().find(".glyphicon-chevron-down").removeClass("glyphicon-chevron-down");
+
 });
 
 
 
+$('.fotorama')
+    .on('fotorama:show', function (e, fotorama) {    
+        fotorama.$caption = fotorama.$caption || $(this).next('.fotorama-caption');
+        fotorama.$caption.text(fotorama.activeFrame.caption);
+    })
+    .fotorama();
+
+function aud_play_pause() {
+  var myAudio = document.getElementById("myAudio");
+  if (myAudio.paused) {
+    myAudio.play();
+    document.getElementById("audio").className = "glyphicon glyphicon-volume-off";
+
+  } else {
+    myAudio.pause();
+    document.getElementById("audio").className = "glyphicon glyphicon-volume-up";
+
+  }
+}
+
+
+$('.vf').on('shown.bs.collapse', function(){
+    myAudio.play();
+    document.getElementById("audio").className = "glyphicon glyphicon-volume-off";
+}).on('hidden.bs.collapse', function(){
+    myAudio.pause();
+    document.getElementById("audio").className = "glyphicon glyphicon-volume-up";  
+
+});
 
 </script>
 
