@@ -44,14 +44,20 @@
             </div>
             <div class="col-md-3 pull-right">
                 
-                <?php echo CHtml::link('Español',array('Site/Trans','_lang'=>'es'))?>
-                <?php echo "----";?>
-                <?php echo CHtml::link('English',array('Site/Trans','_lang'=>'en'))?>
-                <?php $seleccionado = Yii::app()->language;
+                <?php /*echo CHtml::link('Español',array('Site/Trans','_lang'=>'es'))
+                 echo "----";
+                 echo CHtml::link('English',array('Site/Trans','_lang'=>'en'))*/?>
+                <?php /*$seleccionado = Yii::app()->language;
                     echo CHtml::dropDownList('idioma', $seleccionado,
                     CHtml::listData(Idiomas::model()->findAll(), 'idioma', 'nombre'),
-                    array('onhaschange'=>'location.assign('.Yii::app()->createUrl('site/trans',array('_lang' => $seleccionado)).')'));
+                    array('onhaschange'=>'location.assign('.Yii::app()->createUrl('site/trans',array('_lang' => $seleccionado)).')'));*/
                 ?>
+
+                <div  id="language-selector" style="float:right; margin:5px;">
+                    <?php 
+                        $this->widget('application.components.widgets.LanguageSelector');
+                    ?>
+                </div>
 
             </div>
         </div>

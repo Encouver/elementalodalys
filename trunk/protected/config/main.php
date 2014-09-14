@@ -40,8 +40,12 @@ return array(
 			'allowAutoLogin'=>true,
 		),
 		// uncomment the following to enable URLs in path-format
-		
-		'urlManager'=>array(
+		'request'=>array(
+       		 'enableCookieValidation'=>true,
+        	'enableCsrfValidation'=>true,
+ 		),
+
+	/*	'urlManager'=>array(
 			'urlFormat'=>'path',
 			'showScriptName'=>false,
 			'rules'=>array(
@@ -49,7 +53,20 @@ return array(
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
 			),
-		),
+		),*/
+
+		'urlManager'=>array(
+	        'class'=>'application.components.UrlManager',
+	        'urlFormat'=>'path',
+	        'showScriptName'=>false,
+	        'rules'=>array(
+	            '<language:(es|en)>/' => 'site/index',
+	            '<language:(es|en)>/<action:(contact|login|logout)>/*' => 'site/<action>',
+	            '<language:(es|en)>/<controller:\w+>/<id:\d+>'=>'<controller>/view',
+	            '<language:(es|en)>/<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
+	            '<language:(es|en)>/<controller:\w+>/<action:\w+>/*'=>'<controller>/<action>',
+		        ),
+	    ),
 		/*
 		'db'=>array(
 			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
@@ -144,5 +161,6 @@ return array(
 		// this is used in contact page
 		'adminEmail'=>'webmaster@example.com',
 		'idiomas'=>array('Español' => 'es', 'Ingles' => 'en'),
+		 'languages'=>array('es'=>'Español', 'en'=>'English'),
 	),
 );
