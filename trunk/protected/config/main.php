@@ -161,6 +161,6 @@ return array(
 		// this is used in contact page
 		'adminEmail'=>'webmaster@example.com',
 		'idiomas'=>array('Español' => 'es', 'Ingles' => 'en'),
-		'languages'=>array('es'=>'Español', 'en'=>'English','esd'=>'aasd', 'eng'=>'gfdg'),
+		'languages'=>array('es'=>'Español', 'en'=>'English'),
 	),
 );
