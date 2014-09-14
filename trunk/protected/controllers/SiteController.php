@@ -28,7 +28,9 @@ class SiteController extends Controller
 		// Guardando el unico del lenguage en session _lang
 		Yii::app()->session['_lang'] = $_lang;
 
-		$this->redirect(Yii::app()->request->urlReferrer);
+		Yii::app()->user->returnUrl = Yii::app()->request->urlReferrer;
+		
+		$this->redirect(Yii::app()->user->returnUrl);
 	}
 	/**
 	 * This is the default 'index' action that is invoked
