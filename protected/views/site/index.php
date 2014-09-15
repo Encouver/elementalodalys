@@ -19,6 +19,9 @@ $this->pageTitle=Yii::app()->name;
 	       					   'showServices'=>array('separator', 'facebook', 'twitter', 'google_plusone_share', 'google_plusone'), 
 	       					   'showServicesTitle'=>false, 'config'=>array('ui_language'=>Yii::app()->language), 'share'=>array(''))); 
 
+	       // http://www.yiiframework.com/extension/yiitube/
+	       $this->widget('ext.Yiitube', array('v' => 'fYa0y4ETFVo','size'=>'small'));
+
 	        foreach ($noticias as $noticia)
 	        {
 				//echo $noticia->titulo;

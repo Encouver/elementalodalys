@@ -75,7 +75,7 @@ class SiteController extends Controller
 	
 	}
 
-	public function actionexposicionesferias(){
+	public function actionExposicionesferias(){
 		
 		$idioma = Idiomas::model()->find('idioma=:idioma',array(':idioma'=>Yii::app()->language));
 
@@ -108,7 +108,7 @@ class SiteController extends Controller
 	
 	}
 
-	public function actionexposicionesferias_detalle($expoferia){
+	public function actionExposicionesferias_detalle($expoferia){
 /*		
 	
 		$criteria = new CDbCriteria;
