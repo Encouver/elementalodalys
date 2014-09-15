@@ -30,16 +30,12 @@
 		<?php echo $form->textField($model,'apellido',array('size'=>60,'maxlength'=>255)); ?>
 		<?php echo $form->error($model,'apellido'); ?>
 	</div>
-
 	<div class="row">
 		<?php echo $form->labelEx($model,'ano'); ?>
-
-		<?php echo $form->dropDownList($model, 'ano', 
-              array('2013' => '2013', '2014' => '2014', '2015' => '2015'),
-              array('empty' => 'Año de feria'));
-        ?>
+		<?php echo $form->textField($model,'ano',array('size'=>60,'maxlength'=>255)); ?>
 		<?php echo $form->error($model,'ano'); ?>
 	</div>
+
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'pais'); ?>

@@ -4,7 +4,12 @@
 $this->pageTitle=Yii::app()->name;
 
 //
-//		print_r($catalogo);
+//		print_r($artistas);
+/*		foreach ($artistas as $artista) {
+			echo $artista->artista->nombre;
+			echo "<br>";
+		}
+*/
 //echo '<h1>'.$catalogo->portada.'</h1>';
 
 ?>
@@ -24,15 +29,26 @@ $this->pageTitle=Yii::app()->name;
                       <div class="panel-body">
                         <div class="row">            
                           <div class="col-md-2">
-                            Artista X<br>
-                            Artista Y<br>
-                            Artista Y<br>
-                            Artista Y<br>
-                            Artista Y<br>
-                            Artista Y<br><br>
-
+                          	<?php
+                          		foreach ($artistas as $artista) {
+                          			echo $artista->nombre." ".$artista->apellido."<br>";
+                          		}
+                          	?>
                           </div>
                           <div class="col-md-10">
+<?php                            
+	echo CHtml::ajaxLink(
+	    '<div id="req_res">
+	    Test request',          // the link body (it will NOT be HTML-encoded.)
+	    array('site/reqTest01'),  // the URL for the AJAX request. If empty, it is assumed to be the current URL.
+	    array(
+	        'update'=>'#req_res'
+	    ), array('update'=>'#forAjaxRefresh')
+	);
+	 
+	echo '...</div>';
+?>
+
                             <!-- Fotorama -->
                             <div class="fotorama" data-width="700" data-max-width="100%" data-ratio="500/333" data-fit="cover" data-captions="false" data-auto="false" data-nav="thumbs">
                               <img src="http://s.fotorama.io/okonechnikov/1-lo.jpg" data-caption="fffffdfnsadfjknsafnalskmflaksmdf asfdnjoasjfoaksfd dasfnoasjfdñasjfoasfi sdfjoasñjdfasjdfñoajsdfiajsfd dsafjasodfijasofiñjafd">
@@ -99,6 +115,8 @@ $this->pageTitle=Yii::app()->name;
                       </div>
                     </div>
                   </div>
+                  
+
                   <div class="panel">
                     <div class="panel-heading">
                       <h4 class="panel-title">
@@ -110,10 +128,32 @@ $this->pageTitle=Yii::app()->name;
                     </div>
                     <div id="collapseThree" class="panel-collapse collapse">
                       <div class="panel-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably havent heard of them accusamus labore sustainable VHS.
+
+                            <!-- Fotorama -->
+                            <div class="fotorama" data-width="700" data-max-width="100%" data-ratio="500/333" data-fit="cover" data-captions="false" data-auto="false" data-nav="thumbs">
+
+								<?php
+									foreach ($montajes as $montaje) {
+										$this->widget('ext.SAImageDisplayer', array(
+										    'image' => $montaje->imagen,
+										    'size' => 'previa',
+										    'defaultImage' => 'default.png',
+										    'group' => 'montaje',
+											//  'othersAttributes' =>array ('data-caption' =>$montaje->descripcion),
+										));
+									}
+
+								?>
+		                    </div>
+							<!--captiom
+								<div style="min-height:40px; line-height: 20px; padding-top:10px"  class="fotorama-caption">
+								</div>
+							-->
                       </div>
                     </div>
                   </div>
+
+
                   <div class="panel">
                     <div class="panel-heading">
                       <h4 class="panel-title">
