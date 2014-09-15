@@ -108,9 +108,9 @@ class SiteController extends Controller
 	
 	}
 
-	public function actionexposicionesferias_detalle(){
+	public function actionexposicionesferias_detalle($expoferia){
 /*		
-
+	
 		$criteria = new CDbCriteria;
 		$criteria->select = 't.*';
 		$criteria->together = true;
