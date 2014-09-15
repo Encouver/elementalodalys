@@ -65,6 +65,8 @@ return array(
 	            '<language:(es|en)>/<controller:\w+>/<id:\d+>'=>'<controller>/view',
 	            '<language:(es|en)>/<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 	            '<language:(es|en)>/<controller:\w+>/<action:\w+>/*'=>'<controller>/<action>',
+		        
+
 		        ),
 	    ),
 		/*
