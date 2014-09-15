@@ -112,6 +112,7 @@ class SiteController extends Controller
 	
 		$idioma = Idiomas::model()->find('idioma=:idioma',array(':idioma'=>Yii::app()->language));
 
+//**TODAS
 	//id de la exposicion
 		$criteria = new CDbCriteria;
 		$criteria->select = 't.*';
@@ -121,7 +122,7 @@ class SiteController extends Controller
 
 		$idexpo = $expo_feria->idexposicion;
 
-
+//**COLECTIVA, INDIVIDUAL
 	//catalogos
 		$criteria = new CDbCriteria;
 		$criteria->select = 't.*';
@@ -129,24 +130,63 @@ class SiteController extends Controller
 		$criteria->params = array(':id' => $idexpo);
 		$catalogo = Catalogo::model()->findAll($criteria);
 
+//**COLECTIVA, FERIA
+	//artistas de la expo
+		$criteria = new CDbCriteria;
+    	$criteria->select = 't.*, artista_expo.*';
+    	$criteria->together = true;
+    	$criteria->join ='INNER JOIN artista_expo ON artista_expo.idartista = t.idartista';
+		$criteria->condition = 'artista_expo.idexposicion =:id';
+		$criteria->params = array(':id' => $idexpo);
+    	$criteria->order = "t.apellido ASC";
+		$artistas = Artista::model()->findAll($criteria);
+	
+
 	//obras
+/*		$criteria = new CDbCriteria;
+		$criteria->select = 't.*';
+		$criteria->condition = 't.idexposicion =:id';
+		$criteria->params = array(':id' => $idexpo);
+		$obras = ExpoObra::model()->findAll($criteria);
+
+/*
+			$criteria = new CDbCriteria;
+	    	$criteria->select = 't.*, tra_exposicion.*';
+	    	$criteria->together = true;
+	    	$criteria->join ='LEFT JOIN tra_exposicion ON tra_exposicion.exposicionid = t.idexposicion';
+	    	$criteria->order = "fecha_inicio DESC";
+	    	$criteria->condition = 'tra_exposicion.idiomaid =:id';
+	    	$criteria->params = array(':id' => $idioma->id);
+
+*/
+
+
+//**TODAS
+	//montaje
 		$criteria = new CDbCriteria;
 		$criteria->select = 't.*';
 		$criteria->condition = 't.idexposicion =:id';
 		$criteria->params = array(':id' => $idexpo);
-		$catalogo = Catalogo::model()->findAll($criteria);
+		$montajes = Montaje::model()->findAll($criteria);
 
-
-		
 
 
 		$this->render('ver', array(
-        'tipo'=> $expo_feria->tipo, 'catalogo'=>$catalogo));		
+        'tipo'=> $expo_feria->tipo, 'catalogo'=>$catalogo, 'artistas'=>$artistas, 'montajes'=>$montajes));		
 	}
 
 	/**
 	 * This is the action to handle external exceptions.
 	 */
+
+	public function actionReqTest01() {
+	    echo date('H:i:s');
+	    $variable = "mantu";
+	    echo $variable;
+	    Yii::app()->end();
+	}
+
+
 	public function actionError()
 	{
 		if($error=Yii::app()->errorHandler->error)

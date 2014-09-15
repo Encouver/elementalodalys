@@ -131,8 +131,8 @@ return array(
 		                            'pequena' => array('width' => 219, 'height' => 293),
 
 		                         ), 
-								'montajess' => array(
-		                            'previa' => array('width' => 400, 'height' => 300),
+								'montaje' => array(
+		                            'previa' => array('width' => 700, 'height' => 467),
 		                         ), 
 								'prensa' => array(
 		                            'previa' => array('width' => 400, 'height' => 300),
