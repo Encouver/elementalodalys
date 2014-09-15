@@ -139,16 +139,16 @@ $this->pageTitle=Yii::app()->name;
 										    'size' => 'previa',
 										    'defaultImage' => 'default.png',
 										    'group' => 'montaje',
-											//  'othersAttributes' =>array ('data-caption' =>$montaje->descripcion),
+											'othersAttributes' =>array ('data-caption' =>$montaje->descripcion),
 										));
 									}
 
 								?>
 		                    </div>
-							<!--captiom
-								<div style="min-height:40px; line-height: 20px; padding-top:10px"  class="fotorama-caption">
-								</div>
-							-->
+							<!--Caption-->
+							<div style="min-height:40px; line-height: 20px; padding-top:10px"  class="fotorama-caption">
+							</div>
+							
                       </div>
                     </div>
                   </div>
@@ -167,21 +167,24 @@ $this->pageTitle=Yii::app()->name;
                       <div class="panel-body">
 
                             <div class="fotorama" data-width="700" data-max-width="100%" data-ratio="500/333" data-fit="cover" data-captions="false" data-auto="false" data-nav="thumbs">
-                              <img src="http://s.fotorama.io/okonechnikov/2-lo.jpg">
-                              <img src="http://s.fotorama.io/okonechnikov/2-lo.jpg">
-                              <img src="http://s.fotorama.io/okonechnikov/2-lo.jpg">
-                              <img src="http://s.fotorama.io/okonechnikov/6-lo.jpg">
-                              <img src="http://s.fotorama.io/okonechnikov/5-lo.jpg">
-                              <img src="http://s.fotorama.io/okonechnikov/2-lo.jpg">
-                              <img src="http://s.fotorama.io/okonechnikov/2-lo.jpg">
-                              <img src="http://s.fotorama.io/okonechnikov/9-lo.jpg">
-                              <img src="http://s.fotorama.io/okonechnikov/9-lo.jpg">
-                              <img src="http://s.fotorama.io/okonechnikov/9-lo.jpg">
-                              <img src="http://s.fotorama.io/okonechnikov/9-lo.jpg">
 
-                              <img src="http://s.fotorama.io/okonechnikov/6-lo.jpg">
-                              <img src="http://s.fotorama.io/okonechnikov/5-lo.jpg">
-                            </div>
+								<?php
+									foreach ($vernifinis as $vernifini) {
+										$this->widget('ext.SAImageDisplayer', array(
+										    'image' => $vernifini->imagen,
+										    'size' => 'previa',
+										    'defaultImage' => 'default.png',
+										    'group' => 'montaje',
+											'othersAttributes' =>array ('data-caption' =>$vernifini->descripcion),
+										));
+									}
+
+								?>
+		                    </div>
+							<!--Caption-->
+							<div style="min-height:40px; line-height: 20px; padding-top:10px"  class="fotorama-caption">
+							</div>
+
                       
 
 
