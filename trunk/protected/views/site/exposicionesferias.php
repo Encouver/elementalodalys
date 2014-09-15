@@ -34,7 +34,7 @@ echo '			<div class="row">
 ?>
 				</div>
 				<div class="col-md-10">	
-			      <a href="<?php echo Yii::app()->createUrl('site/exposicionesferias_detalle', array('expoferia' => $expoferia->nombre1));?>" class="head"><?php echo $expoferia->nombre1.' '.$expoferia->nombre2.'</a><br>';?>
+			      <a href="<?php echo Yii::app()->createUrl('site/ver', array('expoferia' => $expoferia->nombre1));?>" class="head"><?php echo $expoferia->nombre1.' '.$expoferia->nombre2.'</a><br>';?>
 			      <?php
 			      echo '
 			      <w style="padding-left: 15px;">'.$expoferia->lugar.'. '.$expoferia->pais.'<br>

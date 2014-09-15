@@ -14,6 +14,10 @@
 	    'Redes Sociales' => 'Social Networks',
 	    'leer más'=>'read more',
 	    'ocultar'=>'hide',
+	    'Ver o descargar catálogo - ' => 'View/download catalog - ',
+	    'Español' => 'Spanish',
+	    'Inglés' => 'English',
+	    'Alemán' => 'German',
 	    'original message 2' => 'translated message 2',
 	);
 

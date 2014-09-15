@@ -108,25 +108,40 @@ class SiteController extends Controller
 	
 	}
 
-	public function actionExposicionesferias_detalle($expoferia){
-/*		
+	public function actionver($expoferia){
 	
+		$idioma = Idiomas::model()->find('idioma=:idioma',array(':idioma'=>Yii::app()->language));
+
+	//id de la exposicion
 		$criteria = new CDbCriteria;
 		$criteria->select = 't.*';
-		$criteria->together = true;
-		$criteria->join ='LEFT JOIN tra_exposicion ON tra_exposicion.exposicionid = t.idexposicion';
-		$criteria->order = "fecha_inicio DESC";
-		$criteria->condition = 'tra_exposicion.idiomaid =:id';
-		$criteria->params = array(':id' => $idioma->id);
+		$criteria->condition = 't.nombre1 =:x';
+		$criteria->params = array(':x' => $expoferia);
+		$expo_feria = Exposicion::model()->find($criteria);
+
+		$idexpo = $expo_feria->idexposicion;
+
+
+	//catalogos
+		$criteria = new CDbCriteria;
+		$criteria->select = 't.*';
+		$criteria->condition = 't.idexposicion =:id';
+		$criteria->params = array(':id' => $idexpo);
 		$catalogo = Catalogo::model()->findAll($criteria);
-*/
+
+	//obras
+		$criteria = new CDbCriteria;
+		$criteria->select = 't.*';
+		$criteria->condition = 't.idexposicion =:id';
+		$criteria->params = array(':id' => $idexpo);
+		$catalogo = Catalogo::model()->findAll($criteria);
 
 
+		
 
 
-		$this->render('exposicionesferias_detalle', array(
-			''
-        ));		
+		$this->render('ver', array(
+        'tipo'=> $expo_feria->tipo, 'catalogo'=>$catalogo));		
 	}
 
 	/**

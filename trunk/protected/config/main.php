@@ -128,8 +128,7 @@ return array(
 		                            'grande' => array('width' => 489, 'height' => 300),
 		                          ),
 		                        'catalogo' => array(
-		                            'grande' => array('width' => 400, 'height' => 300),
-		                            'pequena' => array('width' => 100, 'height' => 100),
+		                            'pequena' => array('width' => 219, 'height' => 293),
 
 		                         ), 
 								'montajess' => array(
