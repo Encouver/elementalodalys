@@ -179,21 +179,37 @@ class SiteController extends Controller
 
 //**COLECTIVA
 	//Audio
+		if ($idioma->idioma == Yii::app()->params->idiomas['Español']){ //español
+			$criteria = new CDbCriteria;
+			$criteria->select = 't.*';
+			$criteria->condition = 't.idexposicion =:idexpo';
+			$criteria->params = array(':idexpo' => $idexpo);
 
-		$criteria = new CDbCriteria;
-    	$criteria->select = 't.*, tra_audio.*';
-    	$criteria->together = true;
-    	$criteria->join ='LEFT JOIN tra_audio ON tra_audio.audioid = t.idaudio';
-		$criteria->params = array(':idexpo' => $idexpo,':ididioma' => $idioma->id);
-		$criteria->condition = 't.idexposicion =:idexpo and tra_audio.idiomaid =:ididioma';
+		}else{//ingles
+
+			$criteria = new CDbCriteria;
+	    	$criteria->select = 't.*, tra_audio.*';
+	    	$criteria->together = true;
+	    	$criteria->join ='LEFT JOIN tra_audio ON tra_audio.audioid = t.idaudio';
+			$criteria->condition = 't.idexposicion =:idexpo and tra_audio.idiomaid =:ididioma';
+			$criteria->params = array(':idexpo' => $idexpo,':ididioma' => $idioma->id);
+		}
+		
 		$audio = Audio::model()->find($criteria);
 
 
+//**COLECTIVA, INDIVIDUAL
+	//conversatorio
+		$criteria = new CDbCriteria;
+		$criteria->select = 't.*';
+		$criteria->condition = 't.idexposicion =:idexpo';
+		$criteria->params = array(':idexpo' => $idexpo);		
+		$conversatorios = Conversatorio::model()->findAll($criteria);
 
 
 
 		$this->render('ver', array(
-        'tipo'=> $expo_feria->tipo, 'catalogo'=>$catalogo, 'artistas'=>$artistas, 'montajes'=>$montajes, 'vernifinis' =>$vernifinis, 'audio'=>$audio));		
+        'tipo'=> $expo_feria->tipo, 'catalogo'=>$catalogo, 'artistas'=>$artistas, 'montajes'=>$montajes, 'vernifinis' =>$vernifinis, 'audio'=>$audio, 'conversatorios'=>$conversatorios));		
 	}
 
 
