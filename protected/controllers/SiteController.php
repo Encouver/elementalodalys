@@ -206,10 +206,32 @@ class SiteController extends Controller
 		$criteria->params = array(':idexpo' => $idexpo);		
 		$conversatorios = Conversatorio::model()->findAll($criteria);
 
+//**TODAS
+	//prensa
+
+		if ($idioma->idioma == Yii::app()->params->idiomas['Español']){ //español
+			$criteria = new CDbCriteria;
+			$criteria->select = 't.*';
+			$criteria->condition = 't.idexposicion =:idexpo';
+			$criteria->params = array(':idexpo' => $idexpo);
+			$criteria->order = 	'fecha DESC';
+		}else{
+
+			$criteria = new CDbCriteria;
+	    	$criteria->select = 't.*, tra_prensa.*';
+	    	$criteria->together = true;
+	    	$criteria->join ='LEFT JOIN tra_prensa ON tra_prensa.prensaid = t.idprensa';
+			$criteria->condition = 't.idexposicion =:idexpo and tra_prensa.idiomaid =:ididioma';
+			$criteria->params = array(':idexpo' => $idexpo,':ididioma' => $idioma->id);			
+			$criteria->order = 	'fecha DESC';
+
+		}
+			$prensas = Prensa::model()->findAll($criteria);
+
 
 
 		$this->render('ver', array(
-        'tipo'=> $expo_feria->tipo, 'catalogo'=>$catalogo, 'artistas'=>$artistas, 'montajes'=>$montajes, 'vernifinis' =>$vernifinis, 'audio'=>$audio, 'conversatorios'=>$conversatorios));		
+        'tipo'=> $expo_feria->tipo, 'catalogo'=>$catalogo, 'artistas'=>$artistas, 'montajes'=>$montajes, 'vernifinis' =>$vernifinis, 'audio'=>$audio, 'conversatorios'=>$conversatorios,'prensas'=>$prensas));		
 	}
 
 
