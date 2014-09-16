@@ -160,6 +160,19 @@ class SiteController extends Controller
 	    	$criteria->order = "t.apellido ASC";
 			$artistas = Artista::model()->findAll($criteria);
 	
+			$obras[] = array();
+			foreach ($artistas as $artista => $art) {
+						$criteria = new CDbCriteria;
+				    	$criteria->select = 't.*';
+						$criteria->condition = 't.idartista =:idartista';
+						$criteria->join ='LEFT JOIN tra_obra ON tra_obra.obraid = t.idobra AND tra_obra.idiomaid=:ididioma';
+						$criteria->params = array(':idartista' => $artista->idartista,':ididioma'=> $idioma->ididioma);
+				    	//$criteria->order = "t.apellido ASC";
+
+						$obras[$artista->idartista] = Obras::model()->findAll($criteria);
+
+			}
+
 		//obras
 		/*		
 			$criteria = new CDbCriteria;
@@ -177,6 +190,7 @@ class SiteController extends Controller
 	    	$criteria->params = array(':id' => $idioma->id);
 
 		*/
+
 
 		//**TODAS
 		//montaje
