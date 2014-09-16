@@ -52,7 +52,10 @@ class addThis extends CWidget
 	{
 		// Run parent CWidget run function.
 		parent::run();
+		//mantu agregу el span
 		
+		echo '<span style="font-size:11px">';
+	
 		// We might not wanna load this while developing since sometimes developer has no internet access, thus the whole page rendering is slowed down big time @ clientside
 		/* if(YII_DEBUG) {
 			echo CHtml::image('/i/social_developer_fallback.gif', '[SOCIAL BOOKAMRS WIDGET]', array('title'=>'Виджет отключён в девелоперской версии'));
@@ -104,7 +107,7 @@ class addThis extends CWidget
 					echo CHtml::closeTag('a') . "\n";
 				} else {
 					echo CHtml::openTag('span',$htmlOptions);
-					echo "{$this->separator}";
+					//echo "{$this->separator}";
 					echo CHtml::closeTag('span') . "\n";
 				}				
 			}
@@ -133,5 +136,9 @@ class addThis extends CWidget
 		}
 		// Destroy addThis #share parameters.
 		unset ($this->share);
+
+		//mantu agregу el span
+		echo "</span>";
+
 	}
 }

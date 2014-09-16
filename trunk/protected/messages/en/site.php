@@ -18,6 +18,7 @@
 	    'Español' => 'Spanish',
 	    'Inglés' => 'English',
 	    'Alemán' => 'German',
+	    'Publicado el ' => 'Posted on ',
 	    'original message 2' => 'translated message 2',
 	);
 

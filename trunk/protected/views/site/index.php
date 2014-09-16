@@ -8,20 +8,13 @@ $this->pageTitle=Yii::app()->name;
 	<div class="col-md-8">
 	    <ul class="media-list">
 	    <?php	    
-	    //Ejemplo de traducción utilizando Yii...
-	    echo Yii::t('site','Noticias');
 	    	$primero = 1;
-	       
 	       $this->widget('application.extensions.addThis', 
 	       				array( 'id'=>'id', 'username'=>Yii::app()->user->name, 'defaultButtonCaption'=>Yii::t('social','Compartir'),
 	       					   'showDefaultButton'=>true, 'showDefaultButtonCaption'=>true, 'separator'=>'|',
 	       					   'htmlOptions'=>array(), 'linkOptions'=>array(), 
 	       					   'showServices'=>array('separator', 'facebook', 'twitter', 'google_plusone_share', 'google_plusone'), 
 	       					   'showServicesTitle'=>false, 'config'=>array('ui_language'=>Yii::app()->language), 'share'=>array(''))); 
-
-	       // http://www.yiiframework.com/extension/yiitube/
-	       $this->widget('ext.Yiitube', array('v' => 'fYa0y4ETFVo','size'=>'small'));
-
 	        foreach ($noticias as $noticia)
 	        {
 				//echo $noticia->titulo;
