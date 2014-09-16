@@ -199,26 +199,31 @@ if ($vernifinis){
 
                      
                           <br>
-                          <div class="row">
                           ';
+						if ($audio){
 
+	            			echo '
+	                          <div class="row">
+	                          ';
 
-                          
-                              print_r($audio);
-                           echo '
-                              <div class="col-md-1"> 
-                                <audio id="myAudio"
-                                 <source src="'.Yii::app()->request->baseUrl.'/images/cancion.mp3"
-                                         type="audio/mp3">
-                                 Your user agent does not support the HTML5 Audio element.
-                                </audio>
-                                  <span style="font-size:20px;" id="audio" class="glyphicon glyphicon-volume-up" type="button" onclick="aud_play_pause()"></span>
+	                           echo '
+	                              <div class="col-md-1"> 
+	                                <audio id="myAudio"
+	                                 <source src="'.Yii::app()->request->baseUrl.'/'.$audio->audio_ruta.'"
+	                                         type="audio/mp3">
+	                                 Your user agent does not support the HTML5 Audio element.
+	                                </audio>
+	                                  <span style="font-size:20px;" id="audio" class="glyphicon glyphicon-volume-up" type="button" onclick="aud_play_pause()"></span>
 
-                              </div>
-                              <div class="col-md-6 datos_audio">
-                                  Datos del audio, estos son los datos del audio si bla bal bal djsnfjf jfn dndn sjndnd sndj. dsjjsdjnd sjnjdnsnd jdnjdn jsndn djndn sdndnd sodkoop.
-                              </div>
-                          </div>
+	                              </div>
+	                              <div class="col-md-6 datos_audio">'.
+	                              	$audio->datos.'
+	                              </div>
+	                          </div>
+	                          ';
+                    	}
+                    
+                    	echo '
                       </div>
                     </div>
                   </div>
@@ -227,6 +232,10 @@ if ($vernifinis){
 }                  	
 ?>
 
+
+<?php
+if ($conversatorios){
+	echo '
                   <div class="panel">
                     <div class="panel-heading">
                       <h4 class="panel-title">
@@ -237,14 +246,30 @@ if ($vernifinis){
                       </h4>
                     </div>
                     <div id="collapseFive" class="panel-collapse collapse">
-                      <div class="panel-body">
-                        <div class="embed-responsive embed-responsive-16by9">
-                          <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/917gIBxmiG0"></iframe>
-                        </div>
+                      <div class="panel-body">';
+                        
 
+                        foreach ($conversatorios as $conversatorio) {
+                        	                    
+	                        echo '
+	                        <div class="embed-responsive embed-responsive-16by9">
+							';	
+								//http://www.yiiframework.com/extension/yiitube/
+								$this->widget('ext.Yiitube', array('v' => $conversatorio->link,'size'=>'small'));
+							
+	                        echo '    
+	                        </div>
+	                        <br>
+	                        ';
+
+                    	}
+                      echo '
                       </div>
                     </div>
                   </div>
+                  ';
+}
+?>
                   <div class="panel">
                     <div class="panel-heading">
                       <h4 class="panel-title">
