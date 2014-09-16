@@ -34,7 +34,7 @@ class Catalogo extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('idexposicion, portada, portada_thumb', 'required'),
-			array('idexposicion', 'numerical', 'integerOnly'=>true),
+			array('idexposicion, datos', 'numerical', 'integerOnly'=>true),
 			array('portada, portada_thumb, pdf, datos', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.

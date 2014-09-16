@@ -48,7 +48,10 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'datos'); ?>
-		<?php echo $form->textField($model,'datos',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->dropDownList($model, 'datos', 
+              array('1' => 'Español', '2' => 'Inglés', '3' => 'Alemán'),
+              array('empty' => 'Tipo de feria'));
+        ?>
 		<?php echo $form->error($model,'datos'); ?>
 	</div>
 
