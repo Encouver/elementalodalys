@@ -9,9 +9,9 @@ class TextHelper{
     }
 
     public static function convertir_fecha($fecha_de_entrada, $idioma){
-	list($pre_fecha,$hora) = split(" ",$fecha_de_entrada);
+	list($pre_fecha,$hora) = explode(" ",$fecha_de_entrada);
 	$fecha=date('Y-m-d-w',strtotime($pre_fecha));
-	list($yyyy,$mm,$dd,$lll) = split("-",$fecha);
+	list($yyyy,$mm,$dd,$lll) = explode("-",$fecha);
 	$semana=array("Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo");
 	$week=array("1","2","3","4","5","6","0");
 	$dia_semana=str_replace($week,$semana,$lll);

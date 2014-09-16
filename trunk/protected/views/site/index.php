@@ -24,8 +24,7 @@ $this->pageTitle=Yii::app()->name;
 
 	        	
 	    		if ($primero == 1) {
-	                echo "
-	                    <div class='media-body'>
+	                echo "<div class='media-body'>
 	                    	<div id = 'fecha_noticias'>";
 
 						    		echo $noticia->fecha;
