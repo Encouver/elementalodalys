@@ -313,6 +313,7 @@ if ($prensas){
 							echo '
 							      <div class="media-body">
 							        <h5 class="media-heading">'.$prensa->titulo.'</h5>
+                      <p class="text-muted chiqui">'.Yii::t('site','Publicado el ').TextHelper::convertir_fecha($prensa->fecha, $idioma).'</p>
 							        <p class="prensa comment more texto">'.$prensa->contenido.'</p>
 							      </div>
 							    </div>
@@ -333,14 +334,21 @@ if ($prensas){
                 <hr>
               <div id="info_expo">
                 <?php
+          
+
+                  if ($idioma->idioma == Yii::app()->params->idiomas['Español']){ //español
+                    $separador = " al ";
+                  }else{
+                    $separador = " to ";
+                  }
+
 
                   echo'<w id="info_expo_nombre">'.$datos->nombre1;
                   if ($datos->nombre2){
                     echo ' | '.$datos->nombre2;
                   }
                   echo '</w>
-                  <br>'.$datos->lugar.'<br>'.$datos->fecha_inicio.' al '.$datos->fecha_fin.'</div>
+                  <br>'.$datos->lugar.'. '.$datos->pais.'<br>'.TextHelper::convertir_fecha($datos->fecha_inicio, $idioma).$separador.TextHelper::convertir_fecha($datos->fecha_fin, $idioma).'</div>
                   ';
                 ?>
                 </div>
-
