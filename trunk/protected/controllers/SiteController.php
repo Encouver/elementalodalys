@@ -179,22 +179,21 @@ class SiteController extends Controller
 
 //**COLECTIVA
 	//Audio
-/*
+
 		$criteria = new CDbCriteria;
     	$criteria->select = 't.*, tra_audio.*';
     	$criteria->together = true;
     	$criteria->join ='LEFT JOIN tra_audio ON tra_audio.audioid = t.idaudio';
 		$criteria->params = array(':idexpo' => $idexpo,':ididioma' => $idioma->id);
 		$criteria->condition = 't.idexposicion =:idexpo and tra_audio.idiomaid =:ididioma';
-    	$criteria->params = array();
 		$audio = Audio::model()->find($criteria);
 
-*/
+
 
 
 
 		$this->render('ver', array(
-        'tipo'=> $expo_feria->tipo, 'catalogo'=>$catalogo, 'artistas'=>$artistas, 'montajes'=>$montajes, 'vernifinis' =>$vernifinis));		
+        'tipo'=> $expo_feria->tipo, 'catalogo'=>$catalogo, 'artistas'=>$artistas, 'montajes'=>$montajes, 'vernifinis' =>$vernifinis, 'audio'=>$audio));		
 	}
 
 

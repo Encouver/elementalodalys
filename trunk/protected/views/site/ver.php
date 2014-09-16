@@ -72,6 +72,9 @@ $this->pageTitle=Yii::app()->name;
                       </div>
                     </div>
                   </div>
+<?php
+if ($catalogo){
+echo '
                   <div class="panel">
                     <div class="panel-heading">
                       <h4 class="panel-title">
@@ -86,8 +89,7 @@ $this->pageTitle=Yii::app()->name;
                         
                         <div class="row">
                           <div class="col-md-4 pull-bottom">
-
-<?php
+';
 
 										$this->widget('ext.SAImageDisplayer', array(
 										    'image' => $catalogo[0]->portada,
@@ -97,17 +99,16 @@ $this->pageTitle=Yii::app()->name;
 										    'group' => 'catalogo',
 										));
 
-?>
-
+echo '
                           </div>
-                          <div class="col-md-4 pull-bottom">
-							<?php 
+                          <div class="col-md-4 pull-bottom">';
 							foreach ($catalogo as $cat) {
 							                            	# code...
 							                                                        
                             echo'<p id="catalogo_download"><a href="'.Yii::app()->request->baseUrl.'/'.$cat->pdf.'" target="_blank">'.Yii::t('site','Ver o descargar catálogo - ').Yii::t('site',$cat->datos).'</a></p>';
                             }
-                            ?>
+
+							echo '	                            
                           </div>
 
                         </div>
@@ -115,8 +116,13 @@ $this->pageTitle=Yii::app()->name;
                       </div>
                     </div>
                   </div>
-                  
+';
+}
+?>
 
+<?php
+if ($montajes){
+				echo '
                   <div class="panel">
                     <div class="panel-heading">
                       <h4 class="panel-title">
@@ -131,8 +137,8 @@ $this->pageTitle=Yii::app()->name;
 
                             <!-- Fotorama -->
                             <div class="fotorama" data-width="700" data-max-width="100%" data-ratio="500/333" data-fit="cover" data-captions="false" data-auto="false" data-nav="thumbs">
-
-								<?php
+							';
+								
 									foreach ($montajes as $montaje) {
 										$this->widget('ext.SAImageDisplayer', array(
 										    'image' => $montaje->imagen,
@@ -143,7 +149,7 @@ $this->pageTitle=Yii::app()->name;
 										));
 									}
 
-								?>
+							echo '
 		                    </div>
 							<!--Caption-->
 							<div style="min-height:40px; line-height: 20px; padding-top:10px"  class="fotorama-caption">
@@ -153,7 +159,13 @@ $this->pageTitle=Yii::app()->name;
                     </div>
                   </div>
 
+                  ';
+}
+?>
 
+<?php
+if ($vernifinis){
+				echo '
                   <div class="panel">
                     <div class="panel-heading">
                       <h4 class="panel-title">
@@ -167,8 +179,8 @@ $this->pageTitle=Yii::app()->name;
                       <div class="panel-body">
 
                             <div class="fotorama" data-width="700" data-max-width="100%" data-ratio="500/333" data-fit="cover" data-captions="false" data-auto="false" data-nav="thumbs">
-
-								<?php
+                            ';
+								
 									foreach ($vernifinis as $vernifini) {
 										$this->widget('ext.SAImageDisplayer', array(
 										    'image' => $vernifini->imagen,
@@ -179,20 +191,24 @@ $this->pageTitle=Yii::app()->name;
 										));
 									}
 
-								?>
+							echo '
 		                    </div>
 							<!--Caption-->
 							<div style="min-height:40px; line-height: 20px; padding-top:10px"  class="fotorama-caption">
 							</div>
 
-                      
-
-
+                     
                           <br>
                           <div class="row">
+                          ';
+
+
+                          
+                              print_r($audio);
+                           echo '
                               <div class="col-md-1"> 
                                 <audio id="myAudio"
-                                 <source src="<?php echo Yii::app()->request->baseUrl; ?>/images/cancion.mp3"
+                                 <source src="'.Yii::app()->request->baseUrl.'/images/cancion.mp3"
                                          type="audio/mp3">
                                  Your user agent does not support the HTML5 Audio element.
                                 </audio>
@@ -206,6 +222,11 @@ $this->pageTitle=Yii::app()->name;
                       </div>
                     </div>
                   </div>
+
+                  	';
+}                  	
+?>
+
                   <div class="panel">
                     <div class="panel-heading">
                       <h4 class="panel-title">
