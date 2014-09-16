@@ -112,6 +112,8 @@ class SiteController extends Controller
 	
 		$idioma = Idiomas::model()->find('idioma=:idioma',array(':idioma'=>Yii::app()->language));
 
+
+
 //**TODAS
 	//id de la exposicion
 		$criteria = new CDbCriteria;
@@ -121,6 +123,33 @@ class SiteController extends Controller
 		$expo_feria = Exposicion::model()->find($criteria);
 
 		$idexpo = $expo_feria->idexposicion;
+
+
+//**TODAS
+	//datos de la expo/feria
+
+		if ($idioma->idioma == Yii::app()->params->idiomas['Español']){ //español
+		
+			$criteria = new CDbCriteria;
+	    	$criteria->select = 't.*';
+			
+
+		}else{ //ingles
+
+			$criteria = new CDbCriteria;
+	    	$criteria->select = 't.*, tra_exposicion.*';
+	    	$criteria->together = true;
+	    	$criteria->join ='LEFT JOIN tra_exposicion ON tra_exposicion.exposicionid = t.idexposicion';
+	    	$criteria->condition = 'tra_exposicion.idiomaid =:id';
+	    	$criteria->params = array(':id' => $idioma->id);
+
+
+			
+			
+		}
+			$datos = Exposicion::model()->find($criteria);
+
+
 
 //**COLECTIVA, INDIVIDUAL
 	//catalogos
@@ -226,12 +255,12 @@ class SiteController extends Controller
 			$criteria->order = 	'fecha DESC';
 
 		}
-			$prensas = Prensa::model()->findAll($criteria);
+		$prensas = Prensa::model()->findAll($criteria);
 
 
 
 		$this->render('ver', array(
-        'tipo'=> $expo_feria->tipo, 'catalogo'=>$catalogo, 'artistas'=>$artistas, 'montajes'=>$montajes, 'vernifinis' =>$vernifinis, 'audio'=>$audio, 'conversatorios'=>$conversatorios,'prensas'=>$prensas));		
+        'datos'=> $datos, 'tipo'=> $expo_feria->tipo, 'catalogo'=>$catalogo, 'artistas'=>$artistas, 'montajes'=>$montajes, 'vernifinis' =>$vernifinis, 'audio'=>$audio, 'conversatorios'=>$conversatorios,'prensas'=>$prensas));		
 	}
 
 

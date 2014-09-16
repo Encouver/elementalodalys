@@ -334,12 +334,12 @@ if ($prensas){
               <div id="info_expo">
                 <?php
 
-                  echo'<w id="info_expo_nombre"> Nombre de la Expo';
-/*                  if ($c['nombre2']){
-                    echo ' | '.$c['nombre2'];
-                  }*/
+                  echo'<w id="info_expo_nombre">'.$datos->nombre1;
+                  if ($datos->nombre2){
+                    echo ' | '.$datos->nombre2;
+                  }
                   echo '</w>
-                  <br> lugar <br> fecha al fecha</div>
+                  <br>'.$datos->lugar.'<br>'.$datos->fecha_inicio.' al '.$datos->fecha_fin.'</div>
                   ';
                 ?>
                 </div>
