@@ -25,7 +25,7 @@ class SiteController extends Controller
 
 	public function actionTrans($_lang){
 		
-		// Guardando el unicode del lenguage en session _lang
+		// Guardando el unico del lenguage en session _lang
 		Yii::app()->session['_lang'] = $_lang;
 
 		Yii::app()->user->returnUrl = Yii::app()->request->urlReferrer;
@@ -85,7 +85,6 @@ class SiteController extends Controller
 	    	$criteria->select = 't.*';
 	    	$criteria->order = "fecha_inicio DESC";
 			
-
 		}else{ //ingles
 
 			$criteria = new CDbCriteria;
@@ -94,62 +93,81 @@ class SiteController extends Controller
 	    	$criteria->join ='LEFT JOIN tra_exposicion ON tra_exposicion.exposicionid = t.idexposicion';
 	    	$criteria->order = "fecha_inicio DESC";
 	    	$criteria->condition = 'tra_exposicion.idiomaid =:id';
-	    	$criteria->params = array(':id' => $idioma->id);
-
-
-			
-			
+	    	$criteria->params = array(':id' => $idioma->id);	
+		
 		}
-			$expoferias = Exposicion::model()->findAll($criteria);
+		
+		$expoferias = Exposicion::model()->findAll($criteria);
 
+		
 		$this->render('exposicionesferias', array(
 			'expoferias' => $expoferias, 'idioma'=>$idioma
         ));
 	
 	}
 
-	public function actionVer($expoferia){
+	public function actionver($expoferia){
 	
 		$idioma = Idiomas::model()->find('idioma=:idioma',array(':idioma'=>Yii::app()->language));
 
-//**TODAS
-	//id de la exposicion
-		$criteria = new CDbCriteria;
-		$criteria->select = 't.*';
-		$criteria->condition = 't.nombre1 =:x';
-		$criteria->params = array(':x' => $expoferia);
-		$expo_feria = Exposicion::model()->find($criteria);
+		//**TODAS
+		//id de la exposicion
+			$criteria = new CDbCriteria;
+			$criteria->select = 't.*';
+			$criteria->condition = 't.nombre1 =:x';
+			$criteria->params = array(':x' => $expoferia);
+			$expo_feria = Exposicion::model()->find($criteria);
 
-		$idexpo = $expo_feria->idexposicion;
+			$idexpo = $expo_feria->idexposicion;
 
-//**COLECTIVA, INDIVIDUAL
-	//catalogos
-		$criteria = new CDbCriteria;
-		$criteria->select = 't.*';
-		$criteria->condition = 't.idexposicion =:id';
-		$criteria->params = array(':id' => $idexpo);
-		$catalogo = Catalogo::model()->findAll($criteria);
+		//**TODAS
+		//datos de la expo/feria
 
-//**COLECTIVA, FERIA
-	//artistas de la expo
-		$criteria = new CDbCriteria;
-    	$criteria->select = 't.*, artista_expo.*';
-    	$criteria->together = true;
-    	$criteria->join ='INNER JOIN artista_expo ON artista_expo.idartista = t.idartista';
-		$criteria->condition = 'artista_expo.idexposicion =:id';
-		$criteria->params = array(':id' => $idexpo);
-    	$criteria->order = "t.apellido ASC";
-		$artistas = Artista::model()->findAll($criteria);
+			if ($idioma->idioma == Yii::app()->params->idiomas['Español']){ //español
+			
+				$criteria = new CDbCriteria;
+		    	$criteria->select = 't.*';
+				
+			}else{ //ingles
+
+				$criteria = new CDbCriteria;
+		    	$criteria->select = 't.*, tra_exposicion.*';
+		    	$criteria->together = true;
+		    	$criteria->join ='LEFT JOIN tra_exposicion ON tra_exposicion.exposicionid = t.idexposicion';
+		    	$criteria->condition = 'tra_exposicion.idiomaid =:id';
+		    	$criteria->params = array(':id' => $idioma->id);
+
+			}
+			
+			$datos = Exposicion::model()->find($criteria);
+
+		//**COLECTIVA, INDIVIDUAL
+		//catalogos
+			$criteria = new CDbCriteria;
+			$criteria->select = 't.*';
+			$criteria->condition = 't.idexposicion =:id';
+			$criteria->params = array(':id' => $idexpo);
+			$catalogo = Catalogo::model()->findAll($criteria);
+
+		//**COLECTIVA, FERIA
+		//artistas de la expo
+			$criteria = new CDbCriteria;
+	    	$criteria->select = 't.*, artista_expo.*';
+	    	$criteria->together = true;
+	    	$criteria->join ='INNER JOIN artista_expo ON artista_expo.idartista = t.idartista';
+			$criteria->condition = 'artista_expo.idexposicion =:id';
+			$criteria->params = array(':id' => $idexpo);
+	    	$criteria->order = "t.apellido ASC";
+			$artistas = Artista::model()->findAll($criteria);
 	
+		//obras
+		/*		
+			$criteria = new CDbCriteria;
+			$criteria->select = 't.*';
+			$criteria->condition = 't.idexposicion =:id';
+			$criteria->params = array(':id' => $idexpo);
+			$obras = ExpoObra::model()->findAll($criteria);
 
-	//obras
-/*		$criteria = new CDbCriteria;
-		$criteria->select = 't.*';
-		$criteria->condition = 't.idexposicion =:id';
-		$criteria->params = array(':id' => $idexpo);
-		$obras = ExpoObra::model()->findAll($criteria);
-
-/*
 			$criteria = new CDbCriteria;
 	    	$criteria->select = 't.*, tra_exposicion.*';
 	    	$criteria->together = true;
@@ -158,50 +176,85 @@ class SiteController extends Controller
 	    	$criteria->condition = 'tra_exposicion.idiomaid =:id';
 	    	$criteria->params = array(':id' => $idioma->id);
 
-*/
+		*/
+
+		//**TODAS
+		//montaje
+			$criteria = new CDbCriteria;
+			$criteria->select = 't.*';
+			$criteria->condition = 't.idexposicion =:id';
+			$criteria->params = array(':id' => $idexpo);
+			$montajes = Montaje::model()->findAll($criteria);
+
+		//**COLECTIVA
+		//Verni-fini
+			$criteria = new CDbCriteria;
+			$criteria->select = 't.*';
+			$criteria->condition = 't.idexposicion =:id';
+			$criteria->params = array(':id' => $idexpo);
+			$vernifinis = VerniFini::model()->findAll($criteria);
+
+		//**COLECTIVA
+		//Audio
+			if ($idioma->idioma == Yii::app()->params->idiomas['Español']){ //español
+				$criteria = new CDbCriteria;
+				$criteria->select = 't.*';
+				$criteria->condition = 't.idexposicion =:idexpo';
+				$criteria->params = array(':idexpo' => $idexpo);
+
+			}else{//ingles
+
+				$criteria = new CDbCriteria;
+		    	$criteria->select = 't.*, tra_audio.*';
+		    	$criteria->together = true;
+		    	$criteria->join ='LEFT JOIN tra_audio ON tra_audio.audioid = t.idaudio';
+				$criteria->condition = 't.idexposicion =:idexpo and tra_audio.idiomaid =:ididioma';
+				$criteria->params = array(':idexpo' => $idexpo,':ididioma' => $idioma->id);
+	
+			}
+		
+			$audio = Audio::model()->find($criteria);
 
 
-//**TODAS
-	//montaje
-		$criteria = new CDbCriteria;
-		$criteria->select = 't.*';
-		$criteria->condition = 't.idexposicion =:id';
-		$criteria->params = array(':id' => $idexpo);
-		$montajes = Montaje::model()->findAll($criteria);
+		//**COLECTIVA, INDIVIDUAL
+		//conversatorio
+			$criteria = new CDbCriteria;
+			$criteria->select = 't.*';
+			$criteria->condition = 't.idexposicion =:idexpo';
+			$criteria->params = array(':idexpo' => $idexpo);		
+			$conversatorios = Conversatorio::model()->findAll($criteria);
 
-//**COLECTIVA
-	//Verni-fini
-		$criteria = new CDbCriteria;
-		$criteria->select = 't.*';
-		$criteria->condition = 't.idexposicion =:id';
-		$criteria->params = array(':id' => $idexpo);
-		$vernifinis = VerniFini::model()->findAll($criteria);
+		//**TODAS
+		//prensa
 
-//**COLECTIVA
-	//Audio
+			if ($idioma->idioma == Yii::app()->params->idiomas['Español']){ //español
 
-		$criteria = new CDbCriteria;
-    	$criteria->select = 't.*, tra_audio.*';
-    	$criteria->together = true;
-    	$criteria->join ='LEFT JOIN tra_audio ON tra_audio.audioid = t.idaudio';
-		$criteria->params = array(':idexpo' => $idexpo,':ididioma' => $idioma->id);
-		$criteria->condition = 't.idexposicion =:idexpo and tra_audio.idiomaid =:ididioma';
-		$audio = Audio::model()->find($criteria);
+				$criteria = new CDbCriteria;
+				$criteria->select = 't.*';
+				$criteria->condition = 't.idexposicion =:idexpo';
+				$criteria->params = array(':idexpo' => $idexpo);
+				$criteria->order = 	'fecha DESC';
 
+			}else{
 
+				$criteria = new CDbCriteria;
+		    	$criteria->select = 't.*, tra_prensa.*';
+		    	$criteria->together = true;
+		    	$criteria->join ='LEFT JOIN tra_prensa ON tra_prensa.prensaid = t.idprensa';
+				$criteria->condition = 't.idexposicion =:idexpo and tra_prensa.idiomaid =:ididioma';
+				$criteria->params = array(':idexpo' => $idexpo,':ididioma' => $idioma->id);			
+				$criteria->order = 	'fecha DESC';
 
+			}
+
+			$prensas = Prensa::model()->findAll($criteria);
 
 
 		$this->render('ver', array(
-        'tipo'=> $expo_feria->tipo, 'catalogo'=>$catalogo, 'artistas'=>$artistas, 'montajes'=>$montajes, 'vernifinis' =>$vernifinis, 'audio'=>$audio));		
+        'datos'=> $datos, 'idioma'=>$idioma, 'tipo'=> $expo_feria->tipo, 'catalogo'=>$catalogo, 'artistas'=>$artistas, 'montajes'=>$montajes, 'vernifinis' =>$vernifinis, 'audio'=>$audio, 'conversatorios'=>$conversatorios,'prensas'=>$prensas));		
 	}
 
 
-
-
-	/**
-	 * This is the action to handle external exceptions.
-	 */
 
 	public function actionReqTest01() {
 	    echo date('H:i:s');
