@@ -12,7 +12,7 @@
  * addThis extends CWidget and implements a base class for a simple addThis widget.
  * more about addThis can be found on http://www.addthis.com
  * addThis API document can be fount on http://www.addthis.com/help/api-overview
- * @version $Id: 1.0.1
+ * @version $Id: 1.0
  */
 
 class addThis extends CWidget
@@ -53,14 +53,8 @@ class addThis extends CWidget
 		// Run parent CWidget run function.
 		parent::run();
 		//mantu agregу el span
-		
 		echo '<span style="font-size:11px">';
-	
-		// We might not wanna load this while developing since sometimes developer has no internet access, thus the whole page rendering is slowed down big time @ clientside
-		/* if(YII_DEBUG) {
-			echo CHtml::image('/i/social_developer_fallback.gif', '[SOCIAL BOOKAMRS WIDGET]', array('title'=>'Виджет отключён в девелоперской версии'));
-			return;
-		} */
+
 		// Get this widget id.
 		$id = $this->getId();
 		
@@ -87,26 +81,16 @@ class addThis extends CWidget
 		}
 		// Check what services to show.
 		if(isset($this->showServices)){
-			foreach ($this->showServices as $key => $item)
+			foreach ($this->showServices as $i)
 			{
-				if(is_array($item)) {
-					$serviceCode = $key;
-				} else {
-					$serviceCode = $item;
-				}
-				
-				$htmlOptions = array_merge( array('class'=>"addthis_button_{$serviceCode}"),
-												(is_array($item) ? $item : array()) );
-												
-				if ($serviceCode != 'separator')
+				if ($i != 'separator')
 				{
-					
-					echo CHtml::openTag('a', $htmlOptions);
-					if ($this->showServicesTitle && $serviceCode != 'facebook_like')
-						echo ucfirst("{$serviceCode}");
+					echo CHtml::openTag('a', array('class'=>"addthis_button_{$i}") );
+					if ($this->showServicesTitle && $i != 'facebook_like')
+						echo ucfirst("{$i}");
 					echo CHtml::closeTag('a') . "\n";
 				} else {
-					echo CHtml::openTag('span',$htmlOptions);
+					echo CHtml::openTag('span', array('class'=>"addthis_{$i}") );
 					//echo "{$this->separator}";
 					echo CHtml::closeTag('span') . "\n";
 				}				
