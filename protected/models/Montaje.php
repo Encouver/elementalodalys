@@ -32,13 +32,12 @@ class Montaje extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('imagen, imagen_thumb, idexposicion', 'required'),
+			array('idexposicion', 'required'),
 			array('idexposicion', 'numerical', 'integerOnly'=>true),
-			array('imagen, imagen_thumb', 'length', 'max'=>255),
 			array('descripcion', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('idmontaje, imagen, imagen_thumb, idexposicion, descripcion', 'safe', 'on'=>'search'),
+			array('idmontaje, imagen, idexposicion, descripcion', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -88,8 +87,8 @@ class Montaje extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('idmontaje',$this->idmontaje);
-		$criteria->compare('imagen',$this->imagen,true);
-		$criteria->compare('imagen_thumb',$this->imagen_thumb,true);
+		//$criteria->compare('imagen',$this->imagen,true);
+		//$criteria->compare('imagen_thumb',$this->imagen_thumb,true);
 		$criteria->compare('idexposicion',$this->idexposicion);
 		$criteria->compare('descripcion',$this->descripcion,true);
 
