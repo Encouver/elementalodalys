@@ -1,18 +1,19 @@
 <?php
 
 /**
- * This is the model class for table "elemental.obra".
+ * This is the model class for table "obra".
  *
- * The followings are the available columns in table 'elemental.obra':
+ * The followings are the available columns in table 'obra':
  * @property integer $idobra
  * @property integer $idartista
  * @property string $imagen
  * @property string $imagen_thumb
  * @property string $descripcion
+ * @property integer $idexposicion
  *
  * The followings are the available model relations:
- * @property ExpoObra[] $expoObras
  * @property Artista $idartista0
+ * @property Exposicion $idexposicion0
  * @property TraObra[] $traObras
  */
 class Obra extends CActiveRecord
@@ -22,7 +23,7 @@ class Obra extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'elemental.obra';
+		return 'obra';
 	}
 
 	/**
@@ -33,13 +34,13 @@ class Obra extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('idartista, imagen, imagen_thumb', 'required'),
-			array('idartista', 'numerical', 'integerOnly'=>true),
-			array('imagen, imagen_thumb', 'length', 'max'=>255),
+			array('idartista, idexposicion', 'required'),
+			array('idartista, idexposicion', 'numerical', 'integerOnly'=>true),
+			//array('', 'length', 'max'=>255),
 			array('descripcion', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('idobra, idartista, imagen, imagen_thumb, descripcion', 'safe', 'on'=>'search'),
+			array('idobra, idartista, imagen, imagen_thumb, descripcion, idexposicion', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -51,8 +52,8 @@ class Obra extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'expoObras' => array(self::HAS_MANY, 'ExpoObra', 'idobra'),
 			'idartista0' => array(self::BELONGS_TO, 'Artista', 'idartista'),
+			'idexposicion0' => array(self::BELONGS_TO, 'Exposicion', 'idexposicion'),
 			'traObras' => array(self::HAS_MANY, 'TraObra', 'obraid'),
 		);
 	}
@@ -64,10 +65,11 @@ class Obra extends CActiveRecord
 	{
 		return array(
 			'idobra' => 'Idobra',
-			'idartista' => 'Idartista',
+			'idartista' => 'Artista',
 			'imagen' => 'Imagen',
 			'imagen_thumb' => 'Imagen Thumb',
-			'descripcion' => 'Descripcion',
+			'descripcion' => 'Descripción',
+			'idexposicion' => 'Exposición',
 		);
 	}
 
@@ -94,6 +96,7 @@ class Obra extends CActiveRecord
 		$criteria->compare('imagen',$this->imagen,true);
 		$criteria->compare('imagen_thumb',$this->imagen_thumb,true);
 		$criteria->compare('descripcion',$this->descripcion,true);
+		$criteria->compare('idexposicion',$this->idexposicion);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

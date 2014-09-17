@@ -48,8 +48,9 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'idobra',
 		'idartista',
 		'imagen',
-		'imagen_thumb',
+		//'imagen_thumb',
 		'descripcion',
+		'idexposicion',
 		array(
 			'class'=>'CButtonColumn',
 		),
