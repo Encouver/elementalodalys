@@ -14,6 +14,7 @@
 	// See class documentation of CActiveForm for details on this.
 	'enableAjaxValidation'=>false,
 	//'htmlOptions' => array('enctype' => 'multipart/form-data'), 
+	'htmlOptions' => array('enctype' => 'multipart/form-data'),
 )); ?>
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
@@ -51,7 +52,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'imagen'); ?>
-		<?php echo $form->textField($model,'imagen',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->fileField($model,'imagen'); ?>
 		<?php echo $form->error($model,'imagen'); ?>
 	</div>
 

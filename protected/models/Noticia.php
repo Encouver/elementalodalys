@@ -32,7 +32,7 @@ class Noticia extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('fecha', 'required'),
+			array('fecha, titulo, contenido', 'required'),
 			array('imagen, link, titulo', 'length', 'max'=>255),
 			array('contenido', 'safe'),
 			// The following rule is used by search().

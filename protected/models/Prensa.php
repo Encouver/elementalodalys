@@ -35,7 +35,7 @@ class Prensa extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('fecha, idexposicion', 'required'),
+			array('fecha, idexposicion, titulo, contenido', 'required'),
 			array('idexposicion', 'numerical', 'integerOnly'=>true),
 			array('imagen, imagen_thumb, titulo', 'length', 'max'=>255),
 			array('contenido', 'safe'),

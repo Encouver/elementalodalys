@@ -70,8 +70,15 @@ class CatalogoController extends Controller
 		if(isset($_POST['Catalogo']))
 		{
 			$model->attributes=$_POST['Catalogo'];
+			$model->pdf=CUploadedFile::getInstance($model,'pdf');
+			$model->portada=CUploadedFile::getInstance($model,'portada');
+
 			if($model->save())
+			{
+				$model->pdf->saveAs('images/catalogo/pdfs/'.$model->pdf);
+				$model->portada->saveAs('images/catalogo/'.$model->portada);
 				$this->redirect(array('view','id'=>$model->idcatalogo));
+			}
 		}
 
 		$this->render('create',array(
@@ -110,6 +117,8 @@ class CatalogoController extends Controller
 	 */
 	public function actionDelete($id)
 	{
+		unlink('images/catalogo/'.$this->loadModel($id)->portada);
+		unlink('images/catalogo/pdfs/'.$this->loadModel($id)->pdf);
 		$this->loadModel($id)->delete();
 
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser

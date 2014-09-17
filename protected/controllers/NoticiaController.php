@@ -70,62 +70,17 @@ class NoticiaController extends Controller
 		if(isset($_POST['Noticia']))
 		{
 			$model->attributes=$_POST['Noticia'];
+			$model->imagen=CUploadedFile::getInstance($model,'imagen');
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->idnoticia));
+			{
+				$model->imagen->saveAs('images/noticia/originals/'.$model->imagen);
+				$this->redirect(array('admin'));
+			}
 		}
 
 		$this->render('create',array(
 			'model'=>$model,
 		));
-/*
-		$model=new Noticia;
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-	
-		$dir_noticia = '/noticia/originals';
-		$images =array();
-		if(isset($_POST['Noticia']))
-		{
-			$model->attributes=$_POST['Noticia'];
-
-			$images = CUploadedFile::getInstancesByName('images');
-	
-			// Creamos el directorio si no existe para esta gaaleria
-			if(isset($images)&&count($images)>0)
-			{
-				if(!is_dir(Yii::getPathOfAlias('webroot').'/images'.$dir_noticia))
-				{
-					mkdir(Yii::getPathOfAlias('webroot').'/images'.$dir_noticia));
-					chmod(Yii::getPathOfAlias('webroot').'/images'.$dir_noticia,0755);
-					// the default implementation makes it under 777 permission, which
-					// you could possibly change recursively before deployment, 
-					// but here's less of a headache in case you don't
-
-				}
-			}
-
-			foreach ($images as $image => $pic) {
-				
-				if ($pic->saveAs(Yii::getPathOfAlias('webroot').'/images'.$dir_noticia.'/'.$pic->name)) 
-				{
-					
-					$model->imagen = $pic->name;
-					$model->save()
-					//echo $model->id .’ # ‘.$pic->name.’<br />’;
-				}
-				else
-				{
-					echo '<br>Error guardando la imágen: '.$pic->name;
-				}
-			}
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->idnoticia));
-		}
-
-		$this->render('create',array(
-			'model'=>$model,
-		));*/
 
 	}
 
@@ -160,8 +115,10 @@ class NoticiaController extends Controller
 	 */
 	public function actionDelete($id)
 	{
-		$this->loadModel($id)->delete();
+		if($this->loadModel($id)->imagen)
+			unlink('images/noticia/originals/'.$this->loadModel($id)->imagen);
 
+		$this->loadModel($id)->delete();
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
 			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
