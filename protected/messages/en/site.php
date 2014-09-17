@@ -19,6 +19,14 @@
 	    'Inglés' => 'English',
 	    'Alemán' => 'German',
 	    'Publicado el ' => 'Posted on ',
+	    'Obras' => 'Works',
+	    'Catálogo' => 'Catalog',
+	    'Montaje' => 'Build up',
+	    'Conversatorio' => 'Panel discussion',
+	    'Prensa' => 'News articles',
+	    'Biografía' => 'Biography',
+
+
 	    'original message 2' => 'translated message 2',
 	);
 

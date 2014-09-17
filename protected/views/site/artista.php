@@ -11,8 +11,9 @@ if ($obras){
                     <div class="panel-heading">
                       <h4 class="panel-title">
                         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-                          Obras
-                          <span style="font-size:11px;" class="glyphicon x"></span>
+                          ';
+                          echo Yii::t('site','Obras');
+                          echo '                          <span style="font-size:11px;" class="glyphicon x"></span>
                         </a>
                       </h4>
                     </div>
@@ -51,7 +52,9 @@ if ($artista){
                     <div class="panel-heading">
                       <h4 class="panel-title">
                         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-                          Biografía
+                          ';
+                          echo Yii::t('site','Biografía');
+                          echo '                          
                           <span style="font-size:11px;" class="glyphicon x"></span>
                         </a>
                       </h4>
@@ -75,7 +78,9 @@ if ($prensas){
                     <div class="panel-heading">
                       <h4 class="panel-title">
                         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseSix">
-                          Prensa
+                          ';
+                          echo Yii::t('site','Prensa');
+                          echo ' 
                           <span style="font-size:11px;" class="glyphicon x"></span>
                         </a>
                       </h4>

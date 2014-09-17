@@ -24,7 +24,7 @@ Yii::app()->clientScript->registerScript('buscarObrasArtista','
                       <h4 class="panel-title">
                         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
                           
-                          Obras
+                          <?php  echo Yii::t('site','Obras');?>
                           <span style="font-size:11px;" class="glyphicon x"></span>
                         </a>
                       </h4>
@@ -117,7 +117,9 @@ echo '
                     <div class="panel-heading">
                       <h4 class="panel-title">
                         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                          Catálogo
+                          ';
+                          echo Yii::t('site','Catálogo');
+                          echo '
                           <span style="font-size:11px;" class="glyphicon x"></span>
                         </a>
                       </h4>
@@ -165,7 +167,9 @@ if ($montajes){
                     <div class="panel-heading">
                       <h4 class="panel-title">
                         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-                          Montaje
+                          ';
+                          echo Yii::t('site','Montaje');
+                          echo ' 
                           <span style="font-size:11px;" class="glyphicon x"></span>
                         </a>
                       </h4>
@@ -278,7 +282,10 @@ if ($conversatorios){
                     <div class="panel-heading">
                       <h4 class="panel-title">
                         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
-                          Conversatorio
+                          ';
+                          echo Yii::t('site','Conversatorio');
+                          echo ' 
+
                           <span style="font-size:11px;" class="glyphicon x"></span>
                         </a>
                       </h4>
@@ -317,7 +324,10 @@ if ($prensas){
                     <div class="panel-heading">
                       <h4 class="panel-title">
                         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseSix">
-                          Prensa
+                          ';
+                          echo Yii::t('site','Prensa');
+                          echo ' 
+
                           <span style="font-size:11px;" class="glyphicon x"></span>
                         </a>
                       </h4>
