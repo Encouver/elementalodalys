@@ -9,7 +9,6 @@ $this->breadcrumbs=array(
 );
 ?>
 
-<h1>Contact Us</h1>
 
 <?php if(Yii::app()->user->hasFlash('contact')): ?>
 
@@ -20,7 +19,7 @@ $this->breadcrumbs=array(
 <?php else: ?>
 
 <p>
-If you have business inquiries or other questions, please fill out the following form to contact us. Thank you.
+<?php echo Yii::t('site','Si desea ponerse en contacto con nosotros, por favor complete el siguiente formulario. Gracias.');?>
 </p>
 
 <div class="form">
@@ -33,7 +32,7 @@ If you have business inquiries or other questions, please fill out the following
 	),
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="note"><?php echo Yii::t('site','Campos con ');?><span class="required">*</span> <?php echo Yii::t('site','son requeridos.');?></p>
 
 	<?php echo $form->errorSummary($model); ?>
 
