@@ -165,6 +165,8 @@ class VerniFiniController extends Controller
 	 */
 	public function actionDelete($id)
 	{
+		unlink('images/vernifini/originals/'.$this->loadModel($id)->imagen);
+		
 		$this->loadModel($id)->delete();
 
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
