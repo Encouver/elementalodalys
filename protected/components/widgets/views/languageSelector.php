@@ -9,7 +9,7 @@
                      $lang, 
                      $this->getOwner()->createMultilanguageReturnUrl($key));
             } else echo '<b>'.$lang.'</b>';
-            if($lang != $lastElement) echo ' | ';
+            if($lang != $lastElement) echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
         }
     }
     else {

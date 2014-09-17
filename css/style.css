@@ -151,9 +151,10 @@ code {
 }
 
 .barra_superior{
-  background: url('../images/barra.png') repeat; 
-  margin-bottom: 25px;
-  height: 25px;
+  background-image: url('../images/footer.png');
+  padding-top: 14px;
+  height: 40px;
+  margin-bottom: 30px;
 }
 .head{
 
@@ -171,4 +172,14 @@ code {
 }
 .chiqui{
   font-size: 11px !important;
+}
+
+#language-selector{
+  margin:5px; 
+  font-size:11px;
+  color: #ABABAB;
+}
+
+#language-selector a{
+  color: white;
 }
