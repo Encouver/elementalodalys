@@ -31,9 +31,10 @@ class Audio extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('idexposicion', 'required'),
+			array('idexposicion, audio_ruta', 'required'),
 			array('idexposicion', 'numerical', 'integerOnly'=>true),
-			array('datos, audio_ruta', 'length', 'max'=>255),
+			array('datos', 'length', 'max'=>255),
+			array('audio_ruta', 'file', 'types'=>'mp3'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('idaudio, idexposicion, datos, audio_ruta', 'safe', 'on'=>'search'),

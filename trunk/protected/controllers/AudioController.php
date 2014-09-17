@@ -70,10 +70,15 @@ class AudioController extends Controller
 		if(isset($_POST['Audio']))
 		{
 			$model->attributes=$_POST['Audio'];
+			$model->audio_ruta=CUploadedFile::getInstance($model,'audio_ruta');
+			
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->idaudio));
+			{
+				$model->audio_ruta->saveAs('audios/'.$model->audio_ruta);
+				$this->redirect(array('admin'));
+			}
 		}
-
+		
 		$this->render('create',array(
 			'model'=>$model,
 		));
@@ -110,6 +115,8 @@ class AudioController extends Controller
 	 */
 	public function actionDelete($id)
 	{
+		unlink('audios/'.$this->loadModel($id)->audio_ruta);
+
 		$this->loadModel($id)->delete();
 
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser

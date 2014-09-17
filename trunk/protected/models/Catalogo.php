@@ -33,12 +33,14 @@ class Catalogo extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('idexposicion, portada, portada_thumb', 'required'),
+			array('idexposicion, pdf, portada, datos', 'required'),
+			array('pdf', 'file', 'types'=>'pdf'),
+			array('portada', 'file', 'types'=>'jpg, png'),
 			array('idexposicion, datos', 'numerical', 'integerOnly'=>true),
-			array('portada, portada_thumb, pdf, datos', 'length', 'max'=>255),
+			array('portada, pdf, datos', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('idcatalogo, idexposicion, portada, portada_thumb, pdf, datos', 'safe', 'on'=>'search'),
+			array('idcatalogo, idexposicion, portada, pdf, datos', 'safe', 'on'=>'search'),
 		);
 	}
 

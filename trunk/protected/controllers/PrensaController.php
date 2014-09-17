@@ -70,8 +70,12 @@ class PrensaController extends Controller
 		if(isset($_POST['Prensa']))
 		{
 			$model->attributes=$_POST['Prensa'];
+			$model->imagen=CUploadedFile::getInstance($model,'imagen');
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->idprensa));
+			{
+				$model->imagen->saveAs('images/prensa/originals/'.$model->imagen);
+				$this->redirect(array('admin'));
+			}
 		}
 
 		$this->render('create',array(
@@ -110,6 +114,8 @@ class PrensaController extends Controller
 	 */
 	public function actionDelete($id)
 	{
+		if($this->loadModel($id)->imagen)
+			unlink('images/prensa/originals/'.$this->loadModel($id)->imagen);
 		$this->loadModel($id)->delete();
 
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
