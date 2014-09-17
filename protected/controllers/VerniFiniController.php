@@ -60,18 +60,73 @@ class VerniFiniController extends Controller
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
+	private function NewGuid() { 
+                $stamp = @date("Ymdhis");
+                $s = strtoupper(md5(uniqid($stamp,true))); 
+                $guidText = 
+                        substr($s,0,8). 
+                        substr($s,8,4). 
+                        substr($s,12,4). 
+                        substr($s,16,4). 
+                        substr($s,20); 
+                return $guidText;
+	}
+
+
 	public function actionCreate()
 	{
 		$model=new VerniFini;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
+		define ('SITE_ROOT', realpath(dirname(__FILE__)));
+
 
 		if(isset($_POST['VerniFini']))
 		{
 			$model->attributes=$_POST['VerniFini'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->idverni_fini));
+			$model->imagen = "0";
+			//echo count($_FILES['imagen']['name']);
+			if($model->validate() and count($_FILES['imagen']['name'])>1)
+			{
+				$idexpo = $model->idexposicion;
+				$directorio = 'images/vernifini/originals/';
+				echo $directorio;
+				/*if(!is_dir($directorio))
+				{
+					mkdir($directorio);
+				}*/
+
+				//echo $idexpo;
+				$i = 0;
+				 while($i < count($_FILES['imagen']['name'])){
+ 					
+ 					if($i != 0)
+ 					{
+ 						$model= new VerniFini;
+ 					}
+
+	 				$nombre = $this->NewGuid();
+					
+					if($_FILES['imagen']['type'][$i]=="image/jpeg")
+					{
+						$tipo = "jpg";
+					}else
+					{
+						$tipo = "png";
+					}
+					
+					$destino = $directorio.$nombre.'.'.$tipo;
+					$model->imagen = $nombre.'.'.$tipo;
+					$model->idexposicion = $idexpo;
+					
+					move_uploaded_file($_FILES['imagen']['tmp_name'][$i],$destino);
+					$model->save();
+					$i++;			 
+			 	}
+				$this->redirect(array('admin'));
+			}
+
 		}
 
 		$this->render('create',array(

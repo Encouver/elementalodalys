@@ -32,13 +32,15 @@ class VerniFini extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('imagen, imagen_thumb, idexposicion', 'required'),
+			array('idexposicion', 'required'),
+			//array('imagen','type','type'=>'array','allowEmpty'=>false),
+			//array('imagen', 'file', 'types'=>'jpg, gif, png'),
 			array('idexposicion', 'numerical', 'integerOnly'=>true),
-			array('imagen, imagen_thumb', 'length', 'max'=>255),
+			//array('imagen', 'length', 'max'=>255),
 			array('descripcion', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('idverni_fini, imagen, imagen_thumb, idexposicion, descripcion', 'safe', 'on'=>'search'),
+			array('idverni_fini, imagen, idexposicion, descripcion', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -63,7 +65,7 @@ class VerniFini extends CActiveRecord
 		return array(
 			'idverni_fini' => 'Idverni Fini',
 			'imagen' => 'Imagen',
-			'imagen_thumb' => 'Imagen Thumb',
+			//'imagen_thumb' => 'Imagen Thumb',
 			'idexposicion' => 'Idexposicion',
 			'descripcion' => 'Descripcion',
 		);
@@ -89,7 +91,7 @@ class VerniFini extends CActiveRecord
 
 		$criteria->compare('idverni_fini',$this->idverni_fini);
 		$criteria->compare('imagen',$this->imagen,true);
-		$criteria->compare('imagen_thumb',$this->imagen_thumb,true);
+		//$criteria->compare('imagen_thumb',$this->imagen_thumb,true);
 		$criteria->compare('idexposicion',$this->idexposicion);
 		$criteria->compare('descripcion',$this->descripcion,true);
 
