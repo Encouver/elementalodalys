@@ -39,10 +39,9 @@
 
         <div class="row">
 
-            <div class="col-md-4">
+            <div class="col-md-12">
                 <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logoodalys.png" width="80px;">
-            </div>
-            <div class="col-md-2 col-md-offset-6">
+
                 
                 <?php /*echo CHtml::link('Español',array('Site/Trans','_lang'=>'es'))
                  echo "----";
@@ -79,26 +78,27 @@
             </div>
 
             <div class= "col-md-10">     
-                <div class="visible-xs-block visible-sm-block">
-                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logonuevo.png" width="130px;"><br><br>
-
-                </div>
-                   
+                
+               
                 <nav class="navbar" role="navigation">
 
                         <!-- Brand and toggle get grouped for better mobile display -->
                         <div class="navbar-header">
-                            
-                            <button type="button" class="navbar-default navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <button type="button" class="visible-xs-block visible-sm-block btn btn-link pull-left" style="padding-bottom:15px;"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logonuevo.png" width="130px;">    </button>
+                        
+        
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                                 
-                            <span class="glyphicon glyphicon-chevron-down"></span>
+                            <div>&nbsp;&nbsp;&nbsp;
+                            <span class="glyphicon glyphicon-chevron-down"></span></div>
                             </button>
 
                         </div>
 
 
                         <!-- Collect the nav links, forms, and other content for toggling -->
-                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        
+                        <div class="col-md-4 collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav menuppal">
                                 <li>
                                     <a class="menuppal" href="<?php echo Yii::app()->request->baseUrl; ?>/site/exposicionesferias"><?php  echo Yii::t('site','Exposiciones | Ferias');?></a>
@@ -127,7 +127,7 @@
                     <!-- /.container -->
                 </nav>
                 <div class="visible-xs-block visible-sm-block">
-                    <br><br>
+                    <br>
                 </div>
 
 
@@ -254,7 +254,7 @@
 $('.collapse').on('shown.bs.collapse', function(){
 $(this).parent().find(".glyphicon.x").addClass("glyphicon-chevron-down");
 }).on('hidden.bs.collapse', function(){
-$(this).parent().find(".glyphicon-chevron-down").removeClass("glyphicon-chevron-down");
+$(this).parent().find(".glyphicon.x.glyphicon-chevron-down").removeClass("glyphicon-chevron-down");
 
 });
 
