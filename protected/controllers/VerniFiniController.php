@@ -91,13 +91,9 @@ class VerniFiniController extends Controller
 			{
 				$idexpo = $model->idexposicion;
 				$directorio = 'images/vernifini/originals/';
-				echo $directorio;
-				/*if(!is_dir($directorio))
-				{
-					mkdir($directorio);
-				}*/
+				
+				$porciones = explode("<br>", $model->descripcion);
 
-				//echo $idexpo;
 				$i = 0;
 				 while($i < count($_FILES['imagen']['name'])){
  					
@@ -121,10 +117,13 @@ class VerniFiniController extends Controller
 					$model->idexposicion = $idexpo;
 					
 					move_uploaded_file($_FILES['imagen']['tmp_name'][$i],$destino);
+
+					$model->descripcion = $porciones[$i];
 					$model->save();
 					$i++;			 
 			 	}
-				$this->redirect(array('admin'));
+
+				$this->redirect(array('admin')); 
 			}
 
 		}
