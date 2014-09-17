@@ -142,7 +142,7 @@ return array(
 		                         ), 
 								'obra' => array(
 		                            'previa' => array('width' => 400, 'height' => 300),
-		                            'grande' => array('width' => 640, 'height' => 480),
+		                            'grande' => array('width' => 700, 'height' => 467),
 		                         ), 
 		                    ),
 		                ),
