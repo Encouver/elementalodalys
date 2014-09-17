@@ -56,6 +56,19 @@ class ObraController extends Controller
 		));
 	}
 
+
+	private function NewGuid() { 
+                $stamp = @date("Ymdhis");
+                $s = strtoupper(md5(uniqid($stamp,true))); 
+                $guidText = 
+                        substr($s,0,8). 
+                        substr($s,8,4). 
+                        substr($s,12,4). 
+                        substr($s,16,4). 
+                        substr($s,20); 
+                return $guidText;
+	}
+
 	/**
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
@@ -70,8 +83,48 @@ class ObraController extends Controller
 		if(isset($_POST['Obra']))
 		{
 			$model->attributes=$_POST['Obra'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->idobra));
+			$model->imagen = "0";
+			//echo count($_FILES['imagen']['name']);
+			if($model->validate() and count($_FILES['imagen']['name'])>1)
+			{
+				$idartista = $model->idartista;
+				$idexpo = $model->idexposicion;
+				$directorio = 'images/obra/originals/';
+				
+				//$porciones = explode("<br>", $model->descripcion);
+
+				$i = 0;
+				 while($i < count($_FILES['imagen']['name'])){
+ 					
+ 					if($i != 0)
+ 					{
+ 						$model= new Obra;
+ 					}
+
+	 				$nombre = $this->NewGuid();
+					
+					if($_FILES['imagen']['type'][$i]=="image/jpeg")
+					{
+						$tipo = "jpg";
+					}else
+					{
+						$tipo = "png";
+					}
+					
+					$destino = $directorio.$nombre.'.'.$tipo;
+					$model->imagen = $nombre.'.'.$tipo;
+					$model->idexposicion = $idexpo;
+					$model->idartista = $idartista;
+					
+					move_uploaded_file($_FILES['imagen']['tmp_name'][$i],$destino);
+
+					//$model->descripcion = $porciones[$i];
+					$model->save();
+					$i++;			 
+			 	}
+
+				$this->redirect(array('admin')); 
+			}
 		}
 
 		$this->render('create',array(
@@ -110,6 +163,7 @@ class ObraController extends Controller
 	 */
 	public function actionDelete($id)
 	{
+		unlink('images/obra/originals/'.$this->loadModel($id)->imagen);
 		$this->loadModel($id)->delete();
 
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
