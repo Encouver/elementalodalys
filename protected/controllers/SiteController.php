@@ -159,19 +159,29 @@ class SiteController extends Controller
 			$criteria->params = array(':id' => $idexpo);
 	    	$criteria->order = "t.apellido ASC";
 			$artistas = Artista::model()->findAll($criteria);
-	
-			$obras[] = array();
-			foreach ($artistas as $artista => $art) {
-						$criteria = new CDbCriteria;
-				    	$criteria->select = 't.*';
-						$criteria->condition = 't.idartista =:idartista';
-						$criteria->join ='LEFT JOIN tra_obra ON tra_obra.obraid = t.idobra AND tra_obra.idiomaid=:ididioma';
-						$criteria->params = array(':idartista' => $artista->idartista,':ididioma'=> $idioma->ididioma);
-				    	//$criteria->order = "t.apellido ASC";
-
-						$obras[$artista->idartista] = Obras::model()->findAll($criteria);
-
+			
+			$obras = array();
+			if($artistas){
+				$criteria = new CDbCriteria;
+		    	$criteria->select = 't.*';
+				$criteria->condition = 't.idartista =:idartista';
+				$criteria->join ='LEFT JOIN tra_obra ON tra_obra.obraid = t.idobra AND tra_obra.idiomaid=:ididioma';
+				$criteria->params = array(':idartista' => $artistas[0]->idartista,':ididioma'=> $idioma->id);
+				$obras = Obra::model()->findAll($criteria);
 			}
+
+			/*$obras[] = array();
+			foreach ($artistas as $artista => $art) {
+				$criteria = new CDbCriteria;
+		    	$criteria->select = 't.*';
+				$criteria->condition = 't.idartista =:idartista';
+				$criteria->join ='LEFT JOIN tra_obra ON tra_obra.obraid = t.idobra AND tra_obra.idiomaid=:ididioma';
+				$criteria->params = array(':idartista' => $art->idartista,':ididioma'=> $idioma->id);
+		    	//$criteria->order = "t.apellido ASC";
+
+				$obras[$art->idartista] = Obra::model()->findAll($criteria);
+
+			}*/
 
 		//obras
 		/*		
@@ -265,7 +275,26 @@ class SiteController extends Controller
 
 
 		$this->render('ver', array(
-        'datos'=> $datos, 'idioma'=>$idioma, 'tipo'=> $expo_feria->tipo, 'catalogo'=>$catalogo, 'artistas'=>$artistas, 'montajes'=>$montajes, 'vernifinis' =>$vernifinis, 'audio'=>$audio, 'conversatorios'=>$conversatorios,'prensas'=>$prensas));		
+        'datos'=> $datos, 'idioma'=>$idioma, 'tipo'=> $expo_feria->tipo, 'catalogo'=>$catalogo, 'artistas'=>$artistas,
+        'montajes'=>$montajes, 'vernifinis' =>$vernifinis, 'audio'=>$audio, 'conversatorios'=>$conversatorios,
+        'prensas'=>$prensas, 'obras'=> $obras));		
+	}
+
+	public function actionBuscarObrasArtista($artista)
+	{
+		$idioma = Idiomas::model()->find('idioma=:idioma',array(':idioma'=>Yii::app()->language));
+
+		$criteria = new CDbCriteria;
+    	$criteria->select = 't.*';
+		$criteria->condition = 't.idartista =:idartista';
+		$criteria->join ='LEFT JOIN tra_obra ON tra_obra.obraid = t.idobra AND tra_obra.idiomaid=:ididioma';
+		$criteria->params = array(':idartista' => $artista->idartista,':ididioma'=> $idioma->id);
+
+		$obras= Obra::model()->findAll($criteria);
+
+		//fotorama
+		$this->renderPartial('_obras', array('$obras' => $obras, 'idioma'=>$idioma));
+
 	}
 
 
