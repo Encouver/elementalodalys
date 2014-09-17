@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<?php echo Yii::app()->language; ?>">
 
 <head>
 
@@ -259,12 +259,12 @@ $(this).parent().find(".glyphicon-chevron-down").removeClass("glyphicon-chevron-
 
 
 
-$('.fotorama')
+/*$('.fotorama')
     .on('fotorama:show', function (e, fotorama) {    
         fotorama.$caption = fotorama.$caption || $(this).next('.fotorama-caption');
         fotorama.$caption.text(fotorama.activeFrame.caption);
     })
-    .fotorama();
+    .fotorama();*/
 
 function aud_play_pause() {
   var myAudio = document.getElementById("myAudio");

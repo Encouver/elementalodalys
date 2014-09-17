@@ -15,6 +15,17 @@ Yii::app()->clientScript->registerScript('buscarObrasArtista','
                                             $(function buscarObrasArtista(){
                                                   
                                                 });');
+
+Yii::app()->clientScript->registerScript('fotoramascript','
+                            
+$(".fotorama")
+.on("fotorama:show", function (e, fotorama) {    
+    fotorama.$caption = fotorama.$caption || $(this).next(".fotorama-caption");
+    fotorama.$caption.text(fotorama.activeFrame.caption);
+})
+.fotorama();
+                            ', CClientScript::POS_END);
+
 ?>
 
                 <div class="panel-group" id="accordion">
@@ -36,22 +47,25 @@ Yii::app()->clientScript->registerScript('buscarObrasArtista','
 
                           <div class="col-md-2">
                           	<?php
-                          		foreach ($artistas as $artista) {
+                          	/*	foreach ($artistas as $artista) {
                           			echo $artista->nombre." ".$artista->apellido."<br>";
-                          		}
+                          		}*/
 
-                             /* $ajaxOptions = script que actualize el artista elegido y cargue las obras de ese artista haciendo renderpartial sobre el id artista_obras
+                              //$ajaxOptions = script que actualize el artista elegido y cargue las obras de ese artista haciendo renderpartial sobre el id artista_obras
                               foreach($artistas as $key=>$artista) {
                                       echo CHtml::ajaxLink(
                                            $artista->nombre." ".$artista->apellido, 
-                                           $url,
-                                           array('data-artista'=>$artista->idartista)
+                                           Yii::app()->createUrl('site/BuscarObrasArtista',array('artista'=>$artista->idartista)),
+                                            array(
+                                                'update'=>'#artista_obras'
+                                            )
+                                           //array('data-artista'=>$artista->idartista)
                                            );
-                              }*/
+                              }
                           	?>
                           </div>
 
-                          <div id="artista_obras"class="col-md-10">
+                          <div id="artista_obras" class="col-md-10">
                             <?php $this->renderPartial('_obras',array('obras'=> $obras, 'idioma'=>$idioma)); ?>
                         <?php                            
                         /*echo CHtml::ajaxLink(

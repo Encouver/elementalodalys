@@ -283,18 +283,19 @@ class SiteController extends Controller
 
 	public function actionBuscarObrasArtista($artista)
 	{
+		
 		$idioma = Idiomas::model()->find('idioma=:idioma',array(':idioma'=>Yii::app()->language));
 
 		$criteria = new CDbCriteria;
     	$criteria->select = 't.*';
 		$criteria->condition = 't.idartista =:idartista';
 		$criteria->join ='LEFT JOIN tra_obra ON tra_obra.obraid = t.idobra AND tra_obra.idiomaid=:ididioma';
-		$criteria->params = array(':idartista' => $artista->idartista,':ididioma'=> $idioma->id);
+		$criteria->params = array(':idartista' => $artista,':ididioma'=> $idioma->id);
 
 		$obras= Obra::model()->findAll($criteria);
 
 		//fotorama
-		$this->renderPartial('_obras', array('$obras' => $obras, 'idioma'=>$idioma));
+		$this->renderPartial('_obras', array('obras' => $obras, 'idioma'=>$idioma));
 
 	}
 
