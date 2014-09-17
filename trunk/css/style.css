@@ -162,7 +162,13 @@ code {
   color:#757575;
   font-weight: bold;
 }
+.head2{
 
+  font-size: 16px;
+  line-height: 26px;
+  color:#757575;
+  font-weight: bold;
+}
 .chiqui{
   font-size: 11px !important;
 }

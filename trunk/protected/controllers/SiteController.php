@@ -280,6 +280,7 @@ class SiteController extends Controller
         'prensas'=>$prensas, 'obras'=> $obras));		
 	}
 
+
 	public function actionBuscarObrasArtista($artista)
 	{
 		$idioma = Idiomas::model()->find('idioma=:idioma',array(':idioma'=>Yii::app()->language));
@@ -298,6 +299,118 @@ class SiteController extends Controller
 	}
 
 
+	public function actionArtistas(){
+		$idioma = Idiomas::model()->find('idioma=:idioma',array(':idioma'=>Yii::app()->language));
+
+		if ($idioma->idioma == Yii::app()->params->idiomas['Español']){ //español
+		
+			$criteria = new CDbCriteria;
+	    	$criteria->select = 't.*';
+	    	$criteria->order = "t.apellido ASC";
+			
+		}else{ //ingles
+
+			$criteria = new CDbCriteria;
+	    	$criteria->select = 't.*, tra_artista.*';
+	    	$criteria->together = true;
+	    	$criteria->join ='LEFT JOIN tra_artista ON tra_artista.artistaid = t.idartista';
+	    	$criteria->order = "t.apellido ASC";
+	    	$criteria->condition = 'tra_artista.idiomaid =:id';
+	    	$criteria->params = array(':id' => $idioma->id);	
+		
+		}
+		
+		$artistas = Artista::model()->findAll($criteria);
+
+		
+		$this->render('artistas', array(
+			'artistas' => $artistas, 'idioma'=>$idioma
+        ));
+
+
+	}
+
+	public function actionArtista($id) {
+
+		$idioma = Idiomas::model()->find('idioma=:idioma',array(':idioma'=>Yii::app()->language));
+
+
+	//datos del artista
+		if ($idioma->idioma == Yii::app()->params->idiomas['Español']){ //español
+		
+			$criteria = new CDbCriteria;
+	    	$criteria->select = 't.*';
+	    	$criteria->condition = 't.idartista =:id';
+	    	$criteria->params = array(':id' => $id);	
+	
+		
+		}else{ //ingles
+
+			$criteria = new CDbCriteria;
+	    	$criteria->select = 't.*, tra_artista.*';
+	    	$criteria->together = true;
+	    	$criteria->join ='LEFT JOIN tra_artista ON tra_artista.artistaid = t.idartista';
+	    	$criteria->condition = 'tra_artista.idiomaid =:ididioma and t.idartista = :id';
+	    	$criteria->params = array(':ididioma' => $idioma->id, ':id'=>$id);
+		}
+		$artista = Artista::model()->find($criteria);
+
+
+
+	//prensa
+
+		if ($idioma->idioma == Yii::app()->params->idiomas['Español']){ //español
+
+			$criteria = new CDbCriteria;
+			$criteria->select = 't.*, artista_prensa.*';
+	    	$criteria->together = true;
+	    	$criteria->join ='LEFT JOIN artista_prensa ON artista_prensa.idprensa = t.idprensa';
+			$criteria->condition = 'artista_prensa.idartista =:id';
+			$criteria->params = array(':id' => $id);
+			$criteria->order = 	'fecha DESC';
+
+		}else{
+
+			$criteria = new CDbCriteria;
+			$criteria->select = 't.*, artista_prensa.*, tra_prensa.*';
+	    	$criteria->together = true;
+	    	$criteria->join ='LEFT JOIN artista_prensa ON artista_prensa.idprensa = t.idprensa LEFT JOIN tra_prensa ON tra_prensa.prensaid = t.idprensa';
+			$criteria->condition = 'tra_prensa.idiomaid =:idioma and artista_prensa.idartista =:id';
+			$criteria->params = array(':id' => $id, ':idioma' => $idioma->id);
+			$criteria->order = 	't.fecha DESC';
+			$criteria->group='t.idprensa';
+
+		}
+
+		$prensas = Prensa::model()->findAll($criteria);
+
+		if ($idioma->idioma == Yii::app()->params->idiomas['Español']){ //español
+			$criteria = new CDbCriteria;
+	    	$criteria->select = 't.*';
+			$criteria->condition = 't.idartista =:idartista';
+			$criteria->params = array(':idartista' => $id);
+
+		}else{
+	//obras
+			
+		$criteria = new CDbCriteria;
+    	$criteria->select = 't.*';
+		$criteria->condition = 't.idartista =:idartista';
+		$criteria->join ='LEFT JOIN tra_obra ON tra_obra.obraid = t.idobra AND tra_obra.idiomaid=:ididioma';
+		$criteria->params = array(':idartista' => $id,':ididioma'=> $idioma->id);
+		
+		}
+		
+		$obras= Obra::model()->findAll($criteria);
+
+
+
+		$this->render('artista', array(
+			'artista' => $artista, 'idioma'=>$idioma, 'obras' =>$obras, 'prensas'=>$prensas,
+        ));
+
+
+	}
 
 	public function actionReqTest01() {
 	    echo date('H:i:s');
