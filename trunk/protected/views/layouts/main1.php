@@ -39,10 +39,10 @@
 
         <div class="row">
 
-            <div class="col-md-2">
+            <div class="col-md-4">
                 <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logoodalys.png" width="80px;">
             </div>
-            <div class="col-md-3 pull-right">
+            <div class="col-md-2 col-md-offset-6">
                 
                 <?php /*echo CHtml::link('Español',array('Site/Trans','_lang'=>'es'))
                  echo "----";
@@ -52,11 +52,12 @@
                     CHtml::listData(Idiomas::model()->findAll(), 'idioma', 'nombre'),
                     array('onhaschange'=>'location.assign('.Yii::app()->createUrl('site/trans',array('_lang' => $seleccionado)).')'));*/
                 ?>
-
-                <div  id="language-selector" style="float:right; margin:5px;">
-                    <?php 
-                        $this->widget('application.components.widgets.LanguageSelector');
-                    ?>
+                <div class="pull-right">
+                    <div id="language-selector">
+                        <?php 
+                            $this->widget('application.components.widgets.LanguageSelector');
+                        ?>
+                    </div>
                 </div>
 
             </div>
