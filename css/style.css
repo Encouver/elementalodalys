@@ -189,3 +189,15 @@ code {
   color:#ABABAB;
   text-decoration: none;
 }
+
+.hint{
+  font-size: 11px;
+}
+.control-label{
+  font-size: 12px;
+
+}
+.error_contact{
+  font-size: 11px;
+color: red;
+}

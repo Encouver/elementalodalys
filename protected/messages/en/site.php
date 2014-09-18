@@ -30,7 +30,14 @@
 	    'Campos con '=>'Fields with ',
 	    'son requeridos.'=>'are required',
 	    'Subir'=> 'Scroll to top',
-
+	    'Nombre ' => 'Name',
+	    'Correo ' => 'Email',
+	    'Mensaje ' => 'Message',
+	    'Asunto '=> 'Subject',
+	    'Código de verificación '=> 'Verification Code',
+	    'Enviar'=>'Submit',
+	    'Introduce las letras de la imagen de abajo'=>'Enter the letters in the image below',
+	    'Las letras no distinguen entre mayúsculas y minúsculas.'=> 'Letters are not case-sensitive.',
 	    'original message 2' => 'translated message 2',
 	);
 
