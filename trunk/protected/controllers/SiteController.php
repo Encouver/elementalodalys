@@ -435,7 +435,7 @@ class SiteController extends Controller
 	/**
 	 * Displays the contact page
 	 */
-	public function actionContact()
+	public function actionContacto()
 	{
 		$model=new ContactForm;
 		if(isset($_POST['ContactForm']))
@@ -455,7 +455,7 @@ class SiteController extends Controller
 				$this->refresh();
 			}
 		}
-		$this->render('contact',array('model'=>$model));
+		$this->render('contacto',array('model'=>$model));
 	}
 
 	/**
