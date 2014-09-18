@@ -12,6 +12,8 @@ $this->pageTitle=Yii::app()->name;
 	    					 'showDefaultButton'=>true, 'showDefaultButtonCaption'=>true, 'separator'=>'|', 
 	    					 'htmlOptions'=>array(), 'linkOptions'=>array(), 
 	    					 'showServices'=>array('separator', 'facebook', 'twitter', 'myspace', 'email', 'print'), 'showServicesTitle'=>false, 'config'=>array('ui_language'=>'en'), 'share'=>array()) ); */?>
+
+
 	    <?php	    
 	    	$primero = 1;
 
