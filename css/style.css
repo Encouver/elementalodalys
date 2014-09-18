@@ -201,3 +201,14 @@ code {
   font-size: 11px;
 color: red;
 }
+
+.footernavega a{
+  text-decoration: none;
+  color: #C4C4C4 !important;
+
+}
+.footernavega a:hover{
+  text-decoration: none;
+  color: #C4C4C4 !important;
+
+}

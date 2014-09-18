@@ -173,25 +173,24 @@
 
             <div class="col-md-2">
                 <h5><?php  echo Yii::t('site','Navega');?></h5>
-                <p style="font-size:12px;">
-                    <?php  echo Yii::t('site','Exposiciones | Ferias');?><br>
-                    <?php  echo Yii::t('site','Artistas');?><br>
-                    <?php  echo Yii::t('site','Alianzas');?><br>
-                    <?php  echo Yii::t('site','Becas');?><br>
-                    <?php  echo Yii::t('site','Quiénes somos');?><br>
-                    <?php  echo Yii::t('site','Contacto');?><br>
+                <p class="footernavega" style="font-size:12px;">
+                    <a href="<?php echo Yii::app()->request->baseUrl; ?>/site/exposicionesferias"><?php  echo Yii::t('site','Exposiciones | Ferias');?></a><br/>
+                    <a href="<?php echo Yii::app()->request->baseUrl; ?>/site/artistas"><?php  echo Yii::t('site','Artistas');?></a><br/>
+                    <a href="<?php echo Yii::app()->request->baseUrl; ?>/site/alianzas"><?php  echo Yii::t('site','Alianzas');?></a><br/>
+                    <a href="<?php echo Yii::app()->request->baseUrl; ?>/site/becas"><?php  echo Yii::t('site','Becas');?></a><br/>
+                    <a href="<?php echo Yii::app()->request->baseUrl; ?>/site/quienessomos"><?php  echo Yii::t('site','Quiénes somos');?></a><br/>
+                    <a href="<?php echo Yii::app()->request->baseUrl; ?>/site/contacto"><?php  echo Yii::t('site','Contacto');?></a><br/>
+
                 </p>
 
             </div>
 
             <div class="col-md-2">
                 <h5><?php  echo Yii::t('site','Redes Sociales');?></h5>
-            <p style="font-size:12px;line-height:30px;">
+            <p class="footernavega" style="font-size:12px;line-height:30px;">
 
-                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/social/Facebook-icon.png" width="25px"> Facebook<br>
-                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/social/Twitter-icon.png" width="25px"> Twitter<br>
-                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/social/Youtube-icon.png" width="25px"> Youtube<br>
-                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/social/Instagram-icon.png" width="25px"> Instagram<br>
+                    <a  href="https://www.facebook.com/Elemental.Proyecto"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/social/Facebook-icon.png" width="25px"> Facebook</a><br>
+                    <a  href=""><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/social/Youtube-icon.png" width="25px"> Youtube</a><br>
                 </p>
             </div>
 
