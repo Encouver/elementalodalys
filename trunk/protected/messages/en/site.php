@@ -29,6 +29,7 @@
 	    'Si desea ponerse en contacto con nosotros, por favor complete el siguiente formulario. Gracias.'=>'If you wish to contact us, please complete the form below. Thank you.',
 	    'Campos con '=>'Fields with ',
 	    'son requeridos.'=>'are required',
+	    'Subir'=> 'Scroll to top',
 
 	    'original message 2' => 'translated message 2',
 	);

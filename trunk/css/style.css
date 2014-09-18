@@ -94,7 +94,7 @@ body {
 
 #wrap > .container {
   padding: 0px 15px 0;
-  padding-bottom: 30px;
+  padding-bottom: 10px;
 }
 .container .credit {
   margin: 20px 0;
@@ -182,4 +182,10 @@ code {
 
 #language-selector a{
   color: white;
+}
+
+.go_on_top a{
+  font-size: 12px;
+  color:#ABABAB;
+  text-decoration: none;
 }

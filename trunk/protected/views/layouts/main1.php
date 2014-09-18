@@ -72,7 +72,7 @@
 
             <div class="col-md-2">
                 <div class="bs-docs-sidebar hidden-xs hidden-sm affix" role="complementary">
-                    <a href="<?php echo Yii::app()->request->baseUrl; ?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logonuevo.png" width="130px;"></a><br><br>
+                    <a href="<?php echo Yii::app()->request->baseUrl; ?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logonuevo.png" width="130px;"/></a><br><br>
 
                 </div>
             </div>
@@ -84,7 +84,7 @@
 
                         <!-- Brand and toggle get grouped for better mobile display -->
                         <div class="navbar-header">
-                        <button type="button" class="visible-xs-block visible-sm-block btn btn-link pull-left" style="padding-bottom:15px;"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logonuevo.png" width="130px;">    </button>
+                        <a href="<?php echo Yii::app()->request->baseUrl; ?>" type="button" class="visible-xs-block visible-sm-block btn btn-link pull-left" style="padding-bottom:15px;"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logonuevo.png" width="130px;">    </a>
                         
         
                             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -141,7 +141,21 @@
 
             </div>
         </div>
+
+        <div class="pull-right go_on_top">
+        <?php
+            $this->widget('ext.ScrollTop', array(
+                //Default values
+                'fadeTransitionStart'=>10,
+                'fadeTransitionEnd'=>200,
+                'speed' => 'slow'
+            ));
+        ?>
+        </div>
+
     </div>
+
+
 </div>
 
 <div id="footer">
