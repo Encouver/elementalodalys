@@ -22,13 +22,6 @@ $this->pageTitle=Yii::app()->name;
 	        	/*print_r($noticia);
 	        	echo "<br><br><br>";*/
 
-		       $this->widget('application.extensions.addThis', //API: http://support.addthis.com/customer/portal/articles/1337989-overview
-					array( 'id'=>'share_noticia_'.$noticia->idnoticia, 'username'=>Yii::app()->user->name, 'defaultButtonCaption'=>Yii::t('social','Compartir'),
-						   'showDefaultButton'=>true, 'showDefaultButtonCaption'=>true, 'separator'=>'|',
-						   'htmlOptions'=>array('addthis:url'=>Yii::app()->createAbsoluteUrl('noticia/view',array('id'=>$noticia->idnoticia)),'addthis:title'=>$noticia->titulo), 'linkOptions'=>array(), 
-						   'showServices'=>array('separator', 'facebook', 'twitter', 'google_plusone_share', 'google_plusone'), 
-						   'showServicesTitle'=>false, 'config'=>array('ui_language'=>Yii::app()->language,'data_track_clickback'=>true), 
-						   'share'=>array(/*'url'=>Yii::app()->createAbsoluteUrl('noticia/view',array('id'=>$noticia->idnoticia)),'title'=>$noticia->titulo,'descripcion'=>$noticia->contenido*/))); 
 
 	    		if ($primero == 1) {
 	                echo "<div class='media-body'>
@@ -56,7 +49,7 @@ $this->pageTitle=Yii::app()->name;
                 	        	</div>
                     		</div>
 	                    
-	                    	<hr>
+	                    	
 	                		";
 	                    
 	                $primero = 2;
@@ -88,9 +81,19 @@ $this->pageTitle=Yii::app()->name;
 	                      	</div>
 	                    </li>
 	                    
-	                    <hr>
+	                    
 		                   ";
+
 	    	    }
+	    	    echo "<br>";
+	    	    		       $this->widget('application.extensions.addThis', //API: http://support.addthis.com/customer/portal/articles/1337989-overview
+					array( 'id'=>'share_noticia_'.$noticia->idnoticia, 'username'=>Yii::app()->user->name, 'defaultButtonCaption'=>Yii::t('social','Compartir'),
+						   'showDefaultButton'=>true, 'showDefaultButtonCaption'=>true, 'separator'=>'|',
+						   'htmlOptions'=>array('addthis:url'=>Yii::app()->createAbsoluteUrl('noticia/view',array('id'=>$noticia->idnoticia)),'addthis:title'=>$noticia->titulo), 'linkOptions'=>array(), 
+						   'showServices'=>array('separator', 'facebook', 'twitter', 'google_plusone_share', 'google_plusone'), 
+						   'showServicesTitle'=>false, 'config'=>array('ui_language'=>Yii::app()->language,'data_track_clickback'=>true), 
+						   'share'=>array(/*'url'=>Yii::app()->createAbsoluteUrl('noticia/view',array('id'=>$noticia->idnoticia)),'title'=>$noticia->titulo,'descripcion'=>$noticia->contenido*/))); 
+echo "<hr>";
 	        }
 	        ?>    
 	         
