@@ -103,6 +103,19 @@ return array(
 			),
 		),
 
+		// http://www.yiiframework.com/extension/smtp-mail/
+		'Smtpmail'=>array(
+	            'class'=>'application.extensions.smtpmail.PHPMailer',
+	            'Host'=>"mail.gmail.com",
+	            'Username'=>'noreply@odalys.com',
+	            'Password'=>'noreply..123nr.',
+	            'From'=>'noreply@odalys.com',
+	            'Mailer'=>'smtp',
+	            'Port'=>587,
+	            'SMTPAuth'=>true, 
+	            'SMTPSecture'=>'tls',   
+	    ),
+
 		// Link: http://www.yiiframework.com/extension/image
 		'image'=>array(
           'class'=>'application.extensions.image.CImageComponent',

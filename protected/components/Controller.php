@@ -66,4 +66,18 @@ class Controller extends CController
 	        $arr = array('language'=>$lang);
 	    return $this->createUrl('', $arr);
 	}
+
+	public function mailsend($to,$from,$subject,$message){
+		
+        $mail=Yii::app()->Smtpmail;
+        $mail->SetFrom($from, 'From NAme');
+        $mail->Subject    = $subject;
+        $mail->MsgHTML($message);
+        $mail->AddAddress($to, "");
+        if(!$mail->Send()) {
+            echo "Mailer Error: " . $mail->ErrorInfo;
+        }else {
+            echo "Message sent!";
+        }
+    }
 }
