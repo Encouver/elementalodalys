@@ -75,6 +75,16 @@ class SiteController extends Controller
 	
 	}
 
+	public function actionAlianzas(){
+		
+		$this->render('alianzas');		
+	
+	}
+	public function actionBecas(){
+		
+		$this->render('becas');		
+	
+	}
 	public function actionExposicionesferias(){
 		
 		$idioma = Idiomas::model()->find('idioma=:idioma',array(':idioma'=>Yii::app()->language));
