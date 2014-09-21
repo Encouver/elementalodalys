@@ -76,6 +76,7 @@ class ObraController extends Controller
 	public function actionCreate()
 	{
 		$model=new Obra;
+		$tra_model=new TraObra;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
@@ -128,7 +129,7 @@ class ObraController extends Controller
 		}
 
 		$this->render('create',array(
-			'model'=>$model,
+			'model'=>$model,'tra_model'=>$tra_model,
 		));
 	}
 
