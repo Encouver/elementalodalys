@@ -14,5 +14,17 @@ $this->menu=array(
 ?>
 
 <h1>Create Obra</h1>
+<div>
+	<h2>Español</h2>
+	<div>
+	<?php $this->renderPartial('_form', array('model'=>$model,'obligatorio'=>true)); ?>
+	</div>
 
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+	<!-- Dependiendo del idioma seleccionado se carga teste modelo -->
+
+	<h2>Ingles</h2>
+	<div>
+	<?php $this->renderPartial('_form', array('model'=>$model,'obligatorio'=>false)); ?>
+	</div>
+
+</div>
