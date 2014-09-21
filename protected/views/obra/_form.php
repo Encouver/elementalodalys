@@ -4,15 +4,19 @@
 /* @var $form CActiveForm */
 ?>
 
-<?php if(!$obligatorio)
+<?php if(!$obligatorio){
 		$modelo = $tra_model;
-	  else
+		$nombre_formulario = 'obra-en-form';
+	  }else{
+	  	$nombre_formulario = 'obra-form';
 		$modelo = $model;
+	  }
+	//Yii::app()->registerScriptClient('vincular_parametros_similares','');
 ?>
 <div class="form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'obra-form',
+	'id'=>$nombre_formulario,
 	// Please note: When you enable ajax validation, make sure the corresponding
 	// controller action is handling ajax validation correctly.
 	// There is a call to performAjaxValidation() commented in generated controller code.
