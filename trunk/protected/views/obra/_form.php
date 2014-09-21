@@ -4,6 +4,11 @@
 /* @var $form CActiveForm */
 ?>
 
+<?php if(!$obligatorio)
+		$modelo = $tra_model;
+	  else
+		$modelo = $model;
+?>
 <div class="form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
@@ -51,9 +56,9 @@
 	</div>-->
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'descripcion'); ?>
-		<?php echo $form->textArea($model,'descripcion',array('rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'descripcion'); ?>
+		<?php echo $form->labelEx($modelo,'descripcion'); ?>
+		<?php echo $form->textArea($modelo,'descripcion',array('rows'=>6, 'cols'=>50)); ?>
+		<?php echo $form->error($modelo,'descripcion'); ?>
 	</div>
 
 	<div class="row buttons">
