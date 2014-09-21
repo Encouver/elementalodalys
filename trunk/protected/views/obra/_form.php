@@ -24,7 +24,7 @@
 		<?php echo $form->labelEx($model,'idartista'); ?>
 		<?php //echo $form->textField($model,'tipousuario'); >
 			echo $form->dropDownList($model, 'idartista', 
-			CHtml::listData(artista::model()->findAll(),'idartista','nombre'),array('empty' =>'Seleccione'));
+			CHtml::listData(artista::model()->findAll(),'idartista','nombre'),array('empty' =>'Seleccione','disabled'=>!$obligatorio));
 		?>
 		<?php echo $form->error($model,'idartista'); ?>
 	</div>
@@ -33,14 +33,14 @@
 		<?php echo $form->labelEx($model,'idexposicion'); ?>
 		<?php //echo $form->textField($model,'tipousuario'); >
 			echo $form->dropDownList($model, 'idexposicion', 
-			CHtml::listData(exposicion::model()->findAll(),'idexposicion','nombre1'),array('empty' =>'Seleccione'));
+			CHtml::listData(exposicion::model()->findAll(),'idexposicion','nombre1'),array('empty' =>'Seleccione','disabled'=>!$obligatorio));
 		?>
 		<?php echo $form->error($model,'idexposicion'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'imagen'); ?>
-		<?php echo CHtml::fileField('imagen[]','', array('multiple' => 'true')); ?>
+		<?php echo CHtml::fileField('imagen[]','', array('multiple' => 'true','disabled'=>!$obligatorio)); ?>
 		<?php echo $form->error($model,'imagen'); ?>
 	</div>
 
