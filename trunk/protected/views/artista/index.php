@@ -9,6 +9,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Create Artista', 'url'=>array('create')),
 	array('label'=>'Manage Artista', 'url'=>array('admin')),
+	array('label'=>'Create in other languages ', 'url'=>array('traArtista/index')),
 );
 ?>
 

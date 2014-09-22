@@ -10,6 +10,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'List Artista', 'url'=>array('index')),
 	array('label'=>'Manage Artista', 'url'=>array('admin')),
+	
 );
 ?>
 
