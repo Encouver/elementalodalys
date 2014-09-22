@@ -88,6 +88,17 @@ $this->breadcrumbs=array(
 
 
 </div>
-<div class="col-md-5 col-md-offset-1">DIRECCIONES<BR>DIRECCIONES<BR>DIRECCIONES<BR>DIRECCIONES<BR></div>
+<div class="col-md-5 col-md-offset-1">
+
+<?php
+if ($direcciones) {
+
+
+echo $direcciones->texto;
+}
+?>
+
+
+</div>
 
 </div>

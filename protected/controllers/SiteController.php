@@ -92,7 +92,39 @@ class SiteController extends Controller
 
 	public function actionQuienessomos(){
 		
-		$this->render('quienessomos');		
+
+		$idioma = Idiomas::model()->find('idioma=:idioma',array(':idioma'=>Yii::app()->language));
+
+		if ($idioma->idioma == Yii::app()->params->idiomas['Español']){ //español
+
+	    	$criteria2 = new CDbCriteria;
+	    	$criteria2->select = 't.*';
+	    	$criteria2->condition = 't.lugar = :lugar';
+	    	$criteria2->params= array(':lugar' => 'quienessomos');
+
+
+		}else{ //ingles
+
+
+			
+			$criteria2 = new CDbCriteria;
+	    	$criteria2->select = 't.*, tra_texto.*';
+	    	$criteria2->join ='LEFT JOIN tra_texto ON tra_texto.textoid = t.idtexto';
+	    	$criteria2->condition = 'tra_texto.idiomaid =:id and t.lugar = :lugar';
+	    	$criteria2->params = array(':id' => $idioma->id, ':lugar' => 'quienessomos');
+
+
+
+		}
+		
+		$quienessomos = Texto::model()->find($criteria2);
+
+
+
+		$this->render('quienessomos', array('quienessomos' => $quienessomos));		
+
+
+
 	
 	}
 
@@ -131,8 +163,40 @@ class SiteController extends Controller
 	
 	}
 	public function actionBecas(){
+
+
+
+		$idioma = Idiomas::model()->find('idioma=:idioma',array(':idioma'=>Yii::app()->language));
+
+		if ($idioma->idioma == Yii::app()->params->idiomas['Español']){ //español
+
+	    	$criteria2 = new CDbCriteria;
+	    	$criteria2->select = 't.*';
+	    	$criteria2->condition = 't.lugar = :lugar';
+	    	$criteria2->params= array(':lugar' => 'becas');
+
+
+		}else{ //ingles
+
+
+			
+			$criteria2 = new CDbCriteria;
+	    	$criteria2->select = 't.*, tra_texto.*';
+	    	$criteria2->join ='LEFT JOIN tra_texto ON tra_texto.textoid = t.idtexto';
+	    	$criteria2->condition = 'tra_texto.idiomaid =:id and t.lugar = :lugar';
+	    	$criteria2->params = array(':id' => $idioma->id, ':lugar' => 'becas');
+
+
+
+		}
 		
-		$this->render('becas');		
+		$becas = Texto::model()->find($criteria2);
+
+
+
+		$this->render('becas', array('becas' => $becas));		
+
+
 	
 	}
 	public function actionExposicionesferias(){
@@ -515,7 +579,36 @@ class SiteController extends Controller
 				$this->refresh();
 			}
 		}
-		$this->render('contacto',array('model'=>$model));
+
+	$idioma = Idiomas::model()->find('idioma=:idioma',array(':idioma'=>Yii::app()->language));
+
+		if ($idioma->idioma == Yii::app()->params->idiomas['Español']){ //español
+
+	    	$criteria2 = new CDbCriteria;
+	    	$criteria2->select = 't.*';
+	    	$criteria2->condition = 't.lugar = :lugar';
+	    	$criteria2->params= array(':lugar' => 'direcciones');
+
+
+		}else{ //ingles
+
+
+			
+			$criteria2 = new CDbCriteria;
+	    	$criteria2->select = 't.*, tra_texto.*';
+	    	$criteria2->join ='LEFT JOIN tra_texto ON tra_texto.textoid = t.idtexto';
+	    	$criteria2->condition = 'tra_texto.idiomaid =:id and t.lugar = :lugar';
+	    	$criteria2->params = array(':id' => $idioma->id, ':lugar' => 'direcciones');
+
+
+
+		}
+		
+		$direcciones = Texto::model()->find($criteria2);
+
+
+
+		$this->render('contacto',array('model'=>$model,'direcciones' => $direcciones));
 	}
 
 	/**
