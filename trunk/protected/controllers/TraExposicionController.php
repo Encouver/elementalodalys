@@ -1,6 +1,6 @@
 <?php
 
-class ExposicionController extends Controller
+class TraExposicionController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -28,7 +28,7 @@ class ExposicionController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','languages'),
+				'actions'=>array('index','view'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -62,16 +62,16 @@ class ExposicionController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new Exposicion;
+		$model=new TraExposicion;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Exposicion']))
+		if(isset($_POST['TraExposicion']))
 		{
-			$model->attributes=$_POST['Exposicion'];
+			$model->attributes=$_POST['TraExposicion'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->idexposicion));
+				$this->redirect(array('view','id'=>$model->id));
 		}
 
 		$this->render('create',array(
@@ -91,11 +91,11 @@ class ExposicionController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Exposicion']))
+		if(isset($_POST['TraExposicion']))
 		{
-			$model->attributes=$_POST['Exposicion'];
+			$model->attributes=$_POST['TraExposicion'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->idexposicion));
+				$this->redirect(array('view','id'=>$model->id));
 		}
 
 		$this->render('update',array(
@@ -122,7 +122,7 @@ class ExposicionController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Exposicion');
+		$dataProvider=new CActiveDataProvider('TraExposicion');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -133,27 +133,26 @@ class ExposicionController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new Exposicion('search');
+		$model=new TraExposicion('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Exposicion']))
-			$model->attributes=$_GET['Exposicion'];
+		if(isset($_GET['TraExposicion']))
+			$model->attributes=$_GET['TraExposicion'];
 
 		$this->render('admin',array(
 			'model'=>$model,
 		));
 	}
 
-	
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return Exposicion the loaded model
+	 * @return TraExposicion the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=Exposicion::model()->findByPk($id);
+		$model=TraExposicion::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -161,11 +160,11 @@ class ExposicionController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param Exposicion $model the model to be validated
+	 * @param TraExposicion $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='exposicion-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='tra-exposicion-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
