@@ -29,6 +29,13 @@
 		<?php echo $form->labelEx($model,'texto'); ?>
 		<?php echo $form->textArea($model,'texto',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'texto'); ?>
+<?php	
+$this->widget('ext.ExtEditMe', array(
+    'name'=>'example',
+    'value'=>'put your template code here',
+));
+?>
+
 	</div>
 
 	<div class="row buttons">
