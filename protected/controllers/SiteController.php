@@ -52,6 +52,8 @@ class SiteController extends Controller
 
 	    	$criteria2 = new CDbCriteria;
 	    	$criteria2->select = 't.*';
+	    	$criteria2->condition = 't.lugar = :lugar';
+	    	$criteria2->params= array(':lugar' => 'index_derecha');
 
 
 
@@ -67,8 +69,8 @@ class SiteController extends Controller
 			$criteria2 = new CDbCriteria;
 	    	$criteria2->select = 't.*, tra_texto.*';
 	    	$criteria2->join ='LEFT JOIN tra_texto ON tra_texto.textoid = t.idtexto';
-	    	$criteria2->condition = 'tra_texto.idiomaid =:id';
-	    	$criteria2->params = array(':id' => $idioma->id);
+	    	$criteria2->condition = 'tra_texto.idiomaid =:id and t.lugar = :lugar';
+	    	$criteria2->params = array(':id' => $idioma->id, ':lugar' => 'index_derecha');
 
 
 		}
@@ -96,7 +98,36 @@ class SiteController extends Controller
 
 	public function actionAlianzas(){
 		
-		$this->render('alianzas');		
+
+		$idioma = Idiomas::model()->find('idioma=:idioma',array(':idioma'=>Yii::app()->language));
+
+		if ($idioma->idioma == Yii::app()->params->idiomas['Español']){ //español
+
+	    	$criteria2 = new CDbCriteria;
+	    	$criteria2->select = 't.*';
+	    	$criteria2->condition = 't.lugar = :lugar';
+	    	$criteria2->params= array(':lugar' => 'alianzas');
+
+
+		}else{ //ingles
+
+
+			
+			$criteria2 = new CDbCriteria;
+	    	$criteria2->select = 't.*, tra_texto.*';
+	    	$criteria2->join ='LEFT JOIN tra_texto ON tra_texto.textoid = t.idtexto';
+	    	$criteria2->condition = 'tra_texto.idiomaid =:id and t.lugar = :lugar';
+	    	$criteria2->params = array(':id' => $idioma->id, ':lugar' => 'alianzas');
+
+
+
+		}
+		
+		$alianzas = Texto::model()->find($criteria2);
+
+
+
+		$this->render('alianzas', array('alianzas' => $alianzas));		
 	
 	}
 	public function actionBecas(){

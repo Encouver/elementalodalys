@@ -161,10 +161,14 @@ echo "<hr>";
 	<div class="col-md-3 col-md-offset-1">
 	    <h4 style="margin-top:0px">ELEMENTAL Proyecto</h4>
 	    <p style ="font-size: 13px;">
-
-	    <?php echo $texto->texto;?>
-	   <a href="<?php echo Yii::app()->request->baseUrl; ?>/site/quienessomos"><w style="font-size: 11px;"> (<?php echo Yii::t('site','Ver más');?>)</w></a></p>
-
+	<?php
+	    if ($texto){
+	     echo $texto->texto;
+	   	
+	   	echo '<a href="'.Yii::app()->request->baseUrl.'/site/quienessomos"><w style="font-size: 11px;"> ('.Yii::t("site","Ver más").')</w></a></p>';
+		
+		}
+	?>
 	   <br>
 	    <h4><?php  echo Yii::t('site','Artistas del proyecto');?></h4>
 	    <ul style="font-size: 13px; list-style-type: none; padding-left: 0px">

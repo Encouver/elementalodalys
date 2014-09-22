@@ -44,9 +44,9 @@ echo '			<div class="row">
 						$separador = " to ";
 					}
 			      echo '
-			      <w style="padding-left: 15px;">'.$expoferia->lugar.'. '.$expoferia->pais.'<br>
+			      <w class="segundonivel">'.$expoferia->lugar.'. '.$expoferia->pais.'</w><br>
 
-			      <w style="padding-left: 15px;">'.TextHelper::convertir_fecha($expoferia->fecha_inicio, $idioma).$separador.TextHelper::convertir_fecha($expoferia->fecha_fin, $idioma).'<br><br>
+			      <w class="segundonivel" style="padding-left: 15px;">'.TextHelper::convertir_fecha($expoferia->fecha_inicio, $idioma).$separador.TextHelper::convertir_fecha($expoferia->fecha_fin, $idioma).'</w><br><br>
 			    </div>
 ';
 	}
