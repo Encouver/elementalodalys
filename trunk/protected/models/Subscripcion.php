@@ -36,6 +36,7 @@ class Subscripcion extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('correo', 'required'),
+			array('correo', 'email'),
 			array('id', 'numerical', 'integerOnly'=>true),
 			array('correo', 'length', 'max'=>255),
 			/*array('correo','pattern'=>'^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$', 
