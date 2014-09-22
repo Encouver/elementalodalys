@@ -30,6 +30,7 @@ a.morelink {
 }
 .menuppal a{
   color: #585858;
+
 }
 
 
@@ -219,4 +220,9 @@ color: red;
 
 .active{
   font-weight: bold;
+    font-size: 14px;
+}
+
+.a_sincolor{
+  color:#585858;
 }
