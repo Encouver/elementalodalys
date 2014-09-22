@@ -9,6 +9,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Create Exposicion', 'url'=>array('create')),
 	array('label'=>'Manage Exposicion', 'url'=>array('admin')),
+	array('label'=>'Create in other languages ', 'url'=>array('traExposicion/index')),
 );
 ?>
 

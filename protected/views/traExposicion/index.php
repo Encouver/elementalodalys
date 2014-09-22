@@ -1,19 +1,18 @@
 <?php
-/* @var $this SubscripcionController */
+/* @var $this TraExposicionController */
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Subscripcions',
+	'Tra Exposicions',
 );
 
 $this->menu=array(
-	array('label'=>'Create Subscripcion', 'url'=>array('create')),
-	array('label'=>'Manage Subscripcion', 'url'=>array('admin')),
-	
+	array('label'=>'Create TraExposicion', 'url'=>array('create')),
+	array('label'=>'Manage TraExposicion', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Subscripcions</h1>
+<h1>Tra Exposicions</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

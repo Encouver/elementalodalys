@@ -61,8 +61,8 @@ class TraExposicion extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'pais' => 'Pais',
-			'exposicionid' => 'Exposicionid',
-			'idiomaid' => 'Idiomaid',
+			'exposicionid' => 'Exposición',
+			'idiomaid' => 'Idioma',
 		);
 	}
 
