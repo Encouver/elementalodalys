@@ -15,4 +15,4 @@ $this->menu=array(
 
 <h1>Create Obra</h1>
 
-	<?php $this->renderPartial('_tra', array('model'=>$model,'tra_model'=>$tra_model,'obligatorio'=>true)); ?>
+	<?php $this->renderPartial('_form', array('model'=>$model)); ?>
