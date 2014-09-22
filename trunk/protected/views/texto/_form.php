@@ -46,6 +46,9 @@ $this->widget('ext.ExtEditMe', array(
             array(
                 'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe'
             ),
+            array('Styles', 'Format', 'FontSize'
+
+                ),
         )
 ));
 ?>

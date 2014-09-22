@@ -40,8 +40,10 @@
         <div class="row">
 
             <div class="col-md-12">
-                <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logoodalys.png" width="80px;">
 
+                <a  href="http://www.odalys.com" target="_blank">
+                    <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logoodalys.png" width="80px;">
+                </a>
                 
                 <?php /*echo CHtml::link('Español',array('Site/Trans','_lang'=>'es'))
                  echo "----";
@@ -182,7 +184,7 @@
 
 
 </div>
-
+<br><br>
 <div id="footer">
 <footer>
     <div class="container">
@@ -192,7 +194,7 @@
                 <p style="font-size:12px;">ELEMENTAL se aleja de la clásica relación galería-comisario-artista para plantear la construcción de las exposiciónes de una manera orgánica.
                 <a href="sobreElemental.php"><w style="font-size: 11px;"> (<?php  echo Yii::t('site','Ver más');?>) </w></a></p>
                 <br>
-                <a  href="https://www.odalys.com"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logoodalys.png" width="120px;"></a>
+                <a  href="http://www.odalys.com" target="_blank"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logoodalys.png" width="120px;"></a>
 
             </div>
 
