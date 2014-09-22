@@ -28,6 +28,10 @@ a.morelink {
 	text-decoration: none;
 	margin-top: 2px;
 }
+.menuppal a{
+  color: #585858;
+}
+
 
 .menuppal:hover,
 .menuppal:focus {
@@ -211,4 +215,8 @@ color: red;
   text-decoration: none;
   color: #C4C4C4 !important;
 
+}
+
+.active{
+  font-weight: bold;
 }

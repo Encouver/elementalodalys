@@ -79,6 +79,30 @@
 
             <div class= "col-md-10">     
                 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                
                 <nav class="navbar" role="navigation">
 
@@ -99,30 +123,31 @@
                         <!-- Collect the nav links, forms, and other content for toggling -->
                         
                         <div class="col-md-4 collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                            <ul class="nav navbar-nav menuppal">
-                                <li>
-                                    <a class="menuppal" href="<?php echo Yii::app()->request->baseUrl; ?>/site/exposicionesferias"><?php  echo Yii::t('site','Exposiciones | Ferias');?></a>
-                                </li>
-                                <li>
-                                    <a class="menuppal" href="<?php echo Yii::app()->request->baseUrl; ?>/site/artistas"><?php  echo Yii::t('site','Artistas');?></a>
-                                </li>
-                                <li>
-                                    <a class="menuppal" href="<?php echo Yii::app()->request->baseUrl; ?>/site/alianzas"><?php  echo Yii::t('site','Alianzas');?></a>
-                                </li>
-                                <li>
-                                    <a class="menuppal" href="<?php echo Yii::app()->request->baseUrl; ?>/site/becas"><?php  echo Yii::t('site','Becas');?></a>
-                                </li>
-                                <li>
-                                    <a class="menuppal" href="<?php echo Yii::app()->request->baseUrl; ?>/site/quienessomos"><?php  echo Yii::t('site','Quiénes somos');?></a>
-                                </li>
-                                <li>
-                                    <a class="menuppal" href="<?php echo Yii::app()->request->baseUrl; ?>/site/contacto"><?php  echo Yii::t('site','Contacto');?></a>
-                                </li>
 
-                            </ul>
-                            
+
+                            <?php
+                            // @TODO: normalize items & apply friendly urls
+                            $this->widget( 'zii.widgets.CMenu', [
+                                'items'          => [
+                                    [ 'label' => Yii::t('site','Exposiciones | Ferias'), 'url' => [ 'site/exposicionesferias' ] ],
+                                    [ 'label' => Yii::t('site','Artistas'), 'url' => [ 'site/artistas' ] ],
+                                    [ 'label' => Yii::t('site','Alianzas'), 'url' => [ 'site/alianzas' ] ],
+                                    [ 'label' => Yii::t('site', 'Becas'), 'url' => [ 'site/becas' ] ],
+                                    [ 'label' => Yii::t('site','Quiénes somos'), 'url' => [ 'site/quienessomos' ] ],
+                                    [ 'label' => Yii::t('site','Contacto'), 'url' => [ 'site/contacto' ] ],
+                                ],
+                                'activeCssClass' => 'active',
+                                'htmlOptions'    => [ 'class' => 'nav navbar-nav menuppal' ],
+                            ] );
+                            ?>
+
                         </div>
                         
+
+
+
+
+
                         <!-- /.navbar-collapse -->
                     <!-- /.container -->
                 </nav>
