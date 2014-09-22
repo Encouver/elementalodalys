@@ -160,34 +160,21 @@ echo "<hr>";
 
 	<div class="col-md-3 col-md-offset-1">
 	    <h4 style="margin-top:0px">ELEMENTAL Proyecto</h4>
-	    <p style ="font-size: 13px;">ELEMENTAL se aleja de la clásica relación galería-comisario-artista para plantear la construcción de las exposiciónes de una manera orgánica. Son los propios artistas que participan en el proyecto quienes, en diálogo permanente con la galerista Odalys Sánchez, proponen e incorporan a nuevos artistas al proyecto con el objeto de ampliar el arco narrativo del mismo. Son también los artistas quienes, junto a la galerista, ejercen de comisarios, trazando el planteamiento de la muestra. <a href="sobreElemental.php"><w style="font-size: 11px;"> (Ver más) </w></a></p>
+	    <p style ="font-size: 13px;">
+
+	    <?php echo $texto->texto;?>
+	   <a href="<?php echo Yii::app()->request->baseUrl; ?>/site/quienessomos"><w style="font-size: 11px;"> (<?php echo Yii::t('site','Ver más');?>)</w></a></p>
+
+	   <br>
 	    <h4><?php  echo Yii::t('site','Artistas del proyecto');?></h4>
 	    <ul style="font-size: 13px; list-style-type: none; padding-left: 0px">
-	        <li>Kiss Aba Regö</li>
-
-	        <li>Felipe Águila</li>
-
-	        <li>Hugo Alonso</li>
-
-	        <li>Lidzie Alvisa</li>
-
-	        <li>Krisztián Ádám</li>
-
-	        <li>Zoltan Kunckel</li>
-
-	        <li>Llobet & Pons</li>
-
-	        <li>Erik Mátrai</li>
-
-	        <li>Irina Novarese</li>
-
-	        <li>Mabel Poblet</li>
-
-	        <li>Ernesto Rancaño</li>
-
-	        <li>Balázs Sipos</li>
-
-	        <li>Uli Wetsphal</li>                
+	    	<?php
+	    		foreach ($artistas as $artista) {
+			    ?>
+					<li><a href="<?php echo Yii::app()->createUrl('site/artista', array('id' => $artista->idartista, 'art' => $artista->apellido));?>" class="a_sincolor"><?php echo $artista->nombre.' '.$artista->apellido.'</a><br>';?></li>
+				<?php
+	    		}
+	    		?>
 	    </ul>
 	</div>
 

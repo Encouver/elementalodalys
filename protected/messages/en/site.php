@@ -39,6 +39,7 @@
 	    'Introduce las letras de la imagen de abajo'=>'Enter the letters in the image below',
 	    'Las letras no distinguen entre mayúsculas y minúsculas.'=> 'Letters are not case-sensitive.',
 	    'original message 2' => 'translated message 2',
+	    'Ver más'=>'More',
 	);
 
 ?>

@@ -190,9 +190,9 @@
             <div class="col-md-4">
                 <h5><?php  echo Yii::t('site','Sobre Elemental');?></h5>
                 <p style="font-size:12px;">ELEMENTAL se aleja de la clásica relación galería-comisario-artista para plantear la construcción de las exposiciónes de una manera orgánica.
-                <a href="sobreElemental.php"><w style="font-size: 11px;"> (Ver más) </w></a></p>
+                <a href="sobreElemental.php"><w style="font-size: 11px;"> (<?php  echo Yii::t('site','Ver más');?>) </w></a></p>
                 <br>
-                <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logoodalys.png" width="120px;">
+                <a  href="https://www.odalys.com"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logoodalys.png" width="120px;"></a>
 
             </div>
 

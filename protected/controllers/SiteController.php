@@ -49,7 +49,12 @@ class SiteController extends Controller
 			$criteria = new CDbCriteria;
 	    	$criteria->select = 't.*';
 	    	$criteria->order = 'fecha DESC';
-			
+
+	    	$criteria2 = new CDbCriteria;
+	    	$criteria2->select = 't.*';
+
+
+
 		}else{ //ingles
 
 			$criteria = new CDbCriteria;
@@ -58,12 +63,26 @@ class SiteController extends Controller
 	    	$criteria->order = 'fecha DESC';
 	    	$criteria->condition = 'tra_noticia.idiomaid =:id';
 	    	$criteria->params = array(':id' => $idioma->id);
-							
-		}
 			
+			$criteria2 = new CDbCriteria;
+	    	$criteria2->select = 't.*, tra_texto.*';
+	    	$criteria2->join ='LEFT JOIN tra_texto ON tra_texto.textoid = t.idtexto';
+	    	$criteria2->condition = 'tra_texto.idiomaid =:id';
+	    	$criteria2->params = array(':id' => $idioma->id);
+
+
+		}
+			$criteria3= new CDbCriteria;
+			$criteria3->select ='t.*';
+			$criteria3->order = 'apellido ASC';
+
+		$artistas = Artista::model()->findAll($criteria3);
+
 		$noticias = Noticia::model()->findAll($criteria);
+		$texto = Texto::model()->find($criteria2);
+
 		$this->render('index', array(
-			'noticias' => $noticias, 'idioma' => $idioma
+			'noticias' => $noticias, 'idioma' => $idioma, 'texto' => $texto, 'artistas'=>$artistas,
         ));
 
 	}
