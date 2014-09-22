@@ -59,8 +59,8 @@ class TraConversatorio extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'idiomaid' => 'Idiomaid',
-			'conversatorioid' => 'Conversatorioid',
+			'idiomaid' => 'Idioma',
+			'conversatorioid' => 'Conversatorio',
 			'descripcion' => 'Descripcion',
 		);
 	}

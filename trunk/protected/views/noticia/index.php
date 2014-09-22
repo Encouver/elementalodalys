@@ -9,6 +9,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Create Noticia', 'url'=>array('create')),
 	array('label'=>'Manage Noticia', 'url'=>array('admin')),
+	array('label'=>'Create in other languages ', 'url'=>array('traNoticia/index')),
 );
 ?>
 

@@ -9,6 +9,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Create Conversatorio', 'url'=>array('create')),
 	array('label'=>'Manage Conversatorio', 'url'=>array('admin')),
+	array('label'=>'Create in other languages ', 'url'=>array('traConversatorio/index')),
 );
 ?>
 
