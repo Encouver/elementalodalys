@@ -76,7 +76,7 @@ class ObraController extends Controller
 	public function actionCreate()
 	{
 		$model=new Obra;
-
+		$tra_obra = new TraObra;
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
@@ -89,9 +89,14 @@ class ObraController extends Controller
 			{
 				$idartista = $model->idartista;
 				$idexpo = $model->idexposicion;
+				$idiomaid = $model->idiomaid;
 				$directorio = 'images/obra/originals/';
 				
-				//$porciones = explode("<br>", $model->descripcion);
+				$porciones = explode("<br>", $model->descripcion);
+
+				$porciones_tra = explode("<br>", $model->text_language);
+
+
 
 				$i = 0;
 				 while($i < count($_FILES['imagen']['name'])){
@@ -99,8 +104,11 @@ class ObraController extends Controller
  					if($i != 0)
  					{
  						$model= new Obra;
+ 						$tra_obra = new TraObra;
  					}
 
+ 					$model->idiomaid = 2; // solo para que no valide al momento de insertar en el for.
+ 					$model->text_language = "auxiliar";
 	 				$nombre = $this->NewGuid();
 					
 					if($_FILES['imagen']['type'][$i]=="image/jpeg")
@@ -118,8 +126,16 @@ class ObraController extends Controller
 					
 					move_uploaded_file($_FILES['imagen']['tmp_name'][$i],$destino);
 
-					//$model->descripcion = $porciones[$i];
+					$model->descripcion = $porciones[$i];
 					$model->save();
+
+					$tra_obra->idiomaid = $idiomaid;
+					$tra_obra->obraid = $model->idobra;
+					$tra_obra->descripcion = $porciones_tra[$i];
+
+					$tra_obra->save();
+
+
 					$i++;			 
 			 	}
 
