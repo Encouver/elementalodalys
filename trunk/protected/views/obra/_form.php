@@ -4,19 +4,10 @@
 /* @var $form CActiveForm */
 ?>
 
-<?php if(!$obligatorio){
-		$modelo = $tra_model;
-		$nombre_formulario = 'obra-en-form';
-	  }else{
-	  	$nombre_formulario = 'obra-form';
-		$modelo = $model;
-	  }
-	//Yii::app()->registerScriptClient('vincular_parametros_similares','');
-?>
 <div class="form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
-	'id'=>$nombre_formulario,
+	'id'=>'obra-form',
 	// Please note: When you enable ajax validation, make sure the corresponding
 	// controller action is handling ajax validation correctly.
 	// There is a call to performAjaxValidation() commented in generated controller code.
@@ -33,7 +24,7 @@
 		<?php echo $form->labelEx($model,'idartista'); ?>
 		<?php //echo $form->textField($model,'tipousuario'); >
 			echo $form->dropDownList($model, 'idartista', 
-			CHtml::listData(artista::model()->findAll(),'idartista','nombre'),array('empty' =>'Seleccione','disabled'=>!$obligatorio));
+			CHtml::listData(artista::model()->findAll(),'idartista','nombre'),array('empty' =>'Seleccione'));
 		?>
 		<?php echo $form->error($model,'idartista'); ?>
 	</div>
@@ -42,14 +33,14 @@
 		<?php echo $form->labelEx($model,'idexposicion'); ?>
 		<?php //echo $form->textField($model,'tipousuario'); >
 			echo $form->dropDownList($model, 'idexposicion', 
-			CHtml::listData(exposicion::model()->findAll(),'idexposicion','nombre1'),array('empty' =>'Seleccione','disabled'=>!$obligatorio));
+			CHtml::listData(exposicion::model()->findAll(),'idexposicion','nombre1'),array('empty' =>'Seleccione'));
 		?>
 		<?php echo $form->error($model,'idexposicion'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'imagen'); ?>
-		<?php echo CHtml::fileField('imagen[]','', array('multiple' => 'true','disabled'=>!$obligatorio)); ?>
+		<?php echo CHtml::fileField('imagen[]','', array('multiple' => 'true')); ?>
 		<?php echo $form->error($model,'imagen'); ?>
 	</div>
 
@@ -60,9 +51,9 @@
 	</div>-->
 
 	<div class="row">
-		<?php echo $form->labelEx($modelo,'descripcion'); ?>
-		<?php echo $form->textArea($modelo,'descripcion',array('rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($modelo,'descripcion'); ?>
+		<?php echo $form->labelEx($model,'descripcion'); ?>
+		<?php echo $form->textArea($model,'descripcion',array('rows'=>6, 'cols'=>50)); ?>
+		<?php echo $form->error($model,'descripcion'); ?>
 	</div>
 
 	<div class="row buttons">
