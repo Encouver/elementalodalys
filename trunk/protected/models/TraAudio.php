@@ -61,8 +61,8 @@ class TraAudio extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'idiomaid' => 'Idiomaid',
-			'audioid' => 'Audioid',
+			'idiomaid' => 'Idioma',
+			'audioid' => 'Audio',
 			'datos' => 'Datos',
 			'audio_ruta' => 'Audio Ruta',
 		);

@@ -9,6 +9,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Create Audio', 'url'=>array('create')),
 	array('label'=>'Manage Audio', 'url'=>array('admin')),
+	array('label'=>'Create in other languages ', 'url'=>array('traAudio/index')),
 );
 ?>
 
