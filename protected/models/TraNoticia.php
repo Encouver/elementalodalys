@@ -61,8 +61,8 @@ class TraNoticia extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'idiomaid' => 'Idiomaid',
-			'noticiaid' => 'Noticiaid',
+			'idiomaid' => 'Idioma',
+			'noticiaid' => 'Noticia',
 			'titulo' => 'Titulo',
 			'contenido' => 'Contenido',
 		);

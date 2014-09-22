@@ -61,10 +61,10 @@ class TraPrensa extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'idiomaid' => 'Idiomaid',
+			'idiomaid' => 'Idioma',
 			'titulo' => 'Titulo',
 			'contenido' => 'Contenido',
-			'prensaid' => 'Prensaid',
+			'prensaid' => 'Prensa',
 		);
 	}
 

@@ -9,6 +9,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Create Prensa', 'url'=>array('create')),
 	array('label'=>'Manage Prensa', 'url'=>array('admin')),
+	array('label'=>'Create in other languages ', 'url'=>array('traPrensa/index')),
 );
 ?>
 
