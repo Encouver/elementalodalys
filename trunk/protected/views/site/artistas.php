@@ -39,7 +39,7 @@ echo '			<div class="row">
 			      <a href="<?php echo Yii::app()->createUrl('site/artista', array('id' => $artista->idartista, 'art' => $artista->apellido));?>" class="head2"><?php echo $artista->nombre.' '.$artista->apellido.'</a><br>';?>
 			      <?php
 			      echo '
-			      <w>'.$artista->pais.'. '.$artista->ano.'<br><br>
+			      <w class="segundonivel">'.$artista->pais.'. '.$artista->ano.'<br><br>
 			    </div>
 ';
 	}
