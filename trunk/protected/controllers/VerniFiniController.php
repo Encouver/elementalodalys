@@ -76,6 +76,7 @@ class VerniFiniController extends Controller
 	public function actionCreate()
 	{
 		$model=new VerniFini;
+		$tra_vernifini = new TraVerniFini;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
@@ -90,9 +91,12 @@ class VerniFiniController extends Controller
 			if($model->validate() and count($_FILES['imagen']['name'])>1)
 			{
 				$idexpo = $model->idexposicion;
+				$idiomaid = $model->idiomaid;
 				$directorio = 'images/vernifini/originals/';
 				
 				$porciones = explode("<br>", $model->descripcion);
+
+				$porciones_tra = explode("<br>", $model->text_language);
 
 				$i = 0;
 				 while($i < count($_FILES['imagen']['name'])){
@@ -100,8 +104,11 @@ class VerniFiniController extends Controller
  					if($i != 0)
  					{
  						$model= new VerniFini;
+ 						$tra_vernifini = new TraVerniFini;
  					}
 
+ 					$model->idiomaid = 2; // solo para que no valide al momento de insertar en el for.
+ 					$model->text_language = "auxiliar";
 	 				$nombre = $this->NewGuid();
 					
 					if($_FILES['imagen']['type'][$i]=="image/jpeg")
@@ -120,6 +127,14 @@ class VerniFiniController extends Controller
 
 					$model->descripcion = $porciones[$i];
 					$model->save();
+
+					$tra_vernifini->idiomaid = $idiomaid;
+					$tra_vernifini->verni_finiid = $model->idverni_fini;
+					$tra_vernifini->descripcion = $porciones_tra[$i];
+
+					$tra_vernifini->save();
+
+
 					$i++;			 
 			 	}
 

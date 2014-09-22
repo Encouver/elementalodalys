@@ -16,6 +16,8 @@
  */
 class Montaje extends CActiveRecord
 {
+	public $text_language;
+	public $idiomaid;
 	/**
 	 * @return string the associated database table name
 	 */
@@ -32,7 +34,7 @@ class Montaje extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('idexposicion', 'required'),
+			array('idexposicion, idiomaid, descripcion, text_language', 'required'),
 			array('idexposicion', 'numerical', 'integerOnly'=>true),
 			array('descripcion', 'safe'),
 			// The following rule is used by search().
@@ -63,8 +65,10 @@ class Montaje extends CActiveRecord
 			'idmontaje' => 'Idmontaje',
 			'imagen' => 'Imagen',
 			'imagen_thumb' => 'Imagen Thumb',
-			'idexposicion' => 'Idexposicion',
-			'descripcion' => 'Descripcion',
+			'idexposicion' => 'Exposición',
+			'descripcion' => 'Descripción',
+			'text_language' => 'Descripción_tra',
+			'idiomaid' => 'Idioma',
 		);
 	}
 

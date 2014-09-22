@@ -54,6 +54,25 @@
 		<?php echo $form->error($model,'descripcion'); ?>
 	</div>
 
+
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'idiomaid'); ?>
+		<?php //echo $form->textField($model,'tipousuario'); >
+			echo $form->dropDownList($model, 'idiomaid', 
+			CHtml::listData(idiomas::model()->findAll(),'id','nombre'),array('empty' =>'Seleccione'));
+		?>
+		<?php echo $form->error($model,'idiomaid'); ?>
+	</div>
+
+	
+	<div class="row">
+		<?php echo $form->labelEx($model,'text_language'); ?>
+		<?php echo $form->textArea($model,'text_language',array('rows'=>6, 'cols'=>50)); ?>
+		<?php echo $form->error($model,'text_language'); ?>
+	</div>
+
+	
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>

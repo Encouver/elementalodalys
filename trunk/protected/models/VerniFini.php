@@ -19,6 +19,11 @@ class VerniFini extends CActiveRecord
 	/**
 	 * @return string the associated database table name
 	 */
+	public $text_language;
+	public $idiomaid;
+
+
+
 	public function tableName()
 	{
 		return 'elemental.verni_fini';
@@ -32,7 +37,7 @@ class VerniFini extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('idexposicion', 'required'),
+			array('idexposicion, descripcion, idiomaid, text_language', 'required'),
 			//array('imagen','type','type'=>'array','allowEmpty'=>false),
 			//array('imagen', 'file', 'types'=>'jpg, gif, png'),
 			array('idexposicion', 'numerical', 'integerOnly'=>true),
@@ -66,8 +71,10 @@ class VerniFini extends CActiveRecord
 			'idverni_fini' => 'Idverni Fini',
 			'imagen' => 'Imagen',
 			//'imagen_thumb' => 'Imagen Thumb',
-			'idexposicion' => 'Idexposicion',
-			'descripcion' => 'Descripcion',
+			'idexposicion' => 'Exposición',
+			'descripcion' => 'Descripción',
+			'text_language' => 'Descripción_tra',
+			'idiomaid' => 'Idioma',
 		);
 	}
 

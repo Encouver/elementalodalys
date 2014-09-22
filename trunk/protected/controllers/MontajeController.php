@@ -75,6 +75,7 @@ class MontajeController extends Controller
 	public function actionCreate()
 	{
 		$model=new Montaje;
+		$tra_montaje = new TraMontaje;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
@@ -87,18 +88,25 @@ class MontajeController extends Controller
 			if($model->validate() and count($_FILES['imagen']['name'])>1)
 			{
 				$idexpo = $model->idexposicion;
+				$idiomaid = $model->idiomaid;
 				$directorio = 'images/montaje/originals/';
 				
 				$porciones = explode("<br>", $model->descripcion);
 
+				$porciones_tra = explode("<br>", $model->text_language);
+
 				$i = 0;
+
 				 while($i < count($_FILES['imagen']['name'])){
  					
  					if($i != 0)
  					{
  						$model= new Montaje;
+ 						$tra_montaje = new TraMontaje;
  					}
 
+ 					$model->idiomaid = 2; // solo para que no valide al momento de insertar en el for.
+ 					$model->text_language = "auxiliar";
 	 				$nombre = $this->NewGuid();
 					
 					if($_FILES['imagen']['type'][$i]=="image/jpeg")
@@ -116,7 +124,15 @@ class MontajeController extends Controller
 					move_uploaded_file($_FILES['imagen']['tmp_name'][$i],$destino);
 
 					$model->descripcion = $porciones[$i];
+					
 					$model->save();
+					
+					$tra_montaje->idiomaid = $idiomaid;
+					$tra_montaje->montajeid = $model->idmontaje;
+					$tra_montaje->descripcion = $porciones_tra[$i];
+
+					$tra_montaje->save();
+
 					$i++;			 
 			 	}
 

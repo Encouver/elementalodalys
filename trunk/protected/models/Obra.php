@@ -21,6 +21,10 @@ class Obra extends CActiveRecord
 	/**
 	 * @return string the associated database table name
 	 */
+	public $text_language;
+	public $idiomaid;
+
+
 	public function tableName()
 	{
 		return 'obra';
@@ -34,7 +38,7 @@ class Obra extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('idartista, idexposicion', 'required'),
+			array('idartista, idexposicion, text_language, idiomaid, descripcion', 'required'),
 			array('idartista, idexposicion', 'numerical', 'integerOnly'=>true),
 			//array('', 'length', 'max'=>255),
 			array('descripcion', 'safe'),
@@ -70,6 +74,8 @@ class Obra extends CActiveRecord
 			'imagen_thumb' => 'Imagen Thumb',
 			'descripcion' => 'Descripción',
 			'idexposicion' => 'Exposición',
+			'text_language' => 'Descripción_tra',
+			'idiomaid' => 'Idioma',
 		);
 	}
 
