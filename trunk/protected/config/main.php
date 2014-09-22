@@ -63,6 +63,7 @@ return array(
 	            '<language:(es|en)>/' => 'site/index',
 	            '<language:(es|en)>/<action:(contact|login|logout)>/*' => 'site/<action>',
 	            '<language:(es|en)>/<controller:\w+>/<id:\d+>'=>'<controller>/view',
+	            '<language:(es|en)>/<controller:\w+>'=>'<controller>/index',
 	            '<language:(es|en)>/<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 	            '<language:(es|en)>/<controller:\w+>/<action:\w+>/*'=>'<controller>/<action>',
 		        
