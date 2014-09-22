@@ -26,13 +26,27 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'texto'); ?>
-		<?php echo $form->textArea($model,'texto',array('rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'texto'); ?>
 <?php	
 $this->widget('ext.ExtEditMe', array(
-    'name'=>'example',
-    'value'=>'put your template code here',
+        'model'=>$model,
+        'attribute'=>'texto',
+        'width'=>'460',
+        'height'=>'250',
+        'toolbar'=>array(
+            array(
+                'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat', 
+            ),
+            array(
+                'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote',
+                '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock',
+            ),
+            array(
+                'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo', 
+            ),
+            array(
+                'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe'
+            ),
+        )
 ));
 ?>
 
