@@ -26,12 +26,16 @@ $(".fotorama")
 
 <div class="panel-group" id="accordion">
 
+<?php
+if ($obras and $artistas){
+
+echo '
   <div class="panel">
     <div class="panel-heading">
       <h4 class="panel-title">
         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
           
-          <?php  echo Yii::t('site','Obras');?>
+          '.Yii::t('site','Obras').'
           <span style="font-size:11px;" class="glyphicon x"></span>
         </a>
       </h4>
@@ -41,8 +45,7 @@ $(".fotorama")
       <div class="panel-body">
         <div class="row">  
 
-          <div class="col-md-2">
-          	<?php
+          <div class="col-md-2">';
           	/*	foreach ($artistas as $artista) {
           			echo $artista->nombre." ".$artista->apellido."<br>";
           		}*/
@@ -50,7 +53,7 @@ $(".fotorama")
               //$ajaxOptions = script que actualize el artista elegido y cargue las obras de ese artista haciendo renderpartial sobre el id artista_obras
               foreach($artistas as $key=>$artista) {
                       echo CHtml::ajaxLink(
-                           $artista->nombre." ".$artista->apellido, 
+                           $artista->nombre." ".$artista->apellido."<br>", 
                            Yii::app()->createUrl('site/BuscarObrasArtista',array('artista'=>$artista->idartista)),
                             array(
                                 'update'=>'#artista_obras'
@@ -58,12 +61,13 @@ $(".fotorama")
                            //array('data-artista'=>$artista->idartista)
                            );
               }
-          	?>
+          	echo '
           </div>
 
-          <div id="artista_obras" class="col-md-10">
-            <?php $this->renderPartial('_obras',array('obras'=> $obras, 'idioma'=>$idioma)); ?>
-            <?php                            
+          <div id="artista_obras" class="col-md-10">';
+            
+            $this->renderPartial('_obras',array('obras'=> $obras, 'idioma'=>$idioma)); 
+                                        
             /*echo CHtml::ajaxLink(
             	    '<div id="req_res">
             	    Test request',          // the link body (it will NOT be HTML-encoded.)
@@ -74,8 +78,8 @@ $(".fotorama")
             	);
             	 
             	echo '...</div>';*/
-            ?>
-            <?php /*echo '   
+            
+             /*echo '   
                  <!-- Fotorama -->
                  <div class="fotorama" data-width="700" data-max-width="100%" data-ratio="500/333" data-fit="cover" data-captions="false" data-auto="false" data-nav="thumbs">
               ';
@@ -95,8 +99,8 @@ $(".fotorama")
                   <!--Caption-->
                   <div style="min-height:40px; line-height: 20px; padding-top:10px"  class="fotorama-caption">
                   </div>';*/
-              ?>
-              <!-- Fotorama 
+              
+              /* Fotorama 
               <div class="fotorama" data-width="700" data-max-width="100%" data-ratio="500/333" data-fit="cover" data-captions="false" data-auto="false" data-nav="thumbs">
                 <img href="http://s.fotorama.io/okonechnikov/1-lo.jpg" data-caption="fffffdfnsadfjknsafnalskmflaksmdf asfdnjoasjfoaksfd dasfnoasjfdñasjfoasfi sdfjoasñjdfasjdfñoajsdfiajsfd dsafjasodfijasofiñjafd">
                 <img href="http://s.fotorama.io/okonechnikov/2-lo.jpg" data-caption="">
@@ -111,14 +115,16 @@ $(".fotorama")
               </div>
         
               <p style="line-height: 20px; padding-top:10px" class="fotorama-caption"></p>-->
-
-
+              */
+              echo '
           </div>
         </div>
       </div>
     </div>
   </div>
-
+';
+}
+?>
 <?php
 if ($catalogo){
 echo '

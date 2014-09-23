@@ -24,10 +24,8 @@ Recibe información de ELEMENTAL Proyecto en tu correo electrónico
 
 		<?php echo CHtml::submitButton($model->isNewRecord ? Yii::t('site', 'Subscribirme') : 'Save', array('class' => 'btn btn-sm', 'style'=>'width:164px')); ?>
 
-		<?php echo $form->error($model,'correo'); ?>
+<!--		<?php echo $form->error($model,'correo'); ?>-->
 
 <?php $this->endWidget(); ?>
 
 </div><!-- form -->
-<br>
-<br>

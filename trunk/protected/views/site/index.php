@@ -161,6 +161,13 @@ echo "<hr>";
 	<div class="col-md-3 col-md-offset-1">
 
 <?php echo $this->renderPartial('/subscripcion/_form', array('model'=>$model)); ?>
+	<p style="height:20px; margin-top:10px;font-size:12px;">
+	<?php if(Yii::app()->user->hasFlash('success')):?>
+		<?php echo Yii::app()->user->getFlash('success'); ?>
+	<?php endif; ?></p>
+
+
+
 
 	    <h4 style="margin-top:0px">ELEMENTAL Proyecto</h4>
 	    <p style ="font-size: 13px;">

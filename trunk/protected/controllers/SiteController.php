@@ -92,8 +92,14 @@ class SiteController extends Controller
 		if(isset($_POST['Subscripcion']))
 		{
 			$model->attributes=$_POST['Subscripcion'];
-			if($model->save())
-				$this->redirect(array('index','id'=>$model->id));
+			if($model->save()){
+				Yii::app()->user->setFlash('success', "Suscripción completada");
+				$this->redirect(array('index'));
+			}else{
+				Yii::app()->user->setFlash('success', "Correo no válido");
+				$this->redirect(array('index'));
+
+			}
 		}
 
 
