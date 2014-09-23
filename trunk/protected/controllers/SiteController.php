@@ -251,6 +251,8 @@ class SiteController extends Controller
 			
 				$criteria = new CDbCriteria;
 		    	$criteria->select = 't.*';
+				$criteria->condition = 't.nombre1 =:x';
+				$criteria->params = array(':x' => $expoferia);		    	
 				
 			}else{ //ingles
 
@@ -258,8 +260,8 @@ class SiteController extends Controller
 		    	$criteria->select = 't.*, tra_exposicion.*';
 		    	$criteria->together = true;
 		    	$criteria->join ='LEFT JOIN tra_exposicion ON tra_exposicion.exposicionid = t.idexposicion';
-		    	$criteria->condition = 'tra_exposicion.idiomaid =:id';
-		    	$criteria->params = array(':id' => $idioma->id);
+		    	$criteria->condition = 'tra_exposicion.idiomaid =:id and t.nombre1 =:x';
+				$criteria->params = array(':x' => $expoferia, ':id' => $idioma->id);
 
 			}
 			
