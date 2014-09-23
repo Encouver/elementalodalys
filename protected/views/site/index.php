@@ -160,22 +160,7 @@ echo "<hr>";
 
 	<div class="col-md-3 col-md-offset-1">
 
-
-	    <h4 style="margin-top:0px">¡Suscríbete!</h4>
-	    <p style ="font-size: 12px;">
-	    Recibe información de ELEMENTAL Proyecto en tu correo electrónico
-	    <form class="form-horizontal" role="form">
-			<input type="text" class="form-control input-sm" placeholder="mail@domain.com">
-			
-			<button type="button" class="btn btn-sm" style="width:164px">
-			  <span class="glyphicon glyphicon-send"></span> Suscribirse
-			</button>
-		</form>
-
-	    </p>
-
-	    <br>
-	    <br>
+<?php echo $this->renderPartial('/subscripcion/_form', array('model'=>$model)); ?>
 
 	    <h4 style="margin-top:0px">ELEMENTAL Proyecto</h4>
 	    <p style ="font-size: 13px;">

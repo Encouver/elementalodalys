@@ -83,8 +83,24 @@ class SiteController extends Controller
 		$noticias = Noticia::model()->findAll($criteria);
 		$texto = Texto::model()->find($criteria2);
 
+
+		$model=new Subscripcion;
+
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+
+		if(isset($_POST['Subscripcion']))
+		{
+			$model->attributes=$_POST['Subscripcion'];
+			if($model->save())
+				$this->redirect(array('index','id'=>$model->id));
+		}
+
+
+
+
 		$this->render('index', array(
-			'noticias' => $noticias, 'idioma' => $idioma, 'texto' => $texto, 'artistas'=>$artistas,
+			'model'=>$model,'noticias' => $noticias, 'idioma' => $idioma, 'texto' => $texto, 'artistas'=>$artistas,
         ));
 
 	}
