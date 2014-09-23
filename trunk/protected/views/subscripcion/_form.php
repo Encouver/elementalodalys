@@ -3,6 +3,13 @@
 /* @var $model Subscripcion */
 /* @var $form CActiveForm */
 ?>
+<h4 style="margin-top:0px">¡Suscríbete!</h4>
+<p style ="font-size: 12px;">
+Recibe información de ELEMENTAL Proyecto en tu correo electrónico
+
+
+
+
 
 <div class="form">
 
@@ -11,26 +18,16 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
-	<?php echo $form->errorSummary($model); ?>
 
-	<!--<div class="row">
-		<?php echo $form->labelEx($model,'id'); ?>
-		<?php echo $form->textField($model,'id'); ?>
-		<?php echo $form->error($model,'id'); ?>
-	</div>-->
+		<?php echo $form->textField($model,'correo',array('maxlength'=>255, 'class'=>'form-control input-sm', 'placeholder'=>'mail@domain.com', 'style'=>'width:164px')); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'correo'); ?>
-		<?php echo $form->textField($model,'correo',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? Yii::t('site', 'Subscribirme') : 'Save', array('class' => 'btn btn-sm', 'style'=>'width:164px')); ?>
+
 		<?php echo $form->error($model,'correo'); ?>
-	</div>
-
-	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Subscribirme' : 'Save'); ?>
-	</div>
 
 <?php $this->endWidget(); ?>
 
 </div><!-- form -->
+<br>
+<br>

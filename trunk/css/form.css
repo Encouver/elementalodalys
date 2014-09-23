@@ -128,8 +128,14 @@ div.form .errorSummary
 div.form .errorMessage
 {
 	color: red;
-	font-size: 0.9em;
+	font-size: 12px;
 }
+div .errorMessage
+{
+	color: red;
+	font-size: 12px;
+}
+
 
 div.form .errorSummary p
 {
