@@ -3,17 +3,17 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Exposicions',
+	'Exposiciones',
 );
 
 $this->menu=array(
-	array('label'=>'Create Exposicion', 'url'=>array('create')),
-	array('label'=>'Manage Exposicion', 'url'=>array('admin')),
-	array('label'=>'Create in other languages ', 'url'=>array('traExposicion/index')),
+	array('label'=>'Crear Exposición', 'url'=>array('create')),
+	array('label'=>'Administrar Exposición', 'url'=>array('admin')),
+	array('label'=>'Crear en otro idioma ', 'url'=>array('traExposicion/index')),
 );
 ?>
 
-<h1>Exposicions</h1>
+<h1>Exposiciones</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,
