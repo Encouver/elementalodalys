@@ -230,7 +230,7 @@ class SiteController extends Controller
 	
 	}
 
-	public function actionver($expoferia){
+	public function actionVer($expoferia){
 	
 		$idioma = Idiomas::model()->find('idioma=:idioma',array(':idioma'=>Yii::app()->language));
 
