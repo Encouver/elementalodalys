@@ -21,7 +21,7 @@ class TraArtista extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'elemental.tra_artista';
+		return 'tra_artista';
 	}
 
 	/**

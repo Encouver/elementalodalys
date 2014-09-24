@@ -23,7 +23,7 @@ class Montaje extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'elemental.montaje';
+		return 'montaje';
 	}
 
 	/**

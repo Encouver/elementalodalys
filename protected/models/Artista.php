@@ -24,7 +24,7 @@ class Artista extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'elemental.artista';
+		return 'artista';
 	}
 
 	/**

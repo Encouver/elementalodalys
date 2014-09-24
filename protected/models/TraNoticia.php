@@ -21,7 +21,7 @@ class TraNoticia extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'elemental.tra_noticia';
+		return 'tra_noticia';
 	}
 
 	/**

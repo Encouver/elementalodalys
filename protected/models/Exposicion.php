@@ -31,7 +31,7 @@ class Exposicion extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'elemental.exposicion';
+		return 'exposicion';
 	}
 
 	/**

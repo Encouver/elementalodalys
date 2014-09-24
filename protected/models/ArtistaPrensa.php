@@ -19,7 +19,7 @@ class ArtistaPrensa extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'elemental.artista_prensa';
+		return 'artista_prensa';
 	}
 
 	/**

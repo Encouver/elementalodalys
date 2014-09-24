@@ -22,7 +22,7 @@ class Catalogo extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'elemental.catalogo';
+		return 'catalogo';
 	}
 
 	/**

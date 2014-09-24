@@ -19,7 +19,7 @@ class ExpoObra extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'elemental.expo_obra';
+		return 'expo_obra';
 	}
 
 	/**

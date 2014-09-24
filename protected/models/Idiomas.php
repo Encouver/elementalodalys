@@ -27,7 +27,7 @@ class Idiomas extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'elemental.idiomas';
+		return 'idiomas';
 	}
 
 	/**

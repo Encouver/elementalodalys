@@ -20,7 +20,7 @@ class TraMontaje extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'elemental.tra_montaje';
+		return 'tra_montaje';
 	}
 
 	/**

@@ -20,7 +20,7 @@ class TraExposicion extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'elemental.tra_exposicion';
+		return 'tra_exposicion';
 	}
 
 	/**

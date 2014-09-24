@@ -21,7 +21,7 @@ class TraAudio extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'elemental.tra_audio';
+		return 'tra_audio';
 	}
 
 	/**
