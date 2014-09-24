@@ -20,7 +20,7 @@ class Audio extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'elemental.audio';
+		return 'audio';
 	}
 
 	/**

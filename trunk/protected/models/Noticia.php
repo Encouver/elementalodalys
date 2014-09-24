@@ -21,7 +21,7 @@ class Noticia extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'elemental.noticia';
+		return 'noticia';
 	}
 
 	/**

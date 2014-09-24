@@ -26,7 +26,7 @@ class VerniFini extends CActiveRecord
 
 	public function tableName()
 	{
-		return 'elemental.verni_fini';
+		return 'verni_fini';
 	}
 
 	/**

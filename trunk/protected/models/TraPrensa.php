@@ -21,7 +21,7 @@ class TraPrensa extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'elemental.tra_prensa';
+		return 'tra_prensa';
 	}
 
 	/**

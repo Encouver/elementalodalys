@@ -19,7 +19,7 @@ class ArtistaExpo extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'elemental.artista_expo';
+		return 'artista_expo';
 	}
 
 	/**

@@ -24,7 +24,7 @@ class Prensa extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'elemental.prensa';
+		return 'prensa';
 	}
 
 	/**

@@ -21,7 +21,7 @@ class TraCatalogo extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'elemental.tra_catalogo';
+		return 'tra_catalogo';
 	}
 
 	/**

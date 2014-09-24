@@ -20,7 +20,7 @@ class TraVerniFini extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'elemental.tra_verni_fini';
+		return 'tra_verni_fini';
 	}
 
 	/**

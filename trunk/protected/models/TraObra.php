@@ -20,7 +20,7 @@ class TraObra extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'elemental.tra_obra';
+		return 'tra_obra';
 	}
 
 	/**

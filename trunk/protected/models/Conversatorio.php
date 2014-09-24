@@ -20,7 +20,7 @@ class Conversatorio extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'elemental.conversatorio';
+		return 'conversatorio';
 	}
 
 	/**
