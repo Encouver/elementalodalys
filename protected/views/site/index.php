@@ -185,7 +185,7 @@ echo "<hr>";
 	    	<?php
 	    		foreach ($artistas as $artista) {
 			    ?>
-					<li><a href="<?php echo Yii::app()->createUrl('site/artista', array('id' => $artista->idartista, 'art' => $artista->apellido));?>" class="a_sincolor"><?php echo $artista->nombre.' '.$artista->apellido.'</a><br>';?></li>
+					<li><a href="<?php echo Yii::app()->createUrl('site/artist', array('id' => $artista->idartista, 'art' => $artista->apellido));?>" class="a_sincolor"><?php echo $artista->nombre.' '.$artista->apellido.'</a><br>';?></li>
 				<?php
 	    		}
 	    		?>
