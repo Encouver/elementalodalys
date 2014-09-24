@@ -38,6 +38,8 @@ return array(
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
+            // Create a custom key prefix for the user cookie
+            'stateKeyPrefix'=>'ELE',
 		),
 		// uncomment the following to enable URLs in path-format
 		'request'=>array(
@@ -179,6 +181,11 @@ return array(
     		'class' => 'system.web.CDbHttpSession',
     		'connectionID' => 'db',
     		'sessionTableName' => 'tblsession',
+    		// Provide a custom name for the session id to differentiate it 
+            // from the default PHPSESSID
+            // Cannot use dots in the session id :(
+            'sessionName' => 'ELEMENTAL_SESSID',
+
 		),
 	),
 
