@@ -479,7 +479,7 @@ class SiteController extends Controller
 
 	}
 
-	public function actionArtista($id) {
+	public function actionArtist($id) {
 
 		$idioma = Idiomas::model()->find('idioma=:idioma',array(':idioma'=>Yii::app()->language));
 

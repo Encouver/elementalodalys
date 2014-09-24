@@ -40,7 +40,7 @@
 				array('label'=>'Catalogo', 'url'=>array('catalogo/index'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Montaje', 'url'=>array('montaje/index'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Conversatorio', 'url'=>array('conversatorio/index'), 'visible'=>!Yii::app()->user->isGuest),
-				array('label'=>'Verifini', 'url'=>array('vernifini/index'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Verifini', 'url'=>array('verniFini/index'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Audio', 'url'=>array('audio/index'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Prensa', 'url'=>array('prensa/index'), 'visible'=>!Yii::app()->user->isGuest),
 

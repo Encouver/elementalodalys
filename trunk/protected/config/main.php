@@ -62,12 +62,14 @@ return array(
 	        'rules'=>array(
 	            '<language:(es|en)>/' => 'site/index',
 	            //Ejemplo: "company/<company:\w+>"=>"/site/showCompany/company/<company>"
-	            '<language:(es|en)>/<action:(ver)>/<expoferia:[\w+\s{0,1}]*\d{0,1}\|{0,1}\d{0,1}>' => 'site/<action>',
+	            //'<language:(es|en)>/<action:(ver)>/<expoferia:[\w+\s{0,}\W+]*\d{0,1}\|{0,1}\d{0,1}>' => 'site/<action>',
+	            '<language:(es|en)>/<action:(ver)>/<expoferia>' => 'site/<action>',
 	            //'<language:(es|en)>/<action:(ver)>/<expoferia:\w+>' => '/site/<action>/expoferia/',
 	            //es/site/artista/id/4/art/Ádám
-	            //'<language:(es|en)>/<action:(artista)>/<art:\w+>' => '/site/<action>/id/<id>/art/<art>',
-	            '<language:(es|en)>/<action:(artista)>/<art:[\w+\s{0,1}]*>/*' => 'site/<action>',
-	            '<language:(es|en)>/<action:(contact|login|logout|artista)>/*' => 'site/<action>',
+	            //'<language:(es|en)>/<action:(artist)>/<art:\w+>' => '/site/<action>/id/<id>/art/<art>',
+	            //'<language:(es|en)>/<action:(artist)>/<art:[[\([\w+\s{0,}]*\)]*\w+\s{0,1}]*>/*' => 'site/<action>',
+	            '<language:(es|en)>/<action:(artist)>/<art>/*' => 'site/<action>',
+	            '<language:(es|en)>/<action:(contact|login|logout|artistas)>/*' => 'site/<action>',
 	            '<language:(es|en)>/<controller:\w+>/<id:\d+>'=>'<controller>/view',
 	            '<language:(es|en)>/<controller:\w+>'=>'<controller>/index',
 	            '<language:(es|en)>/<controller:\w+>/<action:\w+>/<id:\w+>'=>'<action>/<id>',
