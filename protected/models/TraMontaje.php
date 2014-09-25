@@ -31,7 +31,7 @@ class TraMontaje extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('idiomaid, montajeid, descripcion', 'required'),
+			array('idiomaid, montajeid', 'required'),
 			array('idiomaid, montajeid', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
