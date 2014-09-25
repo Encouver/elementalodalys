@@ -1,6 +1,6 @@
-<?php
-
-	return array(
-			'Compartir' => 'Share'
-	);
-
+<?php
+
+	return array(
+			'Compartir' => 'Share'
+	);
+

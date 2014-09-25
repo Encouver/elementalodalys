@@ -23,7 +23,7 @@
 		<?php echo $form->labelEx($model,'idiomaid'); ?>
 		<?php //echo $form->textField($model,'tipousuario'); >
 			echo $form->dropDownList($model, 'idiomaid', 
-			CHtml::listData(idiomas::model()->findAll(),'id','nombre'),array('empty' =>'Seleccione'));
+			CHtml::listData(Idiomas::model()->findAll(),'id','nombre'),array('empty' =>'Seleccione'));
 		?>
 		<?php echo $form->error($model,'idiomaid'); ?>
 	</div>
@@ -45,8 +45,31 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'biografia'); ?>
-		<?php echo $form->textArea($model,'biografia',array('rows'=>6, 'cols'=>50)); ?>
+	
+<?php
+$this->widget('ext.ExtEditMe', array(
+        'model'=>$model,
+        'attribute'=>'biografia',
+        'width'=>'460',
+        'height'=>'250',
+        'toolbar'=>array(
+            array(
+                'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat', 
+            ),
+            array(
+                'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote',
+                '-',
+            ),
+            array(
+                'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo', 
+            ),
+            
+        )
+));
+?>
+
 		<?php echo $form->error($model,'biografia'); ?>
+
 	</div>
 
 	<div class="row buttons">
