@@ -1,0 +1,21 @@
+<?php
+/* @var $this AudioController */
+/* @var $dataProvider CActiveDataProvider */
+
+$this->breadcrumbs=array(
+	'Audios',
+);
+
+$this->menu=array(
+	array('label'=>'Create Audio', 'url'=>array('create')),
+	array('label'=>'Manage Audio', 'url'=>array('admin')),
+	array('label'=>'Create in other languages ', 'url'=>array('traAudio/index')),
+);
+?>
+
+<h1>Audios</h1>
+
+<?php $this->widget('zii.widgets.CListView', array(
+	'dataProvider'=>$dataProvider,
+	'itemView'=>'_view',
+)); ?>

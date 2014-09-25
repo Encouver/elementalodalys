@@ -1,0 +1,234 @@
+.main_content {
+max-width: 790px;
+}
+
+.navbar-brand {
+    max-width: 150px;
+}
+
+.noti{
+  font-size: 14px;
+}
+
+a.morelink {
+    text-decoration: underline;
+    outline: none;
+    color: #0A80AD;
+    font-size:11px;
+}
+.morecontent span {
+    display: none;
+}
+.comment {
+}
+
+.menuppal{
+	color: #585858;
+	font-size: 13px;
+	text-decoration: none;
+	margin-top: 2px;
+}
+.menuppal a{
+  color: #585858;
+
+}
+
+
+.menuppal:hover,
+.menuppal:focus {
+  color: #2a6496;
+  text-decoration: underline;
+  text-decoration: none;
+
+}
+
+#fecha_noticias{
+  color: #9E9E9E;
+  padding-bottom: 2px;
+  font-size: 10px;
+}
+
+.texto {
+font-weight: 400;
+font-size: 13px;
+}
+
+
+
+footer{
+    background: #383636; 
+    background-size:100%;
+    width:100%; 
+    overflow:hidden;
+    color: #C4C4C4;
+     position: fixed: bottom: 0; left: 0; 
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    overflow-y: scroll;
+} 
+html,
+body {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  /* Negative indent footer by its height */
+  margin: 0 auto -292px;
+  /* Pad bottom by footer height */
+  padding: 0 0 261px;
+}
+
+/* Set the fixed height of the footer here */
+#footer {
+  height: 261px;
+  background-color: #f5f5f5;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+#wrap > .container {
+  padding: 0px 15px 0;
+  padding-bottom: 10px;
+}
+.container .credit {
+  margin: 20px 0;
+}
+
+#footer > .container {
+  padding-top: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+code {
+  font-size: 80%;
+}
+
+
+#info_expo{
+  text-align: center;
+  font-size: 13px;
+}
+
+#info_expo_nombre {
+  font-size: 26px;
+  font-weight: bold;
+
+}
+
+#catalogo_download{
+  font-size: 11px;
+  margin-bottom: 0px;
+  margin-top: 8px;
+}
+
+.pull-bottom {
+    display: inline-block;
+    vertical-align: bottom;
+    float: none;
+}
+
+.prensa{
+  font-size: 13px;
+}
+
+.datos_audio{
+  font-size:  11px;
+}
+
+.copyright{
+  font-size: 11px;
+}
+
+.clara{
+  border-color:#424242;
+}
+
+.barra_superior{
+  background-image: url('../images/footer.png');
+  padding-top: 14px;
+  height: 40px;
+  margin-bottom: 30px;
+}
+.head{
+
+  font-size: 20px;
+  line-height: 46px;
+  color:#757575;
+  font-weight: bold;
+}
+.head2{
+
+  font-size: 16px;
+  line-height: 26px;
+  color:#757575;
+  font-weight: bold;
+}
+.chiqui{
+  font-size: 11px !important;
+}
+
+#language-selector{
+  margin:5px; 
+  font-size:11px;
+  color: #ABABAB;
+}
+
+#language-selector a{
+  color: white;
+}
+
+.go_on_top a{
+  font-size: 12px;
+  color:#ABABAB;
+  text-decoration: none;
+}
+
+.hint{
+  font-size: 11px;
+}
+.control-label{
+  font-size: 12px;
+
+}
+.error_contact{
+  font-size: 11px;
+color: red;
+}
+
+.footernavega a{
+  text-decoration: none;
+  color: #C4C4C4 !important;
+
+}
+.footernavega a:hover{
+  text-decoration: none;
+  color: #C4C4C4 !important;
+
+}
+
+.active{
+  font-weight: bold;
+    font-size: 14px;
+}
+
+.a_sincolor{
+  color:#585858;
+}
+
+.segundonivel{
+  font-style: 13px;
+  padding-left: 15px;
+}
+
