@@ -28,7 +28,7 @@
 		<?php echo $form->labelEx($model,'idexposicion'); ?>
 		<?php //echo $form->textField($model,'tipousuario'); >
 			echo $form->dropDownList($model, 'idexposicion', 
-			CHtml::listData(exposicion::model()->findAll(),'idexposicion','nombre1'),array('empty' =>'Seleccione'));
+			CHtml::listData(Exposicion::model()->findAll(),'idexposicion','nombre1'),array('empty' =>'Seleccione'));
 		?>
 		<?php echo $form->error($model,'idexposicion'); ?>
 	</div>
@@ -52,7 +52,7 @@
 		<?php echo $form->labelEx($model,'idiomaid'); ?>
 		<?php //echo $form->textField($model,'tipousuario'); >
 			echo $form->dropDownList($model, 'idiomaid', 
-			CHtml::listData(idiomas::model()->findAll(),'id','nombre'),array('empty' =>'Seleccione'));
+			CHtml::listData(Idiomas::model()->findAll(),'id','nombre'),array('empty' =>'Seleccione'));
 		?>
 		<?php echo $form->error($model,'idiomaid'); ?>
 	</div>

@@ -23,7 +23,7 @@
 		<?php echo $form->labelEx($model,'idiomaid'); ?>
 		<?php //echo $form->textField($model,'tipousuario'); >
 			echo $form->dropDownList($model, 'idiomaid', 
-			CHtml::listData(idiomas::model()->findAll(),'id','nombre'),array('empty' =>'Seleccione'));
+			CHtml::listData(Idiomas::model()->findAll(),'id','nombre'),array('empty' =>'Seleccione'));
 		?>
 		<?php echo $form->error($model,'idiomaid'); ?>
 	</div>
@@ -32,7 +32,7 @@
 		<?php echo $form->labelEx($model,'noticiaid'); ?>
 		<?php //echo $form->textField($model,'tipousuario'); >
 			echo $form->dropDownList($model, 'noticiaid', 
-			CHtml::listData(noticia::model()->findAll(),'idnoticia','titulo'),array('empty' =>'Seleccione'));
+			CHtml::listData(Noticia::model()->findAll(),'idnoticia','titulo'),array('empty' =>'Seleccione'));
 		?>
 		<?php echo $form->error($model,'noticiaid'); ?>
 	</div>

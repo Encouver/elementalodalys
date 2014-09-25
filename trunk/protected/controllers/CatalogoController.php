@@ -76,7 +76,7 @@ class CatalogoController extends Controller
 			if($model->save())
 			{
 				$model->pdf->saveAs('images/catalogo/pdfs/'.$model->pdf);
-				$model->portada->saveAs('images/catalogo/'.$model->portada);
+				$model->portada->saveAs('images/catalogo/originals/'.$model->portada);
 				$this->redirect(array('view','id'=>$model->idcatalogo));
 			}
 		}
@@ -117,7 +117,7 @@ class CatalogoController extends Controller
 	 */
 	public function actionDelete($id)
 	{
-		unlink('images/catalogo/'.$this->loadModel($id)->portada);
+		unlink('images/catalogo/originals/'.$this->loadModel($id)->portada);
 		unlink('images/catalogo/pdfs/'.$this->loadModel($id)->pdf);
 		$this->loadModel($id)->delete();
 

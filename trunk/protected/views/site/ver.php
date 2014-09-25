@@ -51,17 +51,21 @@ echo '
           		}*/
 
               //$ajaxOptions = script que actualize el artista elegido y cargue las obras de ese artista haciendo renderpartial sobre el id artista_obras
+
               foreach($artistas as $key=>$artista) {
                       echo CHtml::ajaxLink(
-                           $artista->nombre." ".$artista->apellido."<br>", 
+                           '<span style= "font-size:11px; color:black;">'.$artista->nombre." ".$artista->apellido."</span><br>", 
                            Yii::app()->createUrl('site/BuscarObrasArtista',array('artista'=>$artista->idartista)),
                             array(
                                 'update'=>'#artista_obras'
                             )
                            //array('data-artista'=>$artista->idartista)
+                          
                            );
               }
+
           	echo '
+            
           </div>
 
           <div id="artista_obras" class="col-md-10">';
@@ -159,7 +163,7 @@ echo '
         </div>
         <div class="col-md-4 pull-bottom">';
   				foreach ($catalogo as $cat) {							                                                        
-            echo'<p id="catalogo_download"><a href="'.Yii::app()->request->baseUrl.'/'.$cat->pdf.'" target="_blank">'.Yii::t('site','Ver o descargar catálogo - ').Yii::t('site',$cat->datos).'</a></p>';
+            echo'<p id="catalogo_download"><a href="'.Yii::app()->request->baseUrl.'/images/catalogo/pdfs/'.$cat->pdf.'" target="_blank">'.Yii::t('site','Ver o descargar catálogo - ').Yii::t('site',$cat->datos).'</a></p>';
           }
 
 					echo '	                            
