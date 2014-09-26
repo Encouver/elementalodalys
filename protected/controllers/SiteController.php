@@ -429,8 +429,9 @@ class SiteController extends Controller
 	}
 
 
-	public function actionBuscarObrasArtista($artista)
+	public function actionBuscarObrasArtista($idart)
 	{
+		$artista = Artista::model()->find('idartista=:id',array('id'=>$idart));
 		
 		$idioma = Idiomas::model()->find('idioma=:idioma',array(':idioma'=>Yii::app()->language));
 
@@ -438,12 +439,12 @@ class SiteController extends Controller
     	$criteria->select = 't.*';
 		$criteria->condition = 't.idartista =:idartista';
 		$criteria->join ='LEFT JOIN tra_obra ON tra_obra.obraid = t.idobra AND tra_obra.idiomaid=:ididioma';
-		$criteria->params = array(':idartista' => $artista,':ididioma'=> $idioma->id);
+		$criteria->params = array(':idartista' => $idart,':ididioma'=> $idioma->id);
 
 		$obras= Obra::model()->findAll($criteria);
 
 		//fotorama
-		$this->renderPartial('_obras', array('obras' => $obras, 'idioma'=>$idioma));
+		$this->renderPartial('_obras', array('obras' => $obras, 'idioma'=>$idioma, 'artista'=>$artista));
 
 	}
 

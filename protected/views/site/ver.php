@@ -12,7 +12,7 @@ $this->pageTitle=Yii::app()->name;
 Yii::app()->clientScript->registerScript('buscarObrasArtista','
                                             $(function buscarObrasArtista(){
                                                 });');
-
+/*
 Yii::app()->clientScript->registerScript('fotoramascript','
                             
 $(".fotorama")
@@ -20,7 +20,7 @@ $(".fotorama")
     fotorama.$caption = fotorama.$caption || $(this).next(".fotorama-caption");
     fotorama.$caption.text(fotorama.activeFrame.caption);
 })
-.fotorama();', CClientScript::POS_END);
+.fotorama();', CClientScript::POS_END);*/
 
 ?>
 
@@ -54,72 +54,22 @@ echo '
 
               foreach($artistas as $key=>$artista) {
                       echo CHtml::ajaxLink(
-                           '<span style= "font-size:11px; color:black;">'.$artista->nombre." ".$artista->apellido."</span><br>", 
-                           Yii::app()->createUrl('site/BuscarObrasArtista',array('artista'=>$artista->idartista)),
+                           '<span style= "font-size:11px; color:black;">'.$artista->nombre.' '.$artista->apellido.'</span><br>', 
+                           Yii::app()->createUrl('site/BuscarObrasArtista',array('idart'=>$artista->idartista)),
                             array(
-                                'update'=>'#artista_obras'
+                                'update'=>'#artista_obras', // $("#artista_obras).empty().html(this.value);
+                                //'beforeSend'=>'js:function(data){ }',
                             )
-                           //array('data-artista'=>$artista->idartista)
-                          
                            );
               }
 
           	echo '
             
           </div>
-
           <div id="artista_obras" class="col-md-10">';
             
-            $this->renderPartial('_obras',array('obras'=> $obras, 'idioma'=>$idioma)); 
-                                        
-            /*echo CHtml::ajaxLink(
-            	    '<div id="req_res">
-            	    Test request',          // the link body (it will NOT be HTML-encoded.)
-            	    array('site/reqTest01'),  // the URL for the AJAX request. If empty, it is assumed to be the current URL.
-            	    array(
-            	        'update'=>'#req_res'
-            	    ), array('update'=>'#forAjaxRefresh')
-            	);
-            	 
-            	echo '...</div>';*/
-            
-             /*echo '   
-                 <!-- Fotorama -->
-                 <div class="fotorama" data-width="700" data-max-width="100%" data-ratio="500/333" data-fit="cover" data-captions="false" data-auto="false" data-nav="thumbs">
-              ';
-                
-                  foreach ($montajes as $montaje) {
-                    $this->widget('ext.SAImageDisplayer', array(
-                        'image' => $montaje->imagen,
-                        'size' => 'previa',
-                        'defaultImage' => 'default.png',
-                        'group' => 'montaje',
-                      'othersAttributes' =>array ('data-caption' =>$montaje->descripcion),
-                    ));
-                  }
+            $this->renderPartial('_obras',array('obras'=> $obras, 'idioma'=>$idioma,'artista'=>$artistas[0])); 
 
-                  echo '
-                            </div>
-                  <!--Caption-->
-                  <div style="min-height:40px; line-height: 20px; padding-top:10px"  class="fotorama-caption">
-                  </div>';*/
-              
-              /* Fotorama 
-              <div class="fotorama" data-width="700" data-max-width="100%" data-ratio="500/333" data-fit="cover" data-captions="false" data-auto="false" data-nav="thumbs">
-                <img href="http://s.fotorama.io/okonechnikov/1-lo.jpg" data-caption="fffffdfnsadfjknsafnalskmflaksmdf asfdnjoasjfoaksfd dasfnoasjfdñasjfoasfi sdfjoasñjdfasjdfñoajsdfiajsfd dsafjasodfijasofiñjafd">
-                <img href="http://s.fotorama.io/okonechnikov/2-lo.jpg" data-caption="">
-                <img href="http://s.fotorama.io/okonechnikov/9-lo.jpg" data-caption="MKMKMKMKkdmf fsdkjsldfm dfkmskdflmsdf sdfmksmfdk dskfmskdmfksdf ksdmfks dfmd fkmdf f sdfmsdfmf skfmdksmf sfmskmfksfm skfmskfmksdfm skfmksmfksdmfsd sdmksmfksfmdksdfmfd sdmfksdmkdfms dsmfskmfksmfksmfksmfsd fmskfmskmfksmf sdfkmskfmsdkfmskmsfdmf sdmfskmksfmdsfmsdfkmsfdkm kmfsdkmsfkmfdskmfkmfkmdfs.">
-                <img href="http://s.fotorama.io/okonechnikov/6-lo.jpg" data-caption="">
-                <img href="http://s.fotorama.io/okonechnikov/5-lo.jpg"data-caption="One">
-                <img href="http://s.fotorama.io/okonechnikov/1-lo.jpg" data-caption="fffffdfnsadfjknsafnalskmflaksmdf asfdnjoasjfoaksfd dasfnoasjfdñasjfoasfi sdfjoasñjdfasjdfñoajsdfiajsfd dsafjasodfijasofiñjafd">
-                <img href="http://s.fotorama.io/okonechnikov/2-lo.jpg" data-caption="">
-                <img href="http://s.fotorama.io/okonechnikov/9-lo.jpg" data-caption="MKMKMKMKkdmf fsdkjsldfm dfkmskdflmsdf sdfmksmfdk dskfmskdmfksdf ksdmfks dfmd fkmdf f sdfmsdfmf skfmdksmf sfmskmfksfm skfmskfmksdfm skfmksmfksdmfsd sdmksmfksfmdksdfmfd sdmfksdmkdfms dsmfskmfksmfksmfksmfsd fmskfmskmfksmf sdfkmskfmsdkfmskmsfdmf sdmfskmksfmdsfmsdfkmsfdkm kmfsdkmsfkmfdskmfkmfkmdfs.">
-                <img href="http://s.fotorama.io/okonechnikov/6-lo.jpg" data-caption="">
-                <img href="http://s.fotorama.io/okonechnikov/5-lo.jpg"data-caption="One">
-              </div>
-        
-              <p style="line-height: 20px; padding-top:10px" class="fotorama-caption"></p>-->
-              */
               echo '
           </div>
         </div>

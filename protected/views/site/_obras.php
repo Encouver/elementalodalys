@@ -12,8 +12,8 @@
 
 
 <?php 
-
-
+ 
+    echo '<h2>'.$artista->nombre.' '.$artista->apellido.'</h2>';
     echo '<!-- Fotorama -->
           <div class="fotorama" data-width="700" data-max-width="100%" data-ratio="500/333" data-fit="contain" data-thumbfit="contain" data-captions="false" data-auto="false" data-nav="thumbs">
         ';
