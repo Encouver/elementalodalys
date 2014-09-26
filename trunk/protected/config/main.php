@@ -185,7 +185,6 @@ return array(
             // from the default PHPSESSID
             // Cannot use dots in the session id :(
             'sessionName' => 'ELEMENTAL_SESSID',
-
 		),
 	),
 
