@@ -31,7 +31,7 @@ class TraVerniFini extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('idiomaid, verni_finiid, descripcion', 'required'),
+			array('idiomaid, verni_finiid', 'required'),
 			array('idiomaid, verni_finiid', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
