@@ -21,10 +21,11 @@ if ($obras){
                       <div class="panel-body">
 
                             <!-- Fotorama -->
-                            <div class="fotorama" data-width="700" data-max-width="100%" data-ratio="500/333" data-fit="contain" data-thumbfit="contain" data-captions="false" data-auto="false" data-nav="thumbs">
+<div class="fotorama" data-width="700" data-max-width="100%" data-ratio="500/333" data-fit="contain" data-thumbfit="contain" data-captions="false" data-auto="false" data-nav="thumbs">
 							';
 								
 									foreach ($obras as $obra) {
+                    echo "AAAAAAAAAAAAAAAAAAAAAAA;";
 										$this->widget('ext.SAImageDisplayer', array(
 										    'image' => $obra->imagen,
 										    'size' => 'grande',
@@ -35,7 +36,7 @@ if ($obras){
 									}
 
 							echo '
-		                    </div>
+</div>
 							<!--Caption-->
 							<div style="min-height:40px; line-height: 20px; padding-top:10px"  class="fotorama-caption">
 							</div>
@@ -51,7 +52,7 @@ if ($artista){
                   <div class="panel">
                     <div class="panel-heading">
                       <h4 class="panel-title">
-                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
                           ';
                           echo Yii::t('site','Biografía');
                           echo '                          
@@ -59,7 +60,7 @@ if ($artista){
                         </a>
                       </h4>
                     </div>
-                    <div id="collapseThree" class="panel-collapse collapse">
+                    <div id="collapseTwo" class="panel-collapse collapse">
                       <div class="panel-body">'.$artista->biografia.'
 
  						
@@ -149,3 +150,21 @@ if ($prensas){
                 ?>
                 </div>
 </div>
+
+<script>
+
+  $(document).ready(function() {
+
+$('.fotorama')
+
+    .on('fotorama:show', function (e, fotorama) {    
+
+        fotorama.$caption = fotorama.$caption || $(this).next('.fotorama-caption');
+
+        fotorama.$caption.text(fotorama.activeFrame.caption);
+
+    })
+
+    .fotorama();
+});
+</script>
