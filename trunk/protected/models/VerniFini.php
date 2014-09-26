@@ -41,7 +41,7 @@ class VerniFini extends CActiveRecord
 			//array('imagen','type','type'=>'array','allowEmpty'=>false),
 			//array('imagen', 'file', 'types'=>'jpg, gif, png'),
 			array('idexposicion', 'numerical', 'integerOnly'=>true),
-			//array('imagen', 'length', 'max'=>255),
+			array('text_language', 'length', 'max'=>255),
 			array('descripcion', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
