@@ -94,49 +94,94 @@ class VerniFiniController extends Controller
 				$idiomaid = $model->idiomaid;
 				$directorio = 'images/vernifini/originals/';
 				
-				$porciones = explode("<br>", $model->descripcion);
+				if($model->descripcion and $model->text_language and $idiomaid)
+				{
+					$porciones = explode("<br>", $model->descripcion);
 
-				$porciones_tra = explode("<br>", $model->text_language);
+					$porciones_tra = explode("<br>", $model->text_language);
 
-				$i = 0;
-				 while($i < count($_FILES['imagen']['name'])){
- 					
- 					if($i != 0)
- 					{
- 						$model= new VerniFini;
- 						$tra_vernifini = new TraVerniFini;
- 					}
+					$i = 0;
+					 while($i < count($_FILES['imagen']['name'])){
+	 					
+	 					if($i != 0)
+	 					{
+	 						$model= new VerniFini;
+	 						$tra_vernifini = new TraVerniFini;
+	 					}
 
- 					$model->idiomaid = 2; // solo para que no valide al momento de insertar en el for.
- 					$model->text_language = "auxiliar";
-	 				$nombre = $this->NewGuid();
-					
-					if($_FILES['imagen']['type'][$i]=="image/jpeg")
-					{
-						$tipo = "jpg";
-					}else
-					{
-						$tipo = "png";
-					}
-					
-					$destino = $directorio.$nombre.'.'.$tipo;
-					$model->imagen = $nombre.'.'.$tipo;
-					$model->idexposicion = $idexpo;
-					
-					move_uploaded_file($_FILES['imagen']['tmp_name'][$i],$destino);
+	 					$model->idiomaid = $idiomaid; // solo para que no valide al momento de insertar en el for.
+	 					$model->text_language = "auxiliar";
+		 				$nombre = $this->NewGuid();
+						
+						if($_FILES['imagen']['type'][$i]=="image/jpeg")
+						{
+							$tipo = "jpg";
+						}else
+						{
+							$tipo = "png";
+						}
+						
+						$destino = $directorio.$nombre.'.'.$tipo;
+						$model->imagen = $nombre.'.'.$tipo;
+						$model->idexposicion = $idexpo;
+						
+						move_uploaded_file($_FILES['imagen']['tmp_name'][$i],$destino);
 
-					$model->descripcion = $porciones[$i];
-					$model->save();
+						$model->descripcion = $porciones[$i];
+						$model->save();
 
-					$tra_vernifini->idiomaid = $idiomaid;
-					$tra_vernifini->verni_finiid = $model->idverni_fini;
-					$tra_vernifini->descripcion = $porciones_tra[$i];
+						$tra_vernifini->idiomaid = $idiomaid;
+						$tra_vernifini->verni_finiid = $model->idverni_fini;
+						$tra_vernifini->descripcion = $porciones_tra[$i];
 
-					$tra_vernifini->save();
+						$tra_vernifini->save();
 
 
-					$i++;			 
-			 	}
+						$i++;			 
+				 	}
+				 }else
+				 {
+				 	 $i = 0;
+					 while($i < count($_FILES['imagen']['name'])){
+	 					
+	 					if($i != 0)
+	 					{
+	 						$model= new VerniFini;
+	 						$tra_vernifini = new TraVerniFini;
+	 					}
+
+	 					$model->idiomaid = $idiomaid; // solo para que no valide al momento de insertar en el for.
+	 					$model->text_language = "auxiliar";
+		 				$nombre = $this->NewGuid();
+						
+						if($_FILES['imagen']['type'][$i]=="image/jpeg")
+						{
+							$tipo = "jpg";
+						}else
+						{
+							$tipo = "png";
+						}
+						
+						$destino = $directorio.$nombre.'.'.$tipo;
+						$model->imagen = $nombre.'.'.$tipo;
+						$model->idexposicion = $idexpo;
+						
+						move_uploaded_file($_FILES['imagen']['tmp_name'][$i],$destino);
+
+						$model->descripcion = "";
+						$model->save();
+
+						$tra_vernifini->idiomaid = $idiomaid;
+						$tra_vernifini->verni_finiid = $model->idverni_fini;
+						$tra_vernifini->descripcion = "";
+
+						$tra_vernifini->save();
+
+
+						$i++;			 
+				 	}
+	
+				 }
 
 				$this->redirect(array('admin')); 
 			}

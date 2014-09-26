@@ -37,7 +37,7 @@ class VerniFini extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('idexposicion, descripcion, idiomaid, text_language', 'required'),
+			array('idexposicion, idiomaid', 'required'),
 			//array('imagen','type','type'=>'array','allowEmpty'=>false),
 			//array('imagen', 'file', 'types'=>'jpg, gif, png'),
 			array('idexposicion', 'numerical', 'integerOnly'=>true),
