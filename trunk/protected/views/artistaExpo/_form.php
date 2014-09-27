@@ -24,7 +24,7 @@
 		<?php echo $form->labelEx($model,'idartista'); ?>
 		<?php //echo $form->textField($model,'tipousuario'); >
 			echo $form->dropDownList($model, 'idartista', 
-			CHtml::listData(Artista::model()->findAll(),'idartista','nombre'),array('empty' =>'Seleccione'));
+			CHtml::listData(Artista::model()->findAll(),'idartista','concatened'),array('empty' =>'Seleccione'));
 		?>
 		<?php echo $form->error($model,'idartista'); ?>
 	</div>

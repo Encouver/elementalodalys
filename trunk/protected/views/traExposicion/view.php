@@ -23,7 +23,7 @@ $this->menu=array(
 	'attributes'=>array(
 		'id',
 		'pais',
-		'exposicionid',
-		'idiomaid',
+		'exposicion.nombre1',
+		'idioma.nombre',
 	),
 )); ?>
