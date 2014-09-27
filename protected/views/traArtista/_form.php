@@ -32,7 +32,7 @@
 		<?php echo $form->labelEx($model,'artistaid'); ?>
 		<?php //echo $form->textField($model,'tipousuario'); >
 			echo $form->dropDownList($model, 'artistaid', 
-			CHtml::listData(Artista::model()->findAll(),'idartista','nombre'),array('empty' =>'Seleccione'));
+			CHtml::listData(Artista::model()->findAll(),'idartista','concatened'),array('empty' =>'Seleccione'));
 		?>
 		<?php echo $form->error($model,'artistaid'); ?>
 	</div>

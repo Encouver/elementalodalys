@@ -115,4 +115,9 @@ class Artista extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+	        public function getConcatened()
+        {
+                return $this->nombre.' '.$this->apellido;
+        }
 }

@@ -100,4 +100,7 @@ class ArtistaExpo extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+
+
 }

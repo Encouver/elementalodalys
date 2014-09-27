@@ -14,11 +14,11 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('exposicionid')); ?>:</b>
-	<?php echo CHtml::encode($data->exposicionid); ?>
+	<?php echo CHtml::encode($data->exposicion->nombre1)." ".CHtml::encode($data->exposicion->nombre2); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('idiomaid')); ?>:</b>
-	<?php echo CHtml::encode($data->idiomaid); ?>
+	<?php echo CHtml::encode($data->idioma->nombre); ?>
 	<br />
 
 
