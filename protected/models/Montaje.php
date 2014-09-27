@@ -34,8 +34,9 @@ class Montaje extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('idexposicion, idiomaid, text_language', 'required'),
+			array('idexposicion, idiomaid', 'required'),
 			array('idexposicion', 'numerical', 'integerOnly'=>true),
+			array('text_language', 'length', 'max'=>255),
 			array('descripcion', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.

@@ -105,7 +105,7 @@ class MontajeController extends Controller
  						$tra_montaje = new TraMontaje;
  					}
 
- 					$model->idiomaid = 2; // solo para que no valide al momento de insertar en el for.
+ 					$model->idiomaid = $idiomaid; // solo para que no valide al momento de insertar en el for.
  					$model->text_language = "auxiliar";
 	 				$nombre = $this->NewGuid();
 					
@@ -123,13 +123,13 @@ class MontajeController extends Controller
 					
 					move_uploaded_file($_FILES['imagen']['tmp_name'][$i],$destino);
 
-					$model->descripcion = $porciones[$i];
+					(!empty($porciones[$i])) ? $model->descripcion = $porciones[$i] : $model->descripcion = 0;
 					
 					$model->save();
 					
 					$tra_montaje->idiomaid = $idiomaid;
 					$tra_montaje->montajeid = $model->idmontaje;
-					$tra_montaje->descripcion = $porciones_tra[$i];
+					(!empty($porciones_tra[$i])) ? $tra_montaje->descripcion = $porciones_tra[$i] : $tra_montaje->descripcion = 0;
 
 					$tra_montaje->save();
 
