@@ -12,7 +12,7 @@ $this->pageTitle=Yii::app()->name;
 Yii::app()->clientScript->registerScript('buscarObrasArtista','
                                             $(function buscarObrasArtista(){
                                                 });');
-/*
+
 Yii::app()->clientScript->registerScript('fotoramascript','
                             
 $(".fotorama")
@@ -20,7 +20,7 @@ $(".fotorama")
     fotorama.$caption = fotorama.$caption || $(this).next(".fotorama-caption");
     fotorama.$caption.text(fotorama.activeFrame.caption);
 })
-.fotorama();', CClientScript::POS_END);*/
+.fotorama();', CClientScript::POS_END);
 
 ?>
 
