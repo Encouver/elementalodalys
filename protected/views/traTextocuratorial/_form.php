@@ -46,9 +46,29 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'contenido'); ?>
-		<?php echo $form->textArea($model,'contenido',array('rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'contenido'); ?>
+<?php	
+$this->widget('ext.ExtEditMe', array(
+        'model'=>$model,
+        'attribute'=>'contenido',
+        'width'=>'460',
+        'height'=>'250',
+        'toolbar'=>array(
+            array(
+                'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat', 
+            ),
+            array(
+                'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote',
+                '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock',
+            ),
+            array(
+                'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo', 
+            ),
+            array('Styles', 'Format', 'FontSize'
+
+                ),
+        )
+));
+?>
 	</div>
 
 	<div class="row">

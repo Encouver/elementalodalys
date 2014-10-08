@@ -458,8 +458,15 @@
 
 
 
+<!--
+borrar div y descomentar el logo
+-->
+<div style="height:30px"></div>
+<!--
+
                 <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logos_alianzas/mome.png" height="22px;">
 
+-->
 
 
                 </p>
