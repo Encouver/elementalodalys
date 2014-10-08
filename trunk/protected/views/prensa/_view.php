@@ -33,5 +33,11 @@
 	<?php echo CHtml::encode($data->contenido); ?>
 	<br />
 
+	
+	<b><?php echo CHtml::encode($data->getAttributeLabel('link')); ?>:</b>
+	<?php echo CHtml::encode($data->link); ?>
+	<br />
+
+	 
 
 </div>

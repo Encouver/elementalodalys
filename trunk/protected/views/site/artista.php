@@ -25,7 +25,6 @@ if ($obras){
 							';
 								
 									foreach ($obras as $obra) {
-                    echo "AAAAAAAAAAAAAAAAAAAAAAA;";
 										$this->widget('ext.SAImageDisplayer', array(
 										    'image' => $obra->imagen,
 										    'size' => 'grande',

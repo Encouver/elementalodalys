@@ -388,6 +388,28 @@ class SiteController extends Controller
 			$audio = Audio::model()->find($criteria);
 
 
+		//texto curatorial
+			if ($idioma->idioma == Yii::app()->params->idiomas['Español']){ //español
+				$criteria = new CDbCriteria;
+				$criteria->select = 't.*';
+				$criteria->condition = 't.idexposicion =:idexpo';
+				$criteria->params = array(':idexpo' => $idexpo);
+
+			}else{//ingles
+
+				$criteria = new CDbCriteria;
+		    	$criteria->select = 't.*, tra_textocuratorial.*';
+		    	$criteria->together = true;
+		    	$criteria->join ='LEFT JOIN tra_textocuratorial ON tra_textocuratorial.textocuratorialid = t.idtextocuratorial';
+				$criteria->condition = 't.idexposicion =:idexpo and tra_textocuratorial.idiomaid =:ididioma';
+				$criteria->params = array(':idexpo' => $idexpo,':ididioma' => $idioma->id);
+	
+			}
+		
+			$textocuratorial = Textocuratorial::model()->find($criteria);
+
+
+
 		//**COLECTIVA, INDIVIDUAL
 		//conversatorio
 			$criteria = new CDbCriteria;
@@ -425,7 +447,7 @@ class SiteController extends Controller
 		$this->render('ver', array(
         'datos'=> $datos, 'idioma'=>$idioma, 'tipo'=> $expo_feria->tipo, 'catalogo'=>$catalogo, 'artistas'=>$artistas,
         'montajes'=>$montajes, 'vernifinis' =>$vernifinis, 'audio'=>$audio, 'conversatorios'=>$conversatorios,
-        'prensas'=>$prensas, 'obras'=> $obras));		
+        'prensas'=>$prensas, 'obras'=> $obras, 'textocuratorial' => $textocuratorial));		
 	}
 
 

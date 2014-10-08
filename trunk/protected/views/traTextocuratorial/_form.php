@@ -1,13 +1,13 @@
 <?php
-/* @var $this PrensaController */
-/* @var $model Prensa */
+/* @var $this TraTextocuratorialController */
+/* @var $model TraTextocuratorial */
 /* @var $form CActiveForm */
 ?>
 
 <div class="form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'prensa-form',
+	'id'=>'tra-textocuratorial-form',
 	// Please note: When you enable ajax validation, make sure the corresponding
 	// controller action is handling ajax validation correctly.
 	// There is a call to performAjaxValidation() commented in generated controller code.
@@ -19,28 +19,24 @@
 
 	<?php echo $form->errorSummary($model); ?>
 
+
+
 	<div class="row">
-		<?php echo $form->labelEx($model,'fecha'); ?>
-		<?php echo $form->textField($model,'fecha'); ?>
-		<?php echo $form->error($model,'fecha'); ?>
+		<?php echo $form->labelEx($model,'idiomaid'); ?>
+		<?php //echo $form->textField($model,'tipousuario'); >
+			echo $form->dropDownList($model, 'idiomaid', 
+			CHtml::listData(Idiomas::model()->findAll(),'id','nombre'),array('empty' =>'Seleccione'));
+		?>
+		<?php echo $form->error($model,'idiomaid'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'imagen'); ?>
-		<?php echo $form->textField($model,'imagen',array('size'=>60,'maxlength'=>255)); ?>
-		<?php echo $form->error($model,'imagen'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'imagen_thumb'); ?>
-		<?php echo $form->textField($model,'imagen_thumb',array('size'=>60,'maxlength'=>255)); ?>
-		<?php echo $form->error($model,'imagen_thumb'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'idexposicion'); ?>
-		<?php echo $form->textField($model,'idexposicion'); ?>
-		<?php echo $form->error($model,'idexposicion'); ?>
+		<?php echo $form->labelEx($model,'textocuratorialid'); ?>
+		<?php //echo $form->textField($model,'tipousuario'); >
+			echo $form->dropDownList($model, 'textocuratorialid', 
+			CHtml::listData(Textocuratorial::model()->findAll(),'idtextocuratorial','concatened'),array('empty' =>'Seleccione'));
+		?>
+		<?php echo $form->error($model,'audioid'); ?>
 	</div>
 
 	<div class="row">
@@ -56,9 +52,9 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'link'); ?>
-		<?php echo $form->textField($model,'link',array('size'=>60,'maxlength'=>255)); ?>
-		<?php echo $form->error($model,'link'); ?>
+		<?php echo $form->labelEx($model,'cargo_autor'); ?>
+		<?php echo $form->textField($model,'cargo_autor',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->error($model,'cargo_autor'); ?>
 	</div>
 
 	<div class="row buttons">

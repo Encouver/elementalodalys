@@ -1,15 +1,15 @@
 <?php
-/* @var $this PrensaController */
-/* @var $model Prensa */
+/* @var $this TraTextocuratorialController */
+/* @var $model TraTextocuratorial */
 
 $this->breadcrumbs=array(
-	'Prensas'=>array('index'),
+	'Tra Textocuratorials'=>array('index'),
 	'Manage',
 );
 
 $this->menu=array(
-	array('label'=>'List Prensa', 'url'=>array('index')),
-	array('label'=>'Create Prensa', 'url'=>array('create')),
+	array('label'=>'List TraTextocuratorial', 'url'=>array('index')),
+	array('label'=>'Create TraTextocuratorial', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -18,7 +18,7 @@ $('.search-button').click(function(){
 	return false;
 });
 $('.search-form form').submit(function(){
-	$('#prensa-grid').yiiGridView('update', {
+	$('#tra-textocuratorial-grid').yiiGridView('update', {
 		data: $(this).serialize()
 	});
 	return false;
@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Prensas</h1>
+<h1>Manage Tra Textocuratorials</h1>
 
 <p>
 You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
@@ -41,19 +41,16 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 </div><!-- search-form -->
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
-	'id'=>'prensa-grid',
+	'id'=>'tra-textocuratorial-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		'idprensa',
-		'fecha',
-		'imagen',
-		'imagen_thumb',
-		'idexposicion',
+		'id',
+		'idiomaid',
+		'textocuratorialid',
 		'titulo',
 		'contenido',
-		'link',
-		
+		'cargo_autor',
 		array(
 			'class'=>'CButtonColumn',
 		),

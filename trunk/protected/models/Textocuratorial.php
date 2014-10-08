@@ -1,31 +1,24 @@
 <?php
 
 /**
- * This is the model class for table "prensa".
+ * This is the model class for table "textocuratorial".
  *
- * The followings are the available columns in table 'prensa':
- * @property integer $idprensa
- * @property string $fecha
- * @property string $imagen
- * @property string $imagen_thumb
- * @property integer $idexposicion
+ * The followings are the available columns in table 'textocuratorial':
+ * @property integer $idtextocuratorial
  * @property string $titulo
  * @property string $contenido
- * @property string $link
- *
- * The followings are the available model relations:
- * @property ArtistaPrensa[] $artistaPrensas
- * @property Exposicion $idexposicion0
- * @property TraPrensa[] $traPrensas
+ * @property string $autor
+ * @property string $cargo_autor
+ * @property integer $idexposicion
  */
-class Prensa extends CActiveRecord
+class Textocuratorial extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'prensa';
+		return 'textocuratorial';
 	}
 
 	/**
@@ -36,12 +29,12 @@ class Prensa extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('fecha, idexposicion, titulo, contenido', 'required'),
+			array('titulo, contenido, autor, idexposicion', 'required'),
 			array('idexposicion', 'numerical', 'integerOnly'=>true),
-			array('imagen, imagen_thumb, titulo, link', 'length', 'max'=>255),
+			array('titulo, autor, cargo_autor', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('idprensa, fecha, imagen, imagen_thumb, idexposicion, titulo, contenido, link', 'safe', 'on'=>'search'),
+			array('idtextocuratorial, titulo, contenido, autor, cargo_autor, idexposicion', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -53,9 +46,6 @@ class Prensa extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'artistaPrensas' => array(self::HAS_MANY, 'ArtistaPrensa', 'idprensa'),
-			'idexposicion0' => array(self::BELONGS_TO, 'Exposicion', 'idexposicion'),
-			'traPrensas' => array(self::HAS_MANY, 'TraPrensa', 'prensaid'),
 		);
 	}
 
@@ -65,14 +55,12 @@ class Prensa extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'idprensa' => 'Idprensa',
-			'fecha' => 'Fecha',
-			'imagen' => 'Imagen',
-			'imagen_thumb' => 'Imagen Thumb',
-			'idexposicion' => 'Idexposicion',
+			'idtextocuratorial' => 'Idtextocuratorial',
 			'titulo' => 'Titulo',
 			'contenido' => 'Contenido',
-			'link' => 'Link',
+			'autor' => 'Autor',
+			'cargo_autor' => 'Cargo Autor',
+			'idexposicion' => 'Idexposicion',
 		);
 	}
 
@@ -94,14 +82,12 @@ class Prensa extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('idprensa',$this->idprensa);
-		$criteria->compare('fecha',$this->fecha,true);
-		$criteria->compare('imagen',$this->imagen,true);
-		$criteria->compare('imagen_thumb',$this->imagen_thumb,true);
-		$criteria->compare('idexposicion',$this->idexposicion);
+		$criteria->compare('idtextocuratorial',$this->idtextocuratorial);
 		$criteria->compare('titulo',$this->titulo,true);
 		$criteria->compare('contenido',$this->contenido,true);
-		$criteria->compare('link',$this->link,true);
+		$criteria->compare('autor',$this->autor,true);
+		$criteria->compare('cargo_autor',$this->cargo_autor,true);
+		$criteria->compare('idexposicion',$this->idexposicion);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -112,10 +98,15 @@ class Prensa extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Prensa the static model class
+	 * @return Textocuratorial the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
 	}
+	        public function getConcatened()
+        {
+                return $this->autor.' - '.$this->titulo;
+        }
+
 }

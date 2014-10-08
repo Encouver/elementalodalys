@@ -79,6 +79,33 @@ echo '
 ';
 }
 ?>
+
+<?php
+if ($textocuratorial){
+  echo '
+<div class="panel">
+  <div class="panel-heading">
+    <h4 class="panel-title">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseT">
+        ';
+        echo Yii::t('site','Texto curatorial');
+        echo ' 
+
+        <span style="font-size:11px;" class="glyphicon x"></span>
+      </a>
+    </h4>
+  </div>
+  <div id="collapseT" class="panel-collapse collapse">
+    <div class="panel-body">
+      <h5>'.$textocuratorial->titulo.'</h5>'.$textocuratorial->contenido.'<br><br>'.$textocuratorial->autor.'<br>'
+      .$textocuratorial->cargo_autor.'
+    </div>
+  </div>
+</div>
+';
+}
+?>
+
 <?php
 if ($catalogo){
 echo '
@@ -316,7 +343,20 @@ echo '
 			        <h5 class="media-heading">'.$prensa->titulo.'</h5>
               <p class="text-muted chiqui">'.Yii::t('site','Publicado el ').TextHelper::convertir_fecha($prensa->fecha, $idioma).'</p>
 			        <p class="prensa comment more texto">'.$prensa->contenido.'</p>
-			      </div>
+              ';
+
+              if ($prensa->link){
+
+
+              echo '
+              <a href="'.$prensa->link.'" target="_blank">
+                <h6>'.Yii::t('site','Ir a la noticia original').'</h6> 
+              </a>
+			       
+             ';
+              }
+              echo '
+            </div>
 			    </div>
 	    	';
 	    }

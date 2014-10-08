@@ -46,6 +46,11 @@
 		<?php echo $form->textArea($model,'contenido',array('rows'=>6, 'cols'=>50)); ?>
 	</div>
 
+	<div class="row">
+		<?php echo $form->label($model,'link'); ?>
+		<?php echo $form->textField($model,'link',array('size'=>60,'maxlength'=>255)); ?>
+	</div>
+
 	<div class="row buttons">
 		<?php echo CHtml::submitButton('Search'); ?>
 	</div>
