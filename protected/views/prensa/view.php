@@ -28,5 +28,6 @@ $this->menu=array(
 		'idexposicion',
 		'titulo',
 		'contenido',
+		'link',
 	),
 )); ?>

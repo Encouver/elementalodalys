@@ -26,16 +26,16 @@
 		<div id="logo" style="height:45px"><div style="float:left"><img width="160px" src="<?php echo Yii::app()->request->baseUrl; ?>/images/logonuevo.png"></div><div style="float:right"><img width="160px" src="<?php echo Yii::app()->request->baseUrl; ?>/images/log.png"></div></div>
 	</div><!-- header -->
 
-	<div id="mainmenu">
+	<div id="mainmenu" style="font-size:0px">
 		<?php $this->widget('zii.widgets.CMenu',array(
 		  'activeCssClass'=>'active',
 
 			'items'=>array(
 				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'Noticia', 'url'=>array('noticia/index'), 'visible'=>!Yii::app()->user->isGuest),
-				array('label'=>'Artistas', 'url'=>array('artista/index'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Artista', 'url'=>array('artista/index'), 'visible'=>!Yii::app()->user->isGuest),
 
-				array('label'=>'Exposiciones', 'url'=>array('exposicion/index'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Expo/Feria', 'url'=>array('exposicion/index'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Obra', 'url'=>array('obra/index'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Catalogo', 'url'=>array('catalogo/index'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Montaje', 'url'=>array('montaje/index'), 'visible'=>!Yii::app()->user->isGuest),
@@ -44,8 +44,10 @@
 				array('label'=>'Audio', 'url'=>array('audio/index'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Prensa', 'url'=>array('prensa/index'), 'visible'=>!Yii::app()->user->isGuest),
 
+				array('label'=>'T.Curatorial', 'url'=>array('textocuratorial/index'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Textos', 'url'=>array('texto/index'), 'visible'=>!Yii::app()->user->isGuest),
-				array('label'=>'Usuarios', 'url'=>array('usuarios/index'), 'visible'=>!Yii::app()->user->isGuest),
+
+				array('label'=>'Users', 'url'=>array('usuarios/index'), 'visible'=>!Yii::app()->user->isGuest),
 //				array('label'=>'Idiomas', 'url'=>array('idiomas/index'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 			),

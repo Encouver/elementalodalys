@@ -270,7 +270,7 @@
 
                                     [ 'label' => Yii::t('site','Alianzas'), 'url' => [ 'site/alianzas' ] ],
 
-                                    [ 'label' => Yii::t('site', 'Becas'), 'url' => [ 'site/becas' ] ],
+                                    [ 'label' => Yii::t('site', 'Residencia para artistas'), 'url' => [ 'site/becas' ] ],
 
                                     [ 'label' => Yii::t('site','Quiénes somos'), 'url' => [ 'site/quienessomos' ] ],
 
@@ -410,7 +410,7 @@
 
                     <a href="<?php echo Yii::app()->request->baseUrl; ?>/site/alianzas"><?php  echo Yii::t('site','Alianzas');?></a><br/>
 
-                    <a href="<?php echo Yii::app()->request->baseUrl; ?>/site/becas"><?php  echo Yii::t('site','Becas');?></a><br/>
+                    <a href="<?php echo Yii::app()->request->baseUrl; ?>/site/becas"><?php  echo Yii::t('site','Residencia para artistas');?></a><br/>
 
                     <a href="<?php echo Yii::app()->request->baseUrl; ?>/site/quienessomos"><?php  echo Yii::t('site','Quiénes somos');?></a><br/>
 
