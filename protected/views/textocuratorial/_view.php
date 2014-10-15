@@ -12,11 +12,11 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('titulo')); ?>:</b>
 	<?php echo CHtml::encode($data->titulo); ?>
 	<br />
-
+<!--
 	<b><?php echo CHtml::encode($data->getAttributeLabel('contenido')); ?>:</b>
 	<?php echo CHtml::encode($data->contenido); ?>
 	<br />
-
+-->
 	<b><?php echo CHtml::encode($data->getAttributeLabel('autor')); ?>:</b>
 	<?php echo CHtml::encode($data->autor); ?>
 	<br />
