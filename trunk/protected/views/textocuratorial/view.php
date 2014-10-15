@@ -23,7 +23,6 @@ $this->menu=array(
 	'attributes'=>array(
 		'idtextocuratorial',
 		'titulo',
-		'contenido',
 		'autor',
 		'cargo_autor',
 		'idexposicion',

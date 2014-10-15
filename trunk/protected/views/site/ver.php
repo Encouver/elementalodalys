@@ -97,8 +97,8 @@ if ($textocuratorial){
   </div>
   <div id="collapseT" class="panel-collapse collapse">
     <div class="panel-body">
-      <h5>'.$textocuratorial->titulo.'</h5>'.$textocuratorial->contenido.'<br><br>'.$textocuratorial->autor.'<br>'
-      .$textocuratorial->cargo_autor.'
+      <h5>'.$textocuratorial->titulo.'</h5><p>'.$textocuratorial->autor.'<br>'
+      .$textocuratorial->cargo_autor.'</p><br>'.$textocuratorial->contenido.'<br>
     </div>
   </div>
 </div>
