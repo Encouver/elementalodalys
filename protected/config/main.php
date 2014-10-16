@@ -163,7 +163,7 @@ return array(
 								'prensa' => array(
 		                            'previa' => array('width' => 120, 'height' => 120),
 		                         ), 
-								'verni_fini' => array(
+								'vernifini' => array(
 		                            'previa' => array('width' => 700, 'height' => 467),
 		                         ), 
 								'obra' => array(
