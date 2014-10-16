@@ -223,7 +223,7 @@ echo '
 					    'image' => $vernifini->imagen,
 					    'size' => 'previa',
 					    'defaultImage' => 'default.png',
-					    'group' => 'verni_fini',
+					    'group' => 'vernifini',
 						'othersAttributes' =>array ('data-caption' =>$vernifini->descripcion),
 					));
 				}
