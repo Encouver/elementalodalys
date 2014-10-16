@@ -164,7 +164,7 @@ return array(
 		                            'previa' => array('width' => 120, 'height' => 120),
 		                         ), 
 								'verni_fini' => array(
-		                            'previa' => array('width' => 400, 'height' => 300),
+		                            'previa' => array('width' => 700, 'height' => 467),
 		                         ), 
 								'obra' => array(
 		                            'previa' => array('width' => 400, 'height' => 300),
