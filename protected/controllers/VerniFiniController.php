@@ -127,7 +127,7 @@ class VerniFiniController extends Controller
 						move_uploaded_file($_FILES['imagen']['tmp_name'][$i],$destino);
 
 						
-						(!empty($porciones[$i])) ? $model->descripcion = $porciones[$i] : $model->descripcion = 0;
+						(!empty($porciones[$i])) ? $model->descripcion = $porciones[$i] : $model->descripcion = "";
 						$model->save();
 
 						$tra_vernifini->idiomaid = $idiomaid;
@@ -159,14 +159,31 @@ class VerniFiniController extends Controller
 	{
 		$model=$this->loadModel($id);
 
+		$tra_vernifini = TraVerniFini::model()->find('verni_finiid=:id AND idiomaid=:idiomaid',
+			array(
+			  ':id'=>$id,
+			  ':idiomaid'=>2, //ingles
+			));
+			
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
 		if(isset($_POST['VerniFini']))
 		{
+			
 			$model->attributes=$_POST['VerniFini'];
-			if($model->save())
+			if($model->save()){
+				$tra_vernifini->descripcion = $model->text_language;
+				$tra_vernifini->idiomaid = $model->idiomaid;
+				$tra_vernifini->save();
+				//$tra = new TraVerniFini();
 				$this->redirect(array('view','id'=>$model->idverni_fini));
+			}
+				
+		}else
+		{
+			$model->text_language=$tra_vernifini->descripcion;
+			$model->idiomaid = 2; //ingles
 		}
 
 		$this->render('update',array(

@@ -157,6 +157,11 @@ class ObraController extends Controller
 	{
 		$model=$this->loadModel($id);
 
+		$tra_obra = TraObra::model()->find('obraid=:id AND idiomaid=:idiomaid',
+			array(
+			  ':id'=>$id,
+			  ':idiomaid'=>2, //ingles
+			));
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
@@ -164,7 +169,16 @@ class ObraController extends Controller
 		{
 			$model->attributes=$_POST['Obra'];
 			if($model->save())
+			{
+				$tra_obra->descripcion = $model->text_language;
+				$tra_obra->idiomaid = $model->idiomaid;
+				$tra_obra->save();
 				$this->redirect(array('view','id'=>$model->idobra));
+			}
+		}else
+		{
+			$model->text_language=$tra_obra->descripcion;
+			$model->idiomaid = 2; //ingles
 		}
 
 		$this->render('update',array(

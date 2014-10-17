@@ -39,21 +39,11 @@
 		<?php echo $form->error($model,'imagen'); ?>
 	</div>
 
-	<!-- <div class="row">
-		<?php echo $form->labelEx($model,'imagen_thumb'); ?>
-		<?php echo $form->textField($model,'imagen_thumb',array('size'=>60,'maxlength'=>255)); ?>
-		<?php echo $form->error($model,'imagen_thumb'); ?>
-	</div>-->
-
-	
-
-
 	<div class="row">
 		<?php echo $form->labelEx($model,'descripcion'); ?>
 		<?php echo $form->textArea($model,'descripcion',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'descripcion'); ?>
 	</div>
-
 
 
 	<div class="row">
