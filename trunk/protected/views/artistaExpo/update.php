@@ -9,13 +9,13 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List ArtistaExpo', 'url'=>array('index')),
-	array('label'=>'Create ArtistaExpo', 'url'=>array('create')),
-	array('label'=>'View ArtistaExpo', 'url'=>array('view', 'id'=>$model->idcolectiva_feria)),
-	array('label'=>'Manage ArtistaExpo', 'url'=>array('admin')),
+	array('label'=>'Listar Artista - Expo/Feria', 'url'=>array('index')),
+	array('label'=>'Crear Artista - Expo/Feria', 'url'=>array('create')),
+	array('label'=>'Ver Artista - Expo/Feria', 'url'=>array('view', 'id'=>$model->idcolectiva_feria)),
+	array('label'=>'Administrar Artista - Expo/Feria', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Update ArtistaExpo <?php echo $model->idcolectiva_feria; ?></h1>
+<h1>Actualizar Artista - Expo/Feria <?php echo $model->idcolectiva_feria; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

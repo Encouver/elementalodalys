@@ -7,12 +7,12 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create TraPrensa', 'url'=>array('create')),
-	array('label'=>'Manage TraPrensa', 'url'=>array('admin')),
+	array('label'=>'Crear idioma_Prensa', 'url'=>array('create')),
+	array('label'=>'Administrar idioma_Prensa', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Tra Prensas</h1>
+<h1>idioma_Prensas</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

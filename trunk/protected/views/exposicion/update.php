@@ -9,13 +9,13 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Exposicion', 'url'=>array('index')),
-	array('label'=>'Create Exposicion', 'url'=>array('create')),
-	array('label'=>'View Exposicion', 'url'=>array('view', 'id'=>$model->idexposicion)),
-	array('label'=>'Manage Exposicion', 'url'=>array('admin')),
+	array('label'=>'Listar Exposición/Feria', 'url'=>array('index')),
+	array('label'=>'Crear Exposición/Feria', 'url'=>array('create')),
+	array('label'=>'Ver Exposición/Feria', 'url'=>array('view', 'id'=>$model->idexposicion)),
+	array('label'=>'Administrar Exposición/Feria', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Update Exposicion <?php echo $model->idexposicion; ?></h1>
+<h1>Actualizar Exposición/Feria <?php echo $model->idexposicion; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

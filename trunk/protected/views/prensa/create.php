@@ -8,11 +8,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Prensa', 'url'=>array('index')),
-	array('label'=>'Manage Prensa', 'url'=>array('admin')),
+	array('label'=>'Listar Prensa', 'url'=>array('index')),
+	array('label'=>'Administrar Prensa', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Prensa</h1>
+<h1>Crear Prensa</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

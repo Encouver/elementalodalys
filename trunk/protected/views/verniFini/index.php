@@ -7,8 +7,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create VerniFini', 'url'=>array('create')),
-	array('label'=>'Manage VerniFini', 'url'=>array('admin')),
+	array('label'=>'Crear VerniFini', 'url'=>array('create')),
+	array('label'=>'Administrar VerniFini', 'url'=>array('admin')),
 );
 ?>
 

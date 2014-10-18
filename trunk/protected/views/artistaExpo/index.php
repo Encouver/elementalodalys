@@ -7,12 +7,12 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create ArtistaExpo', 'url'=>array('create')),
-	array('label'=>'Manage ArtistaExpo', 'url'=>array('admin')),
+	array('label'=>'Crear Artista - Expo/Feria', 'url'=>array('create')),
+	array('label'=>'Administrar Artista - Expo/Feria', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Artista Expos</h1>
+<h1>Artista - Expo/Feria</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

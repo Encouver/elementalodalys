@@ -8,11 +8,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Conversatorio', 'url'=>array('index')),
-	array('label'=>'Manage Conversatorio', 'url'=>array('admin')),
+	array('label'=>'Listar Conversatorio', 'url'=>array('index')),
+	array('label'=>'Administrar Conversatorio', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Conversatorio</h1>
+<h1>Crear Conversatorio</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

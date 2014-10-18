@@ -8,11 +8,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List TraExposicion', 'url'=>array('index')),
-	array('label'=>'Manage TraExposicion', 'url'=>array('admin')),
+	array('label'=>'Listar idioma_Exposición/Feria', 'url'=>array('index')),
+	array('label'=>'Administrar idioma_Exposición/Feria', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create TraExposicion</h1>
+<h1>Crear idioma_Exposición/Feria</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

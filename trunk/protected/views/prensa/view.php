@@ -8,15 +8,15 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Prensa', 'url'=>array('index')),
-	array('label'=>'Create Prensa', 'url'=>array('create')),
-	array('label'=>'Update Prensa', 'url'=>array('update', 'id'=>$model->idprensa)),
-	array('label'=>'Delete Prensa', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->idprensa),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Prensa', 'url'=>array('admin')),
+	array('label'=>'Listar Prensa', 'url'=>array('index')),
+	array('label'=>'Crear Prensa', 'url'=>array('create')),
+	array('label'=>'Actualizar Prensa', 'url'=>array('update', 'id'=>$model->idprensa)),
+	array('label'=>'Eliminar Prensa', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->idprensa),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>'Administrar Prensa', 'url'=>array('admin')),
 );
 ?>
 
-<h1>View Prensa #<?php echo $model->idprensa; ?></h1>
+<h1>Ver Prensa #<?php echo $model->idprensa; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,

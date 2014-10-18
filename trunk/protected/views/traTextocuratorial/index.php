@@ -7,12 +7,12 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create TraTextocuratorial', 'url'=>array('create')),
-	array('label'=>'Manage TraTextocuratorial', 'url'=>array('admin')),
+	array('label'=>'Crear idioma_TextoCuratorial', 'url'=>array('create')),
+	array('label'=>'Administrar idioma_TextoCuratorial', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Tra Textocuratorials</h1>
+<h1>idioma_TextosCuratoriales</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

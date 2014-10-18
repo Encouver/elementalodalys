@@ -9,13 +9,13 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List TraArtista', 'url'=>array('index')),
-	array('label'=>'Create TraArtista', 'url'=>array('create')),
-	array('label'=>'View TraArtista', 'url'=>array('view', 'id'=>$model->id)),
-	array('label'=>'Manage TraArtista', 'url'=>array('admin')),
+	array('label'=>'Listar idioma_Artista', 'url'=>array('index')),
+	array('label'=>'Crear idioma_Artista', 'url'=>array('create')),
+	array('label'=>'Ver idioma_Artista', 'url'=>array('view', 'id'=>$model->id)),
+	array('label'=>'Administrar idioma_Artista', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Update TraArtista <?php echo $model->id; ?></h1>
+<h1>Actualizar idioma_Artista <?php echo $model->id; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

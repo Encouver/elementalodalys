@@ -8,11 +8,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List TraArtista', 'url'=>array('index')),
-	array('label'=>'Manage TraArtista', 'url'=>array('admin')),
+	array('label'=>'Listar idioma_Artista', 'url'=>array('index')),
+	array('label'=>'Administrar idioma_Artista', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create TraArtista</h1>
+<h1>Crear idioma_Artista</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

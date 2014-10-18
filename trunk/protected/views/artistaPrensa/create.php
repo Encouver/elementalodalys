@@ -8,11 +8,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List ArtistaPrensa', 'url'=>array('index')),
-	array('label'=>'Manage ArtistaPrensa', 'url'=>array('admin')),
+	array('label'=>'Listar Artista - Prensa', 'url'=>array('index')),
+	array('label'=>'Administrar Artista - Prensa', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create ArtistaPrensa</h1>
+<h1>Crear Artista - Prensa</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

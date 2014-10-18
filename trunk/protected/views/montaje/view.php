@@ -8,15 +8,15 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Montaje', 'url'=>array('index')),
-	array('label'=>'Create Montaje', 'url'=>array('create')),
-	array('label'=>'Update Montaje', 'url'=>array('update', 'id'=>$model->idmontaje)),
-	array('label'=>'Delete Montaje', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->idmontaje),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Montaje', 'url'=>array('admin')),
+	array('label'=>'Listar Montaje', 'url'=>array('index')),
+	array('label'=>'Crear Montaje', 'url'=>array('create')),
+	array('label'=>'Actualizar Montaje', 'url'=>array('update', 'id'=>$model->idmontaje)),
+	array('label'=>'Eliminar Montaje', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->idmontaje),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>'Administrar Montaje', 'url'=>array('admin')),
 );
 ?>
 
-<h1>View Montaje #<?php echo $model->idmontaje; ?></h1>
+<h1>Ver Montaje #<?php echo $model->idmontaje; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,

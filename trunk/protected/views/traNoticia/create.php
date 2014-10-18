@@ -8,11 +8,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List TraNoticia', 'url'=>array('index')),
-	array('label'=>'Manage TraNoticia', 'url'=>array('admin')),
+	array('label'=>'Listar idioma_Noticia', 'url'=>array('index')),
+	array('label'=>'Administrar idioma_Noticia', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create TraNoticia</h1>
+<h1>Crear idioma_Noticia</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

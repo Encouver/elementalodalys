@@ -7,9 +7,9 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create Texto', 'url'=>array('create')),
-	array('label'=>'Manage Texto', 'url'=>array('admin')),
-	array('label'=>'Create in other languages ', 'url'=>array('traTexto/index')),
+	array('label'=>'Crear Texto', 'url'=>array('create')),
+	array('label'=>'Administrar Texto', 'url'=>array('admin')),
+	array('label'=>'Crear en otro idioma', 'url'=>array('traTexto/index')),
 
 );
 ?>

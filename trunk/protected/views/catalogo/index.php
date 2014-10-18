@@ -7,12 +7,12 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create Catalogo', 'url'=>array('create')),
-	array('label'=>'Manage Catalogo', 'url'=>array('admin')),
+	array('label'=>'Crear Catálogo', 'url'=>array('create')),
+	array('label'=>'Administrar Catálogo', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Catalogos</h1>
+<h1>Catálogos</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

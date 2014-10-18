@@ -8,8 +8,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List ArtistaPrensa', 'url'=>array('index')),
-	array('label'=>'Create ArtistaPrensa', 'url'=>array('create')),
+	array('label'=>'Listar Artista - Prensa', 'url'=>array('index')),
+	array('label'=>'Crear Artista - Prensa', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Artista Prensas</h1>
+<h1>Administrar Artista - Prensa</h1>
 
 <p>
 You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>

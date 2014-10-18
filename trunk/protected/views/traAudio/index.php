@@ -7,8 +7,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create TraAudio', 'url'=>array('create')),
-	array('label'=>'Manage TraAudio', 'url'=>array('admin')),
+	array('label'=>'Crear idioma_Audio', 'url'=>array('create')),
+	array('label'=>'Administrar idioma_Audio', 'url'=>array('admin')),
 );
 ?>
 

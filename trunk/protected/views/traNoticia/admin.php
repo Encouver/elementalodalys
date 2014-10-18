@@ -8,8 +8,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List TraNoticia', 'url'=>array('index')),
-	array('label'=>'Create TraNoticia', 'url'=>array('create')),
+	array('label'=>'Listar idioma_Noticia', 'url'=>array('index')),
+	array('label'=>'Crear idioma_Noticia', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Tra Noticias</h1>
+<h1>Administrar idioma_Noticias</h1>
 
 <p>
 You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>

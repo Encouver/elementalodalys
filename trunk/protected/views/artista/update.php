@@ -9,13 +9,13 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Artista', 'url'=>array('index')),
-	array('label'=>'Create Artista', 'url'=>array('create')),
-	array('label'=>'View Artista', 'url'=>array('view', 'id'=>$model->idartista)),
-	array('label'=>'Manage Artista', 'url'=>array('admin')),
+	array('label'=>'Listar Artista', 'url'=>array('index')),
+	array('label'=>'Crear Artista', 'url'=>array('create')),
+	array('label'=>'Ver Artista', 'url'=>array('view', 'id'=>$model->idartista)),
+	array('label'=>'Administrar Artista', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Update Artista <?php echo $model->idartista; ?></h1>
+<h1>Actualizar Artista <?php echo $model->idartista; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

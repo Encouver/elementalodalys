@@ -8,8 +8,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Exposicion', 'url'=>array('index')),
-	array('label'=>'Create Exposicion', 'url'=>array('create')),
+	array('label'=>'Listar Exposicion', 'url'=>array('index')),
+	array('label'=>'Crear Exposicion', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Exposicions</h1>
+<h1>Administrar Exposiciones / Ferias</h1>
 
 <p>
 You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>

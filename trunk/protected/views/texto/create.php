@@ -8,11 +8,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Texto', 'url'=>array('index')),
-	array('label'=>'Manage Texto', 'url'=>array('admin')),
+	array('label'=>'Listar Texto', 'url'=>array('index')),
+	array('label'=>'Administrar Texto', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Texto</h1>
+<h1>Crear Texto</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

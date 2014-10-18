@@ -8,12 +8,12 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Artista', 'url'=>array('index')),
-	array('label'=>'Manage Artista', 'url'=>array('admin')),
+	array('label'=>'Listar Artista', 'url'=>array('index')),
+	array('label'=>'Administrar Artista', 'url'=>array('admin')),
 	
 );
 ?>
 
-<h1>Create Artista</h1>
+<h1>Crear Artista</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

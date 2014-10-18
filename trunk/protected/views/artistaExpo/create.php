@@ -8,11 +8,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List ArtistaExpo', 'url'=>array('index')),
-	array('label'=>'Manage ArtistaExpo', 'url'=>array('admin')),
+	array('label'=>'Listar Artista - Expo/Feria', 'url'=>array('index')),
+	array('label'=>'Administrar Artista - Expo/Feria', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create ArtistaExpo</h1>
+<h1>Crear Artista - Expo/Feria</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

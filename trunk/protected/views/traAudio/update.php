@@ -9,13 +9,13 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List TraAudio', 'url'=>array('index')),
-	array('label'=>'Create TraAudio', 'url'=>array('create')),
-	array('label'=>'View TraAudio', 'url'=>array('view', 'id'=>$model->id)),
-	array('label'=>'Manage TraAudio', 'url'=>array('admin')),
+	array('label'=>'Listar idioma_Audio', 'url'=>array('index')),
+	array('label'=>'Crear idioma_Audio', 'url'=>array('create')),
+	array('label'=>'Ver idioma_Audio', 'url'=>array('view', 'id'=>$model->id)),
+	array('label'=>'Administrar idioma_Audio', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Update TraAudio <?php echo $model->id; ?></h1>
+<h1>Actualizar idioma_Audio <?php echo $model->id; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

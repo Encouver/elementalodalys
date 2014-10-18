@@ -8,11 +8,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List TraConversatorio', 'url'=>array('index')),
-	array('label'=>'Manage TraConversatorio', 'url'=>array('admin')),
+	array('label'=>'Listar idioma_Conversatorio', 'url'=>array('index')),
+	array('label'=>'Administrar idioma_Conversatorio', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create TraConversatorio</h1>
+<h1>Crear idioma_Conversatorio</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

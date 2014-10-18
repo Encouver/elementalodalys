@@ -68,18 +68,13 @@
 	<?php endif
 	*/
 	?>
+	
 
 	<?php echo $content; ?>
 
-	<br><br>
-	<p>
-	---------------<br><br>
-		<b>Tamaño recomendado de las imágenes en todo el site:</b><br><br>
-		72 dpi - 1200 x 1200 px.<br>
-		No más de 1MB
-	<br><br>---------------
 
-	</p>
+
+
 
 	<div class="clear"></div>
 

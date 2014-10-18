@@ -9,13 +9,13 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List TraPrensa', 'url'=>array('index')),
-	array('label'=>'Create TraPrensa', 'url'=>array('create')),
-	array('label'=>'View TraPrensa', 'url'=>array('view', 'id'=>$model->id)),
-	array('label'=>'Manage TraPrensa', 'url'=>array('admin')),
+	array('label'=>'Listar idioma_Prensa', 'url'=>array('index')),
+	array('label'=>'Crear idioma_Prensa', 'url'=>array('create')),
+	array('label'=>'Ver idioma_Prensa', 'url'=>array('view', 'id'=>$model->id)),
+	array('label'=>'Administrar idioma_Prensa', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Update TraPrensa <?php echo $model->id; ?></h1>
+<h1>Actualizar idioma_Prensa <?php echo $model->id; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

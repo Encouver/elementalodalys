@@ -7,8 +7,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create Montaje', 'url'=>array('create')),
-	array('label'=>'Manage Montaje', 'url'=>array('admin')),
+	array('label'=>'Crear Montaje', 'url'=>array('create')),
+	array('label'=>'Administrar Montaje', 'url'=>array('admin')),
 );
 ?>
 

@@ -9,13 +9,13 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List TraTexto', 'url'=>array('index')),
-	array('label'=>'Create TraTexto', 'url'=>array('create')),
-	array('label'=>'View TraTexto', 'url'=>array('view', 'id'=>$model->id)),
-	array('label'=>'Manage TraTexto', 'url'=>array('admin')),
+	array('label'=>'Listar idioma_Texto', 'url'=>array('index')),
+	array('label'=>'Crear idioma_Texto', 'url'=>array('create')),
+	array('label'=>'Ver idioma_Texto', 'url'=>array('view', 'id'=>$model->id)),
+	array('label'=>'Administrar idioma_Texto', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Update TraTexto <?php echo $model->id; ?></h1>
+<h1>Actualizar idioma_Texto <?php echo $model->id; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

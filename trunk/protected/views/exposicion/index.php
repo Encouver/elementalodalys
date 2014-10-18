@@ -7,13 +7,13 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Crear Exposición', 'url'=>array('create')),
-	array('label'=>'Administrar Exposición', 'url'=>array('admin')),
+	array('label'=>'Crear Exposición/Feria', 'url'=>array('create')),
+	array('label'=>'Administrar Exposición/Feria', 'url'=>array('admin')),
 	array('label'=>'Crear en otro idioma ', 'url'=>array('traExposicion/index')),
 );
 ?>
 
-<h1>Exposiciones</h1>
+<h1>Exposiciones/Ferias</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

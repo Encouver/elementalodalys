@@ -8,11 +8,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Montaje', 'url'=>array('index')),
-	array('label'=>'Manage Montaje', 'url'=>array('admin')),
+	array('label'=>'Listar Montaje', 'url'=>array('index')),
+	array('label'=>'Administrar Montaje', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Montaje</h1>
+<h1>Crear Montaje</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

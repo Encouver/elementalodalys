@@ -8,15 +8,15 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Exposicion', 'url'=>array('index')),
-	array('label'=>'Create Exposicion', 'url'=>array('create')),
-	array('label'=>'Update Exposicion', 'url'=>array('update', 'id'=>$model->idexposicion)),
-	array('label'=>'Delete Exposicion', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->idexposicion),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Exposicion', 'url'=>array('admin')),
+	array('label'=>'Listar Exposición/Feria', 'url'=>array('index')),
+	array('label'=>'Create Exposición/Feria', 'url'=>array('create')),
+	array('label'=>'Update Exposición/Feria', 'url'=>array('update', 'id'=>$model->idexposicion)),
+	array('label'=>'Delete Exposición/Feria', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->idexposicion),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>'Manage Exposición/Feria', 'url'=>array('admin')),
 );
 ?>
 
-<h1>View Exposicion #<?php echo $model->idexposicion; ?></h1>
+<h1>Ver Exposición/Feria #<?php echo $model->idexposicion; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,

@@ -8,15 +8,15 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List TraArtista', 'url'=>array('index')),
-	array('label'=>'Create TraArtista', 'url'=>array('create')),
-	array('label'=>'Update TraArtista', 'url'=>array('update', 'id'=>$model->id)),
-	array('label'=>'Delete TraArtista', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage TraArtista', 'url'=>array('admin')),
+	array('label'=>'Listar idioma_Artista', 'url'=>array('index')),
+	array('label'=>'Crear idioma_Artista', 'url'=>array('create')),
+	array('label'=>'Actualizar idioma_Artista', 'url'=>array('update', 'id'=>$model->id)),
+	array('label'=>'Eliminar idioma_Artista', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>'Administrar idioma_Artista', 'url'=>array('admin')),
 );
 ?>
 
-<h1>View TraArtista #<?php echo $model->id; ?></h1>
+<h1>Ver idioma_Artista #<?php echo $model->id; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,

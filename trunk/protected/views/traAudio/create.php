@@ -8,11 +8,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List TraAudio', 'url'=>array('index')),
-	array('label'=>'Manage TraAudio', 'url'=>array('admin')),
+	array('label'=>'Listar idioma_Audio', 'url'=>array('index')),
+	array('label'=>'Administrar idioma_Audio', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create TraAudio</h1>
+<h1>Crear idioma_Audio</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>
