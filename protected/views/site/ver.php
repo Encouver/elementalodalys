@@ -45,33 +45,67 @@ echo '
       <div class="panel-body">
         <div class="row">  
 
-          <div class="col-md-2">';
-          	/*	foreach ($artistas as $artista) {
-          			echo $artista->nombre." ".$artista->apellido."<br>";
-          		}*/
+        ';
 
-              //$ajaxOptions = script que actualize el artista elegido y cargue las obras de ese artista haciendo renderpartial sobre el id artista_obras
+        if ($tipo == "COLECTIVA" or $tipo == "FERIA"){
 
-              foreach($artistas as $key=>$artista) {
-                      echo CHtml::ajaxLink(
-                           '<span style= "font-size:11px; color:black;">'.$artista->nombre.' '.$artista->apellido.'</span><br>', 
-                           Yii::app()->createUrl('site/BuscarObrasArtista',array('idart'=>$artista->idartista)),
-                            array(
-                                'update'=>'#artista_obras', // $("#artista_obras).empty().html(this.value);
-                                //'beforeSend'=>'js:function(data){ }',
-                            )
-                           );
+          echo '
+
+            <div class="col-md-2">';
+            	/*	foreach ($artistas as $artista) {
+            			echo $artista->nombre." ".$artista->apellido."<br>";
+            		}*/
+
+                //$ajaxOptions = script que actualize el artista elegido y cargue las obras de ese artista haciendo renderpartial sobre el id artista_obras
+
+                foreach($artistas as $key=>$artista) {
+                        echo CHtml::ajaxLink(
+                             '<span style= "font-size:11px; color:black;">'.$artista->nombre.' '.$artista->apellido.'</span><br>', 
+                             Yii::app()->createUrl('site/BuscarObrasArtista',array('idart'=>$artista->idartista)),
+                              array(
+                                  'update'=>'#artista_obras', // $("#artista_obras).empty().html(this.value);
+                                  //'beforeSend'=>'js:function(data){ }',
+                              )
+                             );
+                }
+
+            	echo '
+              
+            </div>
+            <div id="artista_obras" class="col-md-10">';
+              
+              $this->renderPartial('_obras',array('obras'=> $obras, 'idioma'=>$idioma,'artista'=>$artistas[0])); 
+
+                echo '
+            </div>
+          ';
+        }else{
+
+          echo '
+
+            <!-- Fotorama -->
+            <div class="fotorama" data-width="700" data-max-width="100%" data-ratio="500/333" data-fit="contain" data-thumbfit="contain" data-captions="false" data-auto="false" data-nav="thumbs">
+            ';
+    
+              foreach ($obras as $obra) {
+                $this->widget('ext.SAImageDisplayer', array(
+                    'image' => $obra->imagen,
+                    'size' => 'grande',
+                    'defaultImage' => 'default.png',
+                    'group' => 'obra',
+                  'othersAttributes' =>array ('data-caption' =>$obra->descripcion),
+                ));
               }
-
-          	echo '
-            
-          </div>
-          <div id="artista_obras" class="col-md-10">';
-            
-            $this->renderPartial('_obras',array('obras'=> $obras, 'idioma'=>$idioma,'artista'=>$artistas[0])); 
-
               echo '
-          </div>
+              </div>
+              <!--Caption-->
+              <div style="min-height:40px; line-height: 20px; padding-top:10px"  class="fotorama-caption">
+              </div>
+              ';          
+
+
+        }
+        echo '
         </div>
       </div>
     </div>
