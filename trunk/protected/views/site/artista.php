@@ -20,25 +20,24 @@ if ($obras){
                     <div id="collapseThree" class="panel-collapse collapse">
                       <div class="panel-body">
 
-                            <!-- Fotorama -->
-<div class="fotorama" data-width="700" data-max-width="100%" data-ratio="500/333" data-fit="contain" data-thumbfit="contain" data-captions="false" data-auto="false" data-nav="thumbs">
-							';
+                        <!-- Fotorama -->
+                        <div class="fotorama" data-width="700" data-max-width="100%" data-ratio="500/333" data-fit="contain" data-thumbfit="contain" data-captions="false" data-auto="false" data-nav="thumbs">
+							          ';
 								
-									foreach ($obras as $obra) {
-										$this->widget('ext.SAImageDisplayer', array(
-										    'image' => $obra->imagen,
-										    'size' => 'grande',
-										    'defaultImage' => 'default.png',
-										    'group' => 'obra',
-											'othersAttributes' =>array ('data-caption' =>$obra->descripcion),
-										));
-									}
-
-							echo '
-</div>
-							<!--Caption-->
-							<div style="min-height:40px; line-height: 20px; padding-top:10px"  class="fotorama-caption">
-							</div>
+        									foreach ($obras as $obra) {
+        										$this->widget('ext.SAImageDisplayer', array(
+        										    'image' => $obra->imagen,
+        										    'size' => 'grande',
+        										    'defaultImage' => 'default.png',
+        										    'group' => 'obra',
+        											'othersAttributes' =>array ('data-caption' =>$obra->descripcion),
+        										));
+        									}
+          							echo '
+                        </div>
+          							<!--Caption-->
+          							<div style="min-height:40px; line-height: 20px; padding-top:10px"  class="fotorama-caption">
+          							</div>
 							
                       </div>
                     </div>

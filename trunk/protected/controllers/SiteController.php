@@ -298,6 +298,7 @@ class SiteController extends Controller
 			$catalogo = Catalogo::model()->findAll($criteria);
 
 		//**COLECTIVA, FERIA
+		if ($datos->tipo == "COLECTIVA" or $datos->tipo=="FERIA"){
 		//artistas de la expo
 			$criteria = new CDbCriteria;
 	    	$criteria->select = 't.*, artista_expo.*';
@@ -317,7 +318,28 @@ class SiteController extends Controller
 				$criteria->params = array(':idartista' => $artistas[0]->idartista,':ididioma'=> $idioma->id);
 				$obras = Obra::model()->findAll($criteria);
 			}
+		}else{
+			$artistas = "1 solo";
 
+			if ($idioma->idioma == Yii::app()->params->idiomas['Español']){ //español
+				$criteria = new CDbCriteria;
+				$criteria->select = 't.*';
+				$criteria->condition = 't.idexposicion =:idexpo';
+				$criteria->params = array(':idexpo' => $idexpo);
+
+			}else{//ingles
+
+				$criteria = new CDbCriteria;
+		    	$criteria->select = 't.*, tra_obra.*';
+		    	$criteria->together = true;
+		    	$criteria->join ='LEFT JOIN tra_obra ON tra_obra.obraid = t.idobra';
+				$criteria->condition = 't.idexposicion =:idexpo and tra_obra.idiomaid =:ididioma';
+				$criteria->params = array(':idexpo' => $idexpo,':ididioma' => $idioma->id);
+			}
+			$obras= Obra::model()->findAll($criteria);
+
+
+		}
 			/*$obras[] = array();
 			foreach ($artistas as $artista => $art) {
 				$criteria = new CDbCriteria;
@@ -331,7 +353,7 @@ class SiteController extends Controller
 
 			}*/
 
-		//obras
+		//obras SOLO PARA INDIVIDUAL
 		/*		
 			$criteria = new CDbCriteria;
 			$criteria->select = 't.*';
@@ -442,7 +464,6 @@ class SiteController extends Controller
 			}
 
 			$prensas = Prensa::model()->findAll($criteria);
-
 
 		$this->render('ver', array(
         'datos'=> $datos, 'idioma'=>$idioma, 'tipo'=> $expo_feria->tipo, 'catalogo'=>$catalogo, 'artistas'=>$artistas,
