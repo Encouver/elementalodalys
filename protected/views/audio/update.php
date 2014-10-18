@@ -9,13 +9,13 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Audio', 'url'=>array('index')),
-	array('label'=>'Create Audio', 'url'=>array('create')),
-	array('label'=>'View Audio', 'url'=>array('view', 'id'=>$model->idaudio)),
-	array('label'=>'Manage Audio', 'url'=>array('admin')),
+	array('label'=>'Listar Audio', 'url'=>array('index')),
+	array('label'=>'Crear Audio', 'url'=>array('create')),
+	array('label'=>'Ver Audio', 'url'=>array('view', 'id'=>$model->idaudio)),
+	array('label'=>'Administrar Audio', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Update Audio <?php echo $model->idaudio; ?></h1>
+<h1>Actualizar Audio <?php echo $model->idaudio; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

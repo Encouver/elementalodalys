@@ -9,13 +9,13 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List VerniFini', 'url'=>array('index')),
-	array('label'=>'Create VerniFini', 'url'=>array('create')),
-	array('label'=>'View VerniFini', 'url'=>array('view', 'id'=>$model->idverni_fini)),
-	array('label'=>'Manage VerniFini', 'url'=>array('admin')),
+	array('label'=>'Listar VerniFini', 'url'=>array('index')),
+	array('label'=>'Crear VerniFini', 'url'=>array('create')),
+	array('label'=>'Ver VerniFini', 'url'=>array('view', 'id'=>$model->idverni_fini)),
+	array('label'=>'Administrar VerniFini', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Update VerniFini <?php echo $model->idverni_fini; ?></h1>
+<h1>Actualizar VerniFini <?php echo $model->idverni_fini; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

@@ -7,14 +7,14 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create Textocuratorial', 'url'=>array('create')),
-	array('label'=>'Manage Textocuratorial', 'url'=>array('admin')),
-	array('label'=>'Create in other languages ', 'url'=>array('traTextocuratorial/index')),
+	array('label'=>'Crear Texto curatorial', 'url'=>array('create')),
+	array('label'=>'Administrar Texto curatorial', 'url'=>array('admin')),
+	array('label'=>'Crear en otro idioma', 'url'=>array('traTextocuratorial/index')),
 
 );
 ?>
 
-<h1>Textocuratorials</h1>
+<h1>Textos curatoriales</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

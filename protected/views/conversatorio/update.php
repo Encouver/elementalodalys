@@ -9,13 +9,13 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Conversatorio', 'url'=>array('index')),
-	array('label'=>'Create Conversatorio', 'url'=>array('create')),
-	array('label'=>'View Conversatorio', 'url'=>array('view', 'id'=>$model->idconversatorio)),
-	array('label'=>'Manage Conversatorio', 'url'=>array('admin')),
+	array('label'=>'Listar Conversatorio', 'url'=>array('index')),
+	array('label'=>'Crear Conversatorio', 'url'=>array('create')),
+	array('label'=>'Ver Conversatorio', 'url'=>array('view', 'id'=>$model->idconversatorio)),
+	array('label'=>'Administrar Conversatorio', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Update Conversatorio <?php echo $model->idconversatorio; ?></h1>
+<h1>Actualizar Conversatorio <?php echo $model->idconversatorio; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

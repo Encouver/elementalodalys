@@ -8,15 +8,15 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List TraTextocuratorial', 'url'=>array('index')),
-	array('label'=>'Create TraTextocuratorial', 'url'=>array('create')),
-	array('label'=>'Update TraTextocuratorial', 'url'=>array('update', 'id'=>$model->id)),
-	array('label'=>'Delete TraTextocuratorial', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage TraTextocuratorial', 'url'=>array('admin')),
+	array('label'=>'Listar idioma_TextoCuratorial', 'url'=>array('index')),
+	array('label'=>'Crear idioma_TextoCuratorial', 'url'=>array('create')),
+	array('label'=>'Actualizar idioma_TextoCuratorial', 'url'=>array('update', 'id'=>$model->id)),
+	array('label'=>'Eliminar idioma_TextoCuratorial', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>'Administrar idioma_TextoCuratorial', 'url'=>array('admin')),
 );
 ?>
 
-<h1>View TraTextocuratorial #<?php echo $model->id; ?></h1>
+<h1>Ver idioma_TextoCuratorial #<?php echo $model->id; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,

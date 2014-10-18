@@ -7,12 +7,12 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create TraNoticia', 'url'=>array('create')),
-	array('label'=>'Manage TraNoticia', 'url'=>array('admin')),
+	array('label'=>'Crear idioma_Noticia', 'url'=>array('create')),
+	array('label'=>'Administrar idioma_Noticia', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Tra Noticias</h1>
+<h1>idioma_Noticias</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

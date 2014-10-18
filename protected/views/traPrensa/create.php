@@ -8,11 +8,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List TraPrensa', 'url'=>array('index')),
-	array('label'=>'Manage TraPrensa', 'url'=>array('admin')),
+	array('label'=>'Listar idioma_Prensa', 'url'=>array('index')),
+	array('label'=>'Administrar idioma_Prensa', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create TraPrensa</h1>
+<h1>Crear idioma_Prensa</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

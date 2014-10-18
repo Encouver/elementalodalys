@@ -9,13 +9,13 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Textocuratorial', 'url'=>array('index')),
-	array('label'=>'Create Textocuratorial', 'url'=>array('create')),
-	array('label'=>'View Textocuratorial', 'url'=>array('view', 'id'=>$model->idtextocuratorial)),
-	array('label'=>'Manage Textocuratorial', 'url'=>array('admin')),
+	array('label'=>'Listar Texto curatorial', 'url'=>array('index')),
+	array('label'=>'Crear Texto curatorial', 'url'=>array('create')),
+	array('label'=>'Ver Texto curatorial', 'url'=>array('view', 'id'=>$model->idtextocuratorial)),
+	array('label'=>'Administrar Texto curatorial', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Update Textocuratorial <?php echo $model->idtextocuratorial; ?></h1>
+<h1>Actualizar Texto curatorial <?php echo $model->idtextocuratorial; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

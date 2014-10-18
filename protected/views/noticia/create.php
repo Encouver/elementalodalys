@@ -8,11 +8,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Noticia', 'url'=>array('index')),
-	array('label'=>'Manage Noticia', 'url'=>array('admin')),
+	array('label'=>'Listar Noticia', 'url'=>array('index')),
+	array('label'=>'Administrar Noticia', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Noticia</h1>
+<h1>Crear Noticia</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

@@ -8,15 +8,15 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List ArtistaExpo', 'url'=>array('index')),
-	array('label'=>'Create ArtistaExpo', 'url'=>array('create')),
-	array('label'=>'Update ArtistaExpo', 'url'=>array('update', 'id'=>$model->idcolectiva_feria)),
-	array('label'=>'Delete ArtistaExpo', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->idcolectiva_feria),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage ArtistaExpo', 'url'=>array('admin')),
+	array('label'=>'Listar Artista - Expo/Feria', 'url'=>array('index')),
+	array('label'=>'Crear Artista - Expo/Feria', 'url'=>array('create')),
+	array('label'=>'Actualizar Artista - Expo/Feria', 'url'=>array('update', 'id'=>$model->idcolectiva_feria)),
+	array('label'=>'Eliminar Artista - Expo/Feria', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->idcolectiva_feria),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>'Administrar Artista - Expo/Feria', 'url'=>array('admin')),
 );
 ?>
 
-<h1>View ArtistaExpo #<?php echo $model->idcolectiva_feria; ?></h1>
+<h1>Ver Artista - Expo/Feria #<?php echo $model->idcolectiva_feria; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,

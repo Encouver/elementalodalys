@@ -7,12 +7,12 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create TraExposicion', 'url'=>array('create')),
-	array('label'=>'Manage TraExposicion', 'url'=>array('admin')),
+	array('label'=>'Crear idioma_Exposición/Feria', 'url'=>array('create')),
+	array('label'=>'Administrar idioma_Exposición/Feria', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Tra Exposicions</h1>
+<h1>idioma_Exposiciones/Ferias</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

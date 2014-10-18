@@ -8,15 +8,15 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List ArtistaPrensa', 'url'=>array('index')),
-	array('label'=>'Create ArtistaPrensa', 'url'=>array('create')),
-	array('label'=>'Update ArtistaPrensa', 'url'=>array('update', 'id'=>$model->idartista_prensa)),
-	array('label'=>'Delete ArtistaPrensa', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->idartista_prensa),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage ArtistaPrensa', 'url'=>array('admin')),
+	array('label'=>'Listar Artista - Prensa', 'url'=>array('index')),
+	array('label'=>'Crear Artista - Prensa', 'url'=>array('create')),
+	array('label'=>'Actualizar Artista - Prensa', 'url'=>array('update', 'id'=>$model->idartista_prensa)),
+	array('label'=>'Eliminar Artista - Prensa', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->idartista_prensa),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>'Administrar Artista - Prensa', 'url'=>array('admin')),
 );
 ?>
 
-<h1>View ArtistaPrensa #<?php echo $model->idartista_prensa; ?></h1>
+<h1>Ver Artista - Prensa #<?php echo $model->idartista_prensa; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,

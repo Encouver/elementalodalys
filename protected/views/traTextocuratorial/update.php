@@ -9,13 +9,13 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List TraTextocuratorial', 'url'=>array('index')),
-	array('label'=>'Create TraTextocuratorial', 'url'=>array('create')),
-	array('label'=>'View TraTextocuratorial', 'url'=>array('view', 'id'=>$model->id)),
-	array('label'=>'Manage TraTextocuratorial', 'url'=>array('admin')),
+	array('label'=>'Listar idioma_TextoCuratorial', 'url'=>array('index')),
+	array('label'=>'Crear idioma_TextoCuratorial', 'url'=>array('create')),
+	array('label'=>'Ver idioma_TextoCuratorial', 'url'=>array('view', 'id'=>$model->id)),
+	array('label'=>'Administrar idioma_TextoCuratorial', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Update TraTextocuratorial <?php echo $model->id; ?></h1>
+<h1>Actualizar idioma_TextoCuratorial <?php echo $model->id; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

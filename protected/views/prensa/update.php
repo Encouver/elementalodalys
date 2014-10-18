@@ -9,13 +9,13 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Prensa', 'url'=>array('index')),
-	array('label'=>'Create Prensa', 'url'=>array('create')),
-	array('label'=>'View Prensa', 'url'=>array('view', 'id'=>$model->idprensa)),
-	array('label'=>'Manage Prensa', 'url'=>array('admin')),
+	array('label'=>'Listar Prensa', 'url'=>array('index')),
+	array('label'=>'Crear Prensa', 'url'=>array('create')),
+	array('label'=>'Ver Prensa', 'url'=>array('view', 'id'=>$model->idprensa)),
+	array('label'=>'Administrar Prensa', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Update Prensa <?php echo $model->idprensa; ?></h1>
+<h1>Actualizar Prensa <?php echo $model->idprensa; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

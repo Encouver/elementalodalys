@@ -7,9 +7,9 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create Artista', 'url'=>array('create')),
-	array('label'=>'Manage Artista', 'url'=>array('admin')),
-	array('label'=>'Create in other languages ', 'url'=>array('traArtista/index')),
+	array('label'=>'Crear Artista', 'url'=>array('create')),
+	array('label'=>'Administrar Artista', 'url'=>array('admin')),
+	array('label'=>'Crear en otro idioma', 'url'=>array('traArtista/index')),
 	array('label'=>'Asociar artista a exposición/feria ', 'url'=>array('artistaExpo/index')),
 
 );

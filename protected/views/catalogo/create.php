@@ -8,11 +8,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Catalogo', 'url'=>array('index')),
-	array('label'=>'Manage Catalogo', 'url'=>array('admin')),
+	array('label'=>'Listar Catálogo', 'url'=>array('index')),
+	array('label'=>'Administrar Catálogo', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Catalogo</h1>
+<h1>Crear Catálogo</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

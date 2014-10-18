@@ -8,11 +8,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Textocuratorial', 'url'=>array('index')),
-	array('label'=>'Manage Textocuratorial', 'url'=>array('admin')),
+	array('label'=>'Listar Texto curatorial', 'url'=>array('index')),
+	array('label'=>'Administrar Texto curatorial', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Textocuratorial</h1>
+<h1>Crear Texto curatorial</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

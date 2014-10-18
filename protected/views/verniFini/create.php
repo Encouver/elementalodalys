@@ -8,11 +8,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List VerniFini', 'url'=>array('index')),
-	array('label'=>'Manage VerniFini', 'url'=>array('admin')),
+	array('label'=>'Listar VerniFini', 'url'=>array('index')),
+	array('label'=>'Administrar VerniFini', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create VerniFini</h1>
+<h1>Crear VerniFini</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

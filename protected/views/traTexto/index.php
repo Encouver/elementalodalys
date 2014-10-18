@@ -7,12 +7,12 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create TraTexto', 'url'=>array('create')),
-	array('label'=>'Manage TraTexto', 'url'=>array('admin')),
+	array('label'=>'Crear idioma_Texto', 'url'=>array('create')),
+	array('label'=>'Administrar idioma_Texto', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Tra Textos</h1>
+<h1>idioma_Textos</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

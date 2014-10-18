@@ -8,8 +8,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List TraAudio', 'url'=>array('index')),
-	array('label'=>'Create TraAudio', 'url'=>array('create')),
+	array('label'=>'Listar idioma_Audio', 'url'=>array('index')),
+	array('label'=>'Crear idioma_Audio', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Tra Audios</h1>
+<h1>Administrar idioma_Audios</h1>
 
 <p>
 You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>

@@ -8,15 +8,15 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List TraAudio', 'url'=>array('index')),
-	array('label'=>'Create TraAudio', 'url'=>array('create')),
-	array('label'=>'Update TraAudio', 'url'=>array('update', 'id'=>$model->id)),
-	array('label'=>'Delete TraAudio', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage TraAudio', 'url'=>array('admin')),
+	array('label'=>'Listar idioma_Audio', 'url'=>array('index')),
+	array('label'=>'Crear idioma_Audio', 'url'=>array('create')),
+	array('label'=>'Actualizar idioma_Audio', 'url'=>array('update', 'id'=>$model->id)),
+	array('label'=>'Eliminar idioma_Audio', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>'Administrar idioma_Audio', 'url'=>array('admin')),
 );
 ?>
 
-<h1>View TraAudio #<?php echo $model->id; ?></h1>
+<h1>Ver idioma_Audio #<?php echo $model->id; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,

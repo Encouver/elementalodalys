@@ -7,12 +7,12 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create TraArtista', 'url'=>array('create')),
-	array('label'=>'Manage TraArtista', 'url'=>array('admin')),
+	array('label'=>'Crear idioma_Artista', 'url'=>array('create')),
+	array('label'=>'Administrar idioma_Artista', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Tra Artistas</h1>
+<h1>idioma_Artistas</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

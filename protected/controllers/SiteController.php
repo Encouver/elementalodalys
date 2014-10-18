@@ -319,7 +319,7 @@ class SiteController extends Controller
 				$obras = Obra::model()->findAll($criteria);
 			}
 		}else{
-			$artistas = "1 solo";
+			$artistas = "";
 
 			if ($idioma->idioma == Yii::app()->params->idiomas['Español']){ //español
 				$criteria = new CDbCriteria;
@@ -700,19 +700,25 @@ class SiteController extends Controller
 			$model->attributes=$_POST['LoginForm'];
 			// validate user input and redirect to the previous page if valid
 			if($model->validate() && $model->login())
-				$this->redirect(Yii::app()->user->returnUrl);
+				$this->redirect('site/indexadmin');
 		}
 		// display the login form
 		$this->render('login',array('model'=>$model));
 	}
 
+	public function actionIndexadmin()
+	{
+		$this->layout='//layouts/column1';
+
+		$this->render('indexadmin');
+	}
 	/**
 	 * Logs out the current user and redirect to homepage.
 	 */
 	public function actionLogout()
 	{
 		Yii::app()->user->logout();
-		$this->redirect(Yii::app()->homeUrl);
+		$this->redirect('login');
 	}
 
 	

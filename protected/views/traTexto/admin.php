@@ -8,8 +8,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List TraTexto', 'url'=>array('index')),
-	array('label'=>'Create TraTexto', 'url'=>array('create')),
+	array('label'=>'Listar idioma_Texto', 'url'=>array('index')),
+	array('label'=>'Crear idioma_Texto', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Tra Textos</h1>
+<h1>Administrar idioma_Textos</h1>
 
 <p>
 You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
