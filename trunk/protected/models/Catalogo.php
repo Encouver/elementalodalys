@@ -65,10 +65,10 @@ class Catalogo extends CActiveRecord
 		return array(
 			'idcatalogo' => 'Idcatalogo',
 			'idexposicion' => 'Idexposicion',
-			'portada' => 'Portada',
+			'portada' => 'Portada JPG',
 			'portada_thumb' => 'Portada Thumb',
 			'pdf' => 'Pdf',
-			'datos' => 'Datos',
+			'datos' => 'Idioma del catálogo',
 		);
 	}
 
