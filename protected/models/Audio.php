@@ -63,7 +63,7 @@ class Audio extends CActiveRecord
 			'idaudio' => 'Idaudio',
 			'idexposicion' => 'Exposición',
 			'datos' => 'Datos',
-			'audio_ruta' => 'Audio Ruta',
+			'audio_ruta' => 'Archivo de audio MP3',
 		);
 	}
 

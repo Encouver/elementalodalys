@@ -70,14 +70,23 @@ class PrensaController extends Controller
 		if(isset($_POST['Prensa']))
 		{
 			$model->attributes=$_POST['Prensa'];
+			$model->imagen=CUploadedFile::getInstance($model,'imagen');
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->idprensa));
+			{
+				$model->imagen->saveAs('images/prensa/originals/'.$model->imagen);
+				$this->redirect(array('admin'));
+			}
 		}
 
 		$this->render('create',array(
 			'model'=>$model,
 		));
+
 	}
+
+
+
+
 
 	/**
 	 * Updates a particular model.
