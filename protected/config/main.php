@@ -170,6 +170,10 @@ return array(
 		                            'previa' => array('width' => 400, 'height' => 300),
 		                            'grande' => array('width' => 700, 'height' => 467),
 		                         ), 
+								'conversatorio' => array(
+		                            'grande' => array('width' => 700, 'height' => 467),
+		                         ), 
+
 		                    ),
 		                ),
 		            ),

@@ -241,7 +241,13 @@ echo '
   <div class="panel-heading">
     <h4 class="panel-title">
       <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
-        Vernissage / Finissage
+';
+        if ($tipo == "COLECTIVA" or $tipo == "INDIVIDUAL"){
+          echo 'Vernissage / Finissage';
+        }else{
+          echo 'Stand';
+        }
+echo '
         <span style="font-size:11px;" class="glyphicon x"></span>
       </a>
     </h4>
@@ -300,7 +306,7 @@ echo '
 
 
 <?php
-if ($conversatorios){
+if ($conversatorios or $conversatoriosfotos){
 	echo '
 <div class="panel">
   <div class="panel-heading">
@@ -315,7 +321,34 @@ if ($conversatorios){
     </h4>
   </div>
   <div id="collapseFive" class="panel-collapse collapse">
-    <div class="panel-body">';
+    <div class="panel-body">
+
+      <div class="fotorama" data-width="700" data-max-width="100%" data-ratio="500/333" data-fit="cover" data-captions="false" data-auto="false" data-nav="thumbs">
+      ';
+                
+        foreach ($conversatoriosfotos as $conversatoriosfoto) {
+          $this->widget('ext.SAImageDisplayer', array(
+              'image' => $conversatoriosfoto->imagen,
+              'size' => 'grande',
+              'defaultImage' => 'default.png',
+              'group' => 'conversatorio',
+            'othersAttributes' =>array ('data-caption' =>$conversatoriosfoto->descripcion),
+          ));
+        }
+
+      echo '
+      </div>
+      <!--Caption-->
+      <div style="min-height:40px; line-height: 20px; padding-top:10px"  class="fotorama-caption">
+      </div>';
+
+
+
+
+
+
+
+
       foreach ($conversatorios as $conversatorio) {
       	                    
         echo '
