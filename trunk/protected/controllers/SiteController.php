@@ -319,7 +319,7 @@ class SiteController extends Controller
 				$obras = Obra::model()->findAll($criteria);
 			}
 		}else{
-			$artistas = "";
+			$artistas = ".";
 
 			if ($idioma->idioma == Yii::app()->params->idiomas['Español']){ //español
 				$criteria = new CDbCriteria;

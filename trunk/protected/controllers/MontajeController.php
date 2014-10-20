@@ -85,7 +85,7 @@ class MontajeController extends Controller
 			$model->attributes=$_POST['Montaje'];
 			$model->imagen = "0";
 			//echo count($_FILES['imagen']['name']);
-			if($model->validate() and count($_FILES['imagen']['name'])>1)
+			if($model->validate() and count($_FILES['imagen']['name'])>=1)
 			{
 				$idexpo = $model->idexposicion;
 				$idiomaid = $model->idiomaid;
