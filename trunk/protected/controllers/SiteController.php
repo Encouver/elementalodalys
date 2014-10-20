@@ -388,6 +388,14 @@ class SiteController extends Controller
 			$criteria->params = array(':id' => $idexpo);
 			$vernifinis = VerniFini::model()->findAll($criteria);
 
+		//COLECTIVA-INDIVIDUAL
+			$criteria = new CDbCriteria;
+			$criteria->select = 't.*';
+			$criteria->condition = 't.idexposicion =:id';
+			$criteria->params = array(':id' => $idexpo);
+			$conversatoriosfotos = ConversatorioFotos::model()->findAll($criteria);
+
+
 		//**COLECTIVA
 		//Audio
 			if ($idioma->idioma == Yii::app()->params->idiomas['Español']){ //español
@@ -468,7 +476,7 @@ class SiteController extends Controller
 		$this->render('ver', array(
         'datos'=> $datos, 'idioma'=>$idioma, 'tipo'=> $expo_feria->tipo, 'catalogo'=>$catalogo, 'artistas'=>$artistas,
         'montajes'=>$montajes, 'vernifinis' =>$vernifinis, 'audio'=>$audio, 'conversatorios'=>$conversatorios,
-        'prensas'=>$prensas, 'obras'=> $obras, 'textocuratorial' => $textocuratorial));		
+        'prensas'=>$prensas, 'obras'=> $obras, 'textocuratorial' => $textocuratorial, 'conversatoriosfotos' => $conversatoriosfotos));		
 	}
 
 
