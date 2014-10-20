@@ -41,7 +41,8 @@
 				array('label'=>'Obra', 'url'=>array('obra/index'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Catalogo', 'url'=>array('catalogo/index'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Montaje', 'url'=>array('montaje/index'), 'visible'=>!Yii::app()->user->isGuest),
-				array('label'=>'Conversatorio', 'url'=>array('conversatorio/index'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Conver-link', 'url'=>array('conversatorio/index'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Conver-fotos', 'url'=>array('conversatorioFotos/index'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Verifini', 'url'=>array('verniFini/index'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Audio', 'url'=>array('audio/index'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Prensa', 'url'=>array('prensa/index'), 'visible'=>!Yii::app()->user->isGuest),
@@ -49,9 +50,11 @@
 				array('label'=>'T.Curatorial', 'url'=>array('textocuratorial/index'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Textos', 'url'=>array('texto/index'), 'visible'=>!Yii::app()->user->isGuest),
 
-				array('label'=>'Usuarios', 'url'=>array('usuarios/index'), 'visible'=>!Yii::app()->user->isGuest),
+//				array('label'=>'Usuarios', 'url'=>array('usuarios/index'), 'visible'=>!Yii::app()->user->isGuest),
 //				array('label'=>'Idiomas', 'url'=>array('idiomas/index'), 'visible'=>!Yii::app()->user->isGuest),
-				array('label'=>'Salir('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+//				array('label'=>'Salir('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+				array('label'=>'Salir', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+
 			),
 
 		)); ?>
