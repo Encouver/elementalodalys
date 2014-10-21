@@ -10,7 +10,7 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('imagen')); ?>:</b>
-	<?php echo CHtml::encode($data->imagen); ?>
+	<?php echo '<img src="'.Yii::app()->request->baseUrl.'/images/montaje/originals/'.CHtml::encode($data->imagen).'" width=60px>' ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('imagen_thumb')); ?>:</b>

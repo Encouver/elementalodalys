@@ -14,7 +14,7 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('imagen')); ?>:</b>
-	<?php echo CHtml::encode($data->imagen); ?>
+	<?php echo '<img src="'.Yii::app()->request->baseUrl.'/images/noticia/originals/'.CHtml::encode($data->portada).'" width=60px>' ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('link')); ?>:</b>

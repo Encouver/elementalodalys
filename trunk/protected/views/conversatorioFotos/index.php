@@ -7,12 +7,12 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create ConversatorioFotos', 'url'=>array('create')),
-	array('label'=>'Manage ConversatorioFotos', 'url'=>array('admin')),
+	array('label'=>'Crear ConversatorioFotos', 'url'=>array('create')),
+	array('label'=>'Administrar ConversatorioFotos', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Conversatorio Fotoses</h1>
+<h1>Conversatorio Fotos</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

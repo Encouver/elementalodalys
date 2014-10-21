@@ -28,32 +28,35 @@
 		<div style="float:right"><img width="160px" src="<?php echo Yii::app()->request->baseUrl; ?>/images/log.png"></div></div>
 	</div><!-- header -->
 
-	<div id="mainmenu" style="font-size:0px">
+	<div id="mainmenu">
 		<?php $this->widget('zii.widgets.CMenu',array(
 		  'activeCssClass'=>'active',
 
 			'items'=>array(
 				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
+
 				array('label'=>'Noticia', 'url'=>array('noticia/index'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Artista', 'url'=>array('artista/index'), 'visible'=>!Yii::app()->user->isGuest),
 
+
 				array('label'=>'Expo/Feria', 'url'=>array('exposicion/index'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Obra', 'url'=>array('obra/index'), 'visible'=>!Yii::app()->user->isGuest),
-				array('label'=>'Catalogo', 'url'=>array('catalogo/index'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Catálogo', 'url'=>array('catalogo/index'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Montaje', 'url'=>array('montaje/index'), 'visible'=>!Yii::app()->user->isGuest),
-				array('label'=>'Conver-link', 'url'=>array('conversatorio/index'), 'visible'=>!Yii::app()->user->isGuest),
-				array('label'=>'Conver-fotos', 'url'=>array('conversatorioFotos/index'), 'visible'=>!Yii::app()->user->isGuest),
-				array('label'=>'Verifini', 'url'=>array('verniFini/index'), 'visible'=>!Yii::app()->user->isGuest),
-				array('label'=>'Audio', 'url'=>array('audio/index'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Exposición fotos', 'url'=>array('fotosexposicion/index'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Conversatorio-link', 'url'=>array('conversatorio/index'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Conversatorio-fotos', 'url'=>array('conversatorioFotos/index'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Conversatorio-audio', 'url'=>array('conversatoraudio/index'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'VerniFini/Stand', 'url'=>array('verniFini/index'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Audio Expo-vernifini', 'url'=>array('audio/index'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Prensa', 'url'=>array('prensa/index'), 'visible'=>!Yii::app()->user->isGuest),
 
 				array('label'=>'T.Curatorial', 'url'=>array('textocuratorial/index'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Textos', 'url'=>array('texto/index'), 'visible'=>!Yii::app()->user->isGuest),
 
-//				array('label'=>'Usuarios', 'url'=>array('usuarios/index'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Usuarios', 'url'=>array('usuarios/index'), 'visible'=>!Yii::app()->user->isGuest),
 //				array('label'=>'Idiomas', 'url'=>array('idiomas/index'), 'visible'=>!Yii::app()->user->isGuest),
-//				array('label'=>'Salir('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
-				array('label'=>'Salir', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+				array('label'=>'Salir('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 
 			),
 

@@ -173,6 +173,9 @@ return array(
 								'conversatorio' => array(
 		                            'grande' => array('width' => 700, 'height' => 467),
 		                         ), 
+								'exposicion' => array(
+		                            'grande' => array('width' => 700, 'height' => 467),
+		                         ), 
 
 		                    ),
 		                ),

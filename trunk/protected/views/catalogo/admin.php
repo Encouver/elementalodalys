@@ -48,6 +48,12 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'idcatalogo',
 		'idexposicion',
 		'portada',
+        array(
+            'type' => 'raw',
+            'name'=> 'portada',
+            'value' => 'CHtml::image("'.Yii::app()->request->baseUrl.'/images/catalogo/originals/$data->portada", "portada" ,array("width"=>100))',
+            'filter'=> false,
+        ),
 		'portada_thumb',
 		'pdf',
 		'datos',

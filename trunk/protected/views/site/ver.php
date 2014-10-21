@@ -233,6 +233,53 @@ echo '
 }
 ?>
 
+<?php
+if ($fotosexposicion){
+echo '
+<div class="panel">
+  <div class="panel-heading">
+    <h4 class="panel-title">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree2">
+        ';
+        echo Yii::t('site','Exposición');
+        echo ' 
+        <span style="font-size:11px;" class="glyphicon x"></span>
+      </a>
+    </h4>
+  </div>
+  <div id="collapseThree2" class="panel-collapse collapse">
+    <div class="panel-body">
+
+      <!-- Fotorama -->
+      <div class="fotorama" data-width="700" data-max-width="100%" data-ratio="500/333" data-fit="cover" data-captions="false" data-auto="false" data-nav="thumbs">
+      ';
+                
+        foreach ($fotosexposicion as $fotoexposicion) {
+          $this->widget('ext.SAImageDisplayer', array(
+              'image' => $fotoexposicion->imagen,
+              'size' => 'grande',
+              'defaultImage' => 'default.png',
+              'group' => 'exposicion',
+            'othersAttributes' =>array ('data-caption' =>$fotoexposicion->descripcion),
+          ));
+        }
+
+      echo '
+      </div>
+      <!--Caption-->
+      <div style="min-height:40px; line-height: 20px; padding-top:10px"  class="fotorama-caption">
+      </div>
+              
+    </div>
+  </div>
+</div>
+';
+}
+?>
+
+
+
+
 
 <?php
 if ($vernifinis){
@@ -283,7 +330,7 @@ echo '
     	    echo '
           <div class="col-md-1"> 
             <audio id="myAudio"
-             <source src="'.Yii::app()->request->baseUrl.'/'.$audio->audio_ruta.'"
+             <source src="'.Yii::app()->request->baseUrl.'/images/audios/'.$audio->audio_ruta.'"
                      type="audio/mp3">
              Your user agent does not support the HTML5 Audio element.
             </audio>
@@ -306,7 +353,7 @@ echo '
 
 
 <?php
-if ($conversatorios or $conversatoriosfotos){
+if ($conversatorios or $conversatoriosfotos or $conversatorioaudio){
 	echo '
 <div class="panel">
   <div class="panel-heading">
@@ -342,13 +389,6 @@ if ($conversatorios or $conversatoriosfotos){
       <div style="min-height:40px; line-height: 20px; padding-top:10px"  class="fotorama-caption">
       </div>';
 
-
-
-
-
-
-
-
       foreach ($conversatorios as $conversatorio) {
       	                    
         echo '
@@ -360,6 +400,29 @@ if ($conversatorios or $conversatoriosfotos){
         <br>
         ';
       }
+      echo'
+      <br>';
+      if ($conversatorioaudio){
+        echo '
+        <div class="row">
+        ';
+          echo '
+          <div class="col-md-8">
+          <audio controls>
+            <source  src="'.Yii::app()->request->baseUrl.'/images/audiosconversatorio/'.$conversatorioaudio->audio_ruta.'" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+          <br>          
+          <div class="datos_audio">'.
+            $conversatorioaudio->datos.'
+          </div>
+        </div>
+        </div>
+        ';
+      }
+
+
+
     echo '
     </div>
   </div>

@@ -47,11 +47,16 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'columns'=>array(
 		'idprensa',
 		'fecha',
-		'imagen',
+        array(
+            'type' => 'raw',
+            'name'=> 'imagen',
+            'value' => 'CHtml::image("'.Yii::app()->request->baseUrl.'/images/prensa/originals/$data->imagen", "imagen" ,array("width"=>100))',
+            'filter'=> false,
+        ),
 		'imagen_thumb',
 		'idexposicion',
 		'titulo',
-		'contenido',
+		
 		'link',
 		
 		array(
