@@ -47,7 +47,13 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'columns'=>array(
 		'idverni_fini',
 		'imagen',
-		'imagen_thumb',
+        array(
+            'type' => 'raw',
+            'name'=> 'imagen',
+            'value' => 'CHtml::image("'.Yii::app()->request->baseUrl.'/images/vernifini/originals/$data->imagen", "imagen" ,array("width"=>100))',
+            'filter'=> false,
+        ),
+        		'imagen_thumb',
 		'idexposicion',
 		'descripcion',
 		array(

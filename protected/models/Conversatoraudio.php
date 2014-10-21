@@ -1,29 +1,22 @@
 <?php
 
 /**
- * This is the model class for table "conversatorio_fotos".
+ * This is the model class for table "conversatoraudio".
  *
- * The followings are the available columns in table 'conversatorio_fotos':
- * @property integer $idconversatorio_fotos
- * @property string $imagen
- * @property string $imagen_thumb
+ * The followings are the available columns in table 'conversatoraudio':
+ * @property integer $idaudio
  * @property integer $idexposicion
- * @property string $descripcion
+ * @property string $datos
+ * @property string $audio_ruta
  */
-class ConversatorioFotos extends CActiveRecord
+class Conversatoraudio extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
-
-	public $text_language;
-	public $idiomaid;
-
-
-
 	public function tableName()
 	{
-		return 'conversatorio_fotos';
+		return 'conversatoraudio';
 	}
 
 	/**
@@ -33,17 +26,17 @@ class ConversatorioFotos extends CActiveRecord
 	{
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
+
 		return array(
-			array('imagen, idexposicion, idiomaid', 'required'),
-			//array('imagen','type','type'=>'array','allowEmpty'=>false),
-			//array('imagen', 'file', 'types'=>'jpg, gif, png'),
+			array('idexposicion, audio_ruta', 'required'),
 			array('idexposicion', 'numerical', 'integerOnly'=>true),
-			array('text_language', 'length', 'max'=>255),
-			array('descripcion', 'safe'),
+			array('datos', 'length', 'max'=>255),
+			array('audio_ruta', 'file', 'types'=>'mp3'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('idconversatorio_fotos, imagen, idexposicion, descripcion', 'safe', 'on'=>'search'),
+			array('idaudio, idexposicion, datos, audio_ruta', 'safe', 'on'=>'search'),
 		);
+
 	}
 
 	/**
@@ -54,8 +47,8 @@ class ConversatorioFotos extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'traConversatorioFotos' => array(self::HAS_MANY, 'TraConversatorioFotos', 'conversatorio_fotosid'),
 			'idexposicion0' => array(self::BELONGS_TO, 'Exposicion', 'idexposicion'),
+			'traConversatoraudios' => array(self::HAS_MANY, 'TraConversatoraudios', 'conversatorioaudioid'),
 		);
 	}
 
@@ -65,14 +58,10 @@ class ConversatorioFotos extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'idconversatorio_fotos' => 'Idconversatorio Fotos',
-			'imagen' => 'Imagen',
-			'imagen_thumb' => 'Imagen Thumb',
+			'idaudio' => 'Idaudio',
 			'idexposicion' => 'Idexposicion',
-			'descripcion' => 'Descripcion',
-			'text_language' => 'Descripción_idioma',
-			'idiomaid' => 'Idioma',
-
+			'datos' => 'Datos',
+			'audio_ruta' => 'Audio Ruta',
 		);
 	}
 
@@ -94,11 +83,10 @@ class ConversatorioFotos extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('idconversatorio_fotos',$this->idconversatorio_fotos);
-		$criteria->compare('imagen',$this->imagen,true);
-		$criteria->compare('imagen_thumb',$this->imagen_thumb,true);
+		$criteria->compare('idaudio',$this->idaudio);
 		$criteria->compare('idexposicion',$this->idexposicion);
-		$criteria->compare('descripcion',$this->descripcion,true);
+		$criteria->compare('datos',$this->datos,true);
+		$criteria->compare('audio_ruta',$this->audio_ruta,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -109,7 +97,7 @@ class ConversatorioFotos extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return ConversatorioFotos the static model class
+	 * @return Conversatoraudio the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

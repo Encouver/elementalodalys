@@ -74,7 +74,7 @@ class AudioController extends Controller
 			
 			if($model->save())
 			{
-				$model->audio_ruta->saveAs('audios/'.$model->audio_ruta);
+				$model->audio_ruta->saveAs('images/audios/'.$model->audio_ruta);
 				$this->redirect(array('admin'));
 			}
 		}
@@ -115,7 +115,7 @@ class AudioController extends Controller
 	 */
 	public function actionDelete($id)
 	{
-		unlink('audios/'.$this->loadModel($id)->audio_ruta);
+		unlink('images/audios/'.$this->loadModel($id)->audio_ruta);
 
 		$this->loadModel($id)->delete();
 

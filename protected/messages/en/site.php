@@ -86,6 +86,7 @@
 
 	    'Ir a la noticia original'=>'Go to original article',
 
+		'Exposición'=>'Exhibition',
 	);
 
 

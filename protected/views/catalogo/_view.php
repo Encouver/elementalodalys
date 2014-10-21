@@ -14,7 +14,7 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('portada')); ?>:</b>
-	<?php echo CHtml::encode($data->portada); ?>
+	<?php echo '<img src="'.Yii::app()->request->baseUrl.'/images/catalogo/originals/'.CHtml::encode($data->portada).'" width=60px>' ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('portada_thumb')); ?>:</b>

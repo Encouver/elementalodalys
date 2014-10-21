@@ -379,6 +379,15 @@ class SiteController extends Controller
 			$criteria->condition = 't.idexposicion =:id';
 			$criteria->params = array(':id' => $idexpo);
 			$montajes = Montaje::model()->findAll($criteria);
+		//**TODAS
+		//fotos exposicion
+			$criteria = new CDbCriteria;
+			$criteria->select = 't.*';
+			$criteria->condition = 't.idexposicion =:id';
+			$criteria->params = array(':id' => $idexpo);
+			$fotosexposicion = Fotosexposicion::model()->findAll($criteria);
+
+
 
 		//**COLECTIVA
 		//Verni-fini
@@ -416,6 +425,30 @@ class SiteController extends Controller
 			}
 		
 			$audio = Audio::model()->find($criteria);
+
+		// Conversatorio Audio
+			if ($idioma->idioma == Yii::app()->params->idiomas['Español']){ //español
+				$criteria = new CDbCriteria;
+				$criteria->select = 't.*';
+				$criteria->condition = 't.idexposicion =:idexpo';
+				$criteria->params = array(':idexpo' => $idexpo);
+
+			}else{//ingles
+
+				$criteria = new CDbCriteria;
+		    	$criteria->select = 't.*, tra_conversatorioaudio.*';
+		    	$criteria->together = true;
+		    	$criteria->join ='LEFT JOIN tra_conversatorioaudio ON tra_conversatorioaudio.conversatorioaudioid = t.idaudio';
+				$criteria->condition = 't.idexposicion =:idexpo and tra_conversatorioaudio.idiomaid =:ididioma';
+				$criteria->params = array(':idexpo' => $idexpo,':ididioma' => $idioma->id);
+	
+			}
+		
+			$conversatorioaudio = Conversatoraudio::model()->find($criteria);
+
+
+
+
 
 
 		//texto curatorial
@@ -476,7 +509,7 @@ class SiteController extends Controller
 		$this->render('ver', array(
         'datos'=> $datos, 'idioma'=>$idioma, 'tipo'=> $expo_feria->tipo, 'catalogo'=>$catalogo, 'artistas'=>$artistas,
         'montajes'=>$montajes, 'vernifinis' =>$vernifinis, 'audio'=>$audio, 'conversatorios'=>$conversatorios,
-        'prensas'=>$prensas, 'obras'=> $obras, 'textocuratorial' => $textocuratorial, 'conversatoriosfotos' => $conversatoriosfotos));		
+        'prensas'=>$prensas, 'obras'=> $obras, 'textocuratorial' => $textocuratorial, 'conversatoriosfotos' => $conversatoriosfotos, 'fotosexposicion' =>$fotosexposicion, 'conversatorioaudio'=>$conversatorioaudio));		
 	}
 
 

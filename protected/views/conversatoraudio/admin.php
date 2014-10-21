@@ -1,15 +1,16 @@
 <?php
-/* @var $this ConversatorioFotosController */
-/* @var $model ConversatorioFotos */
+/* @var $this ConversatoraudioController */
+/* @var $model Conversatoraudio */
 
 $this->breadcrumbs=array(
-	'Conversatorio Fotoses'=>array('index'),
+	'Conversatoraudios'=>array('index'),
 	'Manage',
 );
 
 $this->menu=array(
-	array('label'=>'Listar ConversatorioFotos', 'url'=>array('index')),
-	array('label'=>'Crear ConversatorioFotos', 'url'=>array('create')),
+	array('label'=>'Listar Conversatorio audio', 'url'=>array('index')),
+	array('label'=>'Crear Conversatorio audio', 'url'=>array('create')),
+
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -18,7 +19,7 @@ $('.search-button').click(function(){
 	return false;
 });
 $('.search-form form').submit(function(){
-	$('#conversatorio-fotos-grid').yiiGridView('update', {
+	$('#conversatoraudio-grid').yiiGridView('update', {
 		data: $(this).serialize()
 	});
 	return false;
@@ -26,7 +27,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Administrar Conversatorio Fotoses</h1>
+<h1>Administrar Conversatorio audios</h1>
 
 <p>
 You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
@@ -41,20 +42,14 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 </div><!-- search-form -->
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
-	'id'=>'conversatorio-fotos-grid',
+	'id'=>'conversatoraudio-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		'idconversatorio_fotos',
-		'imagen',
-        array(
-            'type' => 'raw',
-            'name'=> 'imagen',
-            'value' => 'CHtml::image("'.Yii::app()->request->baseUrl.'/images/conversatorio/originals/$data->imagen", "imagen" ,array("width"=>100))',
-            'filter'=> false,
-        ),
+		'idaudio',
 		'idexposicion',
-		'descripcion',
+		'datos',
+		'audio_ruta',
 		array(
 			'class'=>'CButtonColumn',
 		),

@@ -1,29 +1,26 @@
 <?php
 
 /**
- * This is the model class for table "conversatorio_fotos".
+ * This is the model class for table "fotosexposicion".
  *
- * The followings are the available columns in table 'conversatorio_fotos':
- * @property integer $idconversatorio_fotos
+ * The followings are the available columns in table 'fotosexposicion':
+ * @property integer $idfotosexposicion
  * @property string $imagen
  * @property string $imagen_thumb
  * @property integer $idexposicion
  * @property string $descripcion
  */
-class ConversatorioFotos extends CActiveRecord
+class Fotosexposicion extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
-
 	public $text_language;
 	public $idiomaid;
-
-
-
+	
 	public function tableName()
 	{
-		return 'conversatorio_fotos';
+		return 'fotosexposicion';
 	}
 
 	/**
@@ -42,7 +39,7 @@ class ConversatorioFotos extends CActiveRecord
 			array('descripcion', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('idconversatorio_fotos, imagen, idexposicion, descripcion', 'safe', 'on'=>'search'),
+			array('idfotosexposicion, imagen, idexposicion, descripcion', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -54,10 +51,11 @@ class ConversatorioFotos extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'traConversatorioFotos' => array(self::HAS_MANY, 'TraConversatorioFotos', 'conversatorio_fotosid'),
+			'traFotosexposicion' => array(self::HAS_MANY, 'TraFotosexposicion', 'fotosexposicionid'),
 			'idexposicion0' => array(self::BELONGS_TO, 'Exposicion', 'idexposicion'),
 		);
 	}
+
 
 	/**
 	 * @return array customized attribute labels (name=>label)
@@ -65,14 +63,11 @@ class ConversatorioFotos extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'idconversatorio_fotos' => 'Idconversatorio Fotos',
+			'idfotosexposicion' => 'Idfotosexposicion',
 			'imagen' => 'Imagen',
 			'imagen_thumb' => 'Imagen Thumb',
 			'idexposicion' => 'Idexposicion',
 			'descripcion' => 'Descripcion',
-			'text_language' => 'Descripción_idioma',
-			'idiomaid' => 'Idioma',
-
 		);
 	}
 
@@ -94,7 +89,7 @@ class ConversatorioFotos extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('idconversatorio_fotos',$this->idconversatorio_fotos);
+		$criteria->compare('idfotosexposicion',$this->idfotosexposicion);
 		$criteria->compare('imagen',$this->imagen,true);
 		$criteria->compare('imagen_thumb',$this->imagen_thumb,true);
 		$criteria->compare('idexposicion',$this->idexposicion);
@@ -109,7 +104,7 @@ class ConversatorioFotos extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return ConversatorioFotos the static model class
+	 * @return Fotosexposicion the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

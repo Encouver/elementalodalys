@@ -47,6 +47,12 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'columns'=>array(
 		'idmontaje',
 		'imagen',
+        array(
+            'type' => 'raw',
+            'name'=> 'imagen',
+            'value' => 'CHtml::image("'.Yii::app()->request->baseUrl.'/images/montaje/originals/$data->imagen", "imagen" ,array("width"=>100))',
+            'filter'=> false,
+        ),
 		'imagen_thumb',
 		'idexposicion',
 		'descripcion',

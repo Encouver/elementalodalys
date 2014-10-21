@@ -1,29 +1,22 @@
 <?php
 
 /**
- * This is the model class for table "conversatorio_fotos".
+ * This is the model class for table "tra_fotosexposicion".
  *
- * The followings are the available columns in table 'conversatorio_fotos':
- * @property integer $idconversatorio_fotos
- * @property string $imagen
- * @property string $imagen_thumb
- * @property integer $idexposicion
+ * The followings are the available columns in table 'tra_fotosexposicion':
+ * @property integer $id
+ * @property integer $idiomaid
+ * @property integer $fotosexposicionid
  * @property string $descripcion
  */
-class ConversatorioFotos extends CActiveRecord
+class TraFotosexposicion extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
-
-	public $text_language;
-	public $idiomaid;
-
-
-
 	public function tableName()
 	{
-		return 'conversatorio_fotos';
+		return 'tra_fotosexposicion';
 	}
 
 	/**
@@ -34,15 +27,11 @@ class ConversatorioFotos extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('imagen, idexposicion, idiomaid', 'required'),
-			//array('imagen','type','type'=>'array','allowEmpty'=>false),
-			//array('imagen', 'file', 'types'=>'jpg, gif, png'),
-			array('idexposicion', 'numerical', 'integerOnly'=>true),
-			array('text_language', 'length', 'max'=>255),
-			array('descripcion', 'safe'),
+			array('idiomaid, fotosexposicionid, descripcion', 'required'),
+			array('idiomaid, fotosexposicionid', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('idconversatorio_fotos, imagen, idexposicion, descripcion', 'safe', 'on'=>'search'),
+			array('id, idiomaid, fotosexposicionid, descripcion', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -54,10 +43,11 @@ class ConversatorioFotos extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'traConversatorioFotos' => array(self::HAS_MANY, 'TraConversatorioFotos', 'conversatorio_fotosid'),
-			'idexposicion0' => array(self::BELONGS_TO, 'Exposicion', 'idexposicion'),
+			'idioma' => array(self::BELONGS_TO, 'Idiomas', 'idiomaid'),
+			'fotosexposicion' => array(self::BELONGS_TO, 'Fotosexposicion', 'fotosexposicionid'),
 		);
 	}
+
 
 	/**
 	 * @return array customized attribute labels (name=>label)
@@ -65,14 +55,10 @@ class ConversatorioFotos extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'idconversatorio_fotos' => 'Idconversatorio Fotos',
-			'imagen' => 'Imagen',
-			'imagen_thumb' => 'Imagen Thumb',
-			'idexposicion' => 'Idexposicion',
+			'id' => 'ID',
+			'idiomaid' => 'Idiomaid',
+			'fotosexposicionid' => 'Fotosexposicionid',
 			'descripcion' => 'Descripcion',
-			'text_language' => 'Descripción_idioma',
-			'idiomaid' => 'Idioma',
-
 		);
 	}
 
@@ -94,10 +80,9 @@ class ConversatorioFotos extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('idconversatorio_fotos',$this->idconversatorio_fotos);
-		$criteria->compare('imagen',$this->imagen,true);
-		$criteria->compare('imagen_thumb',$this->imagen_thumb,true);
-		$criteria->compare('idexposicion',$this->idexposicion);
+		$criteria->compare('id',$this->id);
+		$criteria->compare('idiomaid',$this->idiomaid);
+		$criteria->compare('fotosexposicionid',$this->fotosexposicionid);
 		$criteria->compare('descripcion',$this->descripcion,true);
 
 		return new CActiveDataProvider($this, array(
@@ -109,7 +94,7 @@ class ConversatorioFotos extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return ConversatorioFotos the static model class
+	 * @return TraFotosexposicion the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

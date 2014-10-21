@@ -8,15 +8,15 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List ConversatorioFotos', 'url'=>array('index')),
-	array('label'=>'Create ConversatorioFotos', 'url'=>array('create')),
-	array('label'=>'Update ConversatorioFotos', 'url'=>array('update', 'id'=>$model->idconversatorio_fotos)),
-	array('label'=>'Delete ConversatorioFotos', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->idconversatorio_fotos),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage ConversatorioFotos', 'url'=>array('admin')),
+	array('label'=>'Listar ConversatorioFotos', 'url'=>array('index')),
+	array('label'=>'Crear ConversatorioFotos', 'url'=>array('create')),
+	array('label'=>'Actualizar ConversatorioFotos', 'url'=>array('update', 'id'=>$model->idconversatorio_fotos)),
+	array('label'=>'Eliminar ConversatorioFotos', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->idconversatorio_fotos),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>'Administrar ConversatorioFotos', 'url'=>array('admin')),
 );
 ?>
 
-<h1>View ConversatorioFotos #<?php echo $model->idconversatorio_fotos; ?></h1>
+<h1>Ver ConversatorioFotos #<?php echo $model->idconversatorio_fotos; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,

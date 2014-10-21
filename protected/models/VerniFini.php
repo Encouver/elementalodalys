@@ -73,7 +73,7 @@ class VerniFini extends CActiveRecord
 			//'imagen_thumb' => 'Imagen Thumb',
 			'idexposicion' => 'Exposición',
 			'descripcion' => 'Descripción',
-			'text_language' => 'Descripción_tra',
+			'text_language' => 'Descripción_idioma',
 			'idiomaid' => 'Idioma',
 		);
 	}
