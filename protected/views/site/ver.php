@@ -207,7 +207,7 @@ echo '
     <div class="panel-body">
 
       <!-- Fotorama -->
-      <div class="fotorama" data-width="700" data-max-width="100%" data-ratio="500/333" data-fit="cover" data-captions="false" data-auto="false" data-nav="thumbs">
+      <div class="fotorama" data-width="700" data-max-width="100%" data-ratio="500/333" data-fit="contain" data-thumbfit="contain" data-captions="false" data-auto="false" data-nav="thumbs">
       ';
 								
   			foreach ($montajes as $montaje) {
@@ -251,7 +251,7 @@ echo '
     <div class="panel-body">
 
       <!-- Fotorama -->
-      <div class="fotorama" data-width="700" data-max-width="100%" data-ratio="500/333" data-fit="cover" data-captions="false" data-auto="false" data-nav="thumbs">
+      <div class="fotorama" data-width="700" data-max-width="100%" data-ratio="500/333" data-fit="contain" data-thumbfit="contain" data-captions="false" data-auto="false" data-nav="thumbs">
       ';
                 
         foreach ($fotosexposicion as $fotoexposicion) {
@@ -302,7 +302,7 @@ echo '
   <div id="collapseFour" class="panel-collapse collapse vf" >
     <div class="panel-body">
 
-      <div class="fotorama" data-width="700" data-max-width="100%" data-ratio="500/333" data-fit="cover" data-captions="false" data-auto="false" data-nav="thumbs">
+      <div class="fotorama" data-width="700" data-max-width="100%" data-ratio="500/333" data-fit="contain" data-thumbfit="contain" data-captions="false" data-auto="false" data-nav="thumbs">
       ';
 								
 				foreach ($vernifinis as $vernifini) {
@@ -370,7 +370,7 @@ if ($conversatorios or $conversatoriosfotos or $conversatorioaudio){
   <div id="collapseFive" class="panel-collapse collapse">
     <div class="panel-body">
 
-      <div class="fotorama" data-width="700" data-max-width="100%" data-ratio="500/333" data-fit="cover" data-captions="false" data-auto="false" data-nav="thumbs">
+      <div class="fotorama" data-width="700" data-max-width="100%" data-ratio="500/333" data-fit="contain" data-thumbfit="contain" data-captions="false" data-auto="false" data-nav="thumbs">
       ';
                 
         foreach ($conversatoriosfotos as $conversatoriosfoto) {
