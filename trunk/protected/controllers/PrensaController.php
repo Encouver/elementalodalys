@@ -96,6 +96,8 @@ class PrensaController extends Controller
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
+		$url = $model->imagen;
+		$aux = 0;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
@@ -103,8 +105,24 @@ class PrensaController extends Controller
 		if(isset($_POST['Prensa']))
 		{
 			$model->attributes=$_POST['Prensa'];
+			$model->imagen=CUploadedFile::getInstance($model,'imagen');
+			if(is_object($model->imagen))
+			{
+				
+				$aux = 1;
+			}else
+			{
+				$model->imagen = $url;
+			}
+
 			if($model->save())
+			{
+				if($aux!=0)
+				{
+					$model->imagen->saveAs('images/prensa/originals/'.$model->imagen);
+				}
 				$this->redirect(array('view','id'=>$model->idprensa));
+			}
 		}
 
 		$this->render('update',array(
