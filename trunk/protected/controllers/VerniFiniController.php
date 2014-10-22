@@ -132,7 +132,7 @@ class VerniFiniController extends Controller
 
 						$tra_vernifini->idiomaid = $idiomaid;
 						$tra_vernifini->verni_finiid = $model->idverni_fini;
-						(!empty($porciones_tra[$i])) ? $tra_vernifini->descripcion = $porciones_tra[$i] : $tra_vernifini->descripcion = 0;
+						(!empty($porciones_tra[$i])) ? $tra_vernifini->descripcion = $porciones_tra[$i] : $tra_vernifini->descripcion = "";
 						
 
 						$tra_vernifini->save();

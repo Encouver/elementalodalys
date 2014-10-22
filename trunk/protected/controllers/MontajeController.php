@@ -123,13 +123,13 @@ class MontajeController extends Controller
 					
 					move_uploaded_file($_FILES['imagen']['tmp_name'][$i],$destino);
 
-					(!empty($porciones[$i])) ? $model->descripcion = $porciones[$i] : $model->descripcion = 0;
+					(!empty($porciones[$i])) ? $model->descripcion = $porciones[$i] : $model->descripcion = "";
 					
 					$model->save();
 					
 					$tra_montaje->idiomaid = $idiomaid;
 					$tra_montaje->montajeid = $model->idmontaje;
-					(!empty($porciones_tra[$i])) ? $tra_montaje->descripcion = $porciones_tra[$i] : $tra_montaje->descripcion = 0;
+					(!empty($porciones_tra[$i])) ? $tra_montaje->descripcion = $porciones_tra[$i] : $tra_montaje->descripcion = "";
 
 					$tra_montaje->save();
 

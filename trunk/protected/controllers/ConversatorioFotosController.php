@@ -132,7 +132,7 @@ class ConversatorioFotosController extends Controller
 
 						$tra_conversatorio_fotos->idiomaid = $idiomaid;
 						$tra_conversatorio_fotos->conversatorio_fotosid = $model->idconversatorio_fotos;
-						(!empty($porciones_tra[$i])) ? $tra_conversatorio_fotos->descripcion = $porciones_tra[$i] : $tra_conversatorio_fotos->descripcion = 0;
+						(!empty($porciones_tra[$i])) ? $tra_conversatorio_fotos->descripcion = $porciones_tra[$i] : $tra_conversatorio_fotos->descripcion = "";
 						
 
 						$tra_conversatorio_fotos->save();
