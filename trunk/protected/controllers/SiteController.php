@@ -621,17 +621,21 @@ class SiteController extends Controller
 		if ($idioma->idioma == Yii::app()->params->idiomas['Español']){ //español
 			$criteria = new CDbCriteria;
 	    	$criteria->select = 't.*';
+	    	//$criteria->group = 't.descripcion';
+	    	//$criteria->distinct = true;
 			$criteria->condition = 't.idartista =:idartista';
 			$criteria->params = array(':idartista' => $id);
 
 		}else{
-	//obras
-			
-		$criteria = new CDbCriteria;
-    	$criteria->select = 't.*';
-		$criteria->condition = 't.idartista =:idartista';
-		$criteria->join ='LEFT JOIN tra_obra ON tra_obra.obraid = t.idobra AND tra_obra.idiomaid=:ididioma';
-		$criteria->params = array(':idartista' => $id,':ididioma'=> $idioma->id);
+		//obras
+				
+			$criteria = new CDbCriteria;
+	    	$criteria->select = 't.*';
+			$criteria->condition = 't.idartista =:idartista';
+			//$criteria->group = 't.descripcion';
+	    	//$criteria->distinct = true;
+			$criteria->join ='LEFT JOIN tra_obra ON tra_obra.obraid = t.idobra AND tra_obra.idiomaid=:ididioma';
+			$criteria->params = array(':idartista' => $id,':ididioma'=> $idioma->id);
 		
 		}
 		
