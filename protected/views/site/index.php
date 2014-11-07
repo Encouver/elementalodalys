@@ -49,6 +49,16 @@ $this->pageTitle=Yii::app()->name;
 	    	                    	.$noticia->contenido.
             	              		"<br>
                 	        	</div>
+                	        	";
+	    	    		       $this->widget('application.extensions.addThis', //API: http://support.addthis.com/customer/portal/articles/1337989-overview
+					array( 'id'=>'share_noticia_'.$noticia->idnoticia, 'username'=>Yii::app()->user->name, 'defaultButtonCaption'=>Yii::t('social','Compartir'),
+						   'showDefaultButton'=>true, 'showDefaultButtonCaption'=>true, 'separator'=>'|',
+						   'htmlOptions'=>array('addthis:url'=>Yii::app()->createAbsoluteUrl('noticia/view',array('id'=>$noticia->idnoticia)),'addthis:title'=>$noticia->titulo), 'linkOptions'=>array(), 
+						   'showServices'=>array('separator', 'facebook', 'twitter', 'google_plusone_share', 'google_plusone'), 
+						   'showServicesTitle'=>false, 'config'=>array('ui_language'=>Yii::app()->language,'data_track_clickback'=>true), 
+						   'share'=>array(/*'url'=>Yii::app()->createAbsoluteUrl('noticia/view',array('id'=>$noticia->idnoticia)),'title'=>$noticia->titulo,'descripcion'=>$noticia->contenido*/))); 
+
+                	        	echo "
                     		</div>
 	                    
 	                    	
@@ -80,6 +90,16 @@ $this->pageTitle=Yii::app()->name;
 		                        <div class='comment more texto'>"
 		                         .$noticia->contenido.
 		                      	"</div>
+		                      	";
+	    	    		       $this->widget('application.extensions.addThis', //API: http://support.addthis.com/customer/portal/articles/1337989-overview
+					array( 'id'=>'share_noticia_'.$noticia->idnoticia, 'username'=>Yii::app()->user->name, 'defaultButtonCaption'=>Yii::t('social','Compartir'),
+						   'showDefaultButton'=>true, 'showDefaultButtonCaption'=>true, 'separator'=>'|',
+						   'htmlOptions'=>array('addthis:url'=>Yii::app()->createAbsoluteUrl('noticia/view',array('id'=>$noticia->idnoticia)),'addthis:title'=>$noticia->titulo), 'linkOptions'=>array(), 
+						   'showServices'=>array('separator', 'facebook', 'twitter', 'google_plusone_share', 'google_plusone'), 
+						   'showServicesTitle'=>false, 'config'=>array('ui_language'=>Yii::app()->language,'data_track_clickback'=>true), 
+						   'share'=>array(/*'url'=>Yii::app()->createAbsoluteUrl('noticia/view',array('id'=>$noticia->idnoticia)),'title'=>$noticia->titulo,'descripcion'=>$noticia->contenido*/))); 
+
+		                      	echo"
 	                      	</div>
 	                    </li>
 	                    
@@ -88,13 +108,6 @@ $this->pageTitle=Yii::app()->name;
 
 	    	    }
 	    	    echo "<br>";
-	    	    		       $this->widget('application.extensions.addThis', //API: http://support.addthis.com/customer/portal/articles/1337989-overview
-					array( 'id'=>'share_noticia_'.$noticia->idnoticia, 'username'=>Yii::app()->user->name, 'defaultButtonCaption'=>Yii::t('social','Compartir'),
-						   'showDefaultButton'=>true, 'showDefaultButtonCaption'=>true, 'separator'=>'|',
-						   'htmlOptions'=>array('addthis:url'=>Yii::app()->createAbsoluteUrl('noticia/view',array('id'=>$noticia->idnoticia)),'addthis:title'=>$noticia->titulo), 'linkOptions'=>array(), 
-						   'showServices'=>array('separator', 'facebook', 'twitter', 'google_plusone_share', 'google_plusone'), 
-						   'showServicesTitle'=>false, 'config'=>array('ui_language'=>Yii::app()->language,'data_track_clickback'=>true), 
-						   'share'=>array(/*'url'=>Yii::app()->createAbsoluteUrl('noticia/view',array('id'=>$noticia->idnoticia)),'title'=>$noticia->titulo,'descripcion'=>$noticia->contenido*/))); 
 echo "<hr>";
 	        }
 	        ?>    
@@ -122,7 +135,7 @@ echo "<hr>";
 */
         ?>
 
-
+<!--
 
         <div class="row">
 
@@ -155,10 +168,10 @@ echo "<hr>";
             </div>
 
         </div>
-
+-->
 	</div>
 
-	<div class="col-md-3 col-md-offset-1">
+	<div class="col-md-3">
 
 <?php echo $this->renderPartial('/subscripcion/_form', array('model'=>$model)); ?>
 	<p style="height:20px; margin-top:10px;font-size:12px;">

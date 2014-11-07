@@ -35,10 +35,12 @@ echo '			<div class="row">
 				echo '</div>';
 */
 ?>
-				<div class="col-md-12">	
-			      <a href="<?php echo Yii::app()->createUrl('site/artist', array('art' => $artista->apellido, 'id' => $artista->idartista));?>" class="head2"><?php echo $artista->nombre.' '.$artista->apellido.'</a><br>';?>
+				<div id="container" class="col-md-3" style=" padding-left:16px">
+
+			      <div style = "width: 300px; float: left;"> <a href="<?php echo Yii::app()->createUrl('site/artist', array('art' => $artista->apellido, 'id' => $artista->idartista));?>" class="head2"><?php echo $artista->nombre.' '.$artista->apellido.'</a><br>';?>
 			      <?php
 			      echo $artista->pais.'. '.$artista->ano.'<br><br>
+			      </div>
 			    </div>
 ';
 	}
