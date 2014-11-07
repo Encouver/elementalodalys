@@ -513,7 +513,7 @@ class SiteController extends Controller
 	}
 
 
-	public function actionBuscarObrasArtista($idart)
+	public function actionBuscarObrasArtista($idart, $idexposicion)
 	{
 		$artista = Artista::model()->find('idartista=:id',array('id'=>$idart));
 		
@@ -521,9 +521,9 @@ class SiteController extends Controller
 
 		$criteria = new CDbCriteria;
     	$criteria->select = 't.*';
-		$criteria->condition = 't.idartista =:idartista';
+		$criteria->condition = 't.idartista =:idartista AND idexposicion=:idexposicion';
 		$criteria->join ='LEFT JOIN tra_obra ON tra_obra.obraid = t.idobra AND tra_obra.idiomaid=:ididioma';
-		$criteria->params = array(':idartista' => $idart,':ididioma'=> $idioma->id);
+		$criteria->params = array(':idartista' => $idart,':idexposicion'=>$idexposicion,':ididioma'=> $idioma->id);
 
 		$obras= Obra::model()->findAll($criteria);
 
@@ -621,8 +621,8 @@ class SiteController extends Controller
 		if ($idioma->idioma == Yii::app()->params->idiomas['Español']){ //español
 			$criteria = new CDbCriteria;
 	    	$criteria->select = 't.*';
-	    	//$criteria->group = 't.descripcion';
-	    	//$criteria->distinct = true;
+	    	$criteria->group = 't.descripcion';
+	    	$criteria->distinct = true;
 			$criteria->condition = 't.idartista =:idartista';
 			$criteria->params = array(':idartista' => $id);
 
@@ -630,10 +630,10 @@ class SiteController extends Controller
 		//obras
 				
 			$criteria = new CDbCriteria;
-	    	$criteria->select = 't.*';
+	    	$criteria->select = 't.*, tra_obra.*';
 			$criteria->condition = 't.idartista =:idartista';
-			//$criteria->group = 't.descripcion';
-	    	//$criteria->distinct = true;
+			$criteria->group = 't.descripcion';
+	    	$criteria->distinct = true;
 			$criteria->join ='LEFT JOIN tra_obra ON tra_obra.obraid = t.idobra AND tra_obra.idiomaid=:ididioma';
 			$criteria->params = array(':idartista' => $id,':ididioma'=> $idioma->id);
 		
