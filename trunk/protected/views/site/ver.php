@@ -61,7 +61,7 @@ echo '
                 foreach($artistas as $key=>$artista) {
                         echo CHtml::ajaxLink(
                              '<span style= "font-size:11px; color:black;">'.$artista->nombre.' '.$artista->apellido.'</span><br>', 
-                             Yii::app()->createUrl('site/BuscarObrasArtista',array('idart'=>$artista->idartista)),
+                             Yii::app()->createUrl('site/BuscarObrasArtista',array('idart'=>$artista->idartista,'idexposicion'=>$datos->idexposicion)),
                               array(
                                   'update'=>'#artista_obras', // $("#artista_obras).empty().html(this.value);
                                   //'beforeSend'=>'js:function(data){ }',
