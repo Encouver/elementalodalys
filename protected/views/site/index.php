@@ -113,8 +113,21 @@ echo "<hr>";
 	        ?>    
 	         
         </ul>
+aqui
+<?php echo CHtml::link("tes","#data", array('id'=>'inline')); ?>
+<div style="display:none"><div id="data">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div></div>
+<?php $this->widget('application.extensions.EFancyBox', array(
+	'target'=>'a#inline',
+	'config'=>array(
+		'scrolling'		=> 'yes',
+		'titleShow'		=> true,
+	),
+	)
+);
+?>
 
 <?php
+
 /*
         foreach ($noticias as $noticia)
         {
