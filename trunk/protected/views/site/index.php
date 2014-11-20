@@ -49,11 +49,12 @@ $this->pageTitle=Yii::app()->name;
 	    	                    	.$noticia->contenido.
             	              		"<br>
                 	        	</div>
+                	        	<br>
                 	        	";
 	    	    		       $this->widget('application.extensions.addThis', //API: http://support.addthis.com/customer/portal/articles/1337989-overview
 					array( 'id'=>'share_noticia_'.$noticia->idnoticia, 'username'=>Yii::app()->user->name, 'defaultButtonCaption'=>Yii::t('social','Compartir'),
 						   'showDefaultButton'=>true, 'showDefaultButtonCaption'=>true, 'separator'=>'|',
-						   'htmlOptions'=>array('addthis:url'=>Yii::app()->createAbsoluteUrl('noticia/view',array('id'=>$noticia->idnoticia)),'addthis:title'=>$noticia->titulo), 'linkOptions'=>array(), 
+						   'htmlOptions'=>array('addthis:url'=>Yii::app()->createAbsoluteUrl('noticia/shared',array('id'=>$noticia->idnoticia)),'addthis:title'=>$noticia->titulo), 'linkOptions'=>array(), 
 						   'showServices'=>array('separator', 'facebook', 'twitter', 'google_plusone_share', 'google_plusone'), 
 						   'showServicesTitle'=>false, 'config'=>array('ui_language'=>Yii::app()->language,'data_track_clickback'=>true), 
 						   'share'=>array(/*'url'=>Yii::app()->createAbsoluteUrl('noticia/view',array('id'=>$noticia->idnoticia)),'title'=>$noticia->titulo,'descripcion'=>$noticia->contenido*/))); 
@@ -89,12 +90,12 @@ $this->pageTitle=Yii::app()->name;
 		                        echo "</div><h2 class='media-heading noti'>".$noticia->titulo."</h2>
 		                        <div class='comment more texto'>"
 		                         .$noticia->contenido.
-		                      	"</div>
+		                      	"</div><br>
 		                      	";
 	    	    		       $this->widget('application.extensions.addThis', //API: http://support.addthis.com/customer/portal/articles/1337989-overview
 					array( 'id'=>'share_noticia_'.$noticia->idnoticia, 'username'=>Yii::app()->user->name, 'defaultButtonCaption'=>Yii::t('social','Compartir'),
 						   'showDefaultButton'=>true, 'showDefaultButtonCaption'=>true, 'separator'=>'|',
-						   'htmlOptions'=>array('addthis:url'=>Yii::app()->createAbsoluteUrl('noticia/view',array('id'=>$noticia->idnoticia)),'addthis:title'=>$noticia->titulo), 'linkOptions'=>array(), 
+						   'htmlOptions'=>array('addthis:url'=>Yii::app()->createAbsoluteUrl('noticia/shared',array('id'=>$noticia->idnoticia)),'addthis:title'=>$noticia->titulo), 'linkOptions'=>array(), 
 						   'showServices'=>array('separator', 'facebook', 'twitter', 'google_plusone_share', 'google_plusone'), 
 						   'showServicesTitle'=>false, 'config'=>array('ui_language'=>Yii::app()->language,'data_track_clickback'=>true), 
 						   'share'=>array(/*'url'=>Yii::app()->createAbsoluteUrl('noticia/view',array('id'=>$noticia->idnoticia)),'title'=>$noticia->titulo,'descripcion'=>$noticia->contenido*/))); 
@@ -113,21 +114,8 @@ echo "<hr>";
 	        ?>    
 	         
         </ul>
-aqui
-<?php echo CHtml::link("tes","#data", array('id'=>'inline')); ?>
-<div style="display:none"><div id="data">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div></div>
-<?php $this->widget('application.extensions.EFancyBox', array(
-	'target'=>'a#inline',
-	'config'=>array(
-		'scrolling'		=> 'yes',
-		'titleShow'		=> true,
-	),
-	)
-);
-?>
 
 <?php
-
 /*
         foreach ($noticias as $noticia)
         {
