@@ -36,6 +36,8 @@ class SiteController extends Controller
 	 * This is the default 'index' action that is invoked
 	 * when an action is not explicitly requested by users.
 	 */
+	
+
 	public function actionIndex()
 	{
 		// renders the view file 'protected/views/site/index.php'
@@ -688,7 +690,7 @@ class SiteController extends Controller
 					"Content-Type: text/plain; charset=UTF-8";
 
 				mail(Yii::app()->params['adminEmail'],$subject,$model->body,$headers);
-				Yii::app()->user->setFlash('contact','Thank you for contacting us. We will respond to you as soon as possible.');
+				Yii::app()->user->setFlash('contact',Yii::t('site','Gracias por contactarnos. Le daremos respuesta a la brevedad posible.'));
 				$this->refresh();
 			}
 		}

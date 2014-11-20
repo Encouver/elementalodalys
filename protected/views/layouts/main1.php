@@ -147,10 +147,11 @@
         <div class="row">
             <div class="col-md-4">
                 <h5><?php  echo Yii::t('site','Sobre Elemental');?></h5>
-                <p style="font-size:12px;">ELEMENTAL se aleja de la clásica relación galería-comisario-artista para plantear la construcción de las exposiciónes de una manera orgánica.
+                <p style="font-size:12px;"><?php  echo Yii::t('site','ELEMENTAL Proyecto nace como iniciativa de la Fundación Odalys con el fin de generar un mecanismo de inserción de artistas emergentes en el mundo del arte');?>
                 <a href="sobreElemental.php"><w style="font-size: 11px;"> (<?php  echo Yii::t('site','Ver más');?>) </w></a></p>
                 <br>
-                <a  href="http://www.odalys.com" target="_blank"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logoodalys.png" width="120px;"></a>
+                <a  href="http://www.odalys.com" target="_blank"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logoodalys.png" width="120px;"></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/fundacion.png" width="120px;">
 
             </div>
 

@@ -56,6 +56,7 @@
 
 	    'Si desea ponerse en contacto con nosotros, por favor complete el siguiente formulario. Gracias.'=>'If you wish to contact us, please complete the form below. Thank you.',
 
+	    'ELEMENTAL Proyecto nace como iniciativa de la Fundación Odalys con el fin de generar un mecanismo de inserción de artistas emergentes en el mundo del arte'=> 'ELEMENTAL Project was born as an initiative of Odalys Foundation in order to generate an insertion mechanism of emerging artists in the art world',
 	    'Campos con '=>'Fields with ',
 
 	    'son requeridos.'=>'are required',
