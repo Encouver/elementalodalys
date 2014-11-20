@@ -28,6 +28,11 @@ class NoticiaController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
+				'actions'=>array('shared'),
+				'users'=>array('*'),
+			),
+
+			array('allow',  // allow all users to perform 'index' and 'view' actions
 				'actions'=>array('index','view'),
 				'users'=>array('@'),
 			),
@@ -53,6 +58,42 @@ class NoticiaController extends Controller
 	{
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
+		));
+	}
+
+	public function actionShared($id)
+	{
+		$this->layout='//layouts/column11';
+
+		$idioma = Idiomas::model()->find('idioma=:idioma',array(':idioma'=>Yii::app()->language));
+
+		if ($idioma->idioma == Yii::app()->params->idiomas['Español']){ //español
+		
+			$criteria = new CDbCriteria;
+	    	$criteria->select = 't.*';
+	    	$criteria->order = 'fecha DESC';
+	    	$criteria->condition = 'idnoticia =:idnoticia';
+	    	$criteria->params = array(':idnoticia' => $id);
+
+		}else{ //ingles
+
+			$criteria = new CDbCriteria;
+	    	$criteria->select = 't.*, tra_noticia.*';
+	    	$criteria->join ='LEFT JOIN tra_noticia ON tra_noticia.noticiaid = t.idnoticia';
+	    	$criteria->order = 'fecha DESC';
+	    	$criteria->condition = 'tra_noticia.idiomaid =:id and noticiaid =:noticiaid';
+	    	$criteria->params = array(':id' => $idioma->id, ':noticiaid' => $id);
+			
+		}
+
+		//$model=Noticia::model()->findByPk($id);
+		/*if($model===null)
+			throw new CHttpException(404,'The requested page does not exist.');
+		$noticias = Noticia::model()->findAll($criteria);*/
+		$noticias = Noticia::model()->findAll($criteria);
+
+		$this->render('shared',array(
+			'noticias'=>$noticias,
 		));
 	}
 
